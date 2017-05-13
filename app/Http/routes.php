@@ -11,13 +11,20 @@
 |
 */
 
+use App\Http\Controllers\Userscontroller;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/h', function () {
-    return 123;
+
+
+Route::group(['middleware' => ['web']], function () {
+
+    Route::get('/users','Userscontroller@users');
+
 });
+
 Route::any('/wechat', 'WechatController@serve');
 
 
