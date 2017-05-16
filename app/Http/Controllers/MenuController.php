@@ -18,6 +18,7 @@ class MenuController extends Controller
 
     public function menu()
     {
+       
         $buttons = [
             [
                 "type" => "click",

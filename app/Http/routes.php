@@ -17,8 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/menu','MenuController@menu');
+
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/menu','MenuController@meun');
+
 });
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
