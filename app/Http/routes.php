@@ -29,7 +29,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/users','Userscontroller@users');
 
-});*/   
+});*/
 
 Route::any('/wechat', 'WechatController@serve');
 
