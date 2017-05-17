@@ -11,15 +11,15 @@ class WechatController extends Controller
     //
     public function serve()
     {
-
         $wechat = app('wechat');
-        $wechat->server->setMessageHandler(function($message){
+        $userApi = $wechat->user;
+        $wechat->server->setMessageHandler(function($message) use ($userApi){
             switch ($message->MsgType) {
                 case 'event':
                     return '收到事件消息';
                     break;
                 case 'text':
-                    return '收到文字消息';
+                    return '..'.$userApi->get($message->FromUserName)->nickname;
                     break;
                 case 'image':
                     return '收到图片消息';
