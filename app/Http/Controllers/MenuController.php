@@ -22,7 +22,7 @@ class MenuController extends Controller
         $buttons = [
             [
                 "type" => "click",
-                "name" => "今日歌曲",
+                "name" => "大傻逼",
                 "key"  => "V1001_TODAY_MUSIC"
             ],
             [

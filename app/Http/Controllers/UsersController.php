@@ -7,19 +7,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class Userscontroller extends Controller
+class UsersController extends Controller
 {
-
     public $wechat;
 
     public function __construct(Application $wechat)
     {
-        $this->wehcat=$wechat;
+        $this->wechat=$wechat;
     }
 
-    public function users()
+    public function users( )
     {
-        
         $users=$this->wechat->user->lists();
 
         return $users;
