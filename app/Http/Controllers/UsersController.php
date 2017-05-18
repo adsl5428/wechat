@@ -26,8 +26,8 @@ class UsersController extends Controller
     {
         $user = session('wechat.oauth_user');
         //var_dump($user);
-        //return view('login',compact('user'));
+        return view('login',compact('user'));
 
-         return $user->getNickname();
+        //return $user->getNickname();
     }
 }
