@@ -19,7 +19,11 @@ class UsersController extends Controller
     public function users( )
     {
         $users=$this->wechat->user->lists();
-
         return $users;
+    }
+    public function login( )
+    {
+     $user = session('wechat.oauth_user'); // 拿到授权用户资料
+     dd($user);
     }
 }
