@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use function dump;
 use EasyWeChat\Foundation\Application;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,8 @@ class UsersController extends Controller
     }
     public function login( )
     {
-     $user = session('wechat.oauth_user'); // 拿到授权用户资料
-        $user='1234';
+        $user = session('wechat.oauth_user');
+        var_dump($user);
         return view('login',compact('user'));
 
      //dd($user);
