@@ -14,8 +14,10 @@
 use App\Http\Controllers\Userscontroller;
 
 Route::get('/', function () {
-    return view('welcome');
+    $user='1234';
+    return view('login',compact('user'));
 });
+
 
 Route::get('/sms','SmsController@sendSms');
 Route::get('/menu','MenuController@menu');

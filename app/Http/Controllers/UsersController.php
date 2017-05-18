@@ -24,7 +24,7 @@ class UsersController extends Controller
     public function login( )
     {
      $user = session('wechat.oauth_user'); // 拿到授权用户资料
-
+        $user='1234';
         return view('login',compact('user'));
 
      //dd($user);
