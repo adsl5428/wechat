@@ -149,7 +149,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Overtrue\LaravelWechat\ServiceProvider::class,
         iscms\Alisms\AlidayuServiceProvider::class,
-        Mews\Captcha\CaptchaServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -204,7 +203,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
-        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
     ],
 
