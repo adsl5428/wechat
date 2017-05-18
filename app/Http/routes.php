@@ -21,16 +21,45 @@ Route::get('/sms','SmsController@sendSms');
 Route::get('/menu','MenuController@menu');
 
 Route::group(['middleware' => ['web']], function () {
+    Route::any('/code-test', function()
+    {
+        if (Request::getMethod() == 'POST')
+        {
+            return 123;
+            $rules = ['captcha' => 'required|captcha'];
+            $validator = Validator::make(Input::all(), $rules);
+            if ($validator->fails())
+            {
+                echo '<p style="color: #ff0000;">Incorrect!</p>';
+            }
+            else
+            {
+                echo '<p style="color: #00ff30;">Matched :)</p>';
+            }
+        }
+
+        $form = '<form method="post" action="code-test">';
+        $form .= '<input type="hidden" name="_token" value="' . csrf_token() . '">';
+        $form .= '<p>' . captcha_img() . '</p>';
+        $form .= '<p><input type="text" name="captcha"></p>';
+        $form .= '<p><button type="submit" name="check">Check</button></p>';
+        $form .= '</form>';
+        return $form;
+    });
+
     Route::get('/users','UsersController@users');
 });
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    Route::get('/user', function () {
+    Route::get('/user/login', function () {
         $user = session('wechat.oauth_user'); // 拿到授权用户资料
 
         dd($user);
     });
 });
+
+
+
 /*
 Route::group(['middleware' => ['web']], function () {
     Route::get('/users','Userscontroller@users');
