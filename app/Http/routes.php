@@ -21,7 +21,7 @@ Route::get('/sms','SmsController@sendSms');
 Route::get('/menu','MenuController@menu');
 
 Route::group(['middleware' => ['web']], function () {
-    Route::any('/code','CodeController@code');
+
     Route::get('/users','UsersController@users');
 });
 
