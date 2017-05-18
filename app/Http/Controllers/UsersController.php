@@ -28,6 +28,6 @@ class UsersController extends Controller
         //var_dump($user);
         //return view('login',compact('user'));
 
-         return $user->$getNickname();
+         return $user->getNickname();
     }
 }
