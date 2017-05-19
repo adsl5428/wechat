@@ -1,4 +1,4 @@
 @extends('master')
 @section('content')
-{{$user->getNickname()}}
+{{$user->getId()}}
 @endsection

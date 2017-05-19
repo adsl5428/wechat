@@ -14,8 +14,7 @@
 use App\Http\Controllers\Userscontroller;
 
 Route::get('/', function () {
-    $user='1234';
-    return view('login',compact('user'));
+    return view('welcome');
 });
 
 
