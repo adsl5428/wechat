@@ -8,6 +8,8 @@ use EasyWeChat\Foundation\Application;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller
 {
@@ -23,13 +25,54 @@ class UsersController extends Controller
         $users=$this->wechat->user->lists();
         return $users;
     }
+
+    public function mail( )
+    {
+        $name = '王小帅2';
+        Mail::queue('mail',['name'=>$name],function($message){
+            $to = '343739868@qq.com';
+            $message ->to($to)->subject('邮件测试');
+        });
+
+
+//        Mail::raw('你好，我是PHP程序！', function ($message) {
+//            $to = '343739868@qq.com';
+//            $message ->to($to)->subject('纯文本信息邮件测试');
+//        });
+    }
+    public function active()
+    {
+
+    }
+    public function register(Request $request )
+    {
+           return  url('/active/');
+//        if ($request->isMethod('post')) {   //post
+//            $email = $request->email;
+//            if (stristr($email, '@fnjr2017.com') == false) {
+//                return '非本公司';
+//            } else {
+//                return '本公司工作人员';
+//
+//            }
+//        }
+
+        return view ('register');       //get
+    }
     public function login( )
     {
         $user = session('wechat.oauth_user');
-        //dd($user->getId());
-        $userid=User::findorfail(1);
-        dd($userid->openid);
-        //return view('login',compact('user'));
+
+        //查找是否有这个openid
+        $userinfo = User::where('openid',$user->getId())->get();
+
+        if ($userinfo->first()) {
+            if($userinfo[0]['email'] == null);
+             return redirect('users/register');
+        }
+        return 1;
+
+        //return view('login',compact('$replys'));
 
         //return $user->getNickname();
     }

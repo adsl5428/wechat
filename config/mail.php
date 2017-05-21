@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'lihongcheng@fnjr2017.com', 'name' => '丰纳金融'],
 
     /*
     |--------------------------------------------------------------------------
