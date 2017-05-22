@@ -97,8 +97,11 @@ class UsersController extends Controller
         $userinfo = User::where('openid',$user->getId())->get();
 
         if ($userinfo->first()) {
-            if($userinfo[0]['email'] == null);
-             return redirect('users/register');
+            if($userinfo[0]['email'] == null)
+                return redirect('users/register'); //转到注册页
+           if ( $userinfo[0]['status'] == 0)
+               return '您已注册,请登录 '.$userinfo[0]['email'] . ' 点击链接激活账户';
+
         }
         //return 1;
 
