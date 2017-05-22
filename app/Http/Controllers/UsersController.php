@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\http\model\Jigoudaima;
 use App\http\Model\User;
 use function dump;
 use EasyWeChat\Foundation\Application;
@@ -18,6 +19,35 @@ class UsersController extends Controller
     public function __construct(Application $wechat)
     {
         $this->wechat=$wechat;
+    }
+
+
+    public function rand()
+    {
+        $len = 12;
+        $chars=null;
+        if (is_null($chars)){
+            //$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            $chars = "abcdefghijklmnpqrstuvwxyz0123456789";
+
+        }
+        mt_srand(10000000*(double)microtime());
+        for ($i = 0, $str = '', $lc = strlen($chars)-1; $i < $len; $i++){
+            $str .= $chars[mt_rand(0, $lc)];
+        }
+        return $str;
+    }
+    public function rand50()
+    {
+//        $len = 12;
+//        $chars=null;
+//        for ($zz = 50;$zz>0;$zz--)
+//        {
+//        $jigoudaima = new Jigoudaima();
+//        $jigoudaima->daima = $this->rand();
+//        $jigoudaima->save();
+//        }
+        return '测试结束 无此模块';
     }
 
     public function users( )
@@ -46,7 +76,7 @@ class UsersController extends Controller
     }
     public function register(Request $request )
     {
-           return  url('/active/');
+           return  url('/active/'.$this->rand());
 //        if ($request->isMethod('post')) {   //post
 //            $email = $request->email;
 //            if (stristr($email, '@fnjr2017.com') == false) {
@@ -70,7 +100,7 @@ class UsersController extends Controller
             if($userinfo[0]['email'] == null);
              return redirect('users/register');
         }
-        return 1;
+        //return 1;
 
         //return view('login',compact('$replys'));
 
