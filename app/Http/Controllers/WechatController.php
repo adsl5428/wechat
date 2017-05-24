@@ -19,7 +19,7 @@ class WechatController extends Controller
                 case 'event':
                     //return '收到事件消息';
                     $yuangong = Teluser::where('openid', $message->FromUserName)->firstOrFail();
-                    return $yuangong->tel;
+                    return $yuangong->name;
                     break;
                 case 'text':
                     return $userApi->get($message->FromUserName)->nickname;

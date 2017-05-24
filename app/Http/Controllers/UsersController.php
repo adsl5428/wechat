@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
+use function var_dump;
 
 class UsersController extends Controller
 {
@@ -28,6 +29,9 @@ class UsersController extends Controller
     {
 
         $yuangong = Teluser::where('openid', 'o6PEYwAhVw7FVSndRLALm9lKOIC8')->firstOrFail();
+        if(!$yuangong->first())
+            return 'kong';
+        var_dump($yuangong);
         return $yuangong;
 
     }
