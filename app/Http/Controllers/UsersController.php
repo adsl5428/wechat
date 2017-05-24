@@ -29,10 +29,7 @@ class UsersController extends Controller
     {
 
         $yuangong = Teluser::where('openid', 'o6PEYwAhVw7FVSndRLALm9lKOIC8')->firstOrFail();
-        if(!$yuangong->first())
-            return 'kong';
-        var_dump($yuangong);
-        return $yuangong;
+        return $yuangong->name.':'.$yuangong->tel.'<br>'.$yuangong->name.':'.$yuangong->tel;
 
     }
     public function rand()
