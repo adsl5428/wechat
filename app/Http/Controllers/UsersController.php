@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\http\model\Jigoudaima;
+use App\http\model\Teluser;
 use App\http\Model\User;
+
 use function dump;
 use EasyWeChat\Foundation\Application;
 use Illuminate\Http\Request;
@@ -21,7 +23,12 @@ class UsersController extends Controller
         $this->wechat=$wechat;
     }
 
+    public function gettel()
+    {
+        $yuangong = Teluser::where('openid', 'o6PEYwAhVw7FVSndRLALm9lKOIC8')->firstOrFail();
+        return $yuangong->tel;
 
+    }
     public function rand()
     {
         $len = 12;

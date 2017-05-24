@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/suijishu','UsersController@rand50');
+Route::get('/gettel','UsersController@gettel');
 
 Route::get('/sms','SmsController@sendSms');
 Route::get('/menu','MenuController@menu');
