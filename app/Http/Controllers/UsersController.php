@@ -26,9 +26,9 @@ class UsersController extends Controller
 
     public function gettel()
     {
-        
+
         $yuangong = Teluser::where('openid', 'o6PEYwAhVw7FVSndRLALm9lKOIC8')->firstOrFail();
-        return $yuangong->tel;
+        return $yuangong;
 
     }
     public function rand()
