@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Teluser;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,7 +18,8 @@ class WechatController extends Controller
             switch ($message->MsgType) {
                 case 'event':
                     //return '收到事件消息';
-                    return $message->FromUserName;
+                    $yuangong = Teluser::where('openid', $message->FromUserName)->firstOrFail();
+                    return $yuangong->tel;
                     break;
                 case 'text':
                     return $userApi->get($message->FromUserName)->nickname;
