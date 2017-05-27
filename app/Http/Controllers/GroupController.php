@@ -20,4 +20,9 @@ class GroupController extends Controller
     {
         dd($this->group->lists());
     }
+
+    public function addgroup($name)
+    {
+        $this->group->create($name);
+    }
 }

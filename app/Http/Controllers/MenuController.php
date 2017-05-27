@@ -18,11 +18,10 @@ class MenuController extends Controller
 
     public function menu()
     {
-       
         $buttons = [
             [
                 "type" => "click",
-                "name" => "获得电话",
+                "name" => "获得电话11",
                 "key"  => "V1001_GET_TEL"
             ],
         ];
