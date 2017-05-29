@@ -7,6 +7,7 @@ use App\http\model\Jigoudaima;
 use App\Http\Model\Teluser;
 use App\http\Model\User;
 
+use function dd;
 use function dump;
 use EasyWeChat\Foundation\Application;
 use Illuminate\Http\Request;
@@ -141,6 +142,7 @@ class UsersController extends Controller
     {
         $user = session('wechat.oauth_user');
         $openid = $user->getId();
+        return $request->tel;
         var_dump($openid);
         dd($request->all());
     }
