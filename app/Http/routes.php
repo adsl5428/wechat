@@ -38,7 +38,7 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    Route::get('/users/login', 'UsersController@login');
+    Route::get('/login', 'UsersController@login');
     Route::get('/users/mail', 'UsersController@mail');
     Route::any('/users/register', 'UsersController@register');
 

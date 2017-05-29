@@ -1,5 +1,5 @@
 @extends('master')
-@section('title','Welcome')
+@section('title','丰纳金融')
 @section('content')
     <div class="page">
         <div class="hd">
@@ -16,7 +16,7 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="telid" name="tel" class="weui_input" type="number" placeholder="请输入手机号" value="17750727971"/>
+                        <input id="telid" name="tel" class="weui_input" type="number" placeholder="请输入手机号" value="18317179692"/>
                     </div>
                 </div>
 
@@ -32,7 +32,6 @@
     </div>
 @endsection
 @section('js')
-
     function login()
     {
         duixiang = document.getElementById('telid');
@@ -48,16 +47,21 @@
         $.ajax(
         {
             type:"post" ,
+            dataType: "json",
             data:
             {
-              'tel':$('#telid').val(),
+                'tel':$('#telid').val(),
                 '_token':"{{csrf_token()}}"
             },
             url: "staffregister",
-            success:function(msg){
-            alert(msg);
-            {{--location.href = location.href;--}}
-             }
+            success:function(data){
+            if(data.status == 0)
+            {
+                alert (data.msg);
+            }
+            else
+            {location.href = data.msg;}
+            }
      });
     }
 @endsection

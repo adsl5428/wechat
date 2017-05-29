@@ -15,16 +15,19 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
+use const null;
 use function var_dump;
 use function view;
 
 class UsersController extends Controller
 {
     public $wechat;
-
+    public $openid1;
     public function __construct(Application $wechat)
     {
         $this->wechat=$wechat;
+//        $user = ;
+        $this->openid1=session('wechat.oauth_user')->getId();
     }
 
     public function gettel()
@@ -140,11 +143,32 @@ class UsersController extends Controller
     }
     public function staffregister(Request $request)
     {
-        $user = session('wechat.oauth_user');
-        $openid = $user->getId();
-        return $request->tel;
-        var_dump($openid);
-        dd($request->all());
+//        $user = session('wechat.oauth_user');
+        $userinfo = Teluser::where('tel', $request->tel)->first();
+        if ($userinfo == null)
+        {
+            $data = [
+                'status' => 0,
+                'msg' => '请先入职登记手机！',
+            ];
+        }
+        else if ($userinfo->openid != null)
+        {
+            $data = [
+                'status' => 0,
+                'msg' => '此手机已被登记！',
+            ];
+        }
+        else
+        {
+            $data = [
+            'status' => 1,
+            'msg' => 'login',
+              ];
+            $userinfo->openid = $this->openid1;
+            $userinfo->save();
+        }
+        return $data;
     }
 
 }
