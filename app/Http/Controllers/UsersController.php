@@ -141,9 +141,8 @@ class UsersController extends Controller
     {
         $user = session('wechat.oauth_user');
         $openid = $user->getId();
-
+        var_dump($openid);
         dd($request->all());
-
     }
 
 }

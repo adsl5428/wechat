@@ -11,7 +11,7 @@
         <div class="bd">
 
             <div class="weui_cells weui_cells_form">
-                <form action="staffregister" method="post">
+                <form action="staffregister" method="get">
                     {{csrf_field()}}
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
