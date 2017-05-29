@@ -127,6 +127,7 @@ class UsersController extends Controller
     public function addstaff()
     {
         $user = session('wechat.oauth_user');
+        return view('test');
         $userinfo = Teluser::where('openid',$user->getId())->get();
         if ($userinfo->isEmpty())
         {
@@ -136,4 +137,13 @@ class UsersController extends Controller
             return view('test');
         }
     }
+    public function staffregister(Request $request)
+    {
+        $user = session('wechat.oauth_user');
+        $openid = $user->getId();
+
+        dd($request->all());
+
+    }
+
 }

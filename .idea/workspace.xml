@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ceccf74-6c36-4426-acc4-1a0323f5a054" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/example.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/weui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/example.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/zepto.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/test.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/master.blade.php" afterPath="$PROJECT_DIR$/resources/views/master.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/test.blade.php" afterPath="$PROJECT_DIR$/resources/views/test.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,10 +19,10 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+            <state relative-caret-position="399">
+              <caret line="36" column="49" lean-forward="true" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
               <folding>
-                <marker date="1495979908351" expanded="true" signature="1424:1425" ph="..." />
+                <marker date="1496025998897" expanded="true" signature="1493:1494" ph="..." />
               </folding>
             </state>
           </provider>
@@ -72,8 +64,8 @@
       <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="135" column="23" lean-forward="false" selection-start-line="135" selection-start-column="23" selection-end-line="135" selection-end-column="23" />
+            <state relative-caret-position="505">
+              <caret line="144" column="28" lean-forward="false" selection-start-line="144" selection-start-column="28" selection-end-line="144" selection-end-column="28" />
               <folding>
                 <element signature="e#40#70#0#PHP" expanded="true" />
               </folding>
@@ -84,8 +76,8 @@
       <file leaf-file-name="test.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" column="62" lean-forward="false" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+            <state relative-caret-position="316">
+              <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -152,16 +144,16 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Tagcontroller.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Model/Teluser.php" />
         <option value="$PROJECT_DIR$/public/web.config" />
         <option value="$PROJECT_DIR$/resources/views/login.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" />
         <option value="$PROJECT_DIR$/public/js/zepto.min.js" />
         <option value="$PROJECT_DIR$/public/js/example.js" />
         <option value="$PROJECT_DIR$/resources/views/master.blade.php" />
         <option value="$PROJECT_DIR$/public/css/weui.css" />
         <option value="$PROJECT_DIR$/public/css/example.css" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/test.blade.php" />
       </list>
     </option>
@@ -331,7 +323,7 @@
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog" />
-    <property name="SearchEverywhereHistoryKey" value="master&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;users&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/UsersController.php&#10;we&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/WechatController.php&#10;me&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/MenuController.php&#10;user&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/UsersController.php&#10;wech&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/WechatController.php" />
+    <property name="SearchEverywhereHistoryKey" value="users&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/UsersController.php&#10;master&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;we&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/WechatController.php&#10;me&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/MenuController.php&#10;user&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/UsersController.php&#10;wech&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/WechatController.php" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -443,12 +435,12 @@
       <workItem from="1495639051254" duration="5339000" />
       <workItem from="1495815848884" duration="1706000" />
       <workItem from="1495855550045" duration="6182000" />
-      <workItem from="1495966025314" duration="16495000" />
+      <workItem from="1495966025314" duration="18555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110438000" />
+    <option name="totallyTimeSpent" value="112498000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="13" y="4" width="1600" height="876" extended-state="0" />
@@ -500,7 +492,7 @@
         <state relative-caret-position="441">
           <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
           <folding>
-            <marker date="1495979908351" expanded="true" signature="1424:1425" ph="..." />
+            <marker date="1496025998897" expanded="true" signature="1493:1494" ph="..." />
           </folding>
         </state>
       </provider>
@@ -545,7 +537,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1495979908351" expanded="true" signature="1424:1425" ph="..." />
+            <marker date="1496025998897" expanded="true" signature="1493:1494" ph="..." />
           </folding>
         </state>
       </provider>
@@ -562,7 +554,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1495979908351" expanded="true" signature="1424:1425" ph="..." />
+            <marker date="1496025998897" expanded="true" signature="1493:1494" ph="..." />
           </folding>
         </state>
       </provider>
@@ -780,26 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="135" column="23" lean-forward="false" selection-start-line="135" selection-start-column="23" selection-end-line="135" selection-end-column="23" />
-          <folding>
-            <element signature="e#40#70#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
-          <folding>
-            <marker date="1495979908351" expanded="true" signature="1424:1425" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/zepto.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -851,10 +823,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="36" column="49" lean-forward="true" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+          <folding>
+            <marker date="1496025998897" expanded="true" signature="1493:1494" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="144" column="28" lean-forward="false" selection-start-line="144" selection-start-column="28" selection-end-line="144" selection-end-column="28" />
+          <folding>
+            <element signature="e#40#70#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="62" lean-forward="false" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+        <state relative-caret-position="316">
+          <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
           <folding />
         </state>
       </provider>
