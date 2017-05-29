@@ -15,6 +15,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
 use function var_dump;
+use function view;
 
 class UsersController extends Controller
 {
@@ -118,5 +119,21 @@ class UsersController extends Controller
         //return view('login',compact('$replys'));
 
         //return $user->getNickname();
+    }
+    public function addpartner()
+    {
+
+    }
+    public function addstaff()
+    {
+        $user = session('wechat.oauth_user');
+        $userinfo = Teluser::where('openid',$user->getId())->get();
+        if ($userinfo->isEmpty())
+        {
+            return view('test');
+        }
+        else{
+            return view('test');
+        }
     }
 }
