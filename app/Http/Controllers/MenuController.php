@@ -25,19 +25,19 @@ class MenuController extends Controller
                     [
                         "type" => "view",
                         "name" => "员工",
-                        "url"  => "http://106.14.4.239/addstaff"
+                        "url"  => "http://www.fnjr.loan/addstaff"
                     ],
                     [
                         "type" => "view",
                         "name" => "合伙人",
-                        "url"  => "http://106.14.4.239/addpartner"
+                        "url"  => "http://www.fnjr.loan/addpartner"
                     ],
                 ],
             ],
             [
                 "type" => "view",
                 "name" => "首页",
-                "url"  => "http://106.14.4.239//"
+                "url"  => "http://www.fnjr.loan/"
             ],
         ];
         $this->menu->add($buttons);
