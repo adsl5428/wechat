@@ -40,14 +40,17 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/users','UsersController@users');
 });
 
+Route::get('/addpartner', 'UsersController@addpartner');
+
+Route::post('/staffregister', 'UsersController@staffregister');
+
+
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/login', 'UsersController@login');
     Route::get('/users/mail', 'UsersController@mail');
     Route::any('/users/register', 'UsersController@register');
 
-    Route::get('/addpartner', 'UsersController@addpartner');
     Route::get('/addstaff', 'UsersController@addstaff');
-    Route::post('/staffregister', 'UsersController@staffregister');
 });
 
 

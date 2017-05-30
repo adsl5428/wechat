@@ -111,13 +111,14 @@ class UsersController extends Controller
         //查找是否有这个openid
         $userinfo = User::where('openid',$user->getId())->get();
 
-        if ($userinfo->first()) {
-            if($userinfo[0]['email'] == null)
-                return redirect('users/register'); //转到注册页
-           if ( $userinfo[0]['status'] == 0)
-               return '您已注册,请登录 '.$userinfo[0]['email'] . ' 点击链接激活账户';
-
-        }
+        dd($userinfo);
+//        if ($userinfo->first()) {
+//            if($userinfo[0]['email'] == null)
+//                return redirect('users/register'); //转到注册页
+//           if ( $userinfo[0]['status'] == 0)
+//               return '您已注册,请登录 '.$userinfo[0]['email'] . ' 点击链接激活账户';
+//
+//        }
         //return 1;
 
         //return view('login',compact('$replys'));
@@ -130,8 +131,10 @@ class UsersController extends Controller
     }
     public function addstaff()
     {
+        //$user = session('wechat.oauth_user');
+        //$oid = $user->getId();
         return view('test');
-        $user = session('wechat.oauth_user');
+
         $userinfo = Teluser::where('openid',$user->getId())->get();
         if ($userinfo->isEmpty())
         {
@@ -144,11 +147,7 @@ class UsersController extends Controller
     public function staffregister(Request $request)
     {
         $user = session('wechat.oauth_user');
-        $data = [
-            'status' => 0,
-            'msg' => $user->getId(),
-        ];
-        return $data;
+
         $userinfo = Teluser::where('tel', $request->tel)->first();
         if ($userinfo == null)
         {
@@ -168,7 +167,7 @@ class UsersController extends Controller
         {
             $data = [
             'status' => 1,
-            'msg' => 'login1',
+            'msg' => 'login',
               ];
             $userinfo->openid = $user->getId();
             $userinfo->save();
