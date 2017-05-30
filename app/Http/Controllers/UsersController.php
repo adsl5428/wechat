@@ -25,7 +25,7 @@ class UsersController extends Controller
     public $openid1;
     public function __construct(Application $wechat)
     {
-        $this->wechat=$wechat;
+        $this->wechat = $wechat;
 //        $user = ;
 //        $this->openid1=session('wechat.oauth_user')->getId();
     }
