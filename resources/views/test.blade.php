@@ -16,7 +16,7 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="telid" name="tel" class="weui_input" type="number" placeholder="请输入手机号" value="18317179692"/>
+                        <input id="telid" name="tel" class="weui_input" type="tel" placeholder="请输入手机号" value=""/>
                     </div>
                 </div>
 
