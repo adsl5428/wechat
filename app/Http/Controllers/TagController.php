@@ -29,10 +29,10 @@ class TagController extends Controller
         dd($tags);
     }
 
-    public function addtotag($openid)
+    public function addtotag($openid,$tid)
     {
-        $openIds = [$openid,];
-        $this->tag->batchTagUsers($openIds, 100);
+        $openIds = [$openid,$openid];
+        $this->tag->batchTagUsers($openIds, $tid);
     }
 
 }
