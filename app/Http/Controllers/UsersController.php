@@ -27,7 +27,7 @@ class UsersController extends Controller
     {
         $this->wechat=$wechat;
 //        $user = ;
-        $this->openid1=session('wechat.oauth_user')->getId();
+//        $this->openid1=session('wechat.oauth_user')->getId();
     }
 
     public function gettel()
@@ -143,7 +143,8 @@ class UsersController extends Controller
     }
     public function staffregister(Request $request)
     {
-        //$user = session('wechat.oauth_user');
+        $user = session('wechat.oauth_user');
+        dd($user->getId());
         $userinfo = Teluser::where('tel', $request->tel)->first();
         if ($userinfo == null)
         {
@@ -163,9 +164,9 @@ class UsersController extends Controller
         {
             $data = [
             'status' => 1,
-            'msg' => 'login',
+            'msg' => 'login1',
               ];
-            $userinfo->openid = $this->openid1;
+            $userinfo->openid = $user->getId();
             $userinfo->save();
 
             //TagController::addtotag($userinfo->openid);
