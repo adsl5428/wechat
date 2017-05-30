@@ -21,6 +21,8 @@ Route::get('tag/create/{name}','TagController@create');
 Route::get('tag/lists','TagController@lists');
 Route::get('tag/addtotag/{id}/{tid}','TagController@lists');
 
+Route::post('/staffregister', 'UsersController@staffregister');
+
 Route::get('/suijishu','UsersController@rand50');
 
 Route::get('/gettel','UsersController@gettel');
@@ -46,8 +48,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/addpartner', 'UsersController@addpartner');
     Route::get('/addstaff', 'UsersController@addstaff');
 
-    Route::post('/staffregister', 'UsersController@staffregister');
-
+    
 });
 
 
