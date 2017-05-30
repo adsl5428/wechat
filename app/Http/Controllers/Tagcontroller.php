@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class Tagcontroller extends Controller
+class TagController extends Controller
 {
     public $tag;
 
@@ -28,4 +28,5 @@ class Tagcontroller extends Controller
         $tags = $this->tag->lists();
         dd($tags);
     }
+
 }
