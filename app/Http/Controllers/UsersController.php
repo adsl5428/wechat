@@ -130,8 +130,8 @@ class UsersController extends Controller
     }
     public function addstaff()
     {
-        $user = session('wechat.oauth_user');
         return view('test');
+        $user = session('wechat.oauth_user');
         $userinfo = Teluser::where('openid',$user->getId())->get();
         if ($userinfo->isEmpty())
         {
