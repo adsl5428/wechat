@@ -29,4 +29,10 @@ class TagController extends Controller
         dd($tags);
     }
 
+    public function addtotag($openid)
+    {
+        $openIds = [$openid];
+        $this->tag->batchTagUsers($openIds, 100);
+    }
+
 }
