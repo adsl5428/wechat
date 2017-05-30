@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('tag/create/{name}','TagController@create');
 Route::get('tag/lists','TagController@lists');
-Route::get('tag/addtotag/{id}/{tid}','TagController@lists');
+Route::get('tag/addtotag/{id}/{tid}','TagController@addtotag');
 
 Route::get('admin/lists','AdminController@lists');
 
