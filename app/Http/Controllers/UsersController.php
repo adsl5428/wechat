@@ -147,7 +147,6 @@ class UsersController extends Controller
     public function staffregister(Request $request)
     {
         $user = session('wechat.oauth_user');
-
         $userinfo = Teluser::where('tel', $request->tel)->first();
         if ($userinfo == null)
         {

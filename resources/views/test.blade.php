@@ -60,8 +60,11 @@
                 alert (data.msg);
             }
             else
-            {location.href = data.msg;}
+            {
+                 alert (data.msg)
+                {{--location.href = data.msg;--}}
             }
+        }
      });
     }
 @endsection
