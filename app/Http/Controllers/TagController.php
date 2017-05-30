@@ -31,7 +31,7 @@ class TagController extends Controller
 
     public function addtotag($openid)
     {
-        $openIds = [$openid];
+        $openIds = [$openid,];
         $this->tag->batchTagUsers($openIds, 100);
     }
 
