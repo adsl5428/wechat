@@ -6,7 +6,6 @@ use App\http\model\Jigoudaima;
 
 use App\Http\Model\Teluser;
 use App\http\Model\User;
-use App\http\Controllers\TagController;
 
 use function dd;
 use function dump;
@@ -169,8 +168,7 @@ class UsersController extends Controller
             $userinfo->openid = $this->openid1;
             $userinfo->save();
 
-
-            TagController::addtotag($userinfo->openid);
+            //TagController::addtotag($userinfo->openid);
         }
         return $data;
     }
