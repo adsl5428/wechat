@@ -60,5 +60,8 @@ class MenuController extends Controller
         $this->menu->add($buttons, $matchRule);
         echo '123';
     }
-
+    public function testmenu($userId)
+    {
+        return $this->menu->test($userId);
+    }
 }
