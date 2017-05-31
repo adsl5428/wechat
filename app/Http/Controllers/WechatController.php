@@ -19,14 +19,14 @@ class WechatController extends Controller
                 case 'event':
                     //return '收到事件消息';
                     if($message->EventKey == 'V1001_GET_TEL') {
-                        $yuangong = Teluser::where('openid', $message->FromUserName)->firstOrFail();
+                        $yuangong = Teluser::where('openid', $message->FromUserName)->first();
                         if ($yuangong == null)
                             return '您无权限';
                         $tels = Teluser::all();
                         $str = null;
                         foreach ( $tels as $tel )
                         {
-                            $str = $str . $tel->name.':'."\n".$tel->tel."\n";
+                            $str = $str . $tel->name."\n".$tel->tel."\n";
                         }
                         return $str;
                         //return $yuangong->name . ':' . "\n" . $yuangong->tel . "\n" . $yuangong->name . ':' . $yuangong->tel;
