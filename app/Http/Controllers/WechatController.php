@@ -26,7 +26,7 @@ class WechatController extends Controller
                         $str = null;
                         foreach ( $tels as $tel )
                         {
-                            $str = $str . $tel->name."\n".$tel->tel."\n";
+                            $str = $str . $tel->name."\n".$tel->tel."\n"."\n";
                         }
                         return $str;
                         //return $yuangong->name . ':' . "\n" . $yuangong->tel . "\n" . $yuangong->name . ':' . $yuangong->tel;
