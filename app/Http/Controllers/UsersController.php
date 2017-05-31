@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use const null;
 use function var_dump;
 use function view;
@@ -171,6 +172,7 @@ class UsersController extends Controller
             $userinfo->openid = $user->getId();
             $userinfo->save();
 
+            Redirect::to('tag/addtotag/'.$user->getId().'/100');
             //TagController::addtotag($userinfo->openid);
         }
         return $data;
