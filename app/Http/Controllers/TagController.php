@@ -31,8 +31,24 @@ class TagController extends Controller
 
     public function addtotag($openid,$tid)
     {
-        $openIds = [$openid,$openid];
+        $openIds = [$openid];
         $this->tag->batchTagUsers($openIds, $tid);
+    }
+
+
+    public function deltotag($openid,$tid)
+    {
+        $openIds = [$openid];
+        $this->tag->batchUntagUsers($openIds, $tid);
+    }
+
+    public function usersoftag($tid)
+    {
+        return $this->tag->usersOfTag($tid, $nextOpenId = '');
+    }
+    public function usertags($openid)
+    {
+        return $this->tag->userTags($openid);
     }
 
 }
