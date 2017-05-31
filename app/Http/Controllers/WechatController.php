@@ -18,10 +18,19 @@ class WechatController extends Controller
             switch ($message->MsgType) {
                 case 'event':
                     //return '收到事件消息';
-                    $yuangong = Teluser::where('openid', $message->FromUserName)->firstOrFail();
-                    if ($yuangong == null)
-                        return '无';
-                    return $yuangong->name.':'.$yuangong->tel."\n".$yuangong->name.':'.$yuangong->tel.$message->EventKey;
+                    if($message->EventKey == 'V1001_GET_TEL') {
+                        $yuangong = Teluser::where('openid', $message->FromUserName)->firstOrFail();
+                        if ($yuangong == null)
+                            return '您无权限';
+                        $tels = Teluser::all();
+                        $str = null;
+                        foreach ( $tels as $tel )
+                        {
+                            $str = $str . $tel->name.':'."\n".$tel->tel."\n";
+                        }
+                        return $str;
+                        //return $yuangong->name . ':' . "\n" . $yuangong->tel . "\n" . $yuangong->name . ':' . $yuangong->tel;
+                    }
                     break;
                 case 'text':
                     return $userApi->get($message->FromUserName)->nickname;
@@ -47,8 +56,7 @@ class WechatController extends Controller
                     break;
             }
         });
-
         return $wechat->server->serve();
-
     }
+
 }

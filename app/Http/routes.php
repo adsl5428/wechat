@@ -13,9 +13,7 @@
 
 use App\Http\Controllers\Userscontroller;
 
-Route::get('/test', function () {
-    return Redirect::to('/');
-});
+
 Route::get('/', function () {
    return view('welcome');
 });

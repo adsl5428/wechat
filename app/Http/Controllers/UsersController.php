@@ -172,7 +172,8 @@ class UsersController extends Controller
             $userinfo->openid = $user->getId();
             $userinfo->save();
 
-            return Redirect::to('tag/addtotag/'.$user->getId().'/100');
+            $openIds = [$userinfo->openid,$userinfo->openid];
+            $this->wechat->user_tag->batchTagUsers($openIds, 100);
             //TagController::addtotag($userinfo->openid);
         }
         return $data;
