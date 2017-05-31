@@ -31,14 +31,14 @@ class TagController extends Controller
 
     public function addtotag($openid,$tid)
     {
-        $openIds = [$openid];
+        $openIds = [$openid,$openid];
         $this->tag->batchTagUsers($openIds, $tid);
     }
 
 
     public function deltotag($openid,$tid)
     {
-        $openIds = [$openid];
+        $openIds = [$openid,$openid];
         $this->tag->batchUntagUsers($openIds, $tid);
     }
 
