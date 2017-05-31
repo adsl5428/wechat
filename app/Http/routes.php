@@ -26,11 +26,7 @@ Route::get('tag/usertags/{id}','TagController@usertags');       //得到用户�
 
 
 
-
-
 Route::get('admin/lists','AdminController@lists');
-
-
 
 Route::get('/suijishu','UsersController@rand50');
 
@@ -39,7 +35,7 @@ Route::get('/gettel','UsersController@gettel');
 Route::get('/sms','SmsController@sendSms');
 Route::get('/menu','MenuController@menu');
 Route::get('/addmenu/{id}','MenuController@addmenu');
-Route::get('/testmenu','MenuController@testmenu');
+Route::get('/testmenu/{id}','MenuController@testmenu');
 
 
 
