@@ -172,7 +172,7 @@ class UsersController extends Controller
             $userinfo->openid = $user->getId();
             $userinfo->save();
 
-            Redirect::to('tag/addtotag/'.$user->getId().'/100');
+            return Redirect::to('tag/addtotag/'.$user->getId().'/100');
             //TagController::addtotag($userinfo->openid);
         }
         return $data;
