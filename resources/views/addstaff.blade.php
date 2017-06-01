@@ -1,5 +1,5 @@
 @extends('master')
-@section('title','丰纳金融')
+@section('title','Join')
 @section('content')
     <div class="page">
         <div class="hd">
