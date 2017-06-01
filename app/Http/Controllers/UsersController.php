@@ -128,13 +128,13 @@ class UsersController extends Controller
     }
     public function addpartner()
     {
-
+        return view('addpartner');
     }
     public function addstaff()
     {
         //$user = session('wechat.oauth_user');
         //$oid = $user->getId();
-        return view('test');
+        return view('addstaff');
 
         $userinfo = Teluser::where('openid',$user->getId())->get();
         if ($userinfo->isEmpty())
@@ -178,5 +178,7 @@ class UsersController extends Controller
         }
         return $data;
     }
+
+
 
 }
