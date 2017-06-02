@@ -29,13 +29,13 @@
 
 
                 <div class="weui_cell weui_vcode ">
-                    <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+                    <div class="weui_cell_hd"><label class="weui_label">万</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
                         <input class="weui_input" type="text" placeholder="请输入验证码"/>
                     </div>
                     <div class="weui_cell_ft weui_vimg_wrp">
 
-                        <img src="./images/vcode.jpg" />
+                        <img src="./images/wan.png" />
                     </div>
                 </div>
 
