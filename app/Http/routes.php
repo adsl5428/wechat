@@ -63,6 +63,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/addstaff', 'UsersController@addstaff');
 
     Route::post('/staffregister', 'UsersController@staffregister');
+    Route::post('/partnerregister', 'UsersController@partnerregister');
 });
 
 

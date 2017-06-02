@@ -25,8 +25,7 @@
                 <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">确定</a>
             </div>
             {{--</form>--}}
-            <div class="weui_toptips weui_warn js_tooltips">格式不对</div>
-
+            {{--<div class="weui_toptips weui_warn js_tooltips">格式不对</div>--}}
 
         </div>
     </div>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\Code;
 use App\http\model\Jigoudaima;
 
+use App\Http\Model\Partner;
 use App\Http\Model\Teluser;
 use App\http\Model\User;
 
@@ -179,6 +181,40 @@ class UsersController extends Controller
         return $data;
     }
 
+    public function partnerregister(Request $request)
+    {
+        $user = session('wechat.oauth_user');
+        $code = Code::where('code', $request->code)->first();
+
+        if ($code == null || $code->status != 0)
+        {
+            $data = [
+                'status' => 0,
+                'msg' => '请输入正确的邀请码!',
+            ];
+        }
+        else
+        {
+            $data = [
+                'status' => 1,
+                'msg' => 'login',
+            ];
+            $code->status = 1;
+            $code->save();
+
+            $partner = new Partner();
+            $partner->name=$request->name;
+            $partner->openid = $user->getId();
+            $partner->tel = $request->tel;
+            $partner->code = $request->code;
+            $partner->save();
+//
+//            $openIds = [$userinfo->openid,$userinfo->openid];
+//            $this->wechat->user_tag->batchTagUsers($openIds, 100);
+            //TagController::addtotag($userinfo->openid);
+        }
+        return $data;
+    }
 
 
 }

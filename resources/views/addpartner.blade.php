@@ -16,21 +16,21 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">名字</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="name" name="name" class="weui_input"  placeholder="请输入您的真实姓名" value=""/>
+                        <input id="nameid" name="name" class="weui_input"  placeholder="请输入您的真实姓名" value="李宏城"/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="telid" name="tel" class="weui_input" type="tel" placeholder="请输入手机号" value=""/>
+                        <input id="telid" name="tel" class="weui_input" type="tel" placeholder="请输入手机号" value="17750727971"/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">邀请码</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="code" name="name" class="weui_input"  placeholder="请输入邀请码" value=""/>
+                        <input id="codeid" name="name" class="weui_input"  placeholder="请输入邀请码" value="1234"/>
                     </div>
                 </div>
             </div>
@@ -38,8 +38,7 @@
                 <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">确定</a>
             </div>
             {{--</form>--}}
-            <div class="weui_toptips weui_warn js_tooltips">格式不对</div>
-
+            {{--<div class="weui_toptips weui_warn js_tooltips">格式不对</div>--}}
 
         </div>
     </div>
@@ -63,10 +62,12 @@
     dataType: "json",
     data:
     {
+    'name':$('#nameid').val(),
+    'code':$('#codeid').val(),
     'tel':$('#telid').val(),
     '_token':"{{csrf_token()}}"
     },
-    url: "staffregister",
+    url: "partnerregister",
     success:function(data){
     if(data.status == 0)
     {
