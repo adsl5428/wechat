@@ -1,11 +1,11 @@
 @extends('master')
-@section('title','Join')
+@section('title','申请')
 @section('content')
     <div class="page">
         <div class="hd">
 
             <h1 class="page_title">丰纳金融</h1>
-            <h5 class="page_title">Join a partner</h5>
+            <h5 class="page_title">Loan</h5>
 
         </div>
         <div class="bd">
@@ -16,30 +16,39 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">名字</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="nameid" name="name" class="weui_input"  placeholder="请输入您的真实姓名" value="李宏城"/>
+                        <input id="nameid" name="name" class="weui_input"  placeholder="贷款人姓名" value="李宏城"/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">身份证</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="cardid" name="card" class="weui_input"   placeholder="请输入您的身份证" value="350525199009215338"/>
+                        <input id="cardid" name="card" class="weui_input"  placeholder="贷款人身份证" value="350525199009215338"/>
                     </div>
                 </div>
 
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
+
+                <div class="weui_cell weui_vcode">
+                    <div class="weui_cell_hd"><label class="weui_label">贷款额</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="telid" name="tel" class="weui_input" type="tel" placeholder="请输入手机号" value="17750727971"/>
+                        <input class="weui_input" type="text" placeholder="请求贷款金额"/>
+                    </div>
+                    <div class="weui_cell_hd"><label class="weui_label">万</label></div>
+                </div>
+
+                <div class="weui_cell weui_cell_select weui_select_after">
+                    <div class="weui_cell_hd">
+                        贷款项目
+                    </div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <select class="weui_select" name="select2">
+                            <option value="1">一抵</option>
+                            <option value="2">二抵</option>
+                            <option value="3">车抵</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label class="weui_label">邀请码</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input id="codeid" name="name" class="weui_input"  placeholder="请输入邀请码" value="1234"/>
-                    </div>
-                </div>
             </div>
             <div class="weui_btn_area">
                 <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">确定</a>
@@ -92,17 +101,9 @@
 
     function login()
     {
-    duixiang = document.getElementById('telid');
-    var phone = duixiang.value;
-    if(!(/^1[3|4|5|7|8][0-9]\d{8}$/.test(phone)))
-    {
-    alert("手机号码有误,请重填！");
-    duixiang.value="";
-    duixiang.focus();
-    return false;
-    }
 
     if(!validateIdCard($('#cardid').val())) return false;
+
 
     document.getElementById('btnlogin').innerHTML="正在提交中...";
     $.ajax(
@@ -113,11 +114,10 @@
     {
     'idcard':$('#cardid').val(),
     'name':$('#nameid').val(),
-    'code':$('#codeid').val(),
-    'tel':$('#telid').val(),
+
     '_token':"{{csrf_token()}}"
     },
-    url: "partnerregister",
+    url: "loan1",
     success:function(data){
     if(data.status == 0)
     {

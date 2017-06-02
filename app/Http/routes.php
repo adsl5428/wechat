@@ -50,7 +50,9 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 
-Route::get('/addpartner', 'UsersController@addpartner');
+Route::any('/loan1', 'LoanController@loan1');
+Route::any('/loan3', 'LoanController@loan3');
+Route::any('/loan2', 'LoanController@loan2');
 
 Route::post('/staffregister', 'UsersController@staffregister');
 
@@ -61,9 +63,11 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::any('/users/register', 'UsersController@register');
 
     Route::get('/addstaff', 'UsersController@addstaff');
-
+    Route::get('/addpartner', 'UsersController@addpartner');
     Route::post('/staffregister', 'UsersController@staffregister');
     Route::post('/partnerregister', 'UsersController@partnerregister');
+
+
 });
 
 

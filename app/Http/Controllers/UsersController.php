@@ -184,9 +184,9 @@ class UsersController extends Controller
     public function partnerregister(Request $request)
     {
         $user = session('wechat.oauth_user');
-        $code = Code::where('code', $request->code)->first();
+        $partner = Partner::where('code', $request->code)->first();
 
-        if ($code == null || $code->status != 0)
+        if ($partner == null || $partner->status != 0)
         {
             $data = [
                 'status' => 0,
@@ -199,14 +199,12 @@ class UsersController extends Controller
                 'status' => 1,
                 'msg' => 'login',
             ];
-            $code->status = 1;
-            $code->save();
 
-            $partner = new Partner();
             $partner->name=$request->name;
-            $partner->openid = $user->getId();
             $partner->tel = $request->tel;
-            $partner->code = $request->code;
+            $partner->idcard = $request->idcard;
+            $partner->openid = $user->getId();
+            $partner->status = 1;
             $partner->save();
 //
 //            $openIds = [$userinfo->openid,$userinfo->openid];
