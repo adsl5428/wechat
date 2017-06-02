@@ -28,12 +28,15 @@
                 </div>
 
 
-                <div class="weui_cell weui_vcode">
-                    <div class="weui_cell_hd"><label class="weui_label">贷款额</label></div>
+                <div class="weui_cell weui_vcode ">
+                    <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="text" placeholder="请求贷款金额"/>
+                        <input class="weui_input" type="text" placeholder="请输入验证码"/>
                     </div>
-                    <div class="weui_cell_hd"><label class="weui_label">万</label></div>
+                    <div class="weui_cell_ft weui_vimg_wrp">
+
+                        <img src="./images/vcode.jpg" />
+                    </div>
                 </div>
 
                 <div class="weui_cell weui_cell_select weui_select_after">
@@ -48,7 +51,14 @@
                         </select>
                     </div>
                 </div>
-
+                <div class="weui_cells_title">情况说明</div>
+                <div class="weui_cells weui_cells_form">
+                    <div class="weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <textarea class="weui_textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="weui_btn_area">
                 <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">确定</a>
