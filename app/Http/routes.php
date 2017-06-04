@@ -49,6 +49,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/users','UsersController@users');
 });
 
+Route::any('/test', 'LoanController@test');
+Route::any('/test2', 'LoanController@test2');
 
 Route::any('/loan1', 'LoanController@loan1');
 Route::any('/loan3', 'LoanController@loan3');

@@ -1,6 +1,8 @@
 @extends('master')
 @section('title','申请')
 @section('content')
+
+
     <div class="page">
         <div class="hd">
 
@@ -29,9 +31,9 @@
 
 
                 <div class="weui_cell weui_vcode ">
-                    <div class="weui_cell_hd"><label class="weui_label">万</label></div>
+                    <div class="weui_cell_hd"><label class="weui_label">贷款额</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="text" placeholder="请输入验证码"/>
+                        <input class="weui_input" type="tel" placeholder="申请贷款金额"/>
                     </div>
                     <div class="weui_cell_ft weui_vimg_wrp">
 
@@ -39,29 +41,21 @@
                     </div>
                 </div>
 
+
                 <div class="weui_cell weui_cell_select weui_select_after">
-                    <div class="weui_cell_hd">
-                        贷款项目
-                    </div>
+                    <div class="weui_cell_hd"><label class="weui_label">项目</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
                         <select class="weui_select" name="select2">
-                            <option value="1">一抵</option>
-                            <option value="2">二抵</option>
-                            <option value="3">车抵</option>
+                            <option value="1"> 一抵</option>
+                            <option value="2"> 二抵</option>
+                            <option value="3"> 车抵</option>
                         </select>
                     </div>
                 </div>
-                <div class="weui_cells_title">情况说明</div>
-                <div class="weui_cells weui_cells_form">
-                    <div class="weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">
-                            <textarea class="weui_textarea"></textarea>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div class="weui_btn_area">
-                <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">确定</a>
+                <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>
             </div>
             {{--</form>--}}
             {{--<div class="weui_toptips weui_warn js_tooltips">格式不对</div>--}}
@@ -70,6 +64,9 @@
     </div>
 @endsection
 @section('js')
+
+
+
     function validateIdCard(idCard){
 
     var regIdCard=/^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
@@ -115,7 +112,7 @@
     if(!validateIdCard($('#cardid').val())) return false;
 
 
-    document.getElementById('btnlogin').innerHTML="正在提交中...";
+
     $.ajax(
     {
     type:"post" ,
@@ -135,8 +132,8 @@
     }
     else
     {
-    alert (data.msg)
-    {{--location.href = data.msg;--}}
+
+    location.href = data.msg;
     }
     }
     });
