@@ -58,7 +58,7 @@
         <div class="weui_cell_bd weui_cell_primary">
             <div class="weui_uploader">
                 <div class="weui_uploader_hd weui_cell">
-                    <div class="weui_cell_bd weui_cell_primary">户口本(可多选上传)</div>
+                    <div class="weui_cell_bd weui_cell_primary">户口本(可一次性多选上传)</div>
                     <div class="weui_cell_ft"></div>
                 </div>
                 <div class="demo2">
@@ -75,7 +75,7 @@
         <div class="weui_cell_bd weui_cell_primary">
             <div class="weui_uploader">
                 <div class="weui_uploader_hd weui_cell">
-                    <div class="weui_cell_bd weui_cell_primary">房产证(可多选上传)</div>
+                    <div class="weui_cell_bd weui_cell_primary">房产证(可一次性多选上传)</div>
                     <div class="weui_cell_ft"></div>
                 </div>
                 <div class="demo3">
@@ -92,7 +92,7 @@
         <div class="weui_cell_bd weui_cell_primary">
             <div class="weui_uploader">
                 <div class="weui_uploader_hd weui_cell">
-                    <div class="weui_cell_bd weui_cell_primary">征信报告(可多选上传)</div>
+                    <div class="weui_cell_bd weui_cell_primary">征信报告(可一次性多选上传)</div>
                     <div class="weui_cell_ft"></div>
                 </div>
                 <div class="demo4">
@@ -104,8 +104,6 @@
         </div>
     </div>
     </div>
-
-
 
 
     <div class="weui_btn_area">
@@ -153,7 +151,7 @@
     $("#" + file.id).html("<img src='"+info.response+"' /><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
     },
     Error: function(up, err) { //上传出错的时候触发
-    alert("上传错误,请稍候再试");
+
     }
     }
     });
@@ -198,7 +196,7 @@
     $("#" + file.id).html("<img src='"+info.response+"'/><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
     },
     Error: function(up, err) { //上传出错的时候触发
-    alert("上传错误,请稍候再试");
+
     }
     }
     });
@@ -243,7 +241,7 @@
     $("#" + file.id).html("<img src='"+info.response+"'/><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
     },
     Error: function(up, err) { //上传出错的时候触发
-    alert("上传错误,请稍候再试");
+
     }
     }
     });
@@ -287,7 +285,7 @@
     $("#" + file.id).html("<img src='"+info.response+"'/><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
     },
     Error: function(up, err) { //上传出错的时候触发
-    alert("上传错误,请稍候再试");
+    
     }
     }
     });
