@@ -14,6 +14,7 @@ class LoanController extends Controller
     {
         if ($request->isMethod('post'))
         {
+            dd(Input::all());
             $file = Input::file('file');
             //dd($request);
             if($file -> isValid()) {

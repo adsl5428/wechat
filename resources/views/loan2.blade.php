@@ -102,7 +102,7 @@
     f.onchange = function () {
     lrz(this.files[0],{width:640,fieldName:"file"}).then(function (rst) {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '1.php');
+    xhr.open('POST', '{{asset('test')}}');
 
     xhr.onload = function () {
     if (xhr.status === 200) {
@@ -151,7 +151,7 @@
     for (var i=0; i < len; i++) {
     lrz(files[i],{width:640,fieldName:"file1"}).then(function (rst) {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '{{asset('loan2')}}');
+    xhr.open('POST', '{{asset('test')}}');
 
     xhr.onload = function () {
     if (xhr.status === 200) {
