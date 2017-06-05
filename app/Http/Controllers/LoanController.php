@@ -14,7 +14,6 @@ class LoanController extends Controller
     {
         if ($request->isMethod('post'))
         {
-
             $file = Input::file('file');
             //dd($request);
             if($file -> isValid()) {
@@ -87,6 +86,7 @@ class LoanController extends Controller
     {
         if ($request->isMethod('post'))
         {
+            dd(Input::all());
             $data = [
                 'status' => 1,
                 'msg' => 'loan2',
