@@ -13,7 +13,7 @@
 
 
 <body>
-上传图片<input type="file" capture="camera" accept="image/*" name="logo" id="file">
+{{--上传图片<input type="file" capture="camera" accept="image/*" name="logo" id="file">--}}
 
 <div class="weui_cells weui_cells_form">
 
@@ -21,7 +21,7 @@
         <div class="weui_cell_bd weui_cell_primary">
             <div class="weui_uploader">
                 <div class="weui_uploader_hd weui_cell">
-                    <div class="weui_cell_bd weui_cell_primary">单图片压缩上传</div>
+                    <div class="weui_cell_bd weui_cell_primary">身份证</div>
                     <div class="weui_cell_ft"></div>
                 </div>
                 <div class="weui_uploader_bd">
@@ -36,11 +36,13 @@
             </div>
         </div>
     </div>
+
+
     <div class="weui_cell">
         <div class="weui_cell_bd weui_cell_primary">
             <div class="weui_uploader">
                 <div class="weui_uploader_hd weui_cell">
-                    <div class="weui_cell_bd weui_cell_primary">多图先压缩后上传</div>
+                    <div class="weui_cell_bd weui_cell_primary">户口本</div>
                     <div class="weui_cell_ft"></div>
                 </div>
                 <div class="weui_uploader_bd">
@@ -57,7 +59,46 @@
         </div>
     </div>
 
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+            <div class="weui_uploader">
+                <div class="weui_uploader_hd weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">房产证</div>
+                    <div class="weui_cell_ft"></div>
+                </div>
+                <div class="weui_uploader_bd">
+                    <ul class="weui_uploader_files" id='img3'>
 
+                    </ul>
+                    <div class="weui_uploader_input_wrp" id="file3">
+                        <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl3' multiple />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+            <div class="weui_uploader">
+                <div class="weui_uploader_hd weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">信用报告</div>
+                    <div class="weui_cell_ft"></div>
+                </div>
+                <div class="weui_uploader_bd">
+                    <ul class="weui_uploader_files" id='img4'>
+
+                    </ul>
+                    <div class="weui_uploader_input_wrp" id="file4">
+                        <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl4' multiple />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -68,8 +109,6 @@
 
 <script type='text/javascript'>
     $(function(){
-
-
         var f = document.querySelector('#headimgurl');
         f.onchange = function () {
                 lrz(this.files[0],{quality:1}).then(function (rst) {
@@ -90,9 +129,7 @@
                                 return alert(response.msg);
                             }
                         },
-
                         error: function (jqXHR, textStatus, errorThrown) {
-
                             if (textStatus == 'timeout') {
                                 a_info_alert('请求超时');
 
@@ -104,7 +141,6 @@
                     });
 
                 })
-
                     .catch(function (err) {
                         alert(err);
                     })
@@ -113,8 +149,6 @@
                     });
 
             };
-
-
 
 //多图上传
         var f2 = document.querySelector('#headimgurl2');
@@ -140,7 +174,6 @@
                                 return alert(response.msg);
                             }
                         },
-
                         error: function (jqXHR, textStatus, errorThrown) {
 
                             if (textStatus == 'timeout') {
@@ -154,17 +187,16 @@
                     });
 
                 })
-
                     .catch(function (err) {
                         alert(err);
                     })
 
                     .always(function () {// 不管是成功失败，这里都会执行
                     });
-
             }//for end
         }
     });
+
 </script>
 
 
