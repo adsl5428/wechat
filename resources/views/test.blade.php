@@ -106,12 +106,13 @@
 
 
 </body>
-
+onclick="var delimg=$(this);$.confirm(\'您确定要删除吗?\', \'确认删除?\', function() {delimg.remove();},function(){$.toast(\'取消操作\', \'cancel\');});"
 <script type='text/javascript'>
     $(function(){
         var f = document.querySelector('#headimgurl');
         f.onchange = function () {
                 lrz(this.files[0],{quality:1}).then(function (rst) {
+
                     console.log(rst);
                     $.ajax({
                         url: '{{asset('test')}}',
@@ -122,7 +123,11 @@
                         success: function (response) {
                             if (response.ecd == '0') {
 //                                alert('成功');
-                                $('#img2').append('<li onclick="var delimg=$(this);$.confirm(\'您确定要删除吗?\', \'确认删除?\', function() {delimg.remove();},function(){$.toast(\'取消操作\', \'cancel\');});" class="weui_uploader_file weui_uploader_status" style="background-image:url('+obj.src+')"><div class="weui_uploader_status_content"><i class="weui_icon_cancel"></i></div></li>');
+//                                li = "<img src='" + response.result + "' />";
+                                li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
+//                                alert (li);
+                                $('#img').append(li);
+//                                $('#img').append('<li class="weui_uploader_file weui_uploader_status" style="background-image:url('+obj.src+')"><div class="weui_uploader_status_content"><i class="weui_icon_cancel"></i></div></li>');
                                 $('#file2').append('<input value="'+response.result+'"  type="hidden"  name="files" />');
                                 return true;
                             } else {
