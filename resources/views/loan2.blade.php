@@ -2,7 +2,7 @@
 @section('title','申请')
 @section('content')
     {{--<script type="text/javascript" src="{{asset('js/zepto.min.js')}}"></script>--}}
-    <script type="text/javascript" src="{{asset('js/lrz.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/dist/lrz.bundle.js')}}"></script>
 
     <style type="text/css">
     </style>
@@ -13,7 +13,6 @@
 </div>
 
     <div class="weui_cells weui_cells_form">
-
         <div class="weui_cell">
             <div class="weui_cell_bd weui_cell_primary">
                 <div class="weui_uploader">
@@ -44,7 +43,6 @@
                     <div class="weui_uploader_bd">
                         <ul class="weui_uploader_files" id='img2x'>
 
-
                         </ul>
                         <div class="weui_uploader_input_wrp">
                             <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  onchange="previewImage1(this)" multiple />
@@ -65,7 +63,7 @@
     <h5 class="page_title">　</h5>
 @endsection
 @section('js')
-
+    <script type='text/javascript'>
     function previewImage(file) {
     var MAXWIDTH = 100;
     var MAXHEIGHT = 200;

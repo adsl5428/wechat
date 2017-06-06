@@ -18,14 +18,14 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">名字</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="nameid" name="name" class="weui_input"  placeholder="贷款人姓名" value="李宏城"/>
+                        <input id="nameid" name="name" class="weui_input"  placeholder="贷款人姓名" value=""/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">身份证</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="cardid" name="card" class="weui_input"  placeholder="贷款人身份证" value="350525199009215338"/>
+                        <input id="cardid" name="card" class="weui_input"  placeholder="贷款人身份证" value=""/>
                     </div>
                 </div>
 
@@ -65,8 +65,6 @@
 @endsection
 @section('js')
 
-
-
     function validateIdCard(idCard){
 
     var regIdCard=/^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
@@ -105,12 +103,10 @@
     return true;
     }
 
-
     function login()
     {
 
     if(!validateIdCard($('#cardid').val())) return false;
-
 
 
     $.ajax(
