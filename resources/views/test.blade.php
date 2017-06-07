@@ -106,13 +106,12 @@
 
 
 </body>
-onclick="var delimg=$(this);$.confirm(\'您确定要删除吗?\', \'确认删除?\', function() {delimg.remove();},function(){$.toast(\'取消操作\', \'cancel\');});"
+{{--onclick="var delimg=$(this);$.confirm(\'您确定要删除吗?\', \'确认删除?\', function() {delimg.remove();},function(){$.toast(\'取消操作\', \'cancel\');});"--}}
 <script type='text/javascript'>
     $(function(){
         var f = document.querySelector('#headimgurl');
         f.onchange = function () {
                 lrz(this.files[0],{quality:1}).then(function (rst) {
-
                     console.log(rst);
                     $.ajax({
                         url: '{{asset('test')}}',
@@ -125,10 +124,9 @@ onclick="var delimg=$(this);$.confirm(\'您确定要删除吗?\', \'确认删除
 //                                alert('成功');
 //                                li = "<img src='" + response.result + "' />";
                                 li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-//                                alert (li);
                                 $('#img').append(li);
 //                                $('#img').append('<li class="weui_uploader_file weui_uploader_status" style="background-image:url('+obj.src+')"><div class="weui_uploader_status_content"><i class="weui_icon_cancel"></i></div></li>');
-                                $('#file2').append('<input value="'+response.result+'"  type="hidden"  name="files" />');
+//                                $('#file').append('<input value="'+response.result+'"  type="hidden"  name="files" />');
                                 return true;
                             } else {
                                 return alert(response.msg);
@@ -137,22 +135,17 @@ onclick="var delimg=$(this);$.confirm(\'您确定要删除吗?\', \'确认删除
                         error: function (jqXHR, textStatus, errorThrown) {
                             if (textStatus == 'timeout') {
                                 a_info_alert('请求超时');
-
                                 return false;
                             }
-
                             alert(jqXHR.responseText);
                         }
                     });
-
                 })
                     .catch(function (err) {
                         alert(err);
                     })
-
                     .always(function () {// 不管是成功失败，这里都会执行
                     });
-
             };
 
 //多图上传
@@ -172,8 +165,8 @@ onclick="var delimg=$(this);$.confirm(\'您确定要删除吗?\', \'确认删除
                         success: function (response) {
                             if (response.ecd == '0') {
 //                                alert('成功');
-                                $('#img2').append('<li onclick="var delimg=$(this);$.confirm(\'您确定要删除吗?\', \'确认删除?\', function() {delimg.remove();},function(){$.toast(\'取消操作\', \'cancel\');});" class="weui_uploader_file weui_uploader_status" style="background-image:url('+obj.src+')"><div class="weui_uploader_status_content"><i class="weui_icon_cancel"></i></div></li>');
-                                $('#file2').append('<input value="'+response.result+'"  type="hidden"  name="files" />');
+                                li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
+                                $('#img2').append(li);
                                 return true;
                             } else {
                                 return alert(response.msg);
@@ -186,20 +179,100 @@ onclick="var delimg=$(this);$.confirm(\'您确定要删除吗?\', \'确认删除
 
                                 return false;
                             }
-
                             alert(jqXHR.responseText);
                         }
                     });
-
                 })
                     .catch(function (err) {
                         alert(err);
                     })
-
                     .always(function () {// 不管是成功失败，这里都会执行
                     });
             }//for end
-        }
+        };
+
+        var f3 = document.querySelector('#headimgurl3');
+        f3.onchange = function (e) {
+            var files = e.target.files;
+            var len = files.length;
+            for (var i=0; i < len; i++) {
+                lrz(files[i],{quality:1}).then(function (rst) {
+                    console.log(rst);
+                    $.ajax({
+                        url: '{{asset('test')}}',
+                        type: 'post',
+                        data: { img: rst.base64,'_token':"{{csrf_token()}}"},
+                        dataType: 'json',
+                        timeout: 200000,
+                        success: function (response) {
+                            if (response.ecd == '0') {
+//                                alert('成功');
+                                li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
+                                $('#img3').append(li);
+                                return true;
+                            } else {
+                                return alert(response.msg);
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+
+                            if (textStatus == 'timeout') {
+                                a_info_alert('请求超时');
+
+                                return false;
+                            }
+                            alert(jqXHR.responseText);
+                        }
+                    });
+                })
+                    .catch(function (err) {
+                        alert(err);
+                    })
+                    .always(function () {// 不管是成功失败，这里都会执行
+                    });
+            }//for end
+        };
+
+        var f4 = document.querySelector('#headimgurl4');
+        f4.onchange = function (e) {
+            var files = e.target.files;
+            var len = files.length;
+            for (var i=0; i < len; i++) {
+                lrz(files[i],{quality:1}).then(function (rst) {
+                    console.log(rst);
+                    $.ajax({
+                        url: '{{asset('test')}}',
+                        type: 'post',
+                        data: { img: rst.base64,'_token':"{{csrf_token()}}"},
+                        dataType: 'json',
+                        timeout: 200000,
+                        success: function (response) {
+                            if (response.ecd == '0') {
+//                                alert('成功');
+                                li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
+                                $('#img4').append(li);
+                                return true;
+                            } else {
+                                return alert(response.msg);
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+
+                            if (textStatus == 'timeout') {
+                                a_info_alert('请求超时');
+                                return false;
+                            }
+                            alert(jqXHR.responseText);
+                        }
+                    });
+                })
+                    .catch(function (err) {
+                        alert(err);
+                    })
+                    .always(function () {// 不管是成功失败，这里都会执行
+                    });
+            }//for end
+        };
     });
 
 </script>
