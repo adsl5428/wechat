@@ -2,6 +2,15 @@
 @section('title','申请')
 @section('content')
     <style>
+        .placeholder1 {
+            background-color: #eb0000;
+            color: #000001;
+            height: 2.3em;
+            line-height: 2.3em;
+            margin: 5px;
+            text-align: center;
+        }
+
         h4 {
             font-weight: 400;
             font-size: 17px;
@@ -13,7 +22,6 @@
         word-wrap: normal;
             word-wrap: break-word;//允许长单词换行到下一行
         word-break: break-all;//使用浏览器默认的换行规则
-
         }
 
         p {
@@ -26,8 +34,13 @@
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
         }
+        .f
+        {
+            height: 5em;
+        }
     </style>
     <link rel="stylesheet" href="{{asset('css/weui2.css')}}">
+
     <div class="weui_tab " style="height:44px;" id="tab1"><!--tab-fixed添加顶部-->
         <div class="weui_navbar" style="height:44px;">
             <div class="weui_navbar_item a">
@@ -36,7 +49,7 @@
             <div class="weui_navbar_item b">
                 未发货
             </div>
-            <div class="weui_navbar_item c">
+            <div class="weui_navbar0_item c">
                 全部订单
             </div>
             <div class="weui_navbar_item d">
@@ -48,201 +61,45 @@
         </div>
     </div>
 
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item " >            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
     <div class="weui-flex">
-        <div class="weui-flex-item"><div class="placeholder">weui</div></div>
-        <div class="weui-flex-item">
-            <div class="media_bd">
-                <a href="1234">     <h4 class="media_title">456789123</h4>
-                <p class="media_desc">作者:1234  发布时间:1234</p></a>
-            </div></div>
-    </div>
-    <div class="weui-flex a">
-        <div class="weui-flex-item b"><div class="placeholder">weui</div></div></a>
-        <div class="weui-flex-item a"><div class="placeholder">weui</div></div>
-        <div class="weui-flex-item a"><div class="placeholder">weui</div></div>
-    </div>
-    <div class="weui-flex">
-        <div class="weui-flex-item 1"><div class="placeholder">weui</div></div>
-        <div class="weui-flex-item 1"><div class="placeholder">weui</div></div>
-        <div class="weui-flex-item"><div class="placeholder">weui</div></div>
-        <div class="weui-flex-item a"><div class="placeholder">55555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555</div></div>
+        <div class="weui-flex-item" >
+            <div class="placeholder a">
+                <a href="1234">
+                    <h4 class="media_title">456789123</h4>
+                    <p class="media_desc">作者:1234  发布时间:1234</p>
+                    <p class="media_desc">作者:1234  发布时间:1234</p>
+                    <p class="media_desc">作者:1234  发布时间:1234</p>
+                    <p class="media_desc">作者:1234  发布时间:1234</p>
+                </a>
+        </div>
+        </div>
     </div>
 
+
+    <div class="weui-flex a">
+        <div class="weui-flex-item"><div class="placeholder">weui</div></div>
+        <div class="weui-flex-item"><div class="placeholder">weui</div></div>
+    </div>
+    <div class="weui-flex">
+        <div class="weui-flex-item"><div class="placeholder">weui</div></div>
+        <div class="weui-flex-item"><div class="placeholder">weui</div></div>
+        <div class="weui-flex-item"><div class="placeholder">55555555555555555555555555555555555555</div></div>
+    </div>
 
 
 @endsection
 
 @section('js')
+
     $('#tab1').tab({defaultIndex:0,activeClass:"tab-green"});
 
-
-
     $(function(){
-    $('.weui_navbar_item').on('click', function () {
-    $(".weui-flex-item.a").hide(0);
-    $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+    $('.weui_navbar_item.a').on('click', function () {
+    $(".weui-flex.a").hide(0);
+    });
+
+    $('.weui_navbar_item.b').on('click', function () {
+    $(".weui-flex.a").show(0);
     });
     });
 

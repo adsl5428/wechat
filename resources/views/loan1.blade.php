@@ -5,11 +5,10 @@
 
     <div class="page">
         <div class="hd">
-
             <h1 class="page_title">丰纳金融</h1>
             <h5 class="page_title">Loan</h5>
-
         </div>
+
         <div class="bd">
 
             <div class="weui_cells weui_cells_form">
@@ -18,14 +17,14 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">名字</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="nameid" name="name" class="weui_input"  placeholder="贷款人姓名" value=""/>
+                        <input id="nameid" name="name" class="weui_input"  placeholder="贷款人姓名" value="黄大爷"/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">身份证</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="cardid" name="card" class="weui_input"  placeholder="贷款人身份证" value=""/>
+                        <input id="cardid" name="card" class="weui_input"  placeholder="贷款人身份证" value="350525199009215338"/>
                     </div>
                 </div>
 
@@ -33,7 +32,7 @@
                 <div class="weui_cell weui_vcode ">
                     <div class="weui_cell_hd"><label class="weui_label">贷款额</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="tel" placeholder="申请贷款金额"/>
+                        <input class="weui_input" type="tel" placeholder="申请贷款金额" value="123" />
                     </div>
                     <div class="weui_cell_ft weui_vimg_wrp">
 
@@ -42,16 +41,6 @@
                 </div>
 
 
-                <div class="weui_cell weui_cell_select weui_select_after">
-                    <div class="weui_cell_hd"><label class="weui_label">项目</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <select class="weui_select" name="select2">
-                            <option value="1"> 一抵</option>
-                            <option value="2"> 二抵</option>
-                            <option value="3"> 车抵</option>
-                        </select>
-                    </div>
-                </div>
 
             </div>
             <div class="weui_btn_area">
