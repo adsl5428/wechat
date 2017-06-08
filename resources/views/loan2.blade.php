@@ -1,276 +1,126 @@
 @extends('master')
 @section('title','申请')
 @section('content')
-    {{--<script type="text/javascript" src="{{asset('js/zepto.min.js')}}"></script>--}}
-    <script type="text/javascript" src="{{asset('js/dist/lrz.bundle.js')}}"></script>
 
-    <style type="text/css">
-    </style>
 
-<div class="hd">
-    <h1 class="page_title">丰纳金融</h1>
-    <h5 class="page_title">Loan</h5>
-</div>
-
-    <div class="weui_cells weui_cells_form">
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">身份证</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="weui_uploader_bd">
-                        <ul class="weui_uploader_files" id='img'>
-
-                        </ul>
-                        <div class="weui_uploader_input_wrp">
-                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" id="headimgurl" />
-                            <input  type="hidden"  id="headimgurl1" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="page">
+        <div class="hd">
+            <h1 class="page_title">丰纳金融</h1>
+            <h5 class="page_title">Loan</h5>
         </div>
 
+        <div class="bd">
 
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">户口本</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="weui_uploader_bd">
-                        <ul class="weui_uploader_files" id='img2'>
-
-
-                        </ul>
-                        <div class="weui_uploader_input_wrp" id="file2">
-                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl2' multiple />
-
-                        </div>
+            <div class="weui_cells weui_cells_form">
+                {{--<form action="staffregister" method="get">--}}
+                {{--{{csrf_field()}}--}}
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">名字</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input id="nameid" name="name" class="weui_input"  placeholder="贷款人姓名" value="黄大爷"/>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">房产证</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="weui_uploader_bd">
-                        <ul class="weui_uploader_files" id='img3'>
-
-                        </ul>
-                        <div class="weui_uploader_input_wrp" id="file3">
-                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl3' multiple />
-
-                        </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">身份证</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input id="cardid" name="card" class="weui_input"  placeholder="贷款人身份证" value="350525199009215338"/>
                     </div>
                 </div>
-            </div>
-        </div>
 
 
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">信用报告</div>
-                        <div class="weui_cell_ft"></div>
+                <div class="weui_cell weui_vcode ">
+                    <div class="weui_cell_hd"><label class="weui_label">贷款额</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="tel" placeholder="申请贷款金额" value="123" />
                     </div>
-                    <div class="weui_uploader_bd">
-                        <ul class="weui_uploader_files" id='img4'>
+                    <div class="weui_cell_ft weui_vimg_wrp">
 
-                        </ul>
-                        <div class="weui_uploader_input_wrp" id="file4">
-                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl4' multiple />
-
-                        </div>
+                        <img src="./images/wan.png" />
                     </div>
                 </div>
-            </div>
-        </div>
 
+
+
+            </div>
+            <div class="weui_btn_area">
+                <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>
+            </div>
+            {{--</form>--}}
+            {{--<div class="weui_toptips weui_warn js_tooltips">格式不对</div>--}}
+
+        </div>
     </div>
-
-
-
-    <div class="weui_btn_area">
-    <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">确定</a>
-</div>
-    <h5 class="page_title">　</h5>
 @endsection
 @section('js')
-    $(function(){
-    var f = document.querySelector('#headimgurl');
-    f.onchange = function () {
-    lrz(this.files[0],{quality:1}).then(function (rst) {
-    console.log(rst);
-    $.ajax({
-    url: '{{asset('test')}}',
-    type: 'post',
-    data: { img: rst.base64,'_token':"{{csrf_token()}}"},
-    dataType: 'json',
-    timeout: 200000,
-    success: function (response) {
-    if (response.ecd == '0') {
-    //                                alert('成功');
-    //                                li = "<img src='" + response.result + "' />";
-    li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-    $('#img').append(li);
-    //                                $('#img').append('<li class="weui_uploader_file weui_uploader_status" style="background-image:url('+obj.src+')"><div class="weui_uploader_status_content"><i class="weui_icon_cancel"></i></div></li>');
-    //                                $('#file').append('<input value="'+response.result+'"  type="hidden"  name="files" />');
+
+    function validateIdCard(idCard){
+
+    var regIdCard=/^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
+
+    if(regIdCard.test(idCard)){
+    if(idCard.length==18){
+    var idCardWi=new Array( 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 );
+    var idCardY=new Array( 1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2 );
+    var idCardWiSum=0;
+    for(var i=0;i<17;i++){
+    idCardWiSum+=idCard.substring(i,i+1)*idCardWi[i];
+    }
+
+    var idCardMod=idCardWiSum%11;
+    var idCardLast=idCard.substring(17);
+
+
+    if(idCardMod==2){
+    if(idCardLast=="X"||idCardLast=="x"){
+
+    }else{
+    alert("身份证号码错误！"); return false;
+    }
+    }else{
+
+    if(idCardLast==idCardY[idCardMod]){
+
+    }else{
+    alert("身份证号码错误！");return false;
+    }
+    }
+    }
+    }else{
+    alert("身份证格式不正确!");return false;
+    }
     return true;
-    } else {
-    return alert(response.msg);
     }
+
+    function login()
+    {
+
+    if(!validateIdCard($('#cardid').val())) return false;
+
+
+    $.ajax(
+    {
+    type:"post" ,
+    dataType: "json",
+    data:
+    {
+    'idcard':$('#cardid').val(),
+    'name':$('#nameid').val(),
+
+    '_token':"{{csrf_token()}}"
     },
-    error: function (jqXHR, textStatus, errorThrown) {
-    if (textStatus == 'timeout') {
-    a_info_alert('请求超时');
-    return false;
+    url: "loan1",
+    success:function(data){
+    if(data.status == 0)
+    {
+    alert (data.msg);
     }
-    alert(jqXHR.responseText);
+    else
+    {
+
+    location.href = data.msg;
+    }
     }
     });
-    })
-    .catch(function (err) {
-    alert(err);
-    })
-    .always(function () {// 不管是成功失败，这里都会执行
-    });
-    };
-
-    //多图上传
-    var f2 = document.querySelector('#headimgurl2');
-    f2.onchange = function (e) {
-    var files = e.target.files;
-    var len = files.length;
-    for (var i=0; i < len; i++) {
-    lrz(files[i],{quality:1}).then(function (rst) {
-    console.log(rst);
-    $.ajax({
-    url: '{{asset('test')}}',
-    type: 'post',
-    data: { img: rst.base64,'_token':"{{csrf_token()}}"},
-    dataType: 'json',
-    timeout: 200000,
-    success: function (response) {
-    if (response.ecd == '0') {
-    //                                alert('成功');
-    li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-    $('#img2').append(li);
-    return true;
-    } else {
-    return alert(response.msg);
     }
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-
-    if (textStatus == 'timeout') {
-    a_info_alert('请求超时');
-
-    return false;
-    }
-    alert(jqXHR.responseText);
-    }
-    });
-    })
-    .catch(function (err) {
-    alert(err);
-    })
-    .always(function () {// 不管是成功失败，这里都会执行
-    });
-    }//for end
-    };
-
-    var f3 = document.querySelector('#headimgurl3');
-    f3.onchange = function (e) {
-    var files = e.target.files;
-    var len = files.length;
-    for (var i=0; i < len; i++) {
-    lrz(files[i],{quality:1}).then(function (rst) {
-    console.log(rst);
-    $.ajax({
-    url: '{{asset('test')}}',
-    type: 'post',
-    data: { img: rst.base64,'_token':"{{csrf_token()}}"},
-    dataType: 'json',
-    timeout: 200000,
-    success: function (response) {
-    if (response.ecd == '0') {
-    //                                alert('成功');
-    li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-    $('#img3').append(li);
-    return true;
-    } else {
-    return alert(response.msg);
-    }
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-
-    if (textStatus == 'timeout') {
-    a_info_alert('请求超时');
-
-    return false;
-    }
-    alert(jqXHR.responseText);
-    }
-    });
-    })
-    .catch(function (err) {
-    alert(err);
-    })
-    .always(function () {// 不管是成功失败，这里都会执行
-    });
-    }//for end
-    };
-
-    var f4 = document.querySelector('#headimgurl4');
-    f4.onchange = function (e) {
-    var files = e.target.files;
-    var len = files.length;
-    for (var i=0; i < len; i++) {
-    lrz(files[i],{quality:1}).then(function (rst) {
-    console.log(rst);
-    $.ajax({
-    url: '{{asset('test')}}',
-    type: 'post',
-    data: { img: rst.base64,'_token':"{{csrf_token()}}"},
-    dataType: 'json',
-    timeout: 200000,
-    success: function (response) {
-    if (response.ecd == '0') {
-    //                                alert('成功');
-    li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-    $('#img4').append(li);
-    return true;
-    } else {
-    return alert(response.msg);
-    }
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-
-    if (textStatus == 'timeout') {
-    a_info_alert('请求超时');
-    return false;
-    }
-    alert(jqXHR.responseText);
-    }
-    });
-    })
-    .catch(function (err) {
-    alert(err);
-    })
-    .always(function () {// 不管是成功失败，这里都会执行
-    });
-    }//for end
-    };
-    });
-
 @endsection

@@ -33,20 +33,24 @@ class UsersController extends Controller
 //        $this->openid1=session('wechat.oauth_user')->getId();
     }
 
+    public function back()
+    {
+        return back();
+    }
+
     public function gettel()
     {
-
         $yuangong = Teluser::where('openid', 'o6PEYwAhVw7FVSndRLALm9lKOIC8')->firstOrFail();
         return $yuangong->name.':'.$yuangong->tel.'<br>'.$yuangong->name.':'.$yuangong->tel;
-
     }
     public function rand()
     {
-        $len = 12;
+        $len = 6;
         $chars=null;
         if (is_null($chars)){
             //$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            $chars = "abcdefghijklmnpqrstuvwxyz0123456789";
+//            $chars = "abcdefghijklmnpqrstuvwxyz0123456789";
+            $chars = "abcdefghijklmnopqrstuvwxyz";
 
         }
         mt_srand(10000000*(double)microtime());

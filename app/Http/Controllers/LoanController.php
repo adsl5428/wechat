@@ -98,7 +98,7 @@ class LoanController extends Controller
         }
         return view('test');
     }
-    public function loan1(Request $request)
+    public function loan1(Request $request)    //这里是流程1.  返回页面  通过session 记录是什么项目, 和记录流程1  已经完成
     {
         if ($request->isMethod('post'))
         {
@@ -110,20 +110,32 @@ class LoanController extends Controller
         }
         return view('loan1');
     }
+                                            //loan2  先检查是否接过本身份证 同项目的单子
+    public function loan2(Request $request)   //这里是流程2. 取项目session 判断 流程1 , 不符合就返回 流程1 页面
+    {                                         // 到这里把项目和流程写到数据库
+        if ($request->isMethod('post'))
+        {
+            dd(Input::all());
 
-    public function loan2(Request $request)
+            $data = [
+                'status' => 1,
+                'msg' => 'loan3',
+            ];
+        }
+        return view('loan2');
+    }
+    public function loan3(Request $request)  //这里是流程3 .  取项目session 判断 流程1 , 不符合就返回 流程2 页面
     {
         if ($request->isMethod('post'))
         {
             dd(Input::all());
             $data = [
                 'status' => 1,
-                'msg' => 'loan2',
+                'msg' => 'loan3',
             ];
         }
-        return view('loan2');
+        return view('loan3');
     }
-
     public function ajaxReturn($data = array(), $code = 0, $msg = '成功'){
         $result =  array(
             'result' => $data,
