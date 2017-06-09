@@ -44,7 +44,6 @@
                     <div class="weui_uploader_bd">
                         <ul class="weui_uploader_files" id='img2'>
 
-
                         </ul>
                         <div class="weui_uploader_input_wrp" id="file2">
                             <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl2' multiple />

@@ -62,7 +62,8 @@ Route::post('/staffregister', 'UsersController@staffregister');
 
 Route::get('/back', 'UsersController@back');
 
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+Route::group(['middleware' => ['web', 'wechat.oauth','partn']], function () {
+
     Route::get('/login', 'UsersController@login');
     Route::get('/users/mail', 'UsersController@mail');
     Route::any('/users/register', 'UsersController@register');
