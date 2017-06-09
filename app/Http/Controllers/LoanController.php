@@ -126,7 +126,7 @@ class LoanController extends Controller
         return view('loan2');
     }
     public function loan3(Request $request)  //这里是流程3 .  取项目session 判断 流程1 , 不符合就返回 流程2 页面
-    {
+    {                                        //走完流程, 清除 flow   $request->session()->forget('flow');
         if ($request->isMethod('post'))
         {
             dd(Input::all());
