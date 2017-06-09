@@ -44,7 +44,41 @@ class MenuController extends Controller
         echo '123';
     }
 
-    public function addmenu($tag_id)
+    public function addjinglimenu($tag_id)   //主管 菜单
+    {
+        $matchRule = [
+            "tag_id"=>$tag_id
+        ];
+        $buttons = [
+            [
+                "type" => "click",
+                "name" => "经理",
+                "key"  => "V1001_JINGLI"
+            ],
+        ];
+
+        $this->menu->add($buttons, $matchRule);
+        echo '经理';
+    }
+
+    public function addzhuguanmenu($tag_id)   //主管 菜单
+    {
+        $matchRule = [
+            "tag_id"=>$tag_id
+        ];
+        $buttons = [
+            [
+                "type" => "click",
+                "name" => "主管",
+                "key"  => "V1001_ZHUGUN"
+            ],
+        ];
+
+        $this->menu->add($buttons, $matchRule);
+        echo '主管';
+    }
+
+    public function addmenu($tag_id)   //普通员工菜单
     {
         $matchRule = [
             "tag_id"=>$tag_id
@@ -58,7 +92,44 @@ class MenuController extends Controller
         ];
 
         $this->menu->add($buttons, $matchRule);
-        echo '123';
+        echo '渠道';
+    }
+
+    public function addmenupartner($tag_id)    //合伙人 菜单
+    {
+        $matchRule = [
+            "tag_id"=>$tag_id
+        ];
+        $buttons = [
+            [
+                "type" => "view",
+                "name" => "提交订单",
+                "url"  => "http://www.fnjr.loan/loan1"
+            ],
+            [
+                "type" => "view",
+                "name" => "订单中心",
+                "url"  => "http://www.fnjr.loan/order"
+            ],
+            [
+                "name"       => "小工具",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "小工具A",
+                        "url"  => "http://www.小工具A.loan/"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "小工具B",
+                        "url"  => "http://www.小工具B.loan/"
+                    ],
+                ],
+            ],
+        ];
+
+        $this->menu->add($buttons, $matchRule);
+        echo '合伙人';
     }
     public function testmenu($userId)
     {

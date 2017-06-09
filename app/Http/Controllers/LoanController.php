@@ -108,7 +108,7 @@ class LoanController extends Controller
             ];
             return $data;
         }
-        $request->session()->put('flow', '1');  //test
+//        $request->session()->put('flow', '1');  //test
         return view('loan1');
     }
                                             //loan2  先检查是否接过本身份证 同项目的单子
@@ -122,7 +122,7 @@ class LoanController extends Controller
                 'msg' => 'loan3',
             ];
         }
-        dd($request->session()->get('flow'));  //test
+//        dd($request->session()->get('flow'));  //test
         return view('loan2');
     }
     public function loan3(Request $request)  //这里是流程3 .  取项目session 判断 流程1 , 不符合就返回 流程2 页面
@@ -135,7 +135,7 @@ class LoanController extends Controller
                 'msg' => 'loan3',
             ];
         }
-        dd($request->session()->get('flow'));  //test
+//        dd($request->session()->get('flow'));  //test
         return view('loan3');
     }
     public function ajaxReturn($data = array(), $code = 0, $msg = '成功'){

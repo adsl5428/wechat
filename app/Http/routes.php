@@ -24,7 +24,7 @@ Route::get('tag/addtotag/{id}/{tid}','TagController@addtotag'); //将 id 加入�
 Route::get('tag/deltotag/{id}/{tid}','TagController@deltotag'); //将 id 从 tid标签中删除
 Route::get('tag/usersoftag/{tid}','TagController@usersoftag');  //得到 标签下的用户
 Route::get('tag/usertags/{id}','TagController@usertags');       //得到用户属于哪个 标签
-
+Route::get('tag/delete/{id}','TagController@delete');       //得到用户属于哪个 标签
 
 
 Route::get('admin/lists','AdminController@lists');
