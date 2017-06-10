@@ -2202,9 +2202,9 @@ weui-box*/
     flex: 1;
 }
 .placeholder {
-    background-color: #eb0000;
+    background-color: #dddddd;
     color: #000001;
-    height: 2.3em;
+    height: 5em;
     line-height: 2.3em;
     margin: 5px;
     text-align: center;

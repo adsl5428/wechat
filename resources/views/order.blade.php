@@ -49,7 +49,7 @@
             <div class="weui_navbar_item b">
                 未发货
             </div>
-            <div class="weui_navbar0_item c">
+            <div class="weui_navbar_item">
                 全部订单
             </div>
             <div class="weui_navbar_item d">
@@ -68,8 +68,7 @@
                     <h4 class="media_title">456789123</h4>
                     <p class="media_desc">作者:1234  发布时间:1234</p>
                     <p class="media_desc">作者:1234  发布时间:1234</p>
-                    <p class="media_desc">作者:1234  发布时间:1234</p>
-                    <p class="media_desc">作者:1234  发布时间:1234</p>
+
                 </a>
         </div>
         </div>

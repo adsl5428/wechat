@@ -102,6 +102,7 @@ class LoanController extends Controller
     {
         if ($request->isMethod('post'))
         {
+
             $data = [
                 'status' => 1,
                 'msg' => 'loan2',
@@ -121,6 +122,7 @@ class LoanController extends Controller
                 'status' => 1,
                 'msg' => 'loan3',
             ];
+            return $data;
         }
 //        dd($request->session()->get('flow'));  //test
         return view('loan2');
@@ -129,11 +131,12 @@ class LoanController extends Controller
     {                                        //走完流程, 清除 flow   $request->session()->forget('flow');
         if ($request->isMethod('post'))
         {
-            dd(Input::all());
+//            dd(Input::all());
             $data = [
                 'status' => 1,
                 'msg' => 'loan3',
             ];
+            return $data;
         }
 //        dd($request->session()->get('flow'));  //test
         return view('loan3');

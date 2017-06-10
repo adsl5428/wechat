@@ -1,7 +1,7 @@
 @extends('master')
 @section('title','申请')
 @section('content')
-
+    <link rel="stylesheet" href="{{asset('css/weui2.css')}}">
 
     <div class="page">
         <div class="hd">
@@ -10,14 +10,12 @@
         </div>
 
         <div class="bd">
-
             <div class="weui_cells weui_cells_form">
-                {{--<form action="staffregister" method="get">--}}
-                {{--{{csrf_field()}}--}}
+
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">名字</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="nameid" name="name" class="weui_input"  placeholder="贷款人姓名" value="黄大爷"/>
+                        <input id="nameid" name="name" class="weui_input"  placeholder="贷款人姓名" value="李宏城"/>
                     </div>
                 </div>
 
@@ -29,31 +27,58 @@
                 </div>
 
 
+
+
                 <div class="weui_cell weui_vcode ">
                     <div class="weui_cell_hd"><label class="weui_label">贷款额</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="tel" placeholder="申请贷款金额" value="123" />
+                        <input id="moneyid" class="weui_input" type="tel" placeholder="申请贷款金额" value="123" />
                     </div>
-                    <div class="weui_cell_ft weui_vimg_wrp">
-
-                        <img src="./images/wan.png" />
+                    <div class="weui_cell_ft">
+                        <i class="weui_icon_warn"></i>
+                        <a class="weui-vcode-btn">万元</a>
                     </div>
                 </div>
 
+
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">用途</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input id="yongtuid" name="yongtu" class="weui_input"  placeholder="借款用途" value="做生意"/>
+                    </div>
+                </div>
+
+
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">还款来源</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input id="laiyuanid" name="laiyuan" class="weui_input"  placeholder="还款来源" value="抢劫"/>
+                    </div>
+                </div>
+
+                <div class="weui_cell"></div>
+
+                <div class="weui_cells_title">特殊情况备注</div>
+                <div class="weui_cells weui_cells_form">
+                    <div class="weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <textarea id="teshuid" class="weui_textarea" placeholder="客户的特殊情况做一个简单介绍" rows="3">1234567</textarea>
+                            <div class="weui_textarea_counter"><span id='count'></span><span id='count_max'></span></div>
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
             <div class="weui_btn_area">
                 <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>
             </div>
-            {{--</form>--}}
-            {{--<div class="weui_toptips weui_warn js_tooltips">格式不对</div>--}}
 
         </div>
     </div>
 @endsection
 @section('js')
-
+    {{--<script type='text/javascript'>--}}
     function validateIdCard(idCard){
 
     var regIdCard=/^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
@@ -97,7 +122,11 @@
 
     if(!validateIdCard($('#cardid').val())) return false;
 
+    if($('#yongtuid').val() == "")
+    { alert("请填写借款用途!");return false;}
 
+    if($('#laiyuanid').val()== "")
+    { alert("请填写还款来源!");return false;}
     $.ajax(
     {
     type:"post" ,
@@ -106,10 +135,13 @@
     {
     'idcard':$('#cardid').val(),
     'name':$('#nameid').val(),
-
+    'money':$('#moneyid').val(),
+    'yongtu':$('#yongtuid').val(),
+    'laiyuan':$('#laiyuanid').val(),
+    'teshu':$('#teshuid').val(),
     '_token':"{{csrf_token()}}"
     },
-    url: "loan1",
+    url: "loan2",
     success:function(data){
     if(data.status == 0)
     {

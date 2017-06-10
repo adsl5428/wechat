@@ -99,7 +99,7 @@
             <div class="weui_cell_bd weui_cell_primary">
                 <div class="weui_uploader">
                     <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">其它</div>
+                        <div class="weui_cell_bd weui_cell_primary">其它有助于增加额度的资产证明（机动车，保单，股票……）</div>
                         <div class="weui_cell_ft"></div>
                     </div>
                     <div class="weui_uploader_bd">
