@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ceccf74-6c36-4426-acc4-1a0323f5a054" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/LoanController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoanController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/nopower.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TagController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TagController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/Partner.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/Partner.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/loan3.blade.php" afterPath="$PROJECT_DIR$/resources/views/loan3.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +21,8 @@
       <file leaf-file-name="loan3.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/loan3.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="113" column="22" lean-forward="true" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="19" />
               <folding>
                 <element signature="e#10087#10136#0#HTML" expanded="true" />
               </folding>
@@ -33,8 +33,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-544">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="378">
+              <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -43,8 +43,8 @@
       <file leaf-file-name="Partner.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Partner.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="462">
+              <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -60,16 +60,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wechat.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/wechat.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="48" column="6" lean-forward="true" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="WechatController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WechatController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,21 +70,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Transfer.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/Message/Transfer.php">
+      <file leaf-file-name="nopower.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/nopower.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="29" column="6" lean-forward="false" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+            <state relative-caret-position="147">
+              <caret line="7" column="46" lean-forward="false" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MenuController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MenuController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="819">
-              <caret line="51" column="20" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+            <state relative-caret-position="399">
+              <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -157,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/captcha.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CodeController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_05_17_064824_create_user_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Model/User.php" />
@@ -202,12 +191,13 @@
         <option value="$PROJECT_DIR$/app/Http/Middleware/Register.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/Partner.php" />
         <option value="$PROJECT_DIR$/resources/views/loan3.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TagController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LoanController.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/Partner.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" />
+        <option value="$PROJECT_DIR$/resources/views/nopower.blade.php" />
       </list>
     </option>
   </component>
@@ -267,7 +257,25 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wechat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wechat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -282,46 +290,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Middleware" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -334,7 +302,7 @@
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../newnote" />
-    <property name="SearchEverywhereHistoryKey" value="tran&#9;null&#9;null&#10;we&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/WechatController.php&#10;wecha&#9;FILE&#9;file://C:/AppServ/www/wechat/config/wechat.php&#10;loanco&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/LoanController.php&#10;loan3&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan3.blade.php&#10;route&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/routes.php&#10;tag&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/TagController.php&#10;me&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/MenuController.php&#10;menu&#9;null&#9;null&#10;loancon&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/LoanController.php&#10;loan2&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan2.blade.php&#10;config&#9;null&#9;null&#10;.env&#9;FILE&#9;file://C:/AppServ/www/wechat/.env&#10;ker&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Kernel.php&#10;openid&#9;null&#9;null&#10;users&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/UsersController.php&#10;login&#9;null&#9;null&#10;midd&#9;null&#9;null&#10;adminlo&#9;null&#9;null&#10;register&#9;null&#9;null&#10;kernel&#9;null&#9;null&#10;kern&#9;null&#9;null&#10;loan&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan2.blade.php&#10;user&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/UsersController.php&#10;add&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/addpartner.blade.php&#10;loanc&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/LoanController.php&#10;mast&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;mas&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;weui&#9;FILE&#9;file://C:/AppServ/www/wechat/public/css/weui.css&#10;weui2&#9;FILE&#9;file://C:/AppServ/www/wechat/public/css/weui2.css&#10;placeholder&#9;null&#9;null&#10;order&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/order.blade.php&#10;filesys&#9;FILE&#9;file://C:/AppServ/www/wechat/config/filesystems.php&#10;test&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/test.blade.php&#10;ma&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;rout&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/routes.php&#10;rou&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/routes.php&#10;loan1&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan1.blade.php&#10;master&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;file&#9;FILE&#9;file://C:/AppServ/www/wechat/config/filesystems.php&#10;files&#9;FILE&#9;file://C:/AppServ/www/wechat/config/filesystems.php&#10;par&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/addpartner.blade.php&#10;partnerregister&#9;null&#9;null&#10;addp&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/addpartner.blade.php&#10;tagc&#9;null&#9;null&#10;admin&#9;null&#9;null&#10;wech&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/WechatController.php" />
+    <property name="SearchEverywhereHistoryKey" value="pa&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Middleware/Partner.php&#10;par&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Middleware/Partner.php&#10;route&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/routes.php&#10;tran&#9;null&#9;null&#10;we&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/WechatController.php&#10;wecha&#9;FILE&#9;file://C:/AppServ/www/wechat/config/wechat.php&#10;loanco&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/LoanController.php&#10;loan3&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan3.blade.php&#10;tag&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/TagController.php&#10;me&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/MenuController.php&#10;menu&#9;null&#9;null&#10;loancon&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/LoanController.php&#10;loan2&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan2.blade.php&#10;config&#9;null&#9;null&#10;.env&#9;FILE&#9;file://C:/AppServ/www/wechat/.env&#10;ker&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Kernel.php&#10;openid&#9;null&#9;null&#10;users&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/UsersController.php&#10;login&#9;null&#9;null&#10;midd&#9;null&#9;null&#10;adminlo&#9;null&#9;null&#10;register&#9;null&#9;null&#10;kernel&#9;null&#9;null&#10;kern&#9;null&#9;null&#10;loan&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan2.blade.php&#10;user&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/UsersController.php&#10;add&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/addpartner.blade.php&#10;loanc&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/LoanController.php&#10;mast&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;mas&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;weui&#9;FILE&#9;file://C:/AppServ/www/wechat/public/css/weui.css&#10;weui2&#9;FILE&#9;file://C:/AppServ/www/wechat/public/css/weui2.css&#10;placeholder&#9;null&#9;null&#10;order&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/order.blade.php&#10;filesys&#9;FILE&#9;file://C:/AppServ/www/wechat/config/filesystems.php&#10;test&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/test.blade.php&#10;ma&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;rout&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/routes.php&#10;rou&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/routes.php&#10;loan1&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan1.blade.php&#10;master&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;file&#9;FILE&#9;file://C:/AppServ/www/wechat/config/filesystems.php&#10;files&#9;FILE&#9;file://C:/AppServ/www/wechat/config/filesystems.php&#10;partnerregister&#9;null&#9;null&#10;addp&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/addpartner.blade.php&#10;tagc&#9;null&#9;null&#10;admin&#9;null&#9;null&#10;wech&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/WechatController.php" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -458,12 +426,12 @@
       <workItem from="1496624868568" duration="4124000" />
       <workItem from="1496672749787" duration="3889000" />
       <workItem from="1496971202949" duration="9820000" />
-      <workItem from="1497018026671" duration="9964000" />
+      <workItem from="1497018026671" duration="12303000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="324459000" />
+    <option name="totallyTimeSpent" value="326798000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1598" height="898" extended-state="0" />
@@ -503,13 +471,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/example.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Model/Partner.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -707,14 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MenuController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="51" column="20" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/User/Tag.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -731,36 +684,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/Message/Transfer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Partner.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/loan3.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="113" column="22" lean-forward="true" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
-          <folding>
-            <element signature="e#10087#10136#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LoanController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="111" column="10" lean-forward="true" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
+        <state relative-caret-position="422">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -773,6 +700,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/loan3.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="19" />
+          <folding>
+            <element signature="e#10087#10136#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="81" column="22" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Partner.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LoanController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="111" column="10" lean-forward="true" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WechatController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -781,10 +742,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/Message/Transfer.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/nopower.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="29" column="6" lean-forward="false" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+        <state relative-caret-position="147">
+          <caret line="7" column="46" lean-forward="false" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MenuController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
           <folding />
         </state>
       </provider>

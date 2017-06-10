@@ -79,7 +79,9 @@ Route::group(['middleware' => ['web', 'wechat.oauth','partn']], function () {
 
 });
 
-
+Route::get('/nopower', function () {
+    return view('nopower');
+});
 
 /*
 Route::group(['middleware' => ['web']], function () {

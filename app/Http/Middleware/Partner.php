@@ -20,7 +20,7 @@ class Partner
         //查找是否有这个openid
         $userinfo = \App\Http\Model\Partner::where('openid',$user->getId())->first();
         if($userinfo == null)
-            return redirect('/');
+            return redirect('/nopower');
         return $next($request);
     }
 }

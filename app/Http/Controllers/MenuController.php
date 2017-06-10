@@ -92,7 +92,7 @@ class MenuController extends Controller
         ];
 
         $this->menu->add($buttons, $matchRule);
-        echo '渠道';
+        echo '渠道专员';
     }
 
     public function addmenupartner($tag_id)    //合伙人 菜单
