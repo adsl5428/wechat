@@ -58,46 +58,60 @@
         </div>
     </div>
 
-    <div class="weui-flex">
-        <div class="weui-flex-item" >
-            <a href="1234">
-            <div class="placeholder a">
-
-                    <h4 class="media_title">456789123</h4>
-                    <p class="media_desc">作者:1234  发布时间:1234</p>
-                    <p class="media_desc">作者:1234  发布时间:1234</p>
-
-
-        </div>
-            </a>
-        </div>
-    </div>
+    {{--<div class="weui-flex">--}}
+        {{--<div class="weui-flex-item" >--}}
+            {{--<a href="1234">--}}
+            {{--<div class="placeholder a">--}}
+                    {{--<h4 class="media_title">456789123</h4>--}}
+                    {{--<span  class="media_desc">名字</span >--}}
+                     {{--<span  class="media_desc">作者:1234  发布时间:1234</span >--}}
+          {{--</div>--}}
+            {{--</a>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
 {{--名字 项目  金额 进度 --}}
-    <div class="weui-flex a">
-        <div class="weui-flex-item"><div class="placeholder">weui</div></div>
-        <div class="weui-flex-item"><div class="placeholder">weui</div></div>
-    </div>
-    <div class="weui-flex">
-        <div class="weui-flex-item"><div class="placeholder">weui</div></div>
-        <div class="weui-flex-item"><div class="placeholder">weui</div></div>
-        <div class="weui-flex-item"><div class="placeholder">563</div></div>
-    </div>
+    {{--<div class="weui-flex a">--}}
+        {{--<div class="weui-flex-item"><div class="placeholder">weui</div></div>--}}
+        {{--<div class="weui-flex-item"><div class="placeholder">weui</div></div>--}}
+    {{--</div>--}}
+    {{--<div class="weui-flex">--}}
+        {{--<div class="weui-flex-item"><div class="placeholder">weui</div></div>--}}
+        {{--<div class="weui-flex-item"><div class="placeholder">weui</div></div>--}}
+        {{--<div class="weui-flex-item"><div class="placeholder">563</div></div>--}}
+    {{--</div>--}}
 
+
+    <div class="weui_cells weui_cells_access">
+        <a class="weui_cell a" href="javascript:;">
+            {{--<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>--}}
+            <div class="weui_cell_bd weui_cell_primary">
+                <span  class="media_desc">名字</span ><span class="media_desc">名字</span >
+            </div>
+            <div class="weui_cell_ft">说明文字</div>
+        </a>
+        <a class="weui_cell b" href="javascript:;">
+            {{--<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>--}}
+            <div class="weui_cell_bd weui_cell_primary">
+                <span class="media_desc">老王　</span ><b><span class="media_desc">一抵　</span ></b>
+                <span class="media_desc">100万　</span ><span class="media_desc f21 bg-blue">初审</span >
+            </div>
+            <div class="weui_cell_ft"></div>
+        </a>
+    </div>
 
 @endsection
 
 @section('js')
-
     $('#tab1').tab({defaultIndex:0,activeClass:"tab-green"});
 
     $(function(){
     $('.weui_navbar_item.a').on('click', function () {
-    $(".weui-flex.a").hide(0);
+    $(".weui_cell.a").hide(0);
     });
 
     $('.weui_navbar_item.b').on('click', function () {
-    $(".weui-flex.a").show(0);
+    $(".weui_cell.a").show(0);
     });
     });
 
