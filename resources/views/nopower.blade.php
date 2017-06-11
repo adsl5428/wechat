@@ -10,7 +10,6 @@
             <div class="weui_opr_area">
                 <p class="weui_btn_area">
                     <a href="javascript:;" class="weui_btn weui_btn_primary">推荐操作</a>
-                    <a href="javascript:;" class="weui_btn weui_btn_default">辅助操作</a>
                 </p>
             </div>
             <div class="weui_extra_area">
