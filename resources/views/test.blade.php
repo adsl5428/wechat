@@ -114,18 +114,20 @@
     <h5 class="page_title">　</h5>
 @endsection
 @section('js')
-    var uploader = new plupload.Uploader({    //创建实例的构造方法
-    runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
-    browse_button: 'btn1' ,           // 上传按钮
-    url: "{{asset('test')}}",        //远程上传地址
-    flash_swf_url: '{{asset('js/Moxie.swf')}}',    //flash文件地址
-    silverlight_xap_url: '{{asset('js/Moxie.xap')}}', //silverlight文件地址
-    filters: {
-    max_file_size: '10mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
-    mime_types: [  //允许文件上传类型
-    {title: "files", extensions: "jpg,png"}
-    ]
-    },
+    <script type='text/javascript'>
+    var uploader = WebUploader.create({     //创建实例的构造方法
+    auto: true, // 选完文件后，是否自动上传
+    pick: '#imgPicker', // 选择文件的按钮。可选
+    server: "{{asset('test')}}",        //远程上传地址
+    swf: '{{asset('js/baidu/Uploader.swf')}}',    //flash文件地址
+        accept: {
+            title: 'Images',
+            extensions: 'jpg,jpeg,bmp,png',
+            mimeTypes: 'image/*'
+        },
+        formData: { '_token':'{{csrf_token()}}' }
+    });
+
     multipart_params:{ '_token':'{{csrf_token()}}' },  //文件上传附加参数
     file_data_name:"file", //文件上传的名称
     multi_selection: false , //true:ctrl多文件上传, false 单文件上传
