@@ -1,7 +1,8 @@
 @extends('master')
 @section('title','申请')
 @section('content')
-    <script type="text/javascript" src="{{asset('js/zepto.min.js')}}"></script>
+    {{--<script type="text/javascript" src="{{asset('js/zepto.min.js')}}"></script>--}}
+    <script type="text/javascript" src="{{asset('js/jquery-1.12.3.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/plupload.full.min.js')}}"></script>
 
     <style type="text/css">
