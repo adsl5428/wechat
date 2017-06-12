@@ -1,426 +1,306 @@
 @extends('master')
 @section('title','申请')
 @section('content')
-    {{--<script type="text/javascript" src="{{asset('js/zepto.min.js')}}"></script>--}}
+
     <script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
+    <style type="text/css">
+        /**{ margin:0px; padding:0px; font-family:Microsoft Yahei; box-sizing:border-box; -webkit-box-sizing:border-box;}*/
+        .demo1 .demo2 .demo3 .demo4{ margin:0 auto; min-width:320px;}
+        .ul_pics1 .ul_pics4 .ul_pics2 .ul_pics3{ float:left;}
 
+
+        .ul_pics1 li{float:left; margin:0px; padding:0px; margin-left:5px; margin-top:5px; position:relative; list-style-type:none; border:1px solid #eee; width:80px; height:80px;}
+        .ul_pics4 li{float:left; margin:0px; padding:0px; margin-left:5px; margin-top:5px; position:relative; list-style-type:none; border:1px solid #eee; width:80px; height:80px;}
+        .ul_pics2 li{float:left; margin:0px; padding:0px; margin-left:5px; margin-top:5px; position:relative; list-style-type:none; border:1px solid #eee; width:80px; height:80px;}
+        .ul_pics3 li{float:left; margin:0px; padding:0px; margin-left:5px; margin-top:5px; position:relative; list-style-type:none; border:1px solid #eee; width:80px; height:80px;}
+
+        .ul_pics1 li img{width:80px;height:80px;}
+        .ul_pics2 li img{width:80px;height:80px;}
+        .ul_pics3 li img{width:80px;height:80px;}
+        .ul_pics4 li img{width:80px;height:80px;}
+        .ul_pics1 li i{ position:absolute; top:0px; right:-1px; background:red; cursor:pointer; font-style:normal; font-size:10px; width:14px; height:14px; text-align:center; line-height:12px; color:#fff;}
+        .ul_pics2 li i{ position:absolute; top:0px; right:-1px; background:red; cursor:pointer; font-style:normal; font-size:10px; width:14px; height:14px; text-align:center; line-height:12px; color:#fff;}
+        .ul_pics3 li i{ position:absolute; top:0px; right:-1px; background:red; cursor:pointer; font-style:normal; font-size:10px; width:14px; height:14px; text-align:center; line-height:12px; color:#fff;}
+        .ul_pics4 li i{ position:absolute; top:0px; right:-1px; background:red; cursor:pointer; font-style:normal; font-size:10px; width:14px; height:14px; text-align:center; line-height:12px; color:#fff;}
+        .progress1 .progress2 .progress3 .progress4 {position:relative; margin-top:30px; background:#eee;}
+        .bar1 .bar2 .bar3 .bar4 {background-color: green; display:block; width:0%; height:15px; }
+        .percent1 .percent2 .percent3 .percent4{position:absolute; height:15px; top:-18px; text-align:center; display:inline-block; left:0px; width:80px; color:#666; line-height:15px; font-size:12px; }
+        .demo1 #btn1 { width:80px; height:80px; margin-left:5px; margin-top:5px; border:1px dotted #c2c2c2; background:url(up.png) no-repeat center; background-size:30px auto; text-align:center; line-height:120px; font-size:30px; color:#666; float:left;}
+        .demo2 #btn2 { width:80px; height:80px; margin-left:5px; margin-top:5px; border:1px dotted #c2c2c2; background:url(up.png) no-repeat center; background-size:30px auto; text-align:center; line-height:120px; font-size:30px; color:#666; float:left;}
+        .demo3 #btn3 { width:80px; height:80px; margin-left:5px; margin-top:5px; border:1px dotted #c2c2c2; background:url(up.png) no-repeat center; background-size:30px auto; text-align:center; line-height:120px; font-size:30px; color:#666; float:left;}
+        .demo4 #btn4 { width:80px; height:80px; margin-left:5px; margin-top:5px; border:1px dotted #c2c2c2; background:url(up.png) no-repeat center; background-size:30px auto; text-align:center; line-height:120px; font-size:30px; color:#666; float:left;}
+    </style>
 
     <div class="hd">
         <h1 class="page_title">丰纳金融</h1>
         <h5 class="page_title">Loan</h5>
     </div>
-
     <div class="weui_cells weui_cells_form">
         <div class="weui_cell">
-            <div id="uploadimg">
-                <div id="fileList" class="uploader-list"></div>
-                <div class="weui_cell_ft" id="imgPicker"></div>
-                <div id="imgPicker">选择图片</div>
-            </div>
-        </div>
-
-
-        <div class="weui_cell">
             <div class="weui_cell_bd weui_cell_primary">
                 <div class="weui_uploader">
                     <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">户口本</div>
+                        <div class="weui_cell_bd weui_cell_primary">身份证</div>
                         <div class="weui_cell_ft"></div>
                     </div>
-                    <div class="weui_uploader_bd">
-                        <ul class="weui_uploader_files" id='imgPicker'>
-
+                    <div class="demo1">
+                        <a href="javascript:void(0)" id="btn1" class="weui_uploader_input_wrp"></a>
+                        <ul id="ul_pics1" class="ul_pics1 clearfix">
                         </ul>
-                        <div class="weui_uploader_input_wrp" id="file2">
-                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl2' multiple />
-
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">婚姻关系证明</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="weui_uploader_bd">
-                        <ul class="weui_uploader_files" id='img6'>
-
-                        </ul>
-                        <div class="weui_uploader_input_wrp" id="file6">
-                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl6' multiple />
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">房产证</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="weui_uploader_bd">
-                        <ul class="weui_uploader_files" id='img3'>
-
-                        </ul>
-                        <div class="weui_uploader_input_wrp" id="file3">
-                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl3' multiple />
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="weui_uploader">
+                    <div class="weui_uploader_hd weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">户口本(可多选上传)</div>
+                        <div class="weui_cell_ft"></div>
+                    </div>
+                    <div class="demo2">
+                        <a href="javascript:void(0)" id="btn2" class="weui_uploader_input_wrp"></a>
+                        <ul id="ul_pics2" class="ul_pics2 clearfix">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="weui_uploader">
+                    <div class="weui_uploader_hd weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">房产证(可多选上传)</div>
+                        <div class="weui_cell_ft"></div>
+                    </div>
+                    <div class="demo3">
+                        <a href="javascript:void(0)" id="btn3" class="weui_uploader_input_wrp"></a>
+                        <ul id="ul_pics3" class="ul_pics3 clearfix">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="weui_uploader">
+                    <div class="weui_uploader_hd weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">征信报告(可多选上传)</div>
+                        <div class="weui_cell_ft"></div>
+                    </div>
+                    <div class="demo4">
+                        <a href="javascript:void(0)" id="btn4" class="weui_uploader_input_wrp"></a>
+                        <ul id="ul_pics4" class="ul_pics4 clearfix">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 
     <div class="weui_btn_area">
         <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">确定</a>
     </div>
-    <h5 class="page_title"></h5>
+    <h5 class="page_title">　</h5>
 @endsection
 @section('js')
-    var uploader = WebUploader.create({
-    auto: true, // 选完文件后，是否自动上传
-    swf: 'js/Uploader.swf', // swf文件路径
-    server: 'upload.php', // 文件接收服务端
-    pick: '#imgPicker', // 选择文件的按钮。可选
-    // 只允许选择图片文件。
-    accept: {
-    title: 'Images',
-    extensions: 'gif,jpg,jpeg,bmp,png',
-    mimeTypes: 'image/*'
-    }
-    });
-
-    uploader.on( 'fileQueued', function( file ) {
-    var $list = $("#fileList"),
-    $li = $(
-    '<div id="' + file.id + '" class="file-item thumbnail">' +
-        '<img>' +
-        '<div class="info">' + file.name + '</div>' +
-        '</div>'
-    ),
-    $img = $li.find('img');
-
-
-    // $list为容器jQuery实例
-    $list.append( $li );
-
-    // 创建缩略图
-    uploader.makeThumb( file, function( error, src ) {
-    if ( error ) {
-    $img.replaceWith('<span>不能预览</span>');
-    return;
-    }
-
-    $img.attr( 'src', src );
-    }, 100, 100 ); //100x100为缩略图尺寸
-    });
-
-    // 文件上传过程中创建进度条实时显示。
-    uploader.on( 'uploadProgress', function( file, percentage ) {
-    var $li = $( '#'+file.id ),
-    $percent = $li.find('.progress span');
-
-    // 避免重复创建
-    if ( !$percent.length ) {
-    $percent = $('<p class="progress"><span></span></p>')
-    .appendTo( $li )
-    .find('span');
-    }
-
-    $percent.css( 'width', percentage * 100 + '%' );
-    });
-
-    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
-    uploader.on( 'uploadSuccess', function( file, res ) {
-    console.log(res.filePath);//这里可以得到上传后的文件路径
-    $( '#'+file.id ).addClass('upload-state-done');
-    });
-
-    // 文件上传失败，显示上传出错。
-    uploader.on( 'uploadError', function( file ) {
-    var $li = $( '#'+file.id ),
-    $error = $li.find('div.error');
-
-    // 避免重复创建
-    if ( !$error.length ) {
-    $error = $('<div class="error"></div>').appendTo( $li );
-    }
-
-    $error.text('上传失败');
-    });
-
-    // 完成上传完了，成功或者失败，先删除进度条。
-    uploader.on( 'uploadComplete', function( file ) {
-    $( '#'+file.id ).find('.progress').remove();
-    });
-
-
-
-
-    $(function(){
-    var f = document.querySelector('#headimgurl');
-    f.onchange = function () {
-    lrz(this.files[0],{quality:1}).then(function (rst) {
-    console.log(rst);
-    $.ajax({
-    url: '{{asset('test')}}',
-    type: 'post',
-    data: { img: rst.base64,'_token':"{{csrf_token()}}"},
-    dataType: 'json',
-    timeout: 200000,
-    success: function (response) {
-    if (response.ecd == '0') {
-
-
-
-    li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-    $('#img').append(li);
-    //                                $('#img').append('<li class="weui_uploader_file weui_uploader_status" style="background-image:url('+obj.src+')"><div class="weui_uploader_status_content"><i class="weui_icon_cancel"></i></div></li>');
-    //                                $('#file').append('<input value="'+response.result+'"  type="hidden"  name="files" />');
-    return true;
+    var uploader = new plupload.Uploader({    //创建实例的构造方法
+    runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
+    browse_button: 'btn1' ,           // 上传按钮
+    url: "{{asset('test')}}",        //远程上传地址
+    flash_swf_url: '{{asset('js/Moxie.swf')}}',    //flash文件地址
+    silverlight_xap_url: '{{asset('js/Moxie.xap')}}', //silverlight文件地址
+    filters: {
+    max_file_size: '10mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+    mime_types: [  //允许文件上传类型
+    {title: "files", extensions: "jpg,png"}
+    ]
+    },
+    multipart_params:{ '_token':'{{csrf_token()}}' },  //文件上传附加参数
+    file_data_name:"file", //文件上传的名称
+    multi_selection: false , //true:ctrl多文件上传, false 单文件上传
+    init: {
+    FilesAdded: function(up, files) { //文件上传前
+    if ($("#ul_pics1").children("li").length > 10) {
+    alert("您上传的图片太多了！");
+    uploader.destroy();
     } else {
-    return alert(response.msg);
+    var li = '';
+    plupload.each(files, function(file) { //遍历文件
+    li += "<li id='" + file['id'] + "'><div class='progress1'><span class='bar1'></span><span class='percent1'>上传中 0%</span></div></li>";
+    });
+    $("#ul_pics1").append(li);
+    uploader.start();
     }
     },
-    error: function (jqXHR, textStatus, errorThrown) {
-    if (textStatus == 'timeout') {
-    a_info_alert('请求超时');
-    return false;
+    UploadProgress: function(up, file) { //上传中，显示进度条
+    var percent = file.percent;
+    $("#" + file.id).find('.bar1').css({"width": percent + "%"});
+    $("#" + file.id).find(".percent1").text("上传中 "+percent + "%");
+    },
+    FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+    //var data = eval("(" + info.response + ")");
+    $("#" + file.id).html("<img src='"+info.response+"' /><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
+    },
+    Error: function(up, err) { //上传出错的时候触发
+    alert("上传错误,请稍候再试");
     }
-    alert(jqXHR.responseText);
     }
     });
-    })
-    .catch(function (err) {
-    alert(err);
-    })
-    .always(function () {// 不管是成功失败，这里都会执行
-    });
-    };
+    uploader.init();
 
-    //多图上传
-    var f2 = document.querySelector('#headimgurl2');
-    f2.onchange = function (e) {
-    var files = e.target.files;
-    var len = files.length;
-    for (var i=0; i < len; i++) {
-    lrz(files[i],{quality:1}).then(function (rst) {
-    console.log(rst);
-    $.ajax({
-    url: '{{asset('test')}}',
-    type: 'post',
-    data: { img: rst.base64,'_token':"{{csrf_token()}}"},
-    dataType: 'json',
-    timeout: 200000,
-    success: function (response) {
-    if (response.ecd == '0') {
-    //                                alert('成功');
-    li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-    $('#img2').append(li);
-    return true;
+    var uploader2 = new plupload.Uploader({    //创建实例的构造方法
+    runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
+    browse_button: 'btn2' ,           // 上传按钮
+    url: "{{asset('test')}}",        //远程上传地址
+    flash_swf_url: '{{asset('js/Moxie.swf')}}',    //flash文件地址
+    silverlight_xap_url: '{{asset('js/Moxie.xap')}}', //silverlight文件地址
+    filters: {
+    max_file_size: '10mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+    mime_types: [  //允许文件上传类型
+    {title: "files", extensions: "jpg,png"}
+    ]
+    },
+    multipart_params:{ '_token':'{{csrf_token()}}' },  //文件上传附加参数
+    file_data_name:"file", //文件上传的名称
+    multi_selection: true, //true:ctrl多文件上传, false 单文件上传
+    init: {
+    FilesAdded: function(up, files) { //文件上传前
+    if ($("#ul_pics2").children("li").length > 10) {
+    alert("您上传的图片太多了！");
+    uploader2.destroy();
     } else {
-    return alert(response.msg);
+    var li = '';
+    plupload.each(files, function(file) { //遍历文件
+    li += "<li id='" + file['id'] + "'><div class='progress2'><span class='bar2'></span><span class='percent2'>上传中 0%</span></div></li>";
+    });
+    $("#ul_pics2").append(li);
+    uploader2.start();
     }
     },
-    error: function (jqXHR, textStatus, errorThrown) {
-
-    if (textStatus == 'timeout') {
-    a_info_alert('请求超时');
-
-    return false;
+    UploadProgress: function(up, file) { //上传中，显示进度条
+    var percent = file.percent;
+    $("#" + file.id).find('.bar2').css({"width": percent + "%"});
+    $("#" + file.id).find(".percent2").text("上传中 "+percent + "%");
+    },
+    FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+    //var data = eval("(" + info.response + ")");
+    $("#" + file.id).html("<img src='"+info.response+"'/><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
+    },
+    Error: function(up, err) { //上传出错的时候触发
+    alert("上传错误,请稍候再试");
     }
-    alert(jqXHR.responseText);
     }
     });
-    })
-    .catch(function (err) {
-    alert(err);
-    })
-    .always(function () {// 不管是成功失败，这里都会执行
-    });
-    }//for end
-    };
+    uploader2.init();
 
-    var f3 = document.querySelector('#headimgurl3');
-    f3.onchange = function (e) {
-    var files = e.target.files;
-    var len = files.length;
-    for (var i=0; i < len; i++) {
-    lrz(files[i],{quality:1}).then(function (rst) {
-    console.log(rst);
-    $.ajax({
-    url: '{{asset('test')}}',
-    type: 'post',
-    data: { img: rst.base64,'_token':"{{csrf_token()}}"},
-    dataType: 'json',
-    timeout: 200000,
-    success: function (response) {
-    if (response.ecd == '0') {
-    //                                alert('成功');
-    li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-    $('#img3').append(li);
-    return true;
+    var uploader3 = new plupload.Uploader({    //创建实例的构造方法
+    runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
+    browse_button: 'btn3' ,           // 上传按钮
+    url: "{{asset('test')}}",        //远程上传地址
+    flash_swf_url: '{{asset('js/Moxie.swf')}}',    //flash文件地址
+    silverlight_xap_url: '{{asset('js/Moxie.xap')}}', //silverlight文件地址
+    filters: {
+    max_file_size: '10mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+    mime_types: [  //允许文件上传类型
+    {title: "files", extensions: "jpg,png"}
+    ]
+    },
+    multipart_params:{ '_token':'{{csrf_token()}}' },  //文件上传附加参数
+    file_data_name:"file", //文件上传的名称
+    multi_selection: true, //true:ctrl多文件上传, false 单文件上传
+    init: {
+    FilesAdded: function(up, files) { //文件上传前
+    if ($("#ul_pics3").children("li").length > 10) {
+    alert("您上传的图片太多了！");
+    uploader3.destroy();
     } else {
-    return alert(response.msg);
+    var li = '';
+    plupload.each(files, function(file) { //遍历文件
+    li += "<li id='" + file['id'] + "'><div class='progress3'><span class='bar3'></span><span class='percent3'>上传中 0%</span></div></li>";
+    });
+    $("#ul_pics3").append(li);
+    uploader3.start();
     }
     },
-    error: function (jqXHR, textStatus, errorThrown) {
-
-    if (textStatus == 'timeout') {
-    a_info_alert('请求超时');
-
-    return false;
+    UploadProgress: function(up, file) { //上传中，显示进度条
+    var percent = file.percent;
+    $("#" + file.id).find('.bar3').css({"width": percent + "%"});
+    $("#" + file.id).find(".percent3").text("上传中 "+percent + "%");
+    },
+    FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+    //var data = eval("(" + info.response + ")");
+    $("#" + file.id).html("<img src='"+info.response+"'/><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
+    },
+    Error: function(up, err) { //上传出错的时候触发
+    alert("上传错误,请稍候再试");
     }
-    alert(jqXHR.responseText);
     }
     });
-    })
-    .catch(function (err) {
-    alert(err);
-    })
-    .always(function () {// 不管是成功失败，这里都会执行
-    });
-    }//for end
-    };
-
-    var f4 = document.querySelector('#headimgurl4');
-    f4.onchange = function (e) {
-    var files = e.target.files;
-    var len = files.length;
-    for (var i=0; i < len; i++) {
-    lrz(files[i],{quality:1}).then(function (rst) {
-    console.log(rst);
-    $.ajax({
-    url: '{{asset('test')}}',
-    type: 'post',
-    data: { img: rst.base64,'_token':"{{csrf_token()}}"},
-    dataType: 'json',
-    timeout: 200000,
-    success: function (response) {
-    if (response.ecd == '0') {
-    //                                alert('成功');
-    li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-    $('#img4').append(li);
-    return true;
+    uploader3.init();
+    var uploader4 = new plupload.Uploader({    //创建实例的构造方法
+    runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
+    browse_button: 'btn4' ,           // 上传按钮
+    url: "{{asset('test')}}",        //远程上传地址
+    flash_swf_url: '{{asset('js/Moxie.swf')}}',    //flash文件地址
+    silverlight_xap_url: '{{asset('js/Moxie.xap')}}', //silverlight文件地址
+    filters: {
+    max_file_size: '10mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+    mime_types: [  //允许文件上传类型
+    {title: "files", extensions: "jpg,png"}
+    ]
+    },
+    multipart_params:{ '_token':'{{csrf_token()}}' },  //文件上传附加参数
+    file_data_name:"file", //文件上传的名称
+    multi_selection: true, //true:ctrl多文件上传, false 单文件上传
+    init: {
+    FilesAdded: function(up, files) { //文件上传前
+    if ($("#ul_pics4").children("li").length > 10) {
+    alert("您上传的图片太多了！");
+    uploader4.destroy();
     } else {
-    return alert(response.msg);
+    var li = '';
+    plupload.each(files, function(file) { //遍历文件
+    li += "<li id='" + file['id'] + "'><div class='progress4'><span class='bar4'></span><span class='percent4'>上传中 0%</span></div></li>";
+    });
+    $("#ul_pics4").append(li);
+    uploader4.start();
     }
     },
-    error: function (jqXHR, textStatus, errorThrown) {
-
-    if (textStatus == 'timeout') {
-    a_info_alert('请求超时');
-    return false;
-    }
-    alert(jqXHR.responseText);
-    }
-    });
-    })
-    .catch(function (err) {
-    alert(err);
-    })
-    .always(function () {// 不管是成功失败，这里都会执行
-    });
-    }//for end
-    };
-
-    var f5 = document.querySelector('#headimgurl5');
-    f5.onchange = function (e) {
-    var files = e.target.files;
-    var len = files.length;
-    for (var i=0; i < len; i++) {
-    lrz(files[i],{quality:1}).then(function (rst) {
-    console.log(rst);
-    $.ajax({
-    url: '{{asset('test')}}',
-    type: 'post',
-    data: { img: rst.base64,'_token':"{{csrf_token()}}"},
-    dataType: 'json',
-    timeout: 200000,
-    success: function (response) {
-    if (response.ecd == '0') {
-    //                                alert('成功');
-    li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-    $('#img5').append(li);
-    return true;
-    } else {
-    return alert(response.msg);
-    }
+    UploadProgress: function(up, file) { //上传中，显示进度条
+    var percent = file.percent;
+    $("#" + file.id).find('.bar4').css({"width": percent + "%"});
+    $("#" + file.id).find(".percent4").text("上传中 "+percent + "%");
     },
-    error: function (jqXHR, textStatus, errorThrown) {
-
-    if (textStatus == 'timeout') {
-    a_info_alert('请求超时');
-    return false;
-    }
-    alert(jqXHR.responseText);
-    }
-    });
-    })
-    .catch(function (err) {
-    alert(err);
-    })
-    .always(function () {// 不管是成功失败，这里都会执行
-    });
-    }//for end
-    };
-
-    var f6 = document.querySelector('#headimgurl6');
-    f6.onchange = function (e) {
-    var files = e.target.files;
-    var len = files.length;
-    for (var i=0; i < len; i++) {
-    lrz(files[i],{quality:1}).then(function (rst) {
-    console.log(rst);
-    $.ajax({
-    url: '{{asset('test')}}',
-    type: 'post',
-    data: { img: rst.base64,'_token':"{{csrf_token()}}"},
-    dataType: 'json',
-    timeout: 200000,
-    success: function (response) {
-    if (response.ecd == '0') {
-    //                                alert('成功');
-    li = '<li class="weui_uploader_file" style="background-image:url('+response.result+')"></li>';
-    $('#img6').append(li);
-    return true;
-    } else {
-    return alert(response.msg);
-    }
+    FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+    //var data = eval("(" + info.response + ")");
+    $("#" + file.id).html("<img src='"+info.response+"'/><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
     },
-    error: function (jqXHR, textStatus, errorThrown) {
-
-    if (textStatus == 'timeout') {
-    a_info_alert('请求超时');
-    return false;
+    Error: function(up, err) { //上传出错的时候触发
+    alert("上传错误,请稍候再试");
     }
-    alert(jqXHR.responseText);
     }
     });
-    })
-    .catch(function (err) {
-    alert(err);
-    })
-    .always(function () {// 不管是成功失败，这里都会执行
-    });
-    }//for end
-    };
+    uploader4.init();
 
-
-    });
+    function delimg(o){
+    var src = $(o).prev().attr("src");
+    alert(src);
+    $.post("upimgs.php?get=delimg&imgurl="+src,function(data){
+    if(data==1){
+    $(o).parent().remove();
+    }
+    })
+    }
 
 @endsection
