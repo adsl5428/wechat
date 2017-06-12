@@ -4,6 +4,22 @@
 
     <script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
+
+    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/syntax.css">
+    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/webuploader.css">
+
+
+    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/global.js"></script>
+
+    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/webuploader.js"></script>
+
+    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/getting-started.js"></script>
     <style type="text/css">
         /**{ margin:0px; padding:0px; font-family:Microsoft Yahei; box-sizing:border-box; -webkit-box-sizing:border-box;}*/
         .demo1 .demo2 .demo3 .demo4{ margin:0 auto; min-width:320px;}
@@ -32,80 +48,12 @@
         .demo4 #btn4 { width:80px; height:80px; margin-left:5px; margin-top:5px; border:1px dotted #c2c2c2; background:url(up.png) no-repeat center; background-size:30px auto; text-align:center; line-height:120px; font-size:30px; color:#666; float:left;}
     </style>
 
-    <div class="hd">
-        <h1 class="page_title">丰纳金融</h1>
-        <h5 class="page_title">Loan</h5>
-    </div>
-    <div class="weui_cells weui_cells_form">
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">身份证</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="demo1">
-                        <a href="javascript:void(0)" id="btn1" class="weui_uploader_input_wrp"></a>
-                        <ul id="ul_pics1" class="ul_pics1 clearfix">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="weui_cells weui_cells_form">
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">户口本(可多选上传)</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="demo2">
-                        <a href="javascript:void(0)" id="btn2" class="weui_uploader_input_wrp"></a>
-                        <ul id="ul_pics2" class="ul_pics2 clearfix">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="weui_cells weui_cells_form">
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">房产证(可多选上传)</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="demo3">
-                        <a href="javascript:void(0)" id="btn3" class="weui_uploader_input_wrp"></a>
-                        <ul id="ul_pics3" class="ul_pics3 clearfix">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="weui_cells weui_cells_form">
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">征信报告(可多选上传)</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="demo4">
-                        <a href="javascript:void(0)" id="btn4" class="weui_uploader_input_wrp"></a>
-                        <ul id="ul_pics4" class="ul_pics4 clearfix">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
+    <div id="uploadimg">
+        <div id="fileList" class="uploader-list"></div>
+        <div id="imgPicker">选择图片</div>
+    </div>
 
 
     <div class="weui_btn_area">
@@ -114,195 +62,81 @@
     <h5 class="page_title">　</h5>
 @endsection
 @section('js')
-    <script type='text/javascript'>
-    var uploader = WebUploader.create({     //创建实例的构造方法
+    var uploader = WebUploader.create({
     auto: true, // 选完文件后，是否自动上传
+    swf: 'js/Uploader.swf', // swf文件路径
+    server: 'upload.php', // 文件接收服务端
     pick: '#imgPicker', // 选择文件的按钮。可选
-    server: "{{asset('test')}}",        //远程上传地址
-    swf: '{{asset('js/baidu/Uploader.swf')}}',    //flash文件地址
-        accept: {
-            title: 'Images',
-            extensions: 'jpg,jpeg,bmp,png',
-            mimeTypes: 'image/*'
-        },
-        formData: { '_token':'{{csrf_token()}}' }
+    // 只允许选择图片文件。
+    accept: {
+    title: 'Images',
+    extensions: 'gif,jpg,jpeg,bmp,png',
+    mimeTypes: 'image/*'
+    }
     });
 
-    multipart_params:{ '_token':'{{csrf_token()}}' },  //文件上传附加参数
-    file_data_name:"file", //文件上传的名称
-    multi_selection: false , //true:ctrl多文件上传, false 单文件上传
-    init: {
-    FilesAdded: function(up, files) { //文件上传前
-    if ($("#ul_pics1").children("li").length > 10) {
-    alert("您上传的图片太多了！");
-    uploader.destroy();
-    } else {
-    var li = '';
-    plupload.each(files, function(file) { //遍历文件
-    li += "<li id='" + file['id'] + "'><div class='progress1'><span class='bar1'></span><span class='percent1'>上传中 0%</span></div></li>";
-    });
-    $("#ul_pics1").append(li);
-    uploader.start();
-    }
-    },
-    UploadProgress: function(up, file) { //上传中，显示进度条
-    var percent = file.percent;
-    $("#" + file.id).find('.bar1').css({"width": percent + "%"});
-    $("#" + file.id).find(".percent1").text("上传中 "+percent + "%");
-    },
-    FileUploaded: function(up, file, info) { //文件上传成功的时候触发
-    //var data = eval("(" + info.response + ")");
-    $("#" + file.id).html("<img src='"+info.response+"' /><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
-    },
-    Error: function(up, err) { //上传出错的时候触发
-    alert("上传错误,请稍候再试");
-    }
-    }
-    });
-    uploader.init();
 
-    var uploader2 = new plupload.Uploader({    //创建实例的构造方法
-    runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
-    browse_button: 'btn2' ,           // 上传按钮
-    url: "{{asset('test')}}",        //远程上传地址
-    flash_swf_url: '{{asset('js/Moxie.swf')}}',    //flash文件地址
-    silverlight_xap_url: '{{asset('js/Moxie.xap')}}', //silverlight文件地址
-    filters: {
-    max_file_size: '10mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
-    mime_types: [  //允许文件上传类型
-    {title: "files", extensions: "jpg,png"}
-    ]
-    },
-    multipart_params:{ '_token':'{{csrf_token()}}' },  //文件上传附加参数
-    file_data_name:"file", //文件上传的名称
-    multi_selection: true, //true:ctrl多文件上传, false 单文件上传
-    init: {
-    FilesAdded: function(up, files) { //文件上传前
-    if ($("#ul_pics2").children("li").length > 10) {
-    alert("您上传的图片太多了！");
-    uploader2.destroy();
-    } else {
-    var li = '';
-    plupload.each(files, function(file) { //遍历文件
-    li += "<li id='" + file['id'] + "'><div class='progress2'><span class='bar2'></span><span class='percent2'>上传中 0%</span></div></li>";
-    });
-    $("#ul_pics2").append(li);
-    uploader2.start();
-    }
-    },
-    UploadProgress: function(up, file) { //上传中，显示进度条
-    var percent = file.percent;
-    $("#" + file.id).find('.bar2').css({"width": percent + "%"});
-    $("#" + file.id).find(".percent2").text("上传中 "+percent + "%");
-    },
-    FileUploaded: function(up, file, info) { //文件上传成功的时候触发
-    //var data = eval("(" + info.response + ")");
-    $("#" + file.id).html("<img src='"+info.response+"'/><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
-    },
-    Error: function(up, err) { //上传出错的时候触发
-    alert("上传错误,请稍候再试");
-    }
-    }
-    });
-    uploader2.init();
+    uploader.on( 'fileQueued', function( file ) {
+    var $list = $("#fileList"),
+    $li = $(
+    '<div id="' + file.id + '" class="file-item thumbnail">' +
+        '<img>' +
+        '<div class="info">' + file.name + '</div>' +
+        '</div>'
+    ),
+    $img = $li.find('img');
 
-    var uploader3 = new plupload.Uploader({    //创建实例的构造方法
-    runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
-    browse_button: 'btn3' ,           // 上传按钮
-    url: "{{asset('test')}}",        //远程上传地址
-    flash_swf_url: '{{asset('js/Moxie.swf')}}',    //flash文件地址
-    silverlight_xap_url: '{{asset('js/Moxie.xap')}}', //silverlight文件地址
-    filters: {
-    max_file_size: '10mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
-    mime_types: [  //允许文件上传类型
-    {title: "files", extensions: "jpg,png"}
-    ]
-    },
-    multipart_params:{ '_token':'{{csrf_token()}}' },  //文件上传附加参数
-    file_data_name:"file", //文件上传的名称
-    multi_selection: true, //true:ctrl多文件上传, false 单文件上传
-    init: {
-    FilesAdded: function(up, files) { //文件上传前
-    if ($("#ul_pics3").children("li").length > 10) {
-    alert("您上传的图片太多了！");
-    uploader3.destroy();
-    } else {
-    var li = '';
-    plupload.each(files, function(file) { //遍历文件
-    li += "<li id='" + file['id'] + "'><div class='progress3'><span class='bar3'></span><span class='percent3'>上传中 0%</span></div></li>";
-    });
-    $("#ul_pics3").append(li);
-    uploader3.start();
-    }
-    },
-    UploadProgress: function(up, file) { //上传中，显示进度条
-    var percent = file.percent;
-    $("#" + file.id).find('.bar3').css({"width": percent + "%"});
-    $("#" + file.id).find(".percent3").text("上传中 "+percent + "%");
-    },
-    FileUploaded: function(up, file, info) { //文件上传成功的时候触发
-    //var data = eval("(" + info.response + ")");
-    $("#" + file.id).html("<img src='"+info.response+"'/><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
-    },
-    Error: function(up, err) { //上传出错的时候触发
-    alert("上传错误,请稍候再试");
-    }
-    }
-    });
-    uploader3.init();
-    var uploader4 = new plupload.Uploader({    //创建实例的构造方法
-    runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
-    browse_button: 'btn4' ,           // 上传按钮
-    url: "{{asset('test')}}",        //远程上传地址
-    flash_swf_url: '{{asset('js/Moxie.swf')}}',    //flash文件地址
-    silverlight_xap_url: '{{asset('js/Moxie.xap')}}', //silverlight文件地址
-    filters: {
-    max_file_size: '10mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
-    mime_types: [  //允许文件上传类型
-    {title: "files", extensions: "jpg,png"}
-    ]
-    },
-    multipart_params:{ '_token':'{{csrf_token()}}' },  //文件上传附加参数
-    file_data_name:"file", //文件上传的名称
-    multi_selection: true, //true:ctrl多文件上传, false 单文件上传
-    init: {
-    FilesAdded: function(up, files) { //文件上传前
-    if ($("#ul_pics4").children("li").length > 10) {
-    alert("您上传的图片太多了！");
-    uploader4.destroy();
-    } else {
-    var li = '';
-    plupload.each(files, function(file) { //遍历文件
-    li += "<li id='" + file['id'] + "'><div class='progress4'><span class='bar4'></span><span class='percent4'>上传中 0%</span></div></li>";
-    });
-    $("#ul_pics4").append(li);
-    uploader4.start();
-    }
-    },
-    UploadProgress: function(up, file) { //上传中，显示进度条
-    var percent = file.percent;
-    $("#" + file.id).find('.bar4').css({"width": percent + "%"});
-    $("#" + file.id).find(".percent4").text("上传中 "+percent + "%");
-    },
-    FileUploaded: function(up, file, info) { //文件上传成功的时候触发
-    //var data = eval("(" + info.response + ")");
-    $("#" + file.id).html("<img src='"+info.response+"'/><i onclick='delimg(this)'>x</i><input type='hidden' name='' value='"+ this.url +"'>");
-    },
-    Error: function(up, err) { //上传出错的时候触发
-    alert("上传错误,请稍候再试");
-    }
-    }
-    });
-    uploader4.init();
 
-    function delimg(o){
-    var src = $(o).prev().attr("src");
-    alert(src);
-    $.post("upimgs.php?get=delimg&imgurl="+src,function(data){
-    if(data==1){
-    $(o).parent().remove();
-    }
-    })
+    // $list为容器jQuery实例
+    $list.append( $li );
+
+    // 创建缩略图
+    uploader.makeThumb( file, function( error, src ) {
+    if ( error ) {
+    $img.replaceWith('<span>不能预览</span>');
+    return;
     }
 
+    $img.attr( 'src', src );
+    }, 100, 100 ); //100x100为缩略图尺寸
+    });
+
+    // 文件上传过程中创建进度条实时显示。
+    uploader.on( 'uploadProgress', function( file, percentage ) {
+    var $li = $( '#'+file.id ),
+    $percent = $li.find('.progress span');
+
+    // 避免重复创建
+    if ( !$percent.length ) {
+    $percent = $('<p class="progress"><span></span></p>')
+    .appendTo( $li )
+    .find('span');
+    }
+
+    $percent.css( 'width', percentage * 100 + '%' );
+    });
+
+    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+    uploader.on( 'uploadSuccess', function( file, res ) {
+    console.log(res.filePath);//这里可以得到上传后的文件路径
+    $( '#'+file.id ).addClass('upload-state-done');
+    });
+
+    // 文件上传失败，显示上传出错。
+    uploader.on( 'uploadError', function( file ) {
+    var $li = $( '#'+file.id ),
+    $error = $li.find('div.error');
+
+    // 避免重复创建
+    if ( !$error.length ) {
+    $error = $('<div class="error"></div>').appendTo( $li );
+    }
+
+    $error.text('上传失败');
+    });
+
+    // 完成上传完了，成功或者失败，先删除进度条。
+    uploader.on( 'uploadComplete', function( file ) {
+    $( '#'+file.id ).find('.progress').remove();
+    });
 @endsection
