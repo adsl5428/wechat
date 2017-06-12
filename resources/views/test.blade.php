@@ -2,8 +2,8 @@
 @section('title','申请')
 @section('content')
     {{--<script type="text/javascript" src="{{asset('js/zepto.min.js')}}"></script>--}}
-    <script type="text/javascript" src="{{asset('js/dist/lrz.bundle.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('css/weui2.css')}}">
+    <script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
 
 
     <div class="hd">
@@ -13,22 +13,10 @@
 
     <div class="weui_cells weui_cells_form">
         <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">身份证</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="weui_uploader_bd">
-                        <ul class="weui_uploader_files" id='img'>
-
-                        </ul>
-                        <div class="weui_uploader_input_wrp">
-                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" id="headimgurl" />
-                            <input  type="hidden"  id="headimgurl1" />
-                        </div>
-                    </div>
-                </div>
+            <div id="uploadimg">
+                <div id="fileList" class="uploader-list"></div>
+                <div class="weui_cell_ft" id="imgPicker"></div>
+                <div id="imgPicker">选择图片</div>
             </div>
         </div>
 
@@ -41,7 +29,7 @@
                         <div class="weui_cell_ft"></div>
                     </div>
                     <div class="weui_uploader_bd">
-                        <ul class="weui_uploader_files" id='img2'>
+                        <ul class="weui_uploader_files" id='imgPicker'>
 
                         </ul>
                         <div class="weui_uploader_input_wrp" id="file2">
@@ -94,74 +82,8 @@
             </div>
         </div>
 
-
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">信用报告</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="weui_uploader_bd">
-                        <ul class="weui_uploader_files" id='img4'>
-
-                        </ul>
-                        <div class="weui_uploader_input_wrp" id="file4">
-                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl4' multiple />
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <div class="weui_uploader">
-                    <div class="weui_uploader_hd weui_cell">
-                        <div class="weui_cell_bd weui_cell_primary">其它有助于增加额度的资产证明（机动车，保单，股票……）</div>
-                        <div class="weui_cell_ft"></div>
-                    </div>
-                    <div class="weui_uploader_bd">
-
-                        <ul class="weui_uploader_files" id='img5'>
-
-                        </ul>
-                        <div class="weui_uploader_input_wrp" id="file5">
-                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id='headimgurl5' multiple />
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
-
-    <div class="weui-gallery" id="gallery">
-        <span class="weui-gallery__img" id="galleryImg"></span>
-        <div class="weui-gallery__opr">
-            <a href="javascript:" class="weui-gallery__del">
-                <i class="weui-icon-delete weui-icon_gallery-delete"></i>
-            </a>
-        </div>
-    </div>
-
-
-
-    <div class="weui-gallery" style="display: block">
-        <span onclick="$('.weui-gallery').fadeOut();" class="weui-gallery-img" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArIAAAGFBAMAAADzwA07AAAAIVBMVEXr6+vPz8/X19fp6ene3t7k5OTm5ubh4eHT09Pb29vR0dHqLrSfAAACyklEQVR42uzBgQAAAACAoP2pF6kCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGB27GdHaSiO4vgJ5e+s5lzAFlZ2Y1yWoIm6AjPJbItG3VJdmLiiOg9Aow8AybinK1/Tey9ldDttl+eTFC6w+4b+2luRNi2XcIJl8v/H6quHhf9BHiXnFlbGE6wep/D8+gm8Dp8CnEAeJePOBz4n7XKssi254gFWzEkVUWVb0uEeVklz7rxS2ZYM/PnfZ8zEz4atyrYkYOjn63emAPI5VLYtxczHe+HnbWxc7K9fVLYFxwjAIur5eVuGQLcgn6lsczkTYDNDOQb6Nma/oJWqbGMLV/EYIg6BAffIaG5iTlW2sSFXQDFGblzDAwqTIIi5VdmmRrZbYI/F3FXeDbj3uQ8q29SA1/ZYYcgtFkzeMAXQ50llmwo4RYcpRlwhj5DN4RShyjZWTHA1Bwa233Fm435w4onKNnY0yAwQ8BrFFGuezVS2sc0c6xBAPA04Rswz8+9Z7VBl61lwG48BrCd+IEQ33i36DB8eNKpsHUP+KPcAMuMvYgYXnFzS71S2jhF/8+D/mq+YIotwURh4GVOVraPHXy4dOsznfrNb3XUh9kv3nqhsHQEjlw5dFsa97qudAnK/RI8GKltLTANfkyEQlFECfOMBGDFKAaw5Vtl61lW1wifMaW7fMkpcZJr7u+fkTmXr2VRbgqM/+3slrZ+wPtP7A5WtZ8FTVfgA63VhYyZw3tGaJSrbkuDTe1Re3t1/hIiIiIiIiIiIiIj8ZQ8OBAAAAACA/F8bQVVVVVVVVVVVVVVVVVVVhT04EAAAAAAA8n9tBFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVpT04JAAAAAAQ9P+10RMAAAAAAAAAAAAAAADAArTtXKLPR7LcAAAAAElFTkSuQmCC);"></span>
-        <div class="weui-gallery-opr">
-            <a href="javascript:" class="weui-gallery-del" onclick="$('.weui-gallery').fadeOut();">
-                <i class="icon icon-26 f-gray">删除</i>
-            </a>
-        </div>
-    </div>
-
-    <a href="javascript:" onclick="$('.weui-gallery').fadeIn();"  class="weui_btn weui_btn_primary">
-        显示
-    </a>
 
     <div class="weui_btn_area">
         <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">确定</a>
@@ -169,7 +91,86 @@
     <h5 class="page_title"></h5>
 @endsection
 @section('js')
-    $('.weui-gallery').show();
+    var uploader = WebUploader.create({
+    auto: true, // 选完文件后，是否自动上传
+    swf: 'js/Uploader.swf', // swf文件路径
+    server: 'upload.php', // 文件接收服务端
+    pick: '#imgPicker', // 选择文件的按钮。可选
+    // 只允许选择图片文件。
+    accept: {
+    title: 'Images',
+    extensions: 'gif,jpg,jpeg,bmp,png',
+    mimeTypes: 'image/*'
+    }
+    });
+
+    uploader.on( 'fileQueued', function( file ) {
+    var $list = $("#fileList"),
+    $li = $(
+    '<div id="' + file.id + '" class="file-item thumbnail">' +
+        '<img>' +
+        '<div class="info">' + file.name + '</div>' +
+        '</div>'
+    ),
+    $img = $li.find('img');
+
+
+    // $list为容器jQuery实例
+    $list.append( $li );
+
+    // 创建缩略图
+    uploader.makeThumb( file, function( error, src ) {
+    if ( error ) {
+    $img.replaceWith('<span>不能预览</span>');
+    return;
+    }
+
+    $img.attr( 'src', src );
+    }, 100, 100 ); //100x100为缩略图尺寸
+    });
+
+    // 文件上传过程中创建进度条实时显示。
+    uploader.on( 'uploadProgress', function( file, percentage ) {
+    var $li = $( '#'+file.id ),
+    $percent = $li.find('.progress span');
+
+    // 避免重复创建
+    if ( !$percent.length ) {
+    $percent = $('<p class="progress"><span></span></p>')
+    .appendTo( $li )
+    .find('span');
+    }
+
+    $percent.css( 'width', percentage * 100 + '%' );
+    });
+
+    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+    uploader.on( 'uploadSuccess', function( file, res ) {
+    console.log(res.filePath);//这里可以得到上传后的文件路径
+    $( '#'+file.id ).addClass('upload-state-done');
+    });
+
+    // 文件上传失败，显示上传出错。
+    uploader.on( 'uploadError', function( file ) {
+    var $li = $( '#'+file.id ),
+    $error = $li.find('div.error');
+
+    // 避免重复创建
+    if ( !$error.length ) {
+    $error = $('<div class="error"></div>').appendTo( $li );
+    }
+
+    $error.text('上传失败');
+    });
+
+    // 完成上传完了，成功或者失败，先删除进度条。
+    uploader.on( 'uploadComplete', function( file ) {
+    $( '#'+file.id ).find('.progress').remove();
+    });
+
+
+
+
     $(function(){
     var f = document.querySelector('#headimgurl');
     f.onchange = function () {
