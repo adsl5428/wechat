@@ -10,8 +10,13 @@
     {{--<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/bootstrap-theme.min.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/font-awesome.min.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/syntax.css">--}}
-    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/style.css">
-    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/webuploader.css">
+
+    {{--<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/style.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/webuploader.css">--}}
+
+
+    <link rel="stylesheet" type="text/css"  href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{asset('css/webuploader.css')}}">
     <script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>
 
     {{--<script type="text/javascript" src="http://fex.baidu.com/webuploader/js/jquery-1.10.2.min.js"></script>--}}
@@ -53,8 +58,9 @@
 
     <div id="uploadimg">
         <div id="fileList" class="uploader-list"></div>
-        <div id="imgPicker">选择图片</div>
+        <div  id="imgPicker">选择图片</div>
     </div>
+
 
 
     <div class="weui_btn_area">
@@ -63,6 +69,7 @@
     <h5 class="page_title">　</h5>
 @endsection
 @section('js')
+
     var uploader = WebUploader.create({
     auto: true, // 选完文件后，是否自动上传
     swf: '{{asset('js/baidu/Uploader.swf')}}', // swf文件路径
@@ -77,7 +84,6 @@
     formData:{ '_token':"{{csrf_token()}}"},
     });
 
-
     uploader.on( 'fileQueued', function( file ) {
     var $list = $("#fileList"),
     $li = $(
@@ -87,7 +93,6 @@
         '</div>'
     ),
     $img = $li.find('img');
-
 
     // $list为容器jQuery实例
     $list.append( $li );
