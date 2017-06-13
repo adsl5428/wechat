@@ -2,24 +2,25 @@
 @section('title','申请')
 @section('content')
 
-    <script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>
+
+    {{--<script type="text/javascript" src="http://fex.baidu.com/webuploader/js/webuploader.js"></script>--}}
     <script type="text/javascript" src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
 
-    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/syntax.css">
+    {{--<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/bootstrap.min.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/bootstrap-theme.min.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/font-awesome.min.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/syntax.css">--}}
     <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/style.css">
     <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/webuploader.css">
+    <script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>
 
+    {{--<script type="text/javascript" src="http://fex.baidu.com/webuploader/js/jquery-1.10.2.min.js"></script>--}}
+    {{--<script type="text/javascript" src="http://fex.baidu.com/webuploader/js/bootstrap.min.js"></script>--}}
+    {{--<script type="text/javascript" src="http://fex.baidu.com/webuploader/js/global.js"></script>--}}
 
-    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/global.js"></script>
+    {{--<script type="text/javascript" src="http://fex.baidu.com/webuploader/js/webuploader.js"></script>--}}
 
-    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/webuploader.js"></script>
-
-    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/getting-started.js"></script>
+    {{--<script type="text/javascript" src="http://fex.baidu.com/webuploader/js/getting-started.js"></script>--}}
     <style type="text/css">
         /**{ margin:0px; padding:0px; font-family:Microsoft Yahei; box-sizing:border-box; -webkit-box-sizing:border-box;}*/
         .demo1 .demo2 .demo3 .demo4{ margin:0 auto; min-width:320px;}
@@ -64,15 +65,16 @@
 @section('js')
     var uploader = WebUploader.create({
     auto: true, // 选完文件后，是否自动上传
-    swf: 'js/Uploader.swf', // swf文件路径
-    server: 'upload.php', // 文件接收服务端
+    swf: '{{asset('js/baidu/Uploader.swf')}}', // swf文件路径
+    server: '{{asset('test')}}', // 文件接收服务端
     pick: '#imgPicker', // 选择文件的按钮。可选
     // 只允许选择图片文件。
     accept: {
     title: 'Images',
     extensions: 'gif,jpg,jpeg,bmp,png',
     mimeTypes: 'image/*'
-    }
+    },
+    formData:{ '_token':"{{csrf_token()}}"},
     });
 
 
