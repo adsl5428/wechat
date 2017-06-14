@@ -11,30 +11,6 @@
             text-align: center;
         }
 
-        /*h4 {*/
-            /*font-weight: 400;*/
-            /*font-size: 17px;*/
-            /*width: auto;*/
-            /*overflow: hidden;*/
-            /*text-overflow: ellipsis;//文字超过盒子宽度显示省略符号*/
-        /*white-space: nowrap;//文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止*/
-            /*!*不明白微信为毛写那么多和换行相关的属性*!*/
-        /*word-wrap: normal;*/
-            /*word-wrap: break-word;//允许长单词换行到下一行*/
-        /*word-break: break-all;//使用浏览器默认的换行规则*/
-        /*}*/
-
-        /*p {*/
-            /*color: #999999;*/
-            /*font-size: 13px;*/
-            /*line-height: 1.2;*/
-            /*overflow: hidden;*/
-            /*text-overflow: ellipsis;*/
-            /*display: -webkit-box;*/
-            /*-webkit-box-orient: vertical;*/
-            /*-webkit-line-clamp: 2;*/
-        /*}*/
-
     </style>
     <link rel="stylesheet"  type="text/css"  href="{{asset('css/weui2.css')}}">
     <script src="{{asset('js/zepto.min.js')}}"></script>
@@ -69,11 +45,11 @@
             <div class="weui_cell_ft">说明文字</div>
         </a>
 
-        <a class="weui_cell b" href="javascript:;">
+        <a class="weui_cell a2" href="javascript:;">
             {{--<div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>--}}
             <div class="weui_cell_bd weui_cell_primary">
-                <span class="media_desc">老王　</span ><b><span class="media_desc">一抵　</span ></b>
-                <span class="media_desc">100万　</span ><span class="media_desc f21 bg-blue">初审</span >
+                <span class="media_desc">老王　</span ><span class="media_desc">100万　</span >
+                <b><span class="media_desc">一抵　</span ></b><span class="media_desc f21 bg-blue">初审</span >
             </div>
             <div class="weui_cell_ft"></div>
         </a>
@@ -82,17 +58,34 @@
 @endsection
 
 @section('js')
+    {{--<script type='text/javascript'>--}}
     $('#tab1').tab({defaultIndex:0,activeClass:"tab-green"});
 
     $(function(){
     $('.weui_navbar_item.a').on('click', function () {
-    $(".weui_cell.a"+1).hide(0);
+    check_username(1);
+
+    });
+
+    $('.weui_navbar_item.b').on('click', function () {
+    $(".weui_cell.a"+2).hide(0);
     });
 
     $('.weui_navbar_item.b').on('click', function () {
     $(".weui_cell.a").show(0);
     });
+
     });
+
+    function check_username(a){
+    $(".weui_cell.a"+a).hide(0);
+    {{--$(".weui_cell.a"+a).show(0);--}}
+    {{--$(".weui_cell.a"+2).show(0);--}}
+    {{--$(".weui_cell.a"+3).show(0);--}}
+    {{--$(".weui_cell.a"+4).show(0);--}}
+    {{--$(".weui_cell.a"+5).show(0);--}}
+
+    }
 
     {{--$(document).ready(function(){--}}
     {{--$(".btn1").click(function(){--}}

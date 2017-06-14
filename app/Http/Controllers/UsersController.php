@@ -116,9 +116,12 @@ class UsersController extends Controller
         $user = session('wechat.oauth_user');
 
         //查找是否有这个openid
-        $userinfo = User::where('openid',$user->getId())->get();
+        $userinfo = Partner::where('openid',$user->getId())->first();
 
-        dd($userinfo);
+        if ($userinfo == null)
+        {return \redirect('nopower');}
+        else
+        {return \redirect('order');}
 //        if ($userinfo->first()) {
 //            if($userinfo[0]['email'] == null)
 //                return redirect('users/register'); //转到注册页
@@ -190,13 +193,23 @@ class UsersController extends Controller
         $user = session('wechat.oauth_user');
         $partner = Partner::where('code', $request->code)->first();
 
-        if ($partner == null || $partner->status != 0)
+        if ($partner == null )
         {
             $data = [
                 'status' => 0,
-                'msg' => '请输入正确的邀请码!',
+                'msg' => '此邀请码不存在!',
             ];
         }
+        else if ($partner->status == 1)
+        {            $data = [
+            'status' => 0,
+            'msg' => '此邀请码已被使用!',
+        ];}
+        else if ($partner->status == 2)
+        {            $data = [
+            'status' => 0,
+            'msg' => '此邀请码已被冻结!',
+        ];}
         else
         {
             $data = [
