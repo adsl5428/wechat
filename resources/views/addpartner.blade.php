@@ -110,6 +110,9 @@
 
     {{--document.getElementById('btnlogin').innerHTML="正在提交中...";--}}
     $.showLoading();
+    setTimeout(function() {
+    $.hideLoading();$.toptips("服务无响应，请稍候再试 ");
+    }, 10000)
 
     $.ajax(
     {

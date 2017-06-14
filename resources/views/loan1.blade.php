@@ -19,7 +19,8 @@
                 <div class="page-category js-categoryInner">
 
                     <div class="weui_cells weui_cells_access" style="margin-top: 0px;">
-                        <a class="weui_cell" href="javascript:;">
+                        {{--<a class="weui_cell" href="javascript:;">--}}
+                        <a class="weui_cell" href="{{asset('loan2')}}">
                             <div class="weui_cell_bd weui_cell_primary">
                                 <p>一抵</p>
                             </div>
@@ -69,19 +70,19 @@
                     <div class="weui_cells weui_cells_access" style="margin-top: 0px;">
                         <a class="weui_cell" href="javascript:;">
                             <div class="weui_cell_bd weui_cell_primary">
-                                <p>按揭房</p>
+                                <p>按揭房(尚未开放,敬请期待)</p>
                             </div>
                             <div class="weui_cell_ft"></div>
                         </a>
                         <a class="weui_cell" href="javascript:;">
                             <div class="weui_cell_bd weui_cell_primary">
-                                <p>打卡工资</p>
+                                <p>打卡工资(尚未开放,敬请期待)</p>
                             </div>
                             <div class="weui_cell_ft"></div>
                         </a>
                         <a class="weui_cell" href="javascript:;">
                             <div class="weui_cell_bd weui_cell_primary">
-                                <p>其他</p>
+                                <p>其他(尚未开放,敬请期待)</p>
                             </div>
                             <div class="weui_cell_ft"></div>
                         </a>
