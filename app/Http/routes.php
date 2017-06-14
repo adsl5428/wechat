@@ -73,7 +73,6 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::post('/staffregister', 'UsersController@staffregister');
     Route::post('/partnerregister', 'UsersController@partnerregister');
 
-
 });
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 //Route::group(['middleware' => ['web', 'wechat.oauth','partn']], function () {
@@ -87,6 +86,10 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
 Route::get('/nopower', function () {
     return view('nopower');
+});
+
+Route::get('/complete', function () {
+    return view('complete');
 });
 
 /*

@@ -1,6 +1,8 @@
 @extends('master')
 @section('title','Join')
 @section('content')
+    <script src="{{asset('js/zepto.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css"  href="{{asset('css/weui2.css')}}">
     <div class="page">
         <div class="hd">
 
@@ -16,28 +18,28 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">名字</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="nameid" name="name" class="weui_input"  placeholder="请输入您的真实姓名" />
+                        <input id="nameid" name="name" class="weui_input"  placeholder="请输入您的真实姓名" value="李宏城"/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">身份证</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="cardid" name="card" class="weui_input"   placeholder="请输入您的身份证" />
+                        <input id="cardid" name="card" class="weui_input"   placeholder="请输入您的身份证" value="350525199009215338"/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="telid" name="tel" class="weui_input" type="tel" placeholder="请输入手机号" />
+                        <input id="telid" name="tel" class="weui_input" type="tel" placeholder="请输入手机号" value="17750727971"/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">邀请码</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="codeid" name="name" class="weui_input"  placeholder="请输入邀请码" />
+                        <input id="codeid" name="name" class="weui_input"  placeholder="请输入邀请码" value="123"/>
                     </div>
                 </div>
             </div>
@@ -72,19 +74,19 @@
     if(idCardLast=="X"||idCardLast=="x"){
 
     }else{
-    alert("身份证号码错误！"); return false;
+    $.toptips("身份证号码错误！");return false;
     }
     }else{
 
     if(idCardLast==idCardY[idCardMod]){
 
     }else{
-    alert("身份证号码错误！");return false;
+    $.toptips("身份证号码错误！");return false;
     }
     }
     }
     }else{
-    alert("身份证格式不正确!");return false;
+    $.toptips("身份证格式不正确! ");return false;
     }
     return true;
     }
@@ -96,7 +98,9 @@
     var phone = duixiang.value;
     if(!(/^1[3|4|5|7|8][0-9]\d{8}$/.test(phone)))
     {
-    alert("手机号码有误,请重填！");
+    {{--$.alert("手机号码有误,请重填！", "填错啦");--}}
+    $.toptips("手机号码有误,请重填！");
+
     duixiang.value="";
     duixiang.focus();
     return false;
@@ -104,7 +108,9 @@
 
     if(!validateIdCard($('#cardid').val())) return false;
 
-    document.getElementById('btnlogin').innerHTML="正在提交中...";
+    {{--document.getElementById('btnlogin').innerHTML="正在提交中...";--}}
+    $.showLoading();
+
     $.ajax(
     {
     type:"post" ,
@@ -119,14 +125,15 @@
     },
     url: "partnerregister",
     success:function(data){
+    $.hideLoading();
     if(data.status == 0)
     {
-    alert (data.msg);
+    $.toptips(data.msg);
     }
     else
     {
-    alert (data.msg)
-    {{--location.href = data.msg;--}}
+    {{--alert (data.msg)--}}
+    location.href = data.msg;
     }
     }
     });
