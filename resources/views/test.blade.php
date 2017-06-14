@@ -97,6 +97,7 @@
     formData:{ '_token':"{{csrf_token()}}"},
     threads: 1,
     chunkRetry:5,
+    fileNumLimit:20,
     });
 
     uploader.on( 'fileQueued', function( file ) {
