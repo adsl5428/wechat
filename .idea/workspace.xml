@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ceccf74-6c36-4426-acc4-1a0323f5a054" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/test.blade.php" afterPath="$PROJECT_DIR$/resources/views/test.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +19,24 @@
       <file leaf-file-name="test.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="104" column="72" lean-forward="false" selection-start-line="104" selection-start-column="66" selection-end-line="104" selection-end-column="72" />
+            <state relative-caret-position="366">
+              <caret line="86" column="78" lean-forward="false" selection-start-line="86" selection-start-column="78" selection-end-line="86" selection-end-column="78" />
               <folding>
-                <element signature="e#5720#5743#0#HTML" expanded="true" />
+                <element signature="e#5832#5855#0#HTML" expanded="true" />
+                <element signature="e#6455#6478#0#HTML" expanded="true" />
+                <element signature="e#7401#7431#0#HTML" expanded="true" />
+                <element signature="e#9442#9460#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -30,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/public/css/webuploader.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+              <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -39,8 +54,8 @@
       <file leaf-file-name="webuploader.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/baidu/webuploader.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="23" />
+            <state relative-caret-position="729">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,8 +64,8 @@
       <file leaf-file-name="loan3.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/loan3.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="216">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -150,7 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/mail.blade.php" />
         <option value="$PROJECT_DIR$/app/jigoudaima.php" />
         <option value="$PROJECT_DIR$/app/Http/Model/jigoudaima.php" />
         <option value="$PROJECT_DIR$/app/Http/Model/Jigoudaima.php" />
@@ -196,10 +210,11 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/public/style.css" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LoanController.php" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/css/demo.css" />
         <option value="$PROJECT_DIR$/resources/views/master.blade.php" />
         <option value="$PROJECT_DIR$/public/css/webuploader.css" />
+        <option value="$PROJECT_DIR$/public/js/baidu/webuploader.css" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/resources/views/test.blade.php" />
       </list>
     </option>
@@ -398,12 +413,12 @@
     <property name="SearchEverywhereHistoryKey" value="master&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;loan&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/LoanController.php&#10;loan3&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan3.blade.php&#10;test&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/test.blade.php&#10;loan2&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan2.blade.php&#10;weui&#9;FILE&#9;file://C:/AppServ/www/wechat/public/css/weui.css&#10;weui2&#9;FILE&#9;file://C:/AppServ/www/wechat/public/css/weui2.css&#10;order&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/order.blade.php&#10;weiui2&#9;null&#9;null&#10;mast&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;loan1&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/loan1.blade.php&#10;pa&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Middleware/Partner.php&#10;par&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Middleware/Partner.php&#10;route&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/routes.php&#10;tran&#9;null&#9;null&#10;we&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/WechatController.php&#10;wecha&#9;FILE&#9;file://C:/AppServ/www/wechat/config/wechat.php&#10;loanco&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/LoanController.php&#10;tag&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/TagController.php&#10;me&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/MenuController.php&#10;menu&#9;null&#9;null&#10;loancon&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/LoanController.php&#10;config&#9;null&#9;null&#10;.env&#9;FILE&#9;file://C:/AppServ/www/wechat/.env&#10;ker&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Kernel.php&#10;openid&#9;null&#9;null&#10;users&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/UsersController.php&#10;login&#9;null&#9;null&#10;midd&#9;null&#9;null&#10;adminlo&#9;null&#9;null&#10;register&#9;null&#9;null&#10;kernel&#9;null&#9;null&#10;kern&#9;null&#9;null&#10;user&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/UsersController.php&#10;add&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/addpartner.blade.php&#10;loanc&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/LoanController.php&#10;mas&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;placeholder&#9;null&#9;null&#10;filesys&#9;FILE&#9;file://C:/AppServ/www/wechat/config/filesystems.php&#10;ma&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/master.blade.php&#10;rout&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/routes.php&#10;rou&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/routes.php&#10;file&#9;FILE&#9;file://C:/AppServ/www/wechat/config/filesystems.php&#10;files&#9;FILE&#9;file://C:/AppServ/www/wechat/config/filesystems.php&#10;partnerregister&#9;null&#9;null&#10;addp&#9;FILE&#9;file://C:/AppServ/www/wechat/resources/views/addpartner.blade.php&#10;tagc&#9;null&#9;null&#10;admin&#9;null&#9;null&#10;wech&#9;FILE&#9;file://C:/AppServ/www/wechat/app/Http/Controllers/WechatController.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\AppServ\www\wechat\resources\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\AppServ\www\wechat\public\css" />
       <recent name="C:\AppServ\www\wechat\app\Http\Model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\AppServ\www\wechat\resources\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -530,7 +545,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="379756000" />
+    <option name="totallyTimeSpent" value="381173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -809,33 +824,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="488" column="10" lean-forward="true" selection-start-line="488" selection-start-column="10" selection-end-line="488" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/loan3.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/baidu/webuploader.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -850,20 +842,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/loan3.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/baidu/webuploader.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="729">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/webuploader.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="104" column="72" lean-forward="false" selection-start-line="104" selection-start-column="66" selection-end-line="104" selection-end-column="72" />
+        <state relative-caret-position="366">
+          <caret line="86" column="78" lean-forward="false" selection-start-line="86" selection-start-column="78" selection-end-line="86" selection-end-column="78" />
           <folding>
-            <element signature="e#5720#5743#0#HTML" expanded="true" />
+            <element signature="e#5832#5855#0#HTML" expanded="true" />
+            <element signature="e#6455#6478#0#HTML" expanded="true" />
+            <element signature="e#7401#7431#0#HTML" expanded="true" />
+            <element signature="e#9442#9460#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
