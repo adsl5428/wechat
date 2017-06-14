@@ -55,16 +55,29 @@
     </style>
 
 
+    <div class="weui_cells weui_cells_form">
 
-    <div id="uploadimg">
-        <div id="fileList" class="uploader-list"></div>
-        <div  id="imgPicker">选择图片</div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="weui_uploader">
+                    <div class="weui_uploader_hd weui_cell">
+
+                        <div class="weui_cell_ft"></div>
+                    </div>
+                    <div id="uploadimg">
+                        <div id="fileList" class="uploader-list"></div>
+                        <div  id="imgPicker"><p style="color: #ffffff;">选择图片</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
 
     <div class="weui_btn_area">
         <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">确定</a>
+
     </div>
     <h5 class="page_title">　</h5>
 @endsection
@@ -82,6 +95,8 @@
     mimeTypes: 'image/*'
     },
     formData:{ '_token':"{{csrf_token()}}"},
+    threads: 1,
+    chunkRetry:5,
     });
 
     uploader.on( 'fileQueued', function( file ) {
