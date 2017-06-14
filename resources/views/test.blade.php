@@ -56,7 +56,6 @@
 
 
     <div class="weui_cells weui_cells_form">
-
         <div class="weui_cell">
             <div class="weui_cell_bd weui_cell_primary">
                 <div class="weui_uploader">
@@ -103,7 +102,7 @@
     uploader.on( 'fileQueued', function( file ) {
     var $list = $("#fileList"),
     $li = $(
-    '<div id="' + file.id + '" class="file-item thumbnail">' +
+    '<div id="' + file.id + '" class="file-item thumbnail" style="margin:2px">' +
         '<img>' +
         '<div class="info">' + file.name + '</div>' +
         '</div>'
