@@ -1,7 +1,7 @@
 @extends('master')
 @section('title','失败')
     @section('content')
-        <div class="weui_msg hide" id="msg2">
+        <div class="weui_msg" id="msg2">
             <div class="weui_icon_area"><i class="weui_icon_warn weui_icon_msg"></i></div>
             <div class="weui_text_area">
                 <h2 class="weui_msg_title">操作失败</h2>

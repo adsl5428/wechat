@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\Order;
 use function asset;
 use Illuminate\Http\Request;
 
@@ -98,37 +99,54 @@ class LoanController extends Controller
         }
         return view('test');
     }
-    public function loan1(Request $request)    //这里是流程1.  返回页面  通过session 记录是什么项目, 和记录流程1  已经完成
+    public function loan1(Request $request)    //这里是流程1.  返回页面  通过session 记录是什么项目,
     {
         if ($request->isMethod('post'))
         {
-
             $data = [
                 'status' => 1,
                 'msg' => 'loan2',
             ];
+            $request->session()->put('project', '11');  //
             return $data;
         }
-//        $request->session()->put('flow', '1');  //test
         return view('loan1');
     }
                                             //loan2  先检查是否接过本身份证 同项目的单子
     public function loan2(Request $request)   //这里是流程2. 取项目session 判断 流程1 , 不符合就返回 流程1 页面
     {                                         // 到这里把项目和流程写到数据库
+        if ($request->session()->get('project') != 1)
+            return redirect('/loan1');
+
         if ($request->isMethod('post'))
         {
-            dd(Input::all());
+//            dd(Input::except('_token'));
+            $userinfo = Order::where('idcard',$request->idcard)->first();
+            if ($userinfo != null && $userinfo->project == $request->session()->get('project')){
+                $data = [
+                    'status' => 0,
+                    'msg' => '此身份证已在此项目进件',
+                ];
+            return $data;}
+
+            $order = Order::create($request->except('_token'));
+            $order->status = 1;                 //步骤1 提交 借款人 身份信息
+            $order->save();
+
             $data = [
                 'status' => 1,
                 'msg' => 'loan3',
             ];
+            $request->session()->put('status', '1');  //步骤1
             return $data;
+
         }
-//        dd($request->session()->get('flow'));  //test
         return view('loan2');
     }
     public function loan3(Request $request)  //这里是流程3 .  取项目session 判断 流程1 , 不符合就返回 流程2 页面
-    {                                        //走完流程, 清除 flow   $request->session()->forget('flow');
+    {                                        //走完流程, 清除 status   $request->session()->forget('status');
+//        if ($request->session()->get('status') != 2)
+//            return redirect('/nopower');
         if ($request->isMethod('post'))
         {
 //            dd(Input::all());
@@ -138,18 +156,7 @@ class LoanController extends Controller
             ];
             return $data;
         }
-//        dd($request->session()->get('flow'));  //test
+      $request->session()->forget('status');  //步骤3
         return view('loan3');
     }
-    public function ajaxReturn($data = array(), $code = 0, $msg = '成功'){
-        $result =  array(
-            'result' => $data,
-            'ecd' => $code,
-            'msg' => $msg,
-        );
-
-        echo json_encode($result);
-        exit;
-    }
-
 }

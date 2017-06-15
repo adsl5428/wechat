@@ -63,30 +63,42 @@
 
     $(function(){
     $('.weui_navbar_item.a').on('click', function () {
-    check_username(1);
-
+    allshow();
     });
 
     $('.weui_navbar_item.b').on('click', function () {
-    $(".weui_cell.a"+2).hide(0);
+    showhide(1,3,4,5,2);
     });
 
-    $('.weui_navbar_item.b').on('click', function () {
-    $(".weui_cell.a").show(0);
+    $('.weui_navbar_item.c').on('click', function () {
+    showhide(1,5,2,4,3);
+    });
+
+    $('.weui_navbar_item.d').on('click', function () {
+    showhide(1,3,5,2,4);
+    });
+
+    $('.weui_navbar_item.e').on('click', function () {
+    showhide(1,3,4,2,5);
     });
 
     });
 
-    function check_username(a){
+    function showhide(a,b,c,d,e){
     $(".weui_cell.a"+a).hide(0);
-    {{--$(".weui_cell.a"+a).show(0);--}}
-    {{--$(".weui_cell.a"+2).show(0);--}}
-    {{--$(".weui_cell.a"+3).show(0);--}}
-    {{--$(".weui_cell.a"+4).show(0);--}}
-    {{--$(".weui_cell.a"+5).show(0);--}}
+    $(".weui_cell.a"+b).hide(0);
+    $(".weui_cell.a"+c).hide(0);
+    $(".weui_cell.a"+d).hide(0);
+    $(".weui_cell.a"+e).show(0);
+    }
+    function allshow(){
+    $(".weui_cell.a"+1).show(0);
+    $(".weui_cell.a"+2).show(0);
+    $(".weui_cell.a"+3).show(0);
+    $(".weui_cell.a"+4).show(0);
+    $(".weui_cell.a"+5).show(0);
 
     }
-
     {{--$(document).ready(function(){--}}
     {{--$(".btn1").click(function(){--}}
     {{--$(".page").hide(0);--}}
