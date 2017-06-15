@@ -13,8 +13,10 @@ class LoanController extends Controller
 {
     public function test(Request $request)
     {
+
         if ($request->isMethod('post'))
         {
+
 //            dd(Input::all());
 //            $base64_image_content = $_POST['img'];
 //
@@ -97,7 +99,9 @@ class LoanController extends Controller
                 }
             }
         }
-        return view('test');
+        $names[0] =['身份证',11] ;
+        $names[1] =['户口本',12] ;
+        return view('test',compact('names'));
     }
     public function loan1(Request $request)    //这里是流程1.  返回页面  通过session 记录是什么项目,
     {
