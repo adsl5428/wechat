@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Input;
 
 class LoanController extends Controller
 {
+
+    public function test2(Request $request)
+    {
+        $img = Order::find(1)->pictures;
+        dd($img);
+    }
     public function test(Request $request)
     {
 
