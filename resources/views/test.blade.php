@@ -19,12 +19,23 @@
         <h5 class="page_title">Loan</h5>
     </div>
     @foreach($names as $name)
-    <div class="weui_btn_area">
-        <div id="uploadimg">
-            <div id="fileList{{$name[1]}}" class="uploader-list"></div>
-            <div  id="imgPicker{{$name[1]}}"><p style="color: #ffffff;">上传 {{$name[0]}}</p></div>
-         </div>
+    <div class="weui_cells ">
+        <div class="weui_cell">
+            <div class="weui_cell_primary">
+                {{--<div class="weui_uploader">--}}
+                <div class="weui_uploader_hd">
+                    {{--<div class="weui_cell_ft"></div>--}}
+                </div>
+                <div id="uploadimg">
+                    <div id="fileList{{$name[1]}}" class="uploader-list"></div>
+                    <div  id="imgPicker{{$name[1]}}"><p style="color: #ffffff;">上传 {{$name[0]}}</p></div>
+                    {{--</div>--}}
+                </div>
+            </div>
+        </div>
     </div>
+
+
     @endforeach
 
     <div class="weui_btn_area">
