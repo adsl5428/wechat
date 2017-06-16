@@ -47,7 +47,7 @@ class LoanController extends Controller
 //
 //            dd(Input::all());
             $file = $request->file('file');
-            //dd($request);
+//            dd(Input::all());
             if($file -> isValid()) {
                 $entension = $file->getClientOriginalExtension(); //上传文件的后缀.
                 $newName = date('YmdHis') . mt_rand(100, 999) . '.' . $entension;
@@ -57,7 +57,6 @@ class LoanController extends Controller
 //                dd(base_path() . '/uploads', $newName);
                 //return $filepath;
                 $data =
-
                     asset('uploads/'.$newName)
                     ;
                 return $data;

@@ -413,34 +413,36 @@ body {
 }
 .file-item .info {
     position: absolute;
-    left: 4px;
+    top: 4px;
+    left: 80px;
     bottom: 4px;
     right: 4px;
     height: 20px;
     line-height: 20px;
     text-indent: 5px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 0, 0, 0.7);
     color: white;
     overflow: hidden;
     white-space: nowrap;
     text-overflow : ellipsis;
     font-size: 12px;
-    z-index: 10;
+    z-index: 99;
 }
 .upload-state-done:after {
-    content:"\f00c";
+    content:"√";
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 32px;
+    font-size: 20px;
     position: absolute;
-    bottom: 0;
-    right: 4px;
-    color: #4cae4c;
-    z-index: 99;
+    right: 5px;
+    top: 4px;
+    color: #ffffff;
+    z-index: 100;
+    background: rgba(255, 0, 0, 0.7);
 }
 .file-item .progress {
     position: absolute;
