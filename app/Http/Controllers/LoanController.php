@@ -46,7 +46,7 @@ class LoanController extends Controller
 //
 //
 //            dd(Input::all());
-            $file = Input::file('file');
+            $file = $request->file('file');
             //dd($request);
             if($file -> isValid()) {
                 $entension = $file->getClientOriginalExtension(); //上传文件的后缀.
