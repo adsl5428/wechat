@@ -8,10 +8,7 @@
     <link rel="stylesheet" type="text/css"  href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css"  href="{{asset('css/webuploader.css')}}">
     <script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>
-    <style>  .xx{content:"x";  top:0px; right:-1px; background:red; cursor:pointer;
-            font-style:normal; font-size:20px; width:20px; height:20px; text-align:center;
-            line-height:12px; color:#fff;}
-    </style>
+
 
 
     <div class="hd">
