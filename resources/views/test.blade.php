@@ -4,7 +4,6 @@
 
     {{--<script type="text/javascript" src="http://fex.baidu.com/webuploader/js/webuploader.js"></script>--}}
     <script type="text/javascript" src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/jquey-bigic.js')}}"></script>
     <link rel="stylesheet" type="text/css"  href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css"  href="{{asset('css/webuploader.css')}}">
     <script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>
@@ -28,6 +27,7 @@
                 <div id="uploadimg">
                     <div id="fileList{{$name[1]}}" class="uploader-list"></div>
                     <div  id="imgPicker{{$name[1]}}"><p style="color: #ffffff;">上传 {{$name[0]}}</p></div>
+
                     {{--</div>--}}
                 </div>
             </div>
@@ -119,10 +119,11 @@
 
         // 文件上传成功，给item添加成功class, 用样式标记上传成功。
         uploader.on( 'uploadSuccess', function( file, res ) {
-            {{--console.log(res.filePath);//这里可以得到上传后的文件路径--}}
+            console.log(res.filePath);//这里可以得到上传后的文件路径
              {{--outputObj(res);--}}
             {{--alert(res._raw);--}}
-            $( '#'+file.id ).addClass('upload-state-done');
+             $( '#'+file.id ).append('<i class="del" onclick="delimg(this)" ></i>')
+            {{--$( '#'+file.id ).addClass('upload-state-done');--}}
              $( '#'+file.id+'img' ).attr('alt',res._raw);
              {{--$( '#'+file.id ).html("<div class="upload-state-done" ></div>");--}}
         });
@@ -143,7 +144,16 @@
             $( '#'+file.id ).find('.progress').remove();
         });
     }
+    function delimg(o){
+    var src = $(o).prev().attr("src");
 
+    $(o).parent().remove();
+    $.post("upimgs.php?get=delimg&imgurl="+src,function(data){
+    if(data==1){
+
+    }
+    })
+    }
     function outputObj(obj) {
     var description = "";
     for (var i in obj) {
