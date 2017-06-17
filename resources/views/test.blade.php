@@ -33,18 +33,16 @@
             </div>
         </div>
     </div>
+    @endforeach
 
     <div class="weui-gallery" style="display: block">
-        <span onclick="$('.weui-gallery').fadeOut(300);" class="weui-gallery-img" style="background-image: url(uploads/20170617122006461.png);"></span>
+        <span onclick="$('.weui-gallery').fadeOut(300);" class="weui-gallery-img" style=""></span>
         <div class="weui-gallery-opr">
             <a href="javascript:" class="weui-gallery-del" onclick="$('.weui-gallery').fadeOut(300);">
                 <i class="icon icon-26 f-gray">删除</i>
             </a>
         </div>
     </div>
-
-
-    @endforeach
 
     <div class="weui_btn_area">
         <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>
@@ -56,9 +54,10 @@
    @foreach($names as $name)
       aaa('{{$name[0]}}','{{$name[1]}}');
    @endforeach
+    $('.weui-gallery').fadeOut(0);
     function show (ths) {
     {{--alert(ths);--}}
-    $('.weui-gallery').css("background-image","url(on.jpg)");
+    $('.weui-gallery-img').css("background-image",'url(' + ths + ')');
     $('.weui-gallery').fadeIn(300);
    }
 
