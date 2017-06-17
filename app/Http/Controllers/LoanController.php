@@ -62,10 +62,13 @@ class LoanController extends Controller
 
 //                dd(base_path() . '/uploads', $newName);
                 //return $filepath;
-                $data =
-                    asset('uploads/'.$newName)
-                    ;
-                return $data;
+                $url ='uploads/'.$newName;
+//                $data = [
+//
+//                    'msg' => $url,
+//                ];
+
+                return $url;
             }
             $typeArr = array("jpg", "png", "gif");//允许上传文件格式
             $path = "files/";//上传路径

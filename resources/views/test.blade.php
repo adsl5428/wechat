@@ -4,7 +4,7 @@
 
     {{--<script type="text/javascript" src="http://fex.baidu.com/webuploader/js/webuploader.js"></script>--}}
     <script type="text/javascript" src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
-
+    <script type="text/javascript" src="{{asset('js/jquey-bigic.js')}}"></script>
     <link rel="stylesheet" type="text/css"  href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css"  href="{{asset('css/webuploader.css')}}">
     <script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>
@@ -15,6 +15,8 @@
         <h1 class="page_title">丰纳金融</h1>
         <h5 class="page_title">Loan</h5>
     </div>
+
+
     @foreach($names as $name)
     <div class="weui_cells ">
         <div class="weui_cell">
@@ -32,6 +34,15 @@
         </div>
     </div>
 
+    <div class="weui-gallery" style="display: block">
+        <span onclick="$('.weui-gallery').fadeOut(300);" class="weui-gallery-img" style="background-image: url(uploads/20170617122006461.png);"></span>
+        <div class="weui-gallery-opr">
+            <a href="javascript:" class="weui-gallery-del" onclick="$('.weui-gallery').fadeOut(300);">
+                <i class="icon icon-26 f-gray">删除</i>
+            </a>
+        </div>
+    </div>
+
 
     @endforeach
 
@@ -45,6 +56,11 @@
    @foreach($names as $name)
       aaa('{{$name[0]}}','{{$name[1]}}');
    @endforeach
+    function show (ths) {
+    {{--alert(ths);--}}
+    $('.weui-gallery').css("background-image","url(on.jpg)");
+    $('.weui-gallery').fadeIn(300);
+   }
 
     function aaa( name0,name1) {
         var uploader = WebUploader.create({
@@ -68,8 +84,8 @@
             var $list = $("#fileList"+name1),
                 $li = $(
                     '<div id="' + file.id + '" class="file-item thumbnail" style="margin:2px 2px 2px 2px">' +
-                    '<img>' +
-                    {{--'<div class="info">' + file.name + '</div>' +--}}
+                    '<img alt="" id="' + file.id + 'img" onclick="show(alt)">' +
+                     {{--'<div class="info">' + file.name + '</div>' +--}}
                     '</div>'
                 ),
                 $img = $li.find('img');
@@ -104,8 +120,11 @@
 
         // 文件上传成功，给item添加成功class, 用样式标记上传成功。
         uploader.on( 'uploadSuccess', function( file, res ) {
-            console.log(res.filePath);//这里可以得到上传后的文件路径
+            {{--console.log(res.filePath);//这里可以得到上传后的文件路径--}}
+             {{--outputObj(res);--}}
+            {{--alert(res._raw);--}}
             $( '#'+file.id ).addClass('upload-state-done');
+             $( '#'+file.id+'img' ).attr('alt',res._raw);
              {{--$( '#'+file.id ).html("<div class="upload-state-done" ></div>");--}}
         });
 
@@ -124,6 +143,14 @@
         uploader.on( 'uploadComplete', function( file ) {
             $( '#'+file.id ).find('.progress').remove();
         });
+    }
+
+    function outputObj(obj) {
+    var description = "";
+    for (var i in obj) {
+    description += i + " = " + obj[i] + "\n";
+    }
+    alert(description);
     }
     {{--@foreach($names as $name)--}}
     {{--var uploader = WebUploader.create({--}}
