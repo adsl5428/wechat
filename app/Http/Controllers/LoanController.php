@@ -176,6 +176,8 @@ class LoanController extends Controller
             return $data;
         }
       $request->session()->forget('status');  //步骤3
-        return view('loan3');
+        $names[0] =['身份证',11] ;
+        $names[1] =['户口本',12] ;
+        return view('loan3',compact('names'));
     }
 }

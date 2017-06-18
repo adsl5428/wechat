@@ -50,7 +50,7 @@ class UsersController extends Controller
         if (is_null($chars)){
             //$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 //            $chars = "abcdefghijklmnpqrstuvwxyz0123456789";
-            $chars = "abcdefghijklmnopqrstuvwxyz";
+            $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         }
         mt_srand(10000000*(double)microtime());
