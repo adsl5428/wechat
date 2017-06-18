@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Model\Order;
 use function asset;
+use function dd;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -57,8 +58,10 @@ class LoanController extends Controller
 //            dd(Input::all());
             if($file -> isValid()) {
                 $entension = $file->getClientOriginalExtension(); //上传文件的后缀.
-                $newName = date('YmdHis') . mt_rand(100, 999) . '.' . $entension;
+                $newName =$request->leixing. date('-mdHis-Y-') . mt_rand(100, 999) . '.' . $entension;
+                $newName = iconv('utf-8','gb2312',$newName);    //防止乱码
                 Storage::put($newName,file_get_contents($file->getRealPath()));
+
 //                $path = $file->move(base_path() . '/public/uploads', $newName);
 //                $filepath = 'uploads/' . $newName;
 
@@ -70,8 +73,9 @@ class LoanController extends Controller
 //                    'msg' => $url,
 //                ];
 //                $name = iconv('utf-8','gb2312',$file['name']);
-                Storage::move($request->leixing.$newName,$newName);
-                return $newName;
+//                Storage::move($request->leixing.$newName,$newName);
+                $newName = iconv('gb2312','utf-8',$newName);
+                return 'uploads/' .$newName;
             }
             else
             {
@@ -193,8 +197,23 @@ class LoanController extends Controller
     public function del(Request $request)
     {
 //        dd(Storage::disk('local'));
-        $a = '20170618125657975.jpg';
-        Storage::delete($a);
+//        return 123;
+        if ($request->isMethod('post'))
+        {
+//            $a = '20170618125657975.jpg';
+//            dd($request->get('jpg'));
+            $file = $request->get('jpg');
+            $file = iconv('utf-8','gb2312',$file);
+            $filename = explode('/',$file);
+            Storage::delete($filename[1]);
+//            dd($request->get('jpg'));
+
+            $data = [
+                'status' => 1,
+                'msg' => 'T',
+            ];
+            return $data;
+        }
 
     }
 }

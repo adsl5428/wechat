@@ -147,7 +147,7 @@
     function delimg(o){
     var src = $(o).prev().attr("alt");
     //    alert(src);
-    $(o).parent().remove();
+    {{--$(o).parent().remove();--}}
     $.ajax(
     {
     type:"post" ,
@@ -157,11 +157,11 @@
     'jpg' :src ,
     '_token':"{{csrf_token()}}"
     },
-    url: "del",
+    url: "{{asset('del')}}",
     success:function(data){
     if(data.status == 0)
     {
-    $.toptips("data.msg");return false;
+    {{--$.toptips("data.msg");return false;--}}
     }
     else
     {

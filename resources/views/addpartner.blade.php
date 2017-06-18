@@ -17,28 +17,28 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">名字</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="nameid" name="name" class="weui_input"  placeholder="请输入您的真实姓名" value="ddd"/>
+                        <input id="nameid" name="name" class="weui_input"  placeholder="请输入您的真实姓名" value=""/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">身份证</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="cardid" name="card" class="weui_input"   placeholder="请输入您的身份证" value="350525199009215338"/>
+                        <input id="cardid" name="card" class="weui_input"   placeholder="请输入您的身份证" value=""/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="telid" name="tel" class="weui_input" type="tel" placeholder="请输入手机号" value="17750727971"/>
+                        <input id="telid" name="tel" class="weui_input" type="tel" placeholder="请输入手机号" value=""/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">邀请码</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="codeid" name="name" class="weui_input"  placeholder="请输入邀请码" value="123"/>
+                        <input id="codeid" name="name" class="weui_input"  placeholder="请输入邀请码" value=""/>
                     </div>
                 </div>
             </div>
