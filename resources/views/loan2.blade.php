@@ -77,7 +77,6 @@
 @endsection
 @section('js')
     {{--<script type='text/javascript'>--}}
-
     @include('jsidcard')
     function login()
     {
@@ -92,7 +91,7 @@
     $.showLoading();
     setTimeout(function() {
     $.hideLoading();$.toptips("服务无响应，请稍候再试 ");
-    }, 10000)
+    }, 10000);
     $.ajax(
     {
     type:"post" ,
@@ -115,8 +114,7 @@
     }
     else
     {
-
-    location.href = ../../data.msg;
+    location.href ="../../"+data.msg;
     }
     }
     });
