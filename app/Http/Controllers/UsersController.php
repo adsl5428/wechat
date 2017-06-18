@@ -225,7 +225,8 @@ class UsersController extends Controller
             $partner->save();
 //
 //            $openIds = [$userinfo->openid,$userinfo->openid];
-            $this->wechat->user_tag->batchTagUsers($partner->openid, 100);
+            $openIds = [$partner->openid,$partner->openid];
+            $this->wechat->user_tag->batchTagUsers($openIds, 100);
             //TagController::addtotag($userinfo->openid);
         }
         return $data;
