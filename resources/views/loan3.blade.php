@@ -56,6 +56,7 @@
     @endforeach
     $('.weui-gallery').fadeOut(0);
     function show (ths) {
+    ths=encodeURI(ths,"UTF-8");
     {{--alert(ths);--}}
     $('.weui-gallery-img').css("background-image",'url(' + ths + ')');
     $('.weui-gallery').fadeIn(300);
