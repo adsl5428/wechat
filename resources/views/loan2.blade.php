@@ -116,7 +116,7 @@
     else
     {
 
-    location.href = data.msg;
+    location.href = ../../data.msg;
     }
     }
     });
