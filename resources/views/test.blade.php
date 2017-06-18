@@ -50,7 +50,7 @@
     <h5 class="page_title">　</h5>
 @endsection
 @section('js')
-    {{--<script type='text/javascript'>--}}
+    <script type='text/javascript'>
    @foreach($names as $name)
       aaa('{{$name[0]}}','{{$name[1]}}');
    @endforeach
@@ -145,14 +145,30 @@
         });
     }
     function delimg(o){
-    var src = $(o).prev().attr("src");
-
-    $(o).parent().remove();
-    $.post("upimgs.php?get=delimg&imgurl="+src,function(data){
-    if(data==1){
-
+    $.showLoading();
+    var src = $(o).prev().attr("alt");
+//    alert(src);
+    $.ajax(
+    {
+    type:"post" ,
+    dataType: "json",
+    data:
+    {
+    'jpg' :src ,
+    '_token':"{{csrf_token()}}"
+    },
+    url: "del",
+    success:function(data){
+    if(data.status == 0)
+    {
+        $.toptips("data.msg");return false;
     }
-    })
+    else
+    {
+        $(o).parent().remove();
+    }
+    }
+    });
     }
     function outputObj(obj) {
     var description = "";

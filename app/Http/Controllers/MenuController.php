@@ -25,19 +25,19 @@ class MenuController extends Controller
                     [
                         "type" => "view",
                         "name" => "员工",
-                        "url"  => "http://www.fnjr.loan/addstaff"
+                        "url"  => "http://fnjr.chonghui.net.cn/addstaff"
                     ],
                     [
                         "type" => "view",
                         "name" => "合伙人",
-                        "url"  => "http://www.fnjr.loan/addpartner"
+                        "url"  => "http://fnjr.chonghui.net.cn/addpartner"
                     ],
                 ],
             ],
             [
                 "type" => "view",
                 "name" => "首页",
-                "url"  => "http://www.fnjr.loan/"
+                "url"  => "http://fnjr.chonghui.net.cn/"
             ],
         ];
         $this->menu->add($buttons);
@@ -135,4 +135,9 @@ class MenuController extends Controller
     {
         return $this->menu->test($userId);
     }
+    public function delmenu()
+    {
+        return $this->menu->destroy();
+    }
+
 }

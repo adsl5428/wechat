@@ -35,6 +35,7 @@ Route::get('/gettel','UsersController@gettel');
 
 Route::get('/sms','SmsController@sendSms');
 Route::get('/menu','MenuController@menu');
+Route::get('/delmenu','MenuController@delmenu');
 Route::get('/addmenu/{id}','MenuController@addmenu');
 Route::get('/testmenu/{id}','MenuController@testmenu');
 
