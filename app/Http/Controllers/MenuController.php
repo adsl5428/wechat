@@ -104,12 +104,12 @@ class MenuController extends Controller
             [
                 "type" => "view",
                 "name" => "提交订单",
-                "url"  => "http://www.fnjr.loan/loan1"
+                "url"  => "http://fnjr.chonghui.net.cn/loan1"
             ],
             [
                 "type" => "view",
                 "name" => "订单中心",
-                "url"  => "http://www.fnjr.loan/order"
+                "url"  => "http://fnjr.chonghui.net.cn/order"
             ],
             [
                 "name"       => "小工具",
