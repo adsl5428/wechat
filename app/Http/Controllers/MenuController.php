@@ -78,7 +78,7 @@ class MenuController extends Controller
         echo '主管';
     }
 
-    public function addmenu($tag_id)   //普通员工菜单
+    public function addmenu($tag_id)   //专员菜单
     {
         $matchRule = [
             "tag_id"=>$tag_id

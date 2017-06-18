@@ -40,6 +40,8 @@ Route::get('/addmenu/{id}','MenuController@addmenu');
 Route::get('/testmenu/{id}','MenuController@testmenu');
 
 
+Route::get('/addmenupartner/{id}','MenuController@addmenupartner');
+
 
 Route::get('/getgroup', 'GroupController@getgroup');
 
