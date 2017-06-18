@@ -111,8 +111,14 @@ class LoanController extends Controller
         $names[1] =['户口本',12] ;
         return view('test',compact('names'));
     }
-    public function loan1(Request $request)    //这里是流程1.  返回页面  通过session 记录是什么项目,
+    public function loan1(Request $request,$id = null)    //这里是流程1.  返回页面  通过session 记录是什么项目,
     {
+//        dd($id);
+        if ($id == 'yidi')
+        {
+            $request->session()->put('project', '11');
+            return view('loan2');
+        }
         if ($request->isMethod('post'))
         {
             $data = [
@@ -120,6 +126,7 @@ class LoanController extends Controller
                 'msg' => 'loan2',
             ];
             $request->session()->put('project', '11');  //
+//            dd($request->session()->get('project'));
             return $data;
         }
         return view('loan1');
@@ -128,18 +135,18 @@ class LoanController extends Controller
     public function loan2(Request $request)   //这里是流程2. 取项目session 判断 流程1 , 不符合就返回 流程1 页面
     {                                         // 到这里把项目和流程写到数据库
         if ($request->session()->get('project') != 11)
-            return redirect('/loan1');
+        {dd('to loan1');return redirect('/loan1');}
 
         if ($request->isMethod('post'))
         {
 //            dd(Input::except('_token'));
-            $userinfo = Order::where('idcard',$request->idcard)->first();
-            if ($userinfo != null && $userinfo->project == $request->session()->get('project')){
-                $data = [
-                    'status' => 0,
-                    'msg' => '此身份证已在此项目进件',
-                ];
-            return $data;}
+//            $userinfo = Order::where('idcard',$request->idcard)->first();
+//            if ($userinfo != null && $userinfo->project == $request->session()->get('project')){
+//                $data = [
+//                    'status' => 0,
+//                    'msg' => '此身份证已在此项目进件',
+//                ];
+//            return $data;}
 
             $order = Order::create($request->except('_token'));
             $order->status = 1;                 //步骤1 提交 借款人 身份信息

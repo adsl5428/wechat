@@ -81,7 +81,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 //Route::group(['middleware' => ['web', 'wechat.oauth','partn']], function () {
 
-    Route::any('/loan1', 'LoanController@loan1');
+    Route::any('/loan1/{id?}', 'LoanController@loan1');
     Route::any('/loan3', 'LoanController@loan3');
     Route::any('/loan2', 'LoanController@loan2');
 

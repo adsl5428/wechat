@@ -15,14 +15,14 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">名字</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="nameid" name="name" class="weui_input"  placeholder="贷款人姓名" value="李宏城"/>
+                        <input id="nameid" name="name" class="weui_input"  placeholder="贷款人姓名" value=""/>
                     </div>
                 </div>
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">身份证</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="cardid" name="card" class="weui_input"  placeholder="贷款人身份证" value="350525199009215338"/>
+                        <input id="cardid" name="card" class="weui_input"  placeholder="贷款人身份证" value=""/>
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@
                 <div class="weui_cell weui_vcode ">
                     <div class="weui_cell_hd"><label class="weui_label">贷款额</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="moneyid" class="weui_input" type="tel" placeholder="申请贷款金额" value="123" />
+                        <input id="moneyid" class="weui_input" type="tel" placeholder="申请贷款金额" value="" />
                     </div>
                     <div class="weui_cell_ft">
                         <i class="weui_icon_warn"></i>
@@ -42,7 +42,7 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">用途</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="yongtuid" name="yongtu" class="weui_input"  placeholder="借款用途" value="做生意"/>
+                        <input id="yongtuid" name="yongtu" class="weui_input"  placeholder="借款用途" value=""/>
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">还款来源</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="laiyuanid" name="laiyuan" class="weui_input"  placeholder="还款来源" value="抢劫"/>
+                        <input id="laiyuanid" name="laiyuan" class="weui_input"  placeholder="还款来源" value=""/>
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
                 <div class="weui_cells weui_cells_form">
                     <div class="weui_cell">
                         <div class="weui_cell_bd weui_cell_primary">
-                            <textarea id="teshuid" class="weui_textarea" placeholder="客户的特殊情况做一个简单介绍" rows="3">1234567</textarea>
+                            <textarea id="teshuid" class="weui_textarea" placeholder="客户的特殊情况做一个简单介绍" rows="3"></textarea>
                             <div class="weui_textarea_counter"><span id='count'></span><span id='count_max'></span></div>
                         </div>
                     </div>

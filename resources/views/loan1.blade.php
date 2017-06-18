@@ -20,7 +20,7 @@
 
                     <div class="weui_cells weui_cells_access" style="margin-top: 0px;">
                         {{--<a class="weui_cell" href="javascript:;">--}}
-                        <a class="weui_cell" href="{{asset('loan2')}}">
+                        <a class="weui_cell" href="{{asset('loan1/yidi')}}">
                             <div class="weui_cell_bd weui_cell_primary">
                                 <p>一抵</p>
                             </div>
