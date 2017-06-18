@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 
 class LoanController extends Controller
 {
@@ -57,18 +58,24 @@ class LoanController extends Controller
             if($file -> isValid()) {
                 $entension = $file->getClientOriginalExtension(); //上传文件的后缀.
                 $newName = date('YmdHis') . mt_rand(100, 999) . '.' . $entension;
-                $path = $file->move(base_path() . '/public/uploads', $newName);
-                $filepath = 'uploads/' . $newName;
+                Storage::put($newName,file_get_contents($file->getRealPath()));
+//                $path = $file->move(base_path() . '/public/uploads', $newName);
+//                $filepath = 'uploads/' . $newName;
 
 //                dd(base_path() . '/uploads', $newName);
                 //return $filepath;
-                $url ='uploads/'.$newName;
+//                $url = $newName;
 //                $data = [
 //
 //                    'msg' => $url,
 //                ];
-
-                return $url;
+//                $name = iconv('utf-8','gb2312',$file['name']);
+                Storage::move($request->leixing.$newName,$newName);
+                return $newName;
+            }
+            else
+            {
+                exit('文件上传出错！');
             }
             $typeArr = array("jpg", "png", "gif");//允许上传文件格式
             $path = "files/";//上传路径
@@ -114,10 +121,10 @@ class LoanController extends Controller
     public function loan1(Request $request,$id = null)    //这里是流程1.  返回页面  通过session 记录是什么项目,
     {
 //        dd($id);
-        if ($id == 'yidi')
+        if ($id == 'yidi')              //一抵
         {
             $request->session()->put('project', '11');
-            return view('loan2');
+            return redirect('loan2');           //要用重定向 , 用view的话  会飞到loan1/yidi
         }
         if ($request->isMethod('post'))
         {
@@ -178,6 +185,16 @@ class LoanController extends Controller
       $request->session()->forget('status');  //步骤3
         $names[0] =['身份证',11] ;
         $names[1] =['户口本',12] ;
+        $names[2] =['征信报告',13] ;
+        $names[3] =['房产证',14] ;
+        $names[4] =['婚姻关系证明',15] ;
         return view('loan3',compact('names'));
+    }
+    public function del(Request $request)
+    {
+//        dd(Storage::disk('local'));
+        $a = '20170618125657975.jpg';
+        Storage::delete($a);
+
     }
 }

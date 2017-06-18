@@ -145,9 +145,9 @@
     });
     }
     function delimg(o){
-    $.showLoading();
     var src = $(o).prev().attr("alt");
     //    alert(src);
+    $(o).parent().remove();
     $.ajax(
     {
     type:"post" ,

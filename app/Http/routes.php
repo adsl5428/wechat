@@ -58,6 +58,8 @@ Route::any('/order', 'OrderController@order');
 
 Route::any('/test2', 'LoanController@test2');
 
+
+Route::get('/del', 'LoanController@del');
 //Route::any('/loan1', 'LoanController@loan1');
 //Route::any('/loan3', 'LoanController@loan3');
 //Route::any('/loan2', 'LoanController@loan2');

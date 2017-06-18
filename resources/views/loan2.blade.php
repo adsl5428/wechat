@@ -110,11 +110,12 @@
     success:function(data){
     if(data.status == 0)
     {
-    alert (data.msg);
+    $.toptips(data.msg);
     }
     else
     {
-    location.href ="../../"+data.msg;
+    location.href =data.msg;
+
     }
     }
     });
