@@ -117,7 +117,7 @@ class UsersController extends Controller
 
         //查找是否有这个openid
         $userinfo = Partner::where('openid',$user->getId())->first();
-
+        dd($userinfo);
         if ($userinfo == null)
         {return \redirect('nopower');}
         else
@@ -227,6 +227,7 @@ class UsersController extends Controller
 //            $openIds = [$userinfo->openid,$userinfo->openid];
             $openIds = [$partner->openid,$partner->openid];
             $this->wechat->user_tag->batchTagUsers($openIds, 100);
+
             //TagController::addtotag($userinfo->openid);
         }
         return $data;
