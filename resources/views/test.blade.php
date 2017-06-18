@@ -37,11 +37,11 @@
 
     <div class="weui-gallery" style="display: block">
         <span onclick="$('.weui-gallery').fadeOut(300);" class="weui-gallery-img" style=""></span>
-        <div class="weui-gallery-opr">
-            <a href="javascript:" class="weui-gallery-del" onclick="$('.weui-gallery').fadeOut(300);">
-                <i class="icon icon-26 f-gray">删除</i>
-            </a>
-        </div>
+        {{--<div class="weui-gallery-opr">--}}
+            {{--<a href="javascript:" class="weui-gallery-del" onclick="$('.weui-gallery').fadeOut(300);">--}}
+                {{--<i class="icon icon-26 f-gray">删除</i>--}}
+            {{--</a>--}}
+        {{--</div>--}}
     </div>
 
     <div class="weui_btn_area">

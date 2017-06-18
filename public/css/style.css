@@ -467,13 +467,13 @@ body {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 30px;
+    font-size: 42px;
     position: absolute;
-    right: 5px;
-    /*top: 4px;*/
+    right: 4px;
+    /*top: -10px;*/
     color: #ffffff;
     z-index: 100;
-    background: rgba(255, 0, 0, 0.7);
+    background: rgba(255, 0, 0, 0.5);
 }
 
 .file-item .progress {
