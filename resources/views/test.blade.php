@@ -50,7 +50,7 @@
     <h5 class="page_title">　</h5>
 @endsection
 @section('js')
-    <script type='text/javascript'>
+    {{--<script type='text/javascript'>--}}
    @foreach($names as $name)
       aaa('{{$name[0]}}','{{$name[1]}}');
    @endforeach
