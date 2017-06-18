@@ -40,7 +40,7 @@ Route::get('/addmenu/{id}','MenuController@addmenu');
 Route::get('/testmenu/{id}','MenuController@testmenu');
 
 
-Route::get('/addmenupartner/{id}','MenuController@addmenupartner');
+Route::get('/addmenupartner/{id}','MenuController@addmenupartner');     //合伙人 标签 目录
 
 
 Route::get('/getgroup', 'GroupController@getgroup');
