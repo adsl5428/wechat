@@ -190,6 +190,7 @@ class LoanController extends Controller
         $names[2] =['征信报告',13,'zheng-xin'] ;
         $names[3] =['房产证',14,'fang-chan'] ;
         $names[4] =['婚姻关系证明',15,'hun-yin'] ;
+        $names[5] =['其他',16,'qi-ta'] ;
         return view('loan3',compact('names'));
     }
     public function del(Request $request)
