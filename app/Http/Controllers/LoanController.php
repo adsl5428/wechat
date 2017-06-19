@@ -59,7 +59,6 @@ class LoanController extends Controller
             if($file -> isValid()) {
                 $entension = $file->getClientOriginalExtension(); //上传文件的后缀.
                 $newName =$request->leixing. date('-mdHis-Y-') . mt_rand(100, 999) . '.' . $entension;
-                $newName = iconv('utf-8','gb2312',$newName);    //防止乱码
                 Storage::put($newName,file_get_contents($file->getRealPath()));
 
 //                $path = $file->move(base_path() . '/public/uploads', $newName);
@@ -74,7 +73,6 @@ class LoanController extends Controller
 //                ];
 //                $name = iconv('utf-8','gb2312',$file['name']);
 //                Storage::move($request->leixing.$newName,$newName);
-                $newName = iconv('gb2312','utf-8',$newName);
                 return 'uploads/' .$newName;
             }
             else
@@ -118,8 +116,8 @@ class LoanController extends Controller
                 }
             }
         }
-        $names[0] =['身份证',11] ;
-        $names[1] =['户口本',12] ;
+        $names[0] =['身份证',11,'shen-fen-zheng'] ;
+        $names[1] =['户口本',12,'hu-kou'] ;
         return view('test',compact('names'));
     }
     public function loan1(Request $request,$id = null)    //这里是流程1.  返回页面  通过session 记录是什么项目,
@@ -187,11 +185,11 @@ class LoanController extends Controller
             return $data;
         }
       $request->session()->forget('status');  //步骤3
-        $names[0] =['身份证',11] ;
-        $names[1] =['户口本',12] ;
-        $names[2] =['征信报告',13] ;
-        $names[3] =['房产证',14] ;
-        $names[4] =['婚姻关系证明',15] ;
+        $names[0] =['身份证',11,'shen-fen-zheng'] ;
+        $names[1] =['户口本',12,'hu-kou-ben'] ;
+        $names[2] =['征信报告',13,'zheng-xin'] ;
+        $names[3] =['房产证',14,'fang-chan'] ;
+        $names[4] =['婚姻关系证明',15,'hun-yin'] ;
         return view('loan3',compact('names'));
     }
     public function del(Request $request)
@@ -203,7 +201,6 @@ class LoanController extends Controller
 //            $a = '20170618125657975.jpg';
 //            dd($request->get('jpg'));
             $file = $request->get('jpg');
-            $file = iconv('utf-8','gb2312',$file);
             $filename = explode('/',$file);
             Storage::delete($filename[1]);
 //            dd($request->get('jpg'));

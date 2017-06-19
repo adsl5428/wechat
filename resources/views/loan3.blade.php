@@ -52,17 +52,16 @@
 @section('js')
     {{--<script type='text/javascript'>--}}
     @foreach($names as $name)
-        aaa('{{$name[0]}}','{{$name[1]}}');
+        aaa('{{$name[0]}}','{{$name[1]}}','{{$name[2]}}');
     @endforeach
     $('.weui-gallery').fadeOut(0);
     function show (ths) {
-    ths=encodeURI(ths,"UTF-8");
     {{--alert(ths);--}}
     $('.weui-gallery-img').css("background-image",'url(' + ths + ')');
     $('.weui-gallery').fadeIn(300);
     }
 
-    function aaa( name0,name1) {
+    function aaa( name0,name1,name2) {
     var uploader = WebUploader.create({
     auto: true, // 选完文件后，是否自动上传
     swf: '{{asset('js/baidu/Uploader.swf')}}', // swf文件路径
@@ -74,7 +73,7 @@
     extensions: 'gif,jpg,jpeg,bmp,png',
     mimeTypes: 'image/*'
     },
-    formData:{ '_token':'{{csrf_token()}}',leixing:name0},
+    formData:{ '_token':'{{csrf_token()}}',leixing:name2},
     threads: 1,
     chunkRetry:5,
     fileNumLimit:20
