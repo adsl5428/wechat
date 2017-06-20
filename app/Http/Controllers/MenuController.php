@@ -116,13 +116,13 @@ class MenuController extends Controller
                 "sub_button" => [
                     [
                         "type" => "view",
-                        "name" => "小工具A",
-                        "url"  => "http://www.小工具A.loan/"
+                        "name" => "城市房价评估",
+                        "url"  => "http://wx.surea.com/MobileView/Viss/Appr.htm?code=041UE7gJ0GWCIj2zQFcJ0JK6gJ0UE7gh&state=STATE&winzoom=1"
                     ],
                     [
                         "type" => "view",
-                        "name" => "小工具B",
-                        "url"  => "http://www.小工具B.loan/"
+                        "name" => "城市房价评估",
+                        "url"  => "http://wx.surea.com/MobileView/Viss/Appr.htm?code=041UE7gJ0GWCIj2zQFcJ0JK6gJ0UE7gh&state=STATE&winzoom=1"
                     ],
                 ],
             ],

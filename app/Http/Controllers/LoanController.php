@@ -143,8 +143,8 @@ class LoanController extends Controller
                                             //loan2  先检查是否接过本身份证 同项目的单子
     public function loan2(Request $request)   //这里是流程2. 取项目session 判断 流程1 , 不符合就返回 流程1 页面
     {                                         // 到这里把项目和流程写到数据库
-        if ($request->session()->get('project') != '11')
-        {return redirect('/loan1');}
+//        if ($request->session()->get('project') != '11')
+//        {return redirect('/loan1');}
 
         if ($request->isMethod('post'))
         {
@@ -156,7 +156,7 @@ class LoanController extends Controller
 //                    'msg' => '此身份证已在此项目进件',
 //                ];
 //            return $data;}
-
+//            dd($request->except('_token'));
             $order = Order::create($request->except('_token'));
             $order->status = 1;                 //步骤1 提交 借款人 身份信息
             $order->save();

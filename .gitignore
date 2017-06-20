@@ -5,3 +5,5 @@ Homestead.yaml
 Homestead.json
 /.idea
 .env
+*.env
+/public/uploads
