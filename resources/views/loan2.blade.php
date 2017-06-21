@@ -23,7 +23,7 @@
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">身份证</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input id="cardid" name="card" class="weui_input"  placeholder="贷款人身份证" value="350525199009215338"/>
+                        <input id="cardid" name="card" class="weui_input"  placeholder="贷款人身份证" value=""/>
                     </div>
                 </div>
 
