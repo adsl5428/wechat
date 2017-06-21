@@ -93,6 +93,7 @@
     $.hideLoading();
     if(data.status == 0)
     {
+    $.hideLoading();
     $.toptips(data.msg);
     }
     else
