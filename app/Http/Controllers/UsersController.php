@@ -117,9 +117,9 @@ class UsersController extends Controller
         //查找是否有这个openid
         $userinfo = Partner::where('openid',$user->getId())->first();
         if ($userinfo == null)
-        {return \redirect('msg.nopower');}
+        {return view('msg.nopower');}
         else
-        {return \redirect('msg.complete');}
+        {return view('msg.complete');}
 
     }
     public function addpartner()
