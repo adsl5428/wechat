@@ -91,11 +91,11 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
 
 Route::get('/nopower', function () {
-    return view('nopower');
+    return view('msg.nopower');
 });
 
 Route::get('/complete', function () {
-    return view('complete');
+    return view('msg.complete');
 });
 
 /*

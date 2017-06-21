@@ -119,7 +119,7 @@ class UsersController extends Controller
         if ($userinfo == null)
         {return view('msg.nopower');}
         else
-        {return view('msg.complete');}
+        {return view('msg.welcome');}
 
     }
     public function addpartner()

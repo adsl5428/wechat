@@ -52,7 +52,7 @@
 @section('js')
     {{--<script type='text/javascript'>--}}
         function login() {
-         location.href ="msg/complete";
+         location.href ="complete";
         }
     @foreach($names as $name)
         aaa('{{$name[0]}}','{{$name[1]}}','{{$name[2]}}');
