@@ -130,7 +130,7 @@
     if($('#nameid').val()== "")
     { $.toptips("请填写名字!");return false;}
     $.showLoading();
-    setTimeout(function() {
+    t = setTimeout(function() {
     $.hideLoading();$.toptips("服务无响应，请稍候再试 ");
     }, 10000);
     $.ajax(
@@ -150,6 +150,8 @@
     success:function(data){
     if(data.status == 0)
     {
+    clearTimeout(t);
+    $.hideLoading();
     $.toptips(data.msg);
     }
     else

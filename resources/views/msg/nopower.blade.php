@@ -19,6 +19,6 @@
 @endsection
 @section('js')
     function js_method() {
-    location.href="";
+    location.href="/";
     }
     @endsection

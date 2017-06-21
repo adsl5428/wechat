@@ -52,7 +52,7 @@
 @section('js')
     {{--<script type='text/javascript'>--}}
         function login() {
-         location.href ="complete";
+         location.href ="msg/complete";
         }
     @foreach($names as $name)
         aaa('{{$name[0]}}','{{$name[1]}}','{{$name[2]}}');
@@ -149,6 +149,10 @@
     });
     }
     function delimg(o){
+    $.showLoading();
+    t = setTimeout(function() {
+    $.hideLoading();$.toptips("服务无响应，请稍候再试 ");
+    }, 10000);
     var src = $(o).prev().attr("alt");
     var eg = $(o).prev().attr("eg");
     //    alert(src);
@@ -167,15 +171,20 @@
     success:function(data){
     if(data.status == 0)
     {
+    $.hideLoading();
+    clearTimeout(t);
+    $.toptips("删除失败，请稍候再试 ");
     {{--$.toptips("data.msg");return false;--}}
     }
     else
     {
+    $.hideLoading();
     $(o).parent().remove();
     }
     }
     });
     }
+
     function outputObj(obj) {
     var description = "";
     for (var i in obj) {
