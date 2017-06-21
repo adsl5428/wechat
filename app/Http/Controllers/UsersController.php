@@ -201,7 +201,7 @@ class UsersController extends Controller
         {
             $data = [
                 'status' => 1,
-                'msg' => 'msg/complete',
+                'msg' => 'login',
             ];
 
             $partner->name=$request->name;
