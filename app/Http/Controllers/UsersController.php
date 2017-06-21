@@ -206,7 +206,7 @@ class UsersController extends Controller
 
             $partner->name=$request->name;
             $partner->tel = $request->tel;
-            $partner->idcard = $request->idcard;
+//            $partner->idcard = $request->idcard;
             $partner->openid = $user->getId();
             $partner->status = 1;
             $partner->save();

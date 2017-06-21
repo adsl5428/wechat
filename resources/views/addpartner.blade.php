@@ -21,12 +21,12 @@
                     </div>
                 </div>
 
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label class="weui_label">身份证</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input id="cardid" name="card" class="weui_input"   placeholder="请输入您的身份证" value=""/>
-                    </div>
-                </div>
+                {{--<div class="weui_cell">--}}
+                    {{--<div class="weui_cell_hd"><label class="weui_label">身份证</label></div>--}}
+                    {{--<div class="weui_cell_bd weui_cell_primary">--}}
+                        {{--<input id="cardid" name="card" class="weui_input"   placeholder="请输入您的身份证" value=""/>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
@@ -52,7 +52,7 @@
 @endsection
 @section('js')
 
-    @include('jsidcard')
+    {{--@include('jsidcard')--}}
 
     function login()
     {
@@ -68,7 +68,7 @@
     return false;
     }
 
-    if(!validateIdCard($('#cardid').val())) return false;
+    {{--if(!validateIdCard($('#cardid').val())) return false;--}}
 
     {{--document.getElementById('btnlogin').innerHTML="正在提交中...";--}}
     $.showLoading();
@@ -82,7 +82,7 @@
     dataType: "json",
     data:
     {
-    'idcard':$('#cardid').val(),
+    {{--'idcard':$('#cardid').val(),--}}
     'name':$('#nameid').val(),
     'code':$('#codeid').val(),
     'tel':$('#telid').val(),
