@@ -89,8 +89,19 @@
                             <p>小孩房</p>
                         </div>
                     </label>
-
             </div>
+
+
+            <div class="weui_cells_title">情况说明</div>
+            <div class="weui_cells weui_cells_form">
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <textarea id="qingkuangid" class="weui_textarea" placeholder="客户的特殊情况" rows="3"></textarea>
+                        {{--<div class="weui_textarea_counter"><span id='count'>0</span>/<span id='count_max'>20</span></div>--}}
+                    </div>
+                </div>
+            </div>
+
             <div class="weui_btn_area">
                 <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>
             </div>
@@ -106,18 +117,18 @@
     var one ;
     var teshu = "";
     for ( i = 11; i < 16; i++)
-    {one =  $("#s"+i).is(':checked')== true ?'T':'F';teshu =teshu + one;}
+    {one =  $("#s"+i).is(':checked')== true ?'1':'0';teshu =teshu + one;}
     {{--alert(teshu);--}}
     {{--teshu = $("#s"+11).is(':checked')== true ?'T':'F';--}}
     {{--$.toptips(teshu);return false;--}}
 
     if(!validateIdCard($('#cardid').val())) return false;
 
-    if($('#yongtuid').val() == "")
-    { $.toptips("请填写借款用途!");return false;}
+    if($('#moneyid').val() == "")
+    { $.toptips("请填写金额!");return false;}
 
-    if($('#laiyuanid').val()== "")
-    { $.toptips("请填写还款来源!");return false;}
+    if($('#nameid').val()== "")
+    { $.toptips("请填写名字!");return false;}
     $.showLoading();
     setTimeout(function() {
     $.hideLoading();$.toptips("服务无响应，请稍候再试 ");
@@ -132,6 +143,7 @@
     'name':$('#nameid').val(),
     'money':$('#moneyid').val(),
     'teshu':teshu,
+    'qingkuang':$('#qingkuangid').val(),
     '_token':"{{csrf_token()}}"
     },
     url: "loan2",

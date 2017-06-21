@@ -25,15 +25,28 @@
     </div>
 
 
-
+    @if(count($orders) == 0)
+        <div class="weui_msg" id='msg3'>
+            <div class='weui_msg_box'><p><i class="icon icon-40 f20 f-green"></i>现在还没有订单</p></div>
+        </div>
+    @else
     <div class="weui_cells weui_cells_access">
-        <a class="weui_cell a2" href="javascript:;">
+        @foreach($orders as $order)
+        <a value="{{$order->id}}" class="weui_cell a2" href="javascript:;">
                         <div class="weui_cell_bd weui_cell_primary">
-                <span class="media_desc">老王　</span ><span class="media_desc">100万　</span >
-                <b><span class="media_desc">一抵　</span ></b><span class="media_desc f21 bg-blue">初审</span >
-            </div>
+                <span class="media_desc">{{$order->name}} </span ><span class="media_desc">{{$order->money}}万　</span >
+                <b><span class="media_desc">{{$order->project}}　</span ></b>
+                            <span class="media_desc f21 bg-blue">初审</span >
+                            @if($order->teshu[0])<label class="weui-label-s">有备用房</label>@endif
+                            @if($order->teshu[1])<label class="weui-label-s">离婚</label>@endif
+                            @if($order->teshu[2])<label class="weui-label-s">小单边</label>@endif
+                            @if($order->teshu[3])<label class="weui-label-s">老人房</label>@endif
+                            @if($order->teshu[4])<label class="weui-label-s">小孩房</label>@endif
+                        </div>
             <div class="weui_cell_ft"></div>
         </a>
+        @endforeach
+        @endif
     </div>
 
 @endsection

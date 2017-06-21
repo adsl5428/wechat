@@ -85,6 +85,7 @@ class MenuController extends Controller
         ];
         $buttons = [
             [
+
                 "type" => "click",
                 "name" => "获得电话",
                 "key"  => "V1001_GET_TEL"

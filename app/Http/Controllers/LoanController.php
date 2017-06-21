@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Model\Order;
+use App\Http\Model\Picture;
 use function asset;
 use function dd;
 use Illuminate\Http\Request;
@@ -60,20 +61,29 @@ class LoanController extends Controller
                 $entension = $file->getClientOriginalExtension(); //上传文件的后缀.
                 $newName =$request->leixing. date('-mdHis-Y-') . mt_rand(100, 999) . '.' . $entension;
                 Storage::put($newName,file_get_contents($file->getRealPath()));
-
+                $path = 'uploads/' .$newName;
+//                dd(Input::get('type1'));
+                $temp = [
+                        'order_id'=>$request->session()->get('order_id'),
+                    'path'=>$path,
+                    'type'=>$request->get('type1')-100,
+                ];
+//                dd($temp);
+                $pictur = Picture::create($temp);
+                $pictur->save();
 //                $path = $file->move(base_path() . '/public/uploads', $newName);
 //                $filepath = 'uploads/' . $newName;
 
 //                dd(base_path() . '/uploads', $newName);
                 //return $filepath;
 //                $url = $newName;
-//                $data = [
-//
-//                    'msg' => $url,
-//                ];
+                $data = [
+                    'eg' => $pictur->id,
+                    'path' => $path,
+                ];
 //                $name = iconv('utf-8','gb2312',$file['name']);
 //                Storage::move($request->leixing.$newName,$newName);
-                return 'uploads/' .$newName;
+                return $data;
             }
             else
             {
@@ -125,7 +135,7 @@ class LoanController extends Controller
 //        dd($id);
         if ($id == 'yidi')              //一抵
         {
-            $request->session()->put('project', '11');
+            $request->session()->put('project', '一抵');
             return redirect('loan2');           //要用重定向 , 用view的话  会飞到loan1/yidi
         }
         if ($request->isMethod('post'))
@@ -134,7 +144,7 @@ class LoanController extends Controller
                 'status' => 1,
                 'msg' => 'loan2',
             ];
-            $request->session()->put('project', '11');  //
+//            $request->session()->put('project', '11');  //
 //            dd($request->session()->get('project'));
             return $data;
         }
@@ -149,7 +159,7 @@ class LoanController extends Controller
         if ($request->isMethod('post'))
         {
 //            dd(Input::except('_token'));
-//            $userinfo = Order::where('idcard',$request->idcard)->first();
+//            $orders = Order::where('idcard',$request->idcard)->get();
 //            if ($userinfo != null && $userinfo->project == $request->session()->get('project')){
 //                $data = [
 //                    'status' => 0,
@@ -159,13 +169,17 @@ class LoanController extends Controller
 //            dd($request->except('_token'));
             $order = Order::create($request->except('_token'));
             $order->status = 1;                 //步骤1 提交 借款人 身份信息
+            $order->openid = session('wechat.oauth_user.id');
+            $order->project = $request->session()->get('project');
             $order->save();
 
             $data = [
                 'status' => 1,
                 'msg' => 'loan3',
             ];
-            $request->session()->put('status', '1');  //步骤1
+            $request->session()->put('status', '1');
+            $request->session()->put('teshu', $order->teshu);  //
+            $request->session()->put('order_id', $order->id);  //
             return $data;
 
         }
@@ -184,13 +198,19 @@ class LoanController extends Controller
             ];
             return $data;
         }
-      $request->session()->forget('status');  //步骤3
-        $names[0] =['身份证',11,'shen-fen-zheng'] ;
-        $names[1] =['户口本',12,'hu-kou-ben'] ;
-        $names[2] =['征信报告',13,'zheng-xin'] ;
-        $names[3] =['房产证',14,'fang-chan'] ;
-        $names[4] =['婚姻关系证明',15,'hun-yin'] ;
-        $names[5] =['其他',16,'qi-ta'] ;
+       $teshu = $request->session()->get('teshu');
+        $request->session()->forget('status');  //步骤3
+        $names[0] =['身份证',101,'shen-fen-zheng'] ;
+        $names[1] =['户口本',102,'hu-kou-ben'] ;
+        $names[2] =['征信报告',103,'zheng-xin'] ;
+        $names[3] =['房产证',104,'fang-chan'] ;
+        $names[4] =['婚姻关系证明',105,'hun-yin'] ;
+        if ($teshu[0] == 1)
+        {$names[5] =['备用房产证',106,'li-hun'] ;}
+        if ($teshu[1] == 1)
+        {$names[6] =['离婚协议',107,'li-hun'] ;}
+        $names[7] =['其他',108,'qi-ta'] ;
+        $request->session()->forget('teshu');  //步骤3
         return view('loan3',compact('names'));
     }
     public function del(Request $request)
@@ -204,6 +224,7 @@ class LoanController extends Controller
             $file = $request->get('jpg');
             $filename = explode('/',$file);
             Storage::delete($filename[1]);
+            Picture::destroy($request->get('eg'));
 //            dd($request->get('jpg'));
 
             $data = [

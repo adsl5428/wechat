@@ -76,7 +76,7 @@
     extensions: 'gif,jpg,jpeg,bmp,png',
     mimeTypes: 'image/*'
     },
-    formData:{ '_token':'{{csrf_token()}}',leixing:name2},
+    formData:{ '_token':'{{csrf_token()}}','leixing':name2,'type1':name1},
     threads: 1,
     chunkRetry:5,
     fileNumLimit:20
@@ -86,7 +86,7 @@
     var $list = $("#fileList"+name1),
     $li = $(
     '<div id="' + file.id + '" class="file-item thumbnail" style="margin:2px 2px 2px 2px">' +
-        '<img alt="" id="' + file.id + 'img" onclick="show(alt)">' +
+        '<img eg="" alt="" id="' + file.id + 'img" onclick="show(alt)">' +
         {{--'<div class="info">' + file.name + '</div>' +--}}
         '</div>'
     ),
@@ -127,7 +127,8 @@
     {{--alert(res._raw);--}}
     $( '#'+file.id ).append('<i class="del" onclick="delimg(this)" ></i>')
     {{--$( '#'+file.id ).addClass('upload-state-done');--}}
-    $( '#'+file.id+'img' ).attr('alt',res._raw);
+    $( '#'+file.id+'img' ).attr('alt',res.path);
+    $( '#'+file.id+'img' ).attr('eg',res.eg);
     {{--$( '#'+file.id ).html("<div class="upload-state-done" ></div>");--}}
     });
 
@@ -149,6 +150,7 @@
     }
     function delimg(o){
     var src = $(o).prev().attr("alt");
+    var eg = $(o).prev().attr("eg");
     //    alert(src);
     {{--$(o).parent().remove();--}}
     $.ajax(
@@ -158,6 +160,7 @@
     data:
     {
     'jpg' :src ,
+    'eg' : eg,
     '_token':"{{csrf_token()}}"
     },
     url: "{{asset('del')}}",

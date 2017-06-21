@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Picture extends Model
 {
-    public $timestamps = false;
+    protected $fillable  = array('order_id','path','type');
 }
