@@ -10,8 +10,8 @@
         </div>
         <div class="weui_opr_area">
             <p class="weui_btn_area">
-                <a href="javascript:;" onclick="js_method();" class="weui_btn weui_btn_primary">确定</a>
-                {{--<a href="javascript:;" onclick="js_method2();" class="weui_btn weui_btn_default">辅助操作</a>--}}
+                <a href="javascript:;" onclick="js_method();" class="weui_btn weui_btn_primary">提交订单</a>
+                <a href="javascript:;" onclick="js_method2();" class="weui_btn weui_btn_default">我的订单</a>
             </p>
         </div>
         <div class="weui_extra_area">
@@ -22,6 +22,9 @@
 @section('js')
     {{--<script type='text/javascript'>--}}
     function js_method() {
-    location.href="";
+    location.href="loan1";
+    }
+    function js_method2() {
+    location.href="order";
     }
 @endsection
