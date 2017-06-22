@@ -21,9 +21,9 @@
             </a>
             <!-- post内容 -->
             <span>客户材料</span>
-            <p>名字：{{$order->name}}</p>
+            <p>贷款人：{{$order->name}}</p>
             <p>身份证：{{$order->idcard}}</p>
-            <p>贷款金额：{{$order->money}}</p>
+            <p>贷款金额：{{$order->money}}万</p>
             <p>@if($order->teshu[0])<label class="weui-label-s">有备用房</label>@endif
                 @if($order->teshu[1])<label class="weui-label-s">离婚</label>@endif
                 @if($order->teshu[2])<label class="weui-label-s">小单边</label>@endif
@@ -38,37 +38,41 @@
             <a id="paragraphExtender" class="paragraphExtender">显示全文</a>
             <!-- 相册 -->
 
-            <p>照片材料</p>
+            <a class="title" href="javascript:;">
+                <span>照片材料</span>
+            </a>
 
 
             <div class="thumbnails">
 
+            @if(count($pictures) != 0)
+                @foreach($pictures as $picture)
                 <div class="thumbnail">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQYV2N49+7dfwAJYgPK+tLRowAAAABJRU5ErkJggg==" />
+                    <div class="imginfo">
+                        @if ($picture->type == 1) 身份证
+                        @elseif($picture->type == 2) 户口本
+                        @elseif($picture->type == 3) 征信
+                        @elseif($picture->type == 4) 房产证
+                        @elseif($picture->type == 5) 婚姻关系
+                        @elseif($picture->type == 6) 备用房产证
+                        @elseif($picture->type == 7) 离婚协议
+                        @elseif($picture->type == 8) 其他
+                        @endif
+                    </div>
+                    <img  onclick="show(this)" alt="{{asset($picture->path)}}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQYV2N49+7dfwAJYgPK+tLRowAAAABJRU5ErkJggg==" />
                 </div>
-
-                <div class="thumbnail">
-                    <div class="imginfo">上传失败</div>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQYV2N49+7dfwAJYgPK+tLRowAAAABJRU5ErkJggg==" />
-                </div>
-
-                <div class="thumbnail">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQYV2N49+7dfwAJYgPK+tLRowAAAABJRU5ErkJggg==" />
-                </div>
-                <div class="thumbnail">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAADUlEQVQYV2N49+7dfwAJYgPK+tLRowAAAABJRU5ErkJggg==" />
-                </div>
+                 @endforeach
+                @endif
             </div>
             <!-- 资料条 -->
-            <div class="toolbar">
-                <div>
-                    <div id="actionMenu" class="actionMenu slideIn">
-                        <p class="actionBtn" id="btnLike"><i class="icon icon-96"></i></p>
-                        <p class="actionBtn" id="btnComment"><i class="icon icon-3"></i></p>
-                    </div>
-                </div>
-
-            </div>
+            {{--<div class="toolbar">--}}
+                {{--<div>--}}
+                    {{--<div id="actionMenu" class="actionMenu slideIn">--}}
+                        {{--<p class="actionBtn" id="btnLike"><i class="icon icon-96"></i></p>--}}
+                        {{--<p class="actionBtn" id="btnComment"><i class="icon icon-3"></i></p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <!-- 赞／评论区 -->
             <p class="liketext"><i class="icon icon-96"></i><span class="nickname">{{$order->qianyue_name}}</span></p>
         </div>
@@ -76,10 +80,19 @@
     </div>
 </div>
 <!-- 结束 朋友圈 -->
-
+    <div class="weui-gallery" style="display: block">
+        <span onclick="$('.weui-gallery').fadeOut(300);" class="weui-gallery-img" style=""></span>
+    </div>
 @endsection
 
 @section('js')
+    $('.weui-gallery').fadeOut(0);
+    function show (ths) {
+
+    $('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');
+    $('.weui-gallery').fadeIn(300);
+    $(ths).attr('src',ths.alt);
+    }
     $(function(){
     //定义文本
     const paragraph = $('#paragraph');
