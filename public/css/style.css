@@ -399,7 +399,18 @@ body {
     margin: 0 20px 20px 0;
     padding: 4px;
 }
-.file-item .error {
+.imginfo{
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    background: #5d6b85;
+    color: white;
+    text-align: center;
+    height: 20px;
+    font-size: 14px;
+    line-height: 23px;
+}
+.file-item .error{
     position: absolute;
     top: 4px;
     left: 4px;

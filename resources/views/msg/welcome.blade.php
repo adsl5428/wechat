@@ -7,6 +7,7 @@
         <div class="weui_text_area">
             <h2 class="weui_msg_title">欢迎加入丰纳</h2>
             <p class="weui_msg_desc">稍等1-5分钟后,公众号菜单即可改变。</p>
+            <p class="weui_msg_desc">取消关注公众号，即视为放弃合伙人资格。</p>
         </div>
         <div class="weui_opr_area">
             <p class="weui_btn_area">

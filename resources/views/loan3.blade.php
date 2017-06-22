@@ -169,16 +169,14 @@
     },
     url: "{{asset('del')}}",
     success:function(data){
+    clearTimeout(t);$.hideLoading();
     if(data.status == 0)
     {
-    $.hideLoading();
-    clearTimeout(t);
     $.toptips("删除失败，请稍候再试 ");
     {{--$.toptips("data.msg");return false;--}}
     }
     else
     {
-    $.hideLoading();
     $(o).parent().remove();
     }
     }

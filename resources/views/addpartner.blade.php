@@ -72,7 +72,7 @@
 
     {{--document.getElementById('btnlogin').innerHTML="正在提交中...";--}}
     $.showLoading();
-    setTimeout(function() {
+    t = setTimeout(function() {
     $.hideLoading();$.toptips("服务无响应，请稍候再试 ");
     }, 10000);
 
@@ -91,9 +91,9 @@
     url: "partnerregister",
     success:function(data){
     $.hideLoading();
+    clearTimeout(t);
     if(data.status == 0)
     {
-    $.hideLoading();
     $.toptips(data.msg);
     }
     else
