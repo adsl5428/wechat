@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css"  href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css"  href="{{asset('css/webuploader.css')}}">
     <script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>
-
+    <script src="{{asset('js/zepto.min.js')}}"></script>
 
 
     <div class="hd">

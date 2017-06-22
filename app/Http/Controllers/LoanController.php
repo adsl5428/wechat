@@ -151,38 +151,8 @@ class LoanController extends Controller
         return view('loan1');
     }
                                             //loan2  先检查是否接过本身份证 同项目的单子
-    public function loan2(Request $request)   //这里是流程2. 取项目session 判断 流程1 , 不符合就返回 流程1 页面
+    public function loan2()   //这里是流程2. 取项目session 判断 流程1 , 不符合就返回 流程1 页面
     {                                         // 到这里把项目和流程写到数据库
-//        if ($request->session()->get('project') != '11')
-//        {return redirect('/loan1');}
-
-        if ($request->isMethod('post'))
-        {
-//            dd(Input::except('_token'));
-//            $orders = Order::where('idcard',$request->idcard)->get();
-//            if ($userinfo != null && $userinfo->project == $request->session()->get('project')){
-//                $data = [
-//                    'status' => 0,
-//                    'msg' => '此身份证已在此项目进件',
-//                ];
-//            return $data;}
-//            dd($request->except('_token'));
-            $order = Order::create($request->except('_token'));
-            $order->status = 1;                 //步骤1 提交 借款人 身份信息
-            $order->openid = session('wechat.oauth_user.id');
-            $order->project = $request->session()->get('project');
-            $order->save();
-
-            $data = [
-                'status' => 1,
-                'msg' => 'loan3',
-            ];
-            $request->session()->put('status', '1');
-            $request->session()->put('teshu', $order->teshu);  //
-            $request->session()->put('order_id', $order->id);  //
-            return $data;
-
-        }
         return view('loan2');
     }
     public function loan3(Request $request)  //这里是流程3 .  取项目session 判断 流程1 , 不符合就返回 流程2 页面

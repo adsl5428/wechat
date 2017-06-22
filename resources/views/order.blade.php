@@ -32,7 +32,8 @@
     @else
     <div class="weui_cells weui_cells_access">
         @foreach($orders as $order)
-        <a value="{{$order->id}}" class="weui_cell a2" href="javascript:;">
+        {{--<a value="{{$order->id}}" class="weui_cell a2" href="{{URL('/article',$order->id)}}">--}}
+            <a  class="weui_cell a2" href="{{URL('/order',$order->id)}}">
                         <div class="weui_cell_bd weui_cell_primary">
                 <span class="media_desc">{{$order->name}} </span ><span class="media_desc">{{$order->money}}万　</span >
                 <b><span class="media_desc">{{$order->project}}　</span ></b>

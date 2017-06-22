@@ -40,8 +40,6 @@
                 </div>
 
             </div>
-
-
                 <div class="weui_cells_title">其他情况</div>
                 <div class="weui_cells weui_cells_checkbox">
                     <label class="weui_cell weui_check_label" for="s11">
@@ -105,6 +103,8 @@
             <div class="weui_btn_area">
                 <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>
             </div>
+            <h5 class="page_title">　</h5>
+                {{--<a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>--}}
 
         </div>
     </div>
