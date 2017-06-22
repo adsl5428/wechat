@@ -204,8 +204,8 @@ class UsersController extends Controller
                 'msg' => 'login',
             ];
 
-            $partner->name=$request->name;
-            $partner->tel = $request->tel;
+//            $partner->name=$request->name;
+//            $partner->tel = $request->tel;
 //            $partner->idcard = $request->idcard;
             $partner->openid = $user->getId();
             $partner->status = 1;

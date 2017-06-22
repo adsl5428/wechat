@@ -14,12 +14,12 @@
             <div class="weui_cells weui_cells_form">
                 {{--<form action="staffregister" method="get">--}}
                 {{--{{csrf_field()}}--}}
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label class="weui_label">名字</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input id="nameid" name="name" class="weui_input"  placeholder="请输入您的真实姓名" value=""/>
-                    </div>
-                </div>
+                {{--<div class="weui_cell">--}}
+                    {{--<div class="weui_cell_hd"><label class="weui_label">名字</label></div>--}}
+                    {{--<div class="weui_cell_bd weui_cell_primary">--}}
+                        {{--<input id="nameid" name="name" class="weui_input"  placeholder="请输入您的真实姓名" value=""/>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
                 {{--<div class="weui_cell">--}}
                     {{--<div class="weui_cell_hd"><label class="weui_label">身份证</label></div>--}}
@@ -28,12 +28,12 @@
                     {{--</div>--}}
                 {{--</div>--}}
 
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input id="telid" name="tel" class="weui_input" type="tel" placeholder="请输入手机号" value=""/>
-                    </div>
-                </div>
+                {{--<div class="weui_cell">--}}
+                    {{--<div class="weui_cell_hd"><label class="weui_label">手机号</label></div>--}}
+                    {{--<div class="weui_cell_bd weui_cell_primary">--}}
+                        {{--<input id="telid" name="tel" class="weui_input" type="tel" placeholder="请输入手机号" value=""/>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
                 <div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">邀请码</label></div>
@@ -56,17 +56,17 @@
 
     function login()
     {
-    duixiang = document.getElementById('telid');
-    var phone = duixiang.value;
-    if(!(/^1[3|4|5|7|8][0-9]\d{8}$/.test(phone)))
-    {
+    {{--duixiang = document.getElementById('telid');--}}
+    {{--var phone = duixiang.value;--}}
+    {{--if(!(/^1[3|4|5|7|8][0-9]\d{8}$/.test(phone)))--}}
+    {{--{--}}
     {{--$.alert("手机号码有误,请重填！", "填错啦");--}}
-    $.toptips("手机号码有误,请重填！");
+    {{--$.toptips("手机号码有误,请重填！");--}}
 
-    duixiang.value="";
-    duixiang.focus();
-    return false;
-    }
+    {{--duixiang.value="";--}}
+    {{--duixiang.focus();--}}
+    {{--return false;--}}
+    {{--}--}}
 
     {{--if(!validateIdCard($('#cardid').val())) return false;--}}
 
@@ -83,9 +83,9 @@
     data:
     {
     {{--'idcard':$('#cardid').val(),--}}
-    'name':$('#nameid').val(),
+    {{--'name':$('#nameid').val(),--}}
     'code':$('#codeid').val(),
-    'tel':$('#telid').val(),
+    {{--'tel':$('#telid').val(),--}}
     '_token':"{{csrf_token()}}"
     },
     url: "partnerregister",
