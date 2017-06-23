@@ -17,6 +17,7 @@ use App\Http\Controllers\Userscontroller;
 Route::get('/', function () {
    return view('welcome');
 });
+Route::get('moban','SmsController@test');    //创建标签
 
 Route::get('tag/create/{name}','TagController@create');    //创建标签
 Route::get('tag/lists','TagController@lists');          //标签类表
