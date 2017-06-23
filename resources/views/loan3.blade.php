@@ -60,6 +60,7 @@
     $('.weui-gallery').fadeOut(0);
     function show (ths) {
     {{--alert(ths);--}}
+
     $('.weui-gallery-img').css("background-image",'url(' + ths + ')');
     $('.weui-gallery').fadeIn(300);
     }
