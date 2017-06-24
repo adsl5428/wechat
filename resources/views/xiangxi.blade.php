@@ -94,43 +94,7 @@
 @section('js')
     $('.weui-gallery').fadeOut(0);
 
-    function getURL(url) {
-    var xmlhttp = new ActiveXObject( "Microsoft.XMLHTTP");
-    xmlhttp.open("GET", url, false);
-    xmlhttp.send();
-    if(xmlhttp.readyState==4) {
-    if(xmlhttp.Status != 200) alert("不存在");
-    return xmlhttp.Status==200;
-    }
-    return false;
-    }
-
-
-    function isHasImg(pathImg){
-    var ImgObj=new Image();
-    ImgObj.src= pathImg;
-    if(ImgObj.fileSize > 0 || (ImgObj.width > 0 && ImgObj.height > 0))
-    {
-    return true;
-    } else {
-    return false;
-    }
-    }
     function show (ths) {
-    a = false;
-    for ( i=0 ; i<10 ; i++)
-    {
-    if ( getURL(ths.alt) == true)
-    { a = true ;break;}
-    }
-
-    if ( a == false )
-    {
-    {{--$(ths).parent().attr('src',"data:image/jpg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QAiRXhpZgAATU0AKgAAAAgAAQESAAMAAAABAAEAAAAAAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAANADEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9lPDnh/TZdHtV/s+O4LWll5zw6daTm0DwROW2pDNO0jEOcyoqEMRkEKx5afQ4dW8Z6PDLZ2ub3Rr12Sxit7jcw+2CMqIQsckihUwV25ZR0PTEufihDc6YtpJ4c0G4XyIIXmuI5GuHMUUcefMV1Kg+WPlXAwcHOSTBdfERWtFW00y1sZl09tNUoxkjijeSV5Cgk3MrMJNudxwC+PvDaH7VQyzFwcnb3paX00vFq9+bu7tW1snve+rceC9L0PRWg1JfEumreXcO2/u9AEawBVkBXPnEkNuDELz+76HtoaX++0G9uG1LwhcSSfubZl0HAjK/vZZP+PTLbI1wQFKqJdzFSFDcNp2tR22izWE0EksNxdwXLlJQjbY1lUqMqQCRL1wcY6HNaMHjiGHxB5y6f5Okxx3MMVhBOV8pZomjY+YwYs+GBLsDnaowFCqA7q+Brzuptye6doWdktEmm027J9LJt+exZjSw15qmoyadrn2GBQsGmQizjIZwhWRDbLwVdsSqAVKqNwZo60J/Bfh/TbDUojDfXVvFczySTLdIs2nrDCTCkrGH5GndyNpxhgqnLoy1g6T8RLLwktvNomkyW2pWzTGO7u7lbhk8xAhwFjQEqB8u7co3vlTkEUYvGsccckf9m2qQ367dRWPCNc8gjyzj9yAyq4VRt39QUCxqGcsFiZS91SS/xJbeUXZWtdWteTtK0U28Giiig+kP/9k=");--}}
-    {{--$(ths).prev().text('此图无效');--}}
-    return ;
-    }
-
     $('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');
     $('.weui-gallery').fadeIn(300);
     $(ths).attr('src',ths.alt);
