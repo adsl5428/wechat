@@ -7,6 +7,7 @@ use App\Http\Model\Partner;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use function var_dump;
 
 class OrderController extends Controller
 {
@@ -54,6 +55,39 @@ class OrderController extends Controller
             $request->session()->put('status', '1');
             $request->session()->put('teshu', $order->teshu);  //
             $request->session()->put('order_id', $order->id);  //
+            return $data;
+        }
+    }
+    public function update(Request $request)
+    {
+        if ($request->isMethod('post'))
+        {
+
+//            dd(Input::except('_token'));
+//            $orders = Order::where('idcard',$request->idcard)->get();
+//            if ($userinfo != null && $userinfo->project == $request->session()->get('project')){
+//                $data = [
+//                    'status' => 0,
+//                    'msg' => '此身份证已在此项目进件',
+//                ];
+//            return $data;}
+//            dd($request->except('_token'));
+            $openid = session('wechat.oauth_user.id');
+            $id = $request->get('id');
+//            $partner = Partner::where('openid',$openid)->where('id',$id)->firstOrFail();
+//            dd($partner);
+            $order = Order::where('openid',$openid)->where('id',$id)->firstOrFail(); //是否为本人提交
+//            dd($order);
+            $order->qingkuang = $request->get('qingkuang');
+            $order->teshu = $request->get('teshu');
+            $order->save();
+            $data = [
+                'status' => 1,
+                'msg' => '../edit2',
+            ];
+            $request->session()->put('status', '1');
+            $request->session()->put('teshu', $order->teshu);  //
+            $request->session()->put('order_id', $id);  //
             return $data;
         }
     }

@@ -34,8 +34,8 @@
                         <input id="moneyid" class="weui_input" type="tel" placeholder="申请贷款金额" value="" />
                     </div>
                     <div class="weui_cell_ft">
-                        <i class="weui_icon_warn"></i>
-                        <a class="weui-vcode-btn">万元</a>
+                        {{--<i class="weui_icon_warn"></i>--}}
+                        <p class="weui-vcode-btn">万元</p>
                     </div>
                 </div>
 

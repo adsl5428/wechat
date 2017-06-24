@@ -6,12 +6,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-.jumbotron {
-    background: transparent url(../images/banner.jpg) repeat-x 50% 0%;
-    color: #fff;
-    text-shadow: 1px 1px 1px #3b3262;
-    margin-bottom: 0;
-}
+/*.jumbotron {*/
+    /*background: transparent url(../images/banner.jpg) repeat-x 50% 0%;*/
+    /*color: #fff;*/
+    /*text-shadow: 1px 1px 1px #3b3262;*/
+    /*margin-bottom: 0;*/
+/*}*/
 
 .jumbotron .container {
     position: relative;
@@ -382,12 +382,14 @@ body {
 }
 
 
-#uploader-demo .thumbnail {
-    width: 110px;
-    height: 110px;
+.uploader-list .thumbnail {
+    width: 100px;
+    height: 100px;
+    margin:2px 2px 2px 2px;
 }
-#uploader-demo .thumbnail img {
-    width: 100%;
+.uploader-list .thumbnail img {
+    width: 100px;
+    height: 100px;
 }
 .uploader-list {
     width: 100%;
@@ -398,6 +400,11 @@ body {
     position: relative;
     margin: 0 20px 20px 0;
     padding: 4px;
+}
+.img-list
+{
+    width: 100px;
+    height: 100px;
 }
 .imginfo{
     top: 4px;

@@ -21,6 +21,7 @@
             </a>
             <!-- post内容 -->
             <span>客户材料</span>
+
             <p>贷款人：{{$order->name}}</p>
             <p>身份证：{{$order->idcard}}</p>
             <p>贷款金额：{{$order->money}}万</p>
@@ -67,6 +68,15 @@
             <!-- 资料条 -->
             <div class="toolbar">
                 <p class="timestamp">最近更新：{{$order->updated_at}}</p>
+                <div>
+                    <div id="actionMenu" class="actionMenu slideIn">
+                        <p class="actionBtn" id="btnLike">
+                            <a href="{{url('edit1',$order->id)}}" class="fa">修改</a>
+                        </p>
+                    </div>
+                </div>
+                <span id="actionToggle" class="actionToggle">···</span>
+
 
             </div>
             <!-- 赞／评论区 -->
