@@ -98,7 +98,6 @@ class OrderController extends Controller
             $form->display('teshu', '备离单老小');
             $form->display('partner_name', '合作伙伴');
             $form->display('qianyue_name', '签约人');
-//            $form->display('tanpan_name', '谈判人');
 
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');
