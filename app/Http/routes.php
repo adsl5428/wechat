@@ -15,6 +15,7 @@ use App\Http\Controllers\Userscontroller;
 
 
 Route::get('/welcome', function () {
+    return url('uploads','123456');
    return view('welcome');
 });
 Route::get('moban','SmsController@test');    //创建标签

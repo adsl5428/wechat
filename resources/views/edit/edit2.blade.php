@@ -27,7 +27,7 @@
                             @foreach($pictures as $picture)
                               @if(  $name[1] -100 ==$picture->type )
                                     <div  class="file-item thumbnail" >
-                                <img eg="{{$picture->id}}" alt="{{$picture->path}}" onclick="show(alt)" src="{{$picture->path}}">
+                                <img eg="{{$picture->id}}" alt="{{'uploads/'.$picture->path}}" onclick="show(alt)" src="{{url('uploads',$picture->path)}}">
                                 <i class="del" onclick="delimg(this)"></i>
                                     </div>
                                @endif
@@ -128,7 +128,7 @@
 
     // 文件上传成功，给item添加成功class, 用样式标记上传成功。
     uploader.on( 'uploadSuccess', function( file, res ) {
-    console.log(res.filePath);//这里可以得到上传后的文件路径
+    {{--console.log(res.filePath);//这里可以得到上传后的文件路径--}}
     {{--outputObj(res);--}}
     {{--alert(res._raw);--}}
     $( '#'+file.id ).append('<i class="del" onclick="delimg(this)" ></i>')

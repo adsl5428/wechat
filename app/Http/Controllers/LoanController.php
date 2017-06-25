@@ -86,7 +86,7 @@ class LoanController extends Controller
 //                dd(Input::get('type1'));
                 $temp = [
                         'order_id'=>$request->session()->get('order_id'),
-                    'path'=>$path,
+                    'path'=>$newName,
                     'type'=>$request->get('type1')-100,
                 ];
 //                dd($temp);

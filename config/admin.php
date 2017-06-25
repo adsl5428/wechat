@@ -46,14 +46,14 @@ return [
      */
     'upload'  => [
 
-        'disk' => 'admin',
+        'disk' => 'uploads',
 
         'directory'  => [
             'image'  => 'image',
             'file'   => 'file',
         ],
 
-        'host' => 'http://w.cc/adminupload/',
+        'host' => 'http://fnjr.chonghui.net.cn/uploads/',
     ],
 
     /*
