@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh_CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -149,6 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Overtrue\LaravelWechat\ServiceProvider::class,
         iscms\Alisms\AlidayuServiceProvider::class,
+        Encore\Admin\Providers\AdminServiceProvider::class,
         /*
          * Application Service Providers...
          */
