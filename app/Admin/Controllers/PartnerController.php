@@ -78,7 +78,7 @@ class PartnerController extends Controller
             $grid->code('邀请码');
             $grid->name('名字');
             $grid->tel('电话');
-            $grid->qianyue_name('签约人');
+            $grid->qianyue('签约人');
             $grid->updated_at('最后更新');
         });
     }
