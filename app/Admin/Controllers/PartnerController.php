@@ -75,11 +75,11 @@ class PartnerController extends Controller
         return Admin::grid(Partner::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->code('邀请码')->editable();
+            $grid->code('邀请码');
             $grid->name('名字');
             $grid->tel('电话');
-            $grid->tel('签约');
-            $grid->updated_at();
+            $grid->qianyue_name('签约人');
+            $grid->updated_at('最后更新');
         });
     }
 
