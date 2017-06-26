@@ -110,6 +110,8 @@ class LoanController extends Controller
     }
     public function loan3(Request $request)
     {
+        if($request->session()->get('project') == null)
+            return view('loan1');
        $teshu = $request->session()->get('teshu');
         $names[0] =['身份证',101,'shen-fen-zheng'] ;
         $names[1] =['户口本',102,'hu-kou-ben'] ;
