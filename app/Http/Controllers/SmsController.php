@@ -34,7 +34,7 @@ class SmsController extends Controller
             "first"  => "有新单子进来啦！",
             "keyword1"   => $request->session()->get('project'),
             "keyword2"  => $request->session()->get('partner'),
-            "keyword3"  => $request->session()->get('time'),
+            "keyword3"  => date('m-d h:i',time()),
             "remark" => "请尽快审核",
         );
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();

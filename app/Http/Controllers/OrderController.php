@@ -58,7 +58,6 @@ class OrderController extends Controller
                 'msg' => 'loan3',
             ];
             $request->session()->put('status', '1');
-            $request->session()->put('time',$order->updated_at );
             $request->session()->put('partner',$order->partner_name.'/'.$order->qianyue_name);
             $request->session()->put('teshu', $order->teshu);  //
             $request->session()->put('order_id', $order->id);  //
