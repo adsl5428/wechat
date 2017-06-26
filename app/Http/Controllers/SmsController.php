@@ -24,19 +24,20 @@ class SmsController extends Controller
     {
         $this->notice = $app->notice;
     }
-    public function test()
+    public function complete(Request $request)
     {
-        $userId = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';
+        $userId = 'ooFF4wkuR05RefvYxqn-N8hJSmug';
         $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
-        $url = 'http://www.baidu.com';
+        $url = '';
         $data = array(
-            "first"  => "恭喜你测试成功！",
-            "keyword1"   => "一抵",
-            "keyword2"  => "王斌/黄进华",
-            "keyword3"  => "就在刚才",
-            "remark" => "请尽快处理",
+            "first"  => "有新单子进来啦！",
+            "keyword1"   => $request->session()->get('project'),
+            "keyword2"  => $request->session()->get('partner'),
+            "keyword3"  => $request->session()->get('time'),
+            "remark" => "请尽快审核",
         );
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
-        var_dump($result);
+//        var_dump($result);
+        return view('msg.complete');
     }
 }

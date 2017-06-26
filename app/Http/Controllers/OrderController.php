@@ -39,6 +39,11 @@ class OrderController extends Controller
 //                ];
 //            return $data;}
 //            dd($request->except('_token'));
+            if($request->session()->get('project') == null)
+            {            $data = [
+                'status' => 1,
+                'msg' => 'loan1',
+            ];return $data;}
             $openid = session('wechat.oauth_user.id');
             $partner = Partner::where('openid',$openid)->firstOrFail();    //取一条
             $order = Order::create($request->except('_token'));
@@ -53,6 +58,8 @@ class OrderController extends Controller
                 'msg' => 'loan3',
             ];
             $request->session()->put('status', '1');
+            $request->session()->put('time',$order->updated_at );
+            $request->session()->put('partner',$order->partner_name.'/'.$order->qianyue_name);
             $request->session()->put('teshu', $order->teshu);  //
             $request->session()->put('order_id', $order->id);  //
             return $data;

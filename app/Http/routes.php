@@ -103,9 +103,7 @@ Route::get('/nopower', function () {
     return view('msg.nopower');
 });
 
-Route::get('/complete', function () {
-    return view('msg.complete');
-});
+Route::get('/complete', 'SmsController@complete') ;
 
 /*
 Route::group(['middleware' => ['web']], function () {
