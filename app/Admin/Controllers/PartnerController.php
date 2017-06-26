@@ -24,8 +24,8 @@ class PartnerController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('合伙人');
+            $content->description('列表');
 
             $content->body($this->grid());
         });
@@ -40,9 +40,8 @@ class PartnerController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-
-            $content->header('header');
-            $content->description('description');
+            $content->header('合伙人');
+            $content->description('编辑');
 
             $content->body($this->form()->edit($id));
         });
@@ -57,8 +56,10 @@ class PartnerController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('合伙人');
+            $content->description('新增');
+
+
 
             $content->body($this->form());
         });
@@ -74,8 +75,10 @@ class PartnerController extends Controller
         return Admin::grid(Partner::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-
-            $grid->created_at();
+            $grid->code('邀请码')->editable();
+            $grid->name('名字');
+            $grid->tel('电话');
+            $grid->tel('签约');
             $grid->updated_at();
         });
     }
@@ -90,7 +93,14 @@ class PartnerController extends Controller
         return Admin::form(Partner::class, function (Form $form) {
 
             $form->display('id', 'ID');
-
+            $form->text('code', '邀请码');
+            $form->text('name', '合伙人');
+            $form->text('tel', '电话');
+            $form->text('idcard', '身份证');
+            $form->text('qianyue', '签约人');
+            $form->text('bankname', '银行');
+            $form->text('kaihuhang', '开户行');
+            $form->text('bankid', '卡号');
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });
