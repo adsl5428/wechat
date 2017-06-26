@@ -26,8 +26,8 @@ class SmsController extends Controller
     }
     public function complete(Request $request)
     {
-//        $userId = 'ooFF4wkuR05RefvYxqn-N8hJSmug';  //老李
-        $userId = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
+        $userId = 'ooFF4wkuR05RefvYxqn-N8hJSmug';  //老李
+//        $userId = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
         $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
         $url = '';
         $data = array(
