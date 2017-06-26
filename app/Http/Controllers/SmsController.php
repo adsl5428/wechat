@@ -26,6 +26,8 @@ class SmsController extends Controller
     }
     public function complete(Request $request)
     {
+        if ($request->session()->get('project') == null)
+            return redirect('order');
         $userId = 'ooFF4wtnbrrwTLhkj6iVqeUoNvxY';  //老李
 //        $userId = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
         $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
@@ -39,6 +41,7 @@ class SmsController extends Controller
         );
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
 //        var_dump($result);
+        $request->session()->forget('project');
         return view('msg.complete');
     }
 }
