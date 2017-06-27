@@ -79,7 +79,9 @@ class PartnerController extends Controller
             $grid->name('名字');
             $grid->tel('电话');
             $grid->qianyue('签约人');
+            $grid->wechat('微信号');
             $grid->updated_at('最后更新');
+
         });
     }
 
@@ -93,14 +95,15 @@ class PartnerController extends Controller
         return Admin::form(Partner::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('code', '邀请码');
-            $form->text('name', '合伙人');
-            $form->text('tel', '电话');
-            $form->text('idcard', '身份证');
-            $form->text('qianyue', '签约人');
+            $form->display('code', '邀请码');
+            $form->display('name', '合伙人');
+            $form->display('tel', '电话');
+            $form->display('idcard', '身份证');
+            $form->display('qianyue', '签约人');
             $form->text('bankname', '银行');
             $form->text('kaihuhang', '开户行');
             $form->text('bankid', '卡号');
+            $form->text('wechat', '微信');
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });
