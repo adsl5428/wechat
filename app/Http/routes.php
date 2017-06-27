@@ -30,7 +30,7 @@ Route::get('tag/delete/{id}','TagController@delete');       //得到用户属于
 
 
 Route::get('admin/lists','AdminController@lists');
-
+Route::any('picture','AdminController@picture');
 Route::get('/suijishu','UsersController@rand50');
 
 Route::get('/gettel','UsersController@gettel');
@@ -61,8 +61,6 @@ Route::any('/order', 'OrderController@order');
 Route::get('/order/{id}', 'OrderController@show');
 
 Route::any('/test2', 'LoanController@test2');
-
-
 Route::post('/del', 'LoanController@del');
 //Route::any('/loan1', 'LoanController@loan1');
 //Route::any('/loan3', 'LoanController@loan3');
