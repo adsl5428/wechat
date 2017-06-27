@@ -1,4 +1,4 @@
 {{$orderid}}<br>
 @foreach($pictures as $picture)
-http://fnjr.chonghui.net.cn/uploads/{{$picture->path}}<br>
+<a href="http://fnjr.chonghui.net.cn/uploads/{{$picture->path}}">http://fnjr.chonghui.net.cn/uploads/{{$picture->path}}</a><br>
 @endforeach
