@@ -33,7 +33,7 @@
                     <div class="weui_cell_hd"><label class="weui_label">贷款额</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
                         <input id="moneyid" class="weui_input" type="tel" placeholder="{{$order->money}}"
-                               value="" disabled/>
+                               value="" />
                     </div>
                     <div class="weui_cell_ft">
                         <i class="weui_icon_warn"></i>
