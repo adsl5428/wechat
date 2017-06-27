@@ -36,7 +36,10 @@ Route::get('/suijishu','UsersController@rand50');
 Route::get('/gettel','UsersController@gettel');
 
 Route::get('/sms','SmsController@sendSms');
+
+
 Route::get('/menu','MenuController@menu');
+Route::get('/menu/list','MenuController@menulist');
 Route::get('/delmenu','MenuController@delmenu');
 Route::get('/addmenu/{id}','MenuController@addmenu');
 Route::get('/testmenu/{id}','MenuController@testmenu');

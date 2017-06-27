@@ -16,6 +16,11 @@ class MenuController extends Controller
         $this->menu = $app->menu;
     }
 
+    public function menulist()
+    {
+        $menus = $this->menu->all();
+        dd($menus);
+    }
     public function menu()
     {
         $buttons = [
@@ -39,6 +44,7 @@ class MenuController extends Controller
                 "name" => "首页",
                 "url"  => "http://fnjr.chonghui.net.cn/"
             ],
+
         ];
         $this->menu->add($buttons);
         echo '123';
