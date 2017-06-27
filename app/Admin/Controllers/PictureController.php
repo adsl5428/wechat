@@ -89,7 +89,7 @@ class PictureController extends Controller
 
             $form->display('order_id', '进件ID');
 
-            $form->image('path')->flip('v');
+//            $form->image('path')->flip('v');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
