@@ -24,9 +24,11 @@ class MenuController extends Controller
     public function menu()
     {
         $buttons = [
+            [
             "type" => "view",
-            "name" => "加入合伙人",
+            "name" => "加入丰纳",
             "url"  => "http://fnjr.chonghui.net.cn/addpartner"
+            ],
         ];
         $this->menu->add($buttons);
         echo 'done';
@@ -101,7 +103,6 @@ class MenuController extends Controller
                 "url"  => "http://fnjr.chonghui.net.cn/order"
             ],
         ];
-
         $this->menu->add($buttons, $matchRule);
         echo '合伙人';
     }
@@ -109,9 +110,10 @@ class MenuController extends Controller
     {
         return $this->menu->test($userId);
     }
-    public function delmenu($id)
+    public function delmenu()
     {
-        return $this->menu->destroy($id);
+        $this->menu->destroy();
+        return 'done';
     }
 
 }
