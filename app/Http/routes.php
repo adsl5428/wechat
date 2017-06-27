@@ -40,7 +40,7 @@ Route::get('/sms','SmsController@sendSms');
 
 Route::get('/menu','MenuController@menu');
 Route::get('/menu/list','MenuController@menulist');
-Route::get('/delmenu','MenuController@delmenu');
+Route::get('/delmenu/{id}','MenuController@delmenu');
 Route::get('/addmenu/{id}','MenuController@addmenu');
 Route::get('/testmenu/{id}','MenuController@testmenu');
 

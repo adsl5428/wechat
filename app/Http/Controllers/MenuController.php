@@ -24,30 +24,12 @@ class MenuController extends Controller
     public function menu()
     {
         $buttons = [
-            [
-                "name"       => "加入",
-                "sub_button" => [
-                    [
-                        "type" => "view",
-                        "name" => "员工",
-                        "url"  => "http://fnjr.chonghui.net.cn/addstaff"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "合伙人",
-                        "url"  => "http://fnjr.chonghui.net.cn/addpartner"
-                    ],
-                ],
-            ],
-            [
-                "type" => "view",
-                "name" => "首页",
-                "url"  => "http://fnjr.chonghui.net.cn/"
-            ],
-
+            "type" => "view",
+            "name" => "加入合伙人",
+            "url"  => "http://fnjr.chonghui.net.cn/addpartner"
         ];
         $this->menu->add($buttons);
-        echo '123';
+        echo 'done';
     }
 
     public function addjinglimenu($tag_id)   //主管 菜单
@@ -118,21 +100,6 @@ class MenuController extends Controller
                 "name" => "订单中心",
                 "url"  => "http://fnjr.chonghui.net.cn/order"
             ],
-            [
-                "name"       => "小工具",
-                "sub_button" => [
-                    [
-                        "type" => "view",
-                        "name" => "城市房价评估",
-                        "url"  => "http://wx.surea.com/MobileView/Viss/Appr.htm?code=041UE7gJ0GWCIj2zQFcJ0JK6gJ0UE7gh&state=STATE&winzoom=1"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "城市房价评估",
-                        "url"  => "http://wx.surea.com/MobileView/Viss/Appr.htm?code=041UE7gJ0GWCIj2zQFcJ0JK6gJ0UE7gh&state=STATE&winzoom=1"
-                    ],
-                ],
-            ],
         ];
 
         $this->menu->add($buttons, $matchRule);
@@ -142,9 +109,9 @@ class MenuController extends Controller
     {
         return $this->menu->test($userId);
     }
-    public function delmenu()
+    public function delmenu($id)
     {
-        return $this->menu->destroy();
+        return $this->menu->destroy($id);
     }
 
 }
