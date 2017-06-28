@@ -5,6 +5,7 @@ use iscms\Alisms\SendsmsPusher as Sms;
 use Illuminate\Http\Request;
 use EasyWeChat\Foundation\Application;
 use App\Http\Requests;
+use function var_dump;
 
 class SmsController extends Controller
 {
@@ -21,7 +22,8 @@ class SmsController extends Controller
         $content= json_encode($smsParams);
         $code='SMS_67215911';
 //        dd("$content");
-        return $sms->send("$phone","$name","$content","$code");
+        $result = $sms->send("$phone","$name","$content","$code");
+        var_dump($result);
     }
     public $notice;
     public function __construct(Application $app)
