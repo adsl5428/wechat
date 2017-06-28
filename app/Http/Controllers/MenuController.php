@@ -29,6 +29,11 @@ class MenuController extends Controller
             "name" => "加入丰纳",
             "url"  => "http://fnjr.chonghui.net.cn/addpartner"
             ],
+            [
+                "type" => "view",
+                "name" => "签约产品",
+                "url"  => "http://fnjr.chonghui.net.cn/goods"
+            ],
         ];
         $this->menu->add($buttons);
         echo 'done';
@@ -102,6 +107,11 @@ class MenuController extends Controller
                 "name" => "订单中心",
                 "url"  => "http://fnjr.chonghui.net.cn/order"
             ],
+            [
+                "type" => "view",
+                "name" => "签约产品",
+                "url"  => "http://fnjr.chonghui.net.cn/goods"
+            ],
         ];
         $this->menu->add($buttons, $matchRule);
         echo '合伙人';
@@ -113,7 +123,7 @@ class MenuController extends Controller
     public function delmenu()
     {
         $this->menu->destroy();
-        return 'done';
+        return 'destroy done';
     }
 
 }

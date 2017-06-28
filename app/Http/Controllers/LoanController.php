@@ -91,6 +91,11 @@ class LoanController extends Controller
             $request->session()->put('project', '一抵');
             return redirect('loan2');           //要用重定向 , 用view的话  会飞到loan1/yidi
         }
+        elseif ($id == 'erdi')
+        {
+            $request->session()->put('project', '二抵');
+            return redirect('loan2');           //要用重定向 , 用view的话  会飞到loan1/erdi
+        }
         if ($request->isMethod('post'))
         {
             $data = [
@@ -110,19 +115,20 @@ class LoanController extends Controller
     }
     public function loan3(Request $request)
     {
-        if($request->session()->get('project') == null)
+        $project = $request->session()->get('project');
+        if($project == null)
             return view('loan1');
        $teshu = $request->session()->get('teshu');
         $names[0] =['身份证',101,'shen-fen-zheng'] ;
-        $names[1] =['户口本',102,'hu-kou-ben'] ;
-        $names[2] =['征信报告',103,'zheng-xin'] ;
         $names[3] =['房产证',104,'fang-chan'] ;
-        $names[4] =['婚姻关系证明',105,'hun-yin'] ;
-        if ($teshu[0] == 1)
-        {$names[5] =['备用房产证',106,'li-hun'] ;}
-        if ($teshu[1] == 1)
-        {$names[6] =['离婚协议',107,'li-hun'] ;}
-        $names[7] =['其他',108,'qi-ta'] ;
+//        $names[1] =['户口本',102,'hu-kou-ben'] ;
+//        $names[2] =['征信报告',103,'zheng-xin'] ;
+//        $names[4] =['婚姻关系证明',105,'hun-yin'] ;
+//        if ($teshu[0] == 1)
+//        {$names[5] =['备用房产证',106,'li-hun'] ;}
+//        if ($teshu[1] == 1)
+//        {$names[6] =['离婚协议',107,'li-hun'] ;}
+//        $names[7] =['其他',108,'qi-ta'] ;
         $request->session()->forget('teshu');  //步骤3
         return view('loan3',compact('names'));
     }

@@ -12,7 +12,6 @@
 
     <div class="hd">
         <h1 class="page_title">丰纳金融</h1>
-        <h5 class="page_title">Loan</h5>
     </div>
 
 
@@ -51,6 +50,7 @@
 @endsection
 @section('js')
     {{--<script type='text/javascript'>--}}
+    var all=0;
         function login() {
          location.href ="complete";
         }

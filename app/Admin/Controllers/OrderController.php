@@ -77,6 +77,7 @@ class OrderController extends Controller
             $grid->name('借款人');
             $grid->money('借款金额');
             $grid->teshu('备离单老小');
+            $grid->status('状态');
             $grid->partner_name('合作伙伴')->sortable();
             $grid->qianyue_name('签约人')->sortable();
             $grid->created_at('进件时间')->sortable();

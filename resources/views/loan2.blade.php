@@ -6,7 +6,6 @@
     <div class="page">
         <div class="hd">
             <h1 class="page_title">丰纳金融</h1>
-            <h5 class="page_title">Loan</h5>
         </div>
 
         <div class="bd">
@@ -94,7 +93,7 @@
             <div class="weui_cells weui_cells_form">
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <textarea id="qingkuangid" class="weui_textarea" placeholder="客户的特殊情况" rows="3"></textarea>
+                        <textarea id="qingkuangid" class="weui_textarea" placeholder="客户情况描述" rows="3"></textarea>
                         {{--<div class="weui_textarea_counter"><span id='count'>0</span>/<span id='count_max'>20</span></div>--}}
                     </div>
                 </div>

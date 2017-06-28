@@ -13,7 +13,6 @@
 
 <div class="hd">
     <h1 class="page_title">丰纳金融</h1>
-    <h5 class="page_title">Loan</h5>
 </div>
 @foreach($names as $name)
 

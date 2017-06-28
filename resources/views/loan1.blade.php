@@ -6,7 +6,6 @@
     <script src="{{asset('js/zepto.min.js')}}"></script>
     <div class="hd">
         <h1 class="page_title">丰纳金融</h1>
-        <h5 class="page_title">Loan</h5>
     </div>
     <div class="page-bd">
         <ul>
@@ -20,13 +19,13 @@
 
                     <div class="weui_cells weui_cells_access" style="margin-top: 0px;">
                         {{--<a class="weui_cell" href="javascript:;">--}}
-                        <a class="weui_cell" href="{{asset('loan1/yidi')}}">
+                        <a class="weui_cell" href="{{url('loan1','yidi')}}">
                             <div class="weui_cell_bd weui_cell_primary">
                                 <p>一抵</p>
                             </div>
                             <div class="weui_cell_ft"></div>
                         </a>
-                        <a class="weui_cell" href="javascript:;">
+                        <a class="weui_cell" href="{{url('loan1','erdi')}}">
                             <div class="weui_cell_bd weui_cell_primary">
                                 <p>二抵</p>
                             </div>
