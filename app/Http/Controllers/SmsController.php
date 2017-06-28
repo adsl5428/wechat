@@ -12,15 +12,16 @@ class SmsController extends Controller
     public function sendSms(Sms $sms)
     {
         $num = rand(100000, 999999); // 生成随机验证码
+        dd("$num");
         $phone='17750727971';
         $name='丰纳金融';
         $smsParams = [
-            'number' => $num
+            'number' => "$num"
         ];
         $content= json_encode($smsParams);
         $code='SMS_67215911';
 //        dd("$content");
-        return $sms->send($phone,$name,$content,$code);
+        return $sms->send("$phone","$name","$content",'$code');
     }
     public $notice;
     public function __construct(Application $app)
