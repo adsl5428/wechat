@@ -14,6 +14,14 @@
 use App\Http\Controllers\Userscontroller;
 
 
+Route::group(['prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
+    Route::any('/','MyadminController@login');
+    Route::get('/order/{id?}','MyadminController@order');
+    Route::get('/picture/{id}','MyadminController@picture');
+});
+
+
+
 Route::get('/welcome', function () {
     return url('uploads','123456');
    return view('welcome');
@@ -110,6 +118,8 @@ Route::group(['middleware' => ['web']], function () {
 });*/
 
 Route::any('/wechat', 'WechatController@serve');
+
+
 
 
 //Route::group(['prefix'=>'admin','namespace'=>'Admin'], function () {
