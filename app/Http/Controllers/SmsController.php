@@ -20,7 +20,7 @@ class SmsController extends Controller
         $content= json_encode($smsParams);
         $code='SMS_67215911';
 //        dd("$content");
-        return $sms->send("$phone","$name","$content","$code");
+        return $sms->send($phone,$name,$content,$code);
     }
     public $notice;
     public function __construct(Application $app)
