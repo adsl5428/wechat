@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use const null;
+use function redirect;
 
 class MyadminController extends Controller
 {
@@ -18,9 +19,9 @@ class MyadminController extends Controller
             $name = $request->get('name');
             $password = $request->get('password');
             if ($name=='admin'  &&  $password=='admin'){
-                $request->session()->put('status','login');
-                $orders = Order::simplePaginate(20);
-                return view('myadmin.order',compact('orders'));
+//                $request->session()->put('status','login');
+//                $orders = Order::simplePaginate(20);
+                return redirect('myadmin/order');
             }
             else return '测试成功:您输入了 '.$name.' 和 '.$password;
         }
@@ -30,7 +31,7 @@ class MyadminController extends Controller
     {
         if ($id == null)
         {
-            $orders = Order::simplePaginate(20);
+            $orders = Order::simplePaginate(2);
             return view('myadmin.order',compact('orders'));
         }
         else

@@ -2207,7 +2207,7 @@ weui-box*/
     height: 2.3em;
     line-height: 2.3em;
     margin: 5px;
-    /*text-align: center;*/
+    text-align: center;
 }
 .weui-avatar,.weui-avatar img:first-child{
     border-radius: 4px;
