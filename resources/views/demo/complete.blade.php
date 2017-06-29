@@ -11,7 +11,8 @@
         <div class="weui_opr_area">
             <p class="weui_btn_area">
                 <a href="javascript:;" onclick="js_method();" class="weui_btn weui_btn_primary">订单中心</a>
-                <a href="3" onclick="js_method2();" class="weui_btn weui_btn_default">下一步</a>
+                <a href="3-s" onclick="js_method2();" class="weui_btn weui_btn_default">成功</a>
+                <a href="3-f" onclick="js_method2();" class="weui_btn weui_btn_default">失败</a>
             </p>
         </div>
         <div class="weui_extra_area">
