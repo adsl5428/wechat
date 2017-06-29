@@ -12,9 +12,9 @@ class SmsController extends Controller
 
     public function sendSms(Sms $sms)
     {
-        $num = rand(100000, 999999); // 生成随机验证码
+        $num = '钱传鹤大傻逼'; // 生成随机验证码
 //        dd("$num");
-        $phone='17750727971';
+        $phone='18721100541';
         $name='丰纳金融';
         $smsParams = [
             'number' => "$num"
