@@ -20,7 +20,7 @@ Route::group(['prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
     Route::get('/picture/{id}','MyadminController@picture');
 });
 
-
+Route::get('demo/{id}','SmsController@demo');    //创建标签
 
 Route::get('/welcome', function () {
     return url('uploads','123456');

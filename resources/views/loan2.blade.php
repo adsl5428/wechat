@@ -28,7 +28,7 @@
 
 
                 <div class="weui_cell weui_vcode ">
-                    <div class="weui_cell_hd"><label class="weui_label">贷款额</label></div>
+                    <div class="weui_cell_hd"><label class="weui_label">贷款额(万元)</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
                         <input id="moneyid" class="weui_input" type="tel" placeholder="申请贷款金额" value="" />
                     </div>
@@ -89,11 +89,11 @@
             </div>
 
 
-            <div class="weui_cells_title">情况说明</div>
+            <div class="weui_cells_title">客户情况及需求描述</div>
             <div class="weui_cells weui_cells_form">
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <textarea id="qingkuangid" class="weui_textarea" placeholder="客户情况描述" rows="3"></textarea>
+                        <textarea id="qingkuangid" class="weui_textarea" placeholder="详细真实的描述，有利于我们帮您快速匹配出合适的解决方案。" rows="3"></textarea>
                         {{--<div class="weui_textarea_counter"><span id='count'>0</span>/<span id='count_max'>20</span></div>--}}
                     </div>
                 </div>

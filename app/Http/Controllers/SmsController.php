@@ -1,14 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+use function compact;
 use iscms\Alisms\SendsmsPusher as Sms;
 use Illuminate\Http\Request;
 use EasyWeChat\Foundation\Application;
 use App\Http\Requests;
 use function var_dump;
+use function view;
 
 class SmsController extends Controller
 {
+    public function demo($id)
+    {
+        if ($id==1)
+            return view('demo.one');
+        if ($id==2)
+        {$names[3] =['房产证',104,'fang-chan'] ;return view('demo.two',compact('names'));}
+    }
 
     public function sendSms(Sms $sms)
     {
@@ -20,7 +29,7 @@ class SmsController extends Controller
             'number' => "$num"
         ];
         $content= json_encode($smsParams);
-        $code='SMS_67215911';
+        $code='SMS_67215910';
 //        dd("$content");
         $result = $sms->send("$phone","$name","$content","$code");
         var_dump($result);

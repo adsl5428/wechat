@@ -119,7 +119,7 @@ class LoanController extends Controller
         if($project == null)
             return view('loan1');
        $teshu = $request->session()->get('teshu');
-        $names[0] =['身份证',101,'shen-fen-zheng'] ;
+//        $names[0] =['身份证',101,'shen-fen-zheng'] ;
         $names[3] =['房产证',104,'fang-chan'] ;
 //        $names[1] =['户口本',102,'hu-kou-ben'] ;
 //        $names[2] =['征信报告',103,'zheng-xin'] ;
