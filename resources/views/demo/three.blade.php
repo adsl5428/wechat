@@ -11,7 +11,7 @@
             {{--<div class="weui_textarea_counter"><span id='count'>0</span>/<span id='count_max'>20</span></div>--}}
         </div>
     </div>
-    <a href="#" onclick="js_method2();" class="weui_btn weui_btn_primary">使用A方案</a>
+    <a href="4" onclick="js_method2();" class="weui_btn weui_btn_primary">使用A方案</a>
 </div>
 
 <div class="weui_cells_title">方案B</div>

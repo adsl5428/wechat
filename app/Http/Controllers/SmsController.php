@@ -19,10 +19,13 @@ class SmsController extends Controller
         {$names[3] =['房产证',104,'fang-chan'] ;return view('demo.two',compact('names'));}
         if ($id=='complete')
         {return view('demo.complete');}
-        if ($id=='3-s')
+        if ($id=='3-s')   //成功
         {$state = ['方案','','hide'];return view('demo.three',compact('state'));}
         if ($id=='3-f')
         {$state = ['拒绝','hide',''];return view('demo.three',compact('state'));}
+
+        if ($id=='4')
+        {$state = ['拒绝','hide',''];return view('demo.four',compact('state'));}
     }
 
     public function sendSms(Sms $sms)
