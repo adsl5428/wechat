@@ -9,19 +9,12 @@
         <div class="weui_cells weui_cells_form ">
 
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label for="" class="weui_label">时间</label></div>
-                <div class="weui_cell_bd">
-                    <input class="weui_input" type="datetime-local" value="" placeholder=""/>
+                <div class="weui_cell_hd"><label for="" class="weui_label">预约时间:</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="datetime-local"/>
                 </div>
+
             </div>
-
-            {{--<div class="weui_cell">--}}
-                {{--<div class="weui_cell_hd"><label for="" class="weui_label">预约时间:</label></div>--}}
-                {{--<div class="weui_cell_bd weui_cell_primary">--}}
-                    {{--<input class="weui_input" type="text" value="" id='text1'/>--}}
-                {{--</div>--}}
-
-            {{--</div>--}}
 
         </div>
 
