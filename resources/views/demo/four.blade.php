@@ -9,12 +9,19 @@
         <div class="weui_cells weui_cells_form ">
 
             <div class="weui_cell">
-                <div class="weui_cell_hd"><label for="" class="weui_label">预约时间:</label></div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="text" value="" id='text1'/>
+                <div class="weui_cell_hd"><label for="" class="weui_label">时间</label></div>
+                <div class="weui_cell_bd">
+                    <input class="weui_input" type="datetime-local" value="" placeholder=""/>
                 </div>
-
             </div>
+
+            {{--<div class="weui_cell">--}}
+                {{--<div class="weui_cell_hd"><label for="" class="weui_label">预约时间:</label></div>--}}
+                {{--<div class="weui_cell_bd weui_cell_primary">--}}
+                    {{--<input class="weui_input" type="text" value="" id='text1'/>--}}
+                {{--</div>--}}
+
+            {{--</div>--}}
 
         </div>
 
@@ -26,9 +33,8 @@
 
 @section('js')
     $(function(){
-
     $("#text1").picker({
-    title: "时间",
+    title: "预约时间",
     cols: [
     {
     textAlign: 'center',
@@ -42,6 +48,7 @@
     textAlign: 'center',
     values: ['吃西瓜', '吃盒饭', '喝酒']
     }
+
     ]
     });
 
