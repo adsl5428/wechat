@@ -26,6 +26,12 @@ class SmsController extends Controller
 
         if ($id=='4')
         {$state = ['拒绝','hide',''];return view('demo.four',compact('state'));}
+        if ($id=='5')
+        {return view('demo.five');}
+        if ($id=='6')
+        {return view('demo.six');}
+        if ($id=='7')
+        {return view('demo.seven');}
     }
 
     public function sendSms(Sms $sms)
