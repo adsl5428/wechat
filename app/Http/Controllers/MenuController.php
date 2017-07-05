@@ -39,57 +39,7 @@ class MenuController extends Controller
         echo 'done';
     }
 
-    public function addjinglimenu($tag_id)   //主管 菜单
-    {
-        $matchRule = [
-            "tag_id"=>$tag_id
-        ];
-        $buttons = [
-            [
-                "type" => "click",
-                "name" => "经理",
-                "key"  => "V1001_JINGLI"
-            ],
-        ];
 
-        $this->menu->add($buttons, $matchRule);
-        echo '经理';
-    }
-
-    public function addzhuguanmenu($tag_id)   //主管 菜单
-    {
-        $matchRule = [
-            "tag_id"=>$tag_id
-        ];
-        $buttons = [
-            [
-                "type" => "click",
-                "name" => "主管",
-                "key"  => "V1001_ZHUGUN"
-            ],
-        ];
-
-        $this->menu->add($buttons, $matchRule);
-        echo '主管';
-    }
-
-    public function addmenu($tag_id)   //专员菜单
-    {
-        $matchRule = [
-            "tag_id"=>$tag_id
-        ];
-        $buttons = [
-            [
-
-                "type" => "click",
-                "name" => "获得电话",
-                "key"  => "V1001_GET_TEL"
-            ],
-        ];
-
-        $this->menu->add($buttons, $matchRule);
-        echo '渠道专员';
-    }
 
     public function addmenupartner($tag_id)    //合伙人 菜单
     {
@@ -108,9 +58,19 @@ class MenuController extends Controller
                 "url"  => "http://fnjr.chonghui.net.cn/order"
             ],
             [
-                "type" => "view",
-                "name" => "签约产品",
-                "url"  => "http://fnjr.chonghui.net.cn/goods"
+                "name" => "产品帮助",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "产品",
+                        "url"  => "http://fnjr.chonghui.net.cn/goods"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "帮助",
+                        "url"  => "http://fnjr.chonghui.net.cn/help"
+                    ],
+                ],
             ],
         ];
         $this->menu->add($buttons, $matchRule);

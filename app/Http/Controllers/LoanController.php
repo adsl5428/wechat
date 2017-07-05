@@ -96,6 +96,16 @@ class LoanController extends Controller
             $request->session()->put('project', '二抵');
             return redirect('loan2');           //要用重定向 , 用view的话  会飞到loan1/erdi
         }
+        elseif ($id == 'gps')
+        {
+            $request->session()->put('project', 'GPS');
+            return redirect('loan22');           //要用重定向 , 用view的话  会飞到loan1/erdi
+        }
+        elseif ($id == 'yache')
+        {
+            $request->session()->put('project', '押车');
+            return redirect('loan22');           //要用重定向 , 用view的话  会飞到loan1/erdi
+        }
         if ($request->isMethod('post'))
         {
             $data = [
@@ -112,6 +122,10 @@ class LoanController extends Controller
     public function loan2()   //这里是流程2. 取项目session 判断 流程1 , 不符合就返回 流程1 页面
     {                                         // 到这里把项目和流程写到数据库
         return view('loan2');
+    }
+    public function loan22()   //这里是流程2. 取项目session 判断 流程1 , 不符合就返回 流程1 页面
+    {                                         // 到这里把项目和流程写到数据库
+        return view('loan22');
     }
     public function loan3(Request $request)
     {

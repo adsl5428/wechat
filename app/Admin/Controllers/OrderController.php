@@ -72,9 +72,9 @@ class OrderController extends Controller
     protected function grid()
     {
         return Admin::grid(Order::class, function (Grid $grid) {
-
             $grid->id('ID')->sortable();
             $grid->name('借款人');
+            $grid->project('项目');
             $grid->money('借款金额');
             $grid->teshu('备离单老小');
             $grid->status('状态');

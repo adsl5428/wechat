@@ -43,13 +43,13 @@
                 <div class="page-category js-categoryInner">
 
                     <div class="weui_cells weui_cells_access" style="margin-top: 0px;">
-                        <a class="weui_cell" href="javascript:;">
+                        <a class="weui_cell" href="{{url('loan1','gps')}}">
                             <div class="weui_cell_bd weui_cell_primary">
                                 <p>GPS</p>
                             </div>
                             <div class="weui_cell_ft"></div>
                         </a>
-                        <a class="weui_cell" href="javascript:;">
+                        <a class="weui_cell" href="{{url('loan1','yache')}}">
                             <div class="weui_cell_bd weui_cell_primary">
                                 <p>押车</p>
                             </div>

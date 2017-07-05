@@ -96,6 +96,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::any('/loan1/{id?}', 'LoanController@loan1');
     Route::any('/loan3', 'LoanController@loan3');
     Route::get('/loan2', 'LoanController@loan2');
+    Route::get('/loan22', 'LoanController@loan22');
     Route::post('/loan2', 'OrderController@create');
 
     Route::get('/edit1/{id?}', 'LoanController@edit1');
