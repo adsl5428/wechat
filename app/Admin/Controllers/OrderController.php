@@ -74,6 +74,7 @@ class OrderController extends Controller
         return Admin::grid(Order::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
             $grid->name('借款人');
+            $grid->idcard('身份证');
             $grid->project('项目');
             $grid->money('借款金额');
             $grid->teshu('备离单老小');
@@ -95,6 +96,7 @@ class OrderController extends Controller
 
             $form->display('id', 'ID');
             $form->display('name', '借款人');
+            $form->display('idcard', '身份证');
             $form->display('money', '借款金额');
             $form->display('teshu', '备离单老小');
             $form->display('partner_name', '合作伙伴');
