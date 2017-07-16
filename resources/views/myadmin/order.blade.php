@@ -8,7 +8,10 @@
     <div class="page-hd">
         <h1 class="page_title">订单列表 </h1>
     </div>
-
+    <div class="weui_cell_ft">
+        {{--<i class="weui_icon_warn"></i>--}}
+        <a href="{{url('myadmin/logout')}}" class="weui-vcode-btn">登出</a>
+    </div>
     <div class="weui_panel weui_panel_access">
 
         <table class="weui-table weui-border-tb"  id="table">

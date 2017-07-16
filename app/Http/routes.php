@@ -16,6 +16,7 @@ use App\Http\Controllers\Userscontroller;
 Route::group(['prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
 
     Route::any('/', 'MyadminController@login');
+    Route::get('/logout', 'MyadminController@logout');
     Route::get('order','MyadminController@order');
     Route::get('api/order/start/{start}/size/{end}','MyadminController@paginate');
 });

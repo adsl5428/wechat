@@ -47,7 +47,11 @@ class MyadminController extends Controller
         return view('myadmin.order');
 
     }
-
+    public function logout(Request $request)
+    {
+        $request->session()->forget('login');
+        return redirect('/myadmin');
+    }
 
     public function paginate(Request $request,$start,$size)
     {
