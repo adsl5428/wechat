@@ -75,7 +75,7 @@
                         </p>
                     </div>
                 </div>
-                <span id="actionToggle" class="actionToggle">···</span>
+                <a href="{{url('edit1',$order->id)}}" class="fa" id="actionToggle" class="actionToggle">修改</a>
 
 
             </div>

@@ -37,7 +37,7 @@
                         <div class="weui_cell_bd weui_cell_primary">
                 <span class="media_desc">{{$order->name}} </span ><span class="media_desc">{{$order->money}}万　</span >
                 <b><span class="media_desc">{{$order->project}}　</span ></b>
-                            <span class="media_desc f21 bg-blue">初审</span >
+                            <span class="media_desc f21 bg-blue">{{$order->status}}</span >
                             @if($order->teshu[0])<label class="weui-label-s">有备用房</label>@endif
                             @if($order->teshu[1])<label class="weui-label-s">离婚</label>@endif
                             @if($order->teshu[2])<label class="weui-label-s">小单边</label>@endif

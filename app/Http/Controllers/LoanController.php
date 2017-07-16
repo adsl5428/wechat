@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
+use function redirect;
 use function var_dump;
 
 class LoanController extends Controller
@@ -19,16 +20,16 @@ class LoanController extends Controller
     public function edit2(Request $request)
     {
         $teshu = $request->session()->get('teshu');
-        $names[0] =['身份证',101,'shen-fen-zheng'] ;
-        $names[1] =['户口本',102,'hu-kou-ben'] ;
-        $names[2] =['征信报告',103,'zheng-xin'] ;
+//        $names[0] =['身份证',101,'shen-fen-zheng'] ;
+//        $names[1] =['户口本',102,'hu-kou-ben'] ;
+//        $names[2] =['征信报告',103,'zheng-xin'] ;
         $names[3] =['房产证',104,'fang-chan'] ;
-        $names[4] =['婚姻关系证明',105,'hun-yin'] ;
-        if ($teshu[0] == 1)
-        {$names[5] =['备用房产证',106,'li-hun'] ;}
-        if ($teshu[1] == 1)
-        {$names[6] =['离婚协议',107,'li-hun'] ;}
-        $names[7] =['其他',108,'qi-ta'] ;
+//        $names[4] =['婚姻关系证明',105,'hun-yin'] ;
+//        if ($teshu[0] == 1)
+//        {$names[5] =['备用房产证',106,'li-hun'] ;}
+//        if ($teshu[1] == 1)
+//        {$names[6] =['离婚协议',107,'li-hun'] ;}
+        $names[7] =['补充材料',108,'bu-chong'] ;
         $request->session()->forget('teshu');  //步骤3
         $pictures = Order::find($request->session()->get('order_id'))->pictures;
 //        dd($pictures);
@@ -37,7 +38,11 @@ class LoanController extends Controller
 
     public function edit1($id)
     {
-        $order = Order::where('id',$id)->get(['id','name','idcard','money','qingkuang','teshu'])->first();
+        $openid = session('wechat.oauth_user.id');
+        $order = Order::where('id',$id)->get(['id','name','idcard','money','qingkuang','teshu','openid'])->first();
+//        dd($order->openid);
+        if ($openid!=$order->openid)
+            return view('msg.nopower');
         return view('edit.edit1',compact('order'));
     }
     public function test(Request $request)

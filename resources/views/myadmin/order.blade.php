@@ -40,12 +40,7 @@
 @section('js')
 
 {{--<script>--}}
-function bbimg(o){
-var zoom=parseInt(o.style.zoom, 10)||100;
-zoom+=event.wheelDelta/12;
-if (zoom>0) o.style.zoom=zoom+'%';
-return false;
-}
+
 $('.weui-gallery').fadeOut(0);
 function show (ths) {
 {{--alert(ths.href);--}}
@@ -112,7 +107,7 @@ $(function(){
 
                             result+='</td>'
                                 +'<td>'+data[i].partner_name+'&'+data[i].qianyue_name+'</td>'
-                                +'<td><a onclick="del('+data[i].id+')" href="javascript:;"   >删</a></td>'
+                                +'<td><a onclick="del('+data[i].id+')" href="javascript:;"   >操作</a></td>'
                                 +'</tr>'
                                 +'<tr >'
                                 +'<td colspan=7>描述:'+data[i].qingkuang+'</td>'
@@ -150,7 +145,7 @@ $(function(){
                         //
                         // 每次数据加载完，必须重置
                         me.resetload();
-                    },500);
+                    },1000);
                 },
                 error: function(xhr, type){
                     alert('Ajax error!');

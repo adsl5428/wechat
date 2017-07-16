@@ -13,17 +13,15 @@
 
 use App\Http\Controllers\Userscontroller;
 //'middleware'=>['web','myadmin'],
+Route::group(['prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
 
-Route::any('/myadmin','Myadmin\MyadminController@login');
-Route::get('myadmin/order/{id?}','Myadmin\MyadminController@order');
-Route::get('myadmin/api/order/start/{start}/size/{end}','Myadmin\MyadminController@paginate');
-Route::group(['middleware'=>['web','myadmin'],'prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
-//    Route::any('/','MyadminController@login');
-
-
-//    Route::get('/order/{id?}','MyadminController@order');
-    Route::get('/picture/{id}','MyadminController@picture');
+    Route::any('/', 'MyadminController@login');
+    Route::get('order','MyadminController@order');
+    Route::get('api/order/start/{start}/size/{end}','MyadminController@paginate');
 });
+//Route::get('myadmin/order/{id?}','Myadmin\MyadminController@order');
+//Route::get('myadmin/api/order/start/{start}/size/{end}','Myadmin\MyadminController@paginate');
+
 
 Route::get('demo/{id}','SmsController@demo');    //创建标签
 
