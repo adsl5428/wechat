@@ -15,6 +15,7 @@ use App\Http\Controllers\Userscontroller;
 //'middleware'=>['web','myadmin'],
 Route::get('/mubantest', 'SmsController@mubantest');
 Route::any('/myadmin', 'Myadmin\MyadminController@login');
+
 Route::group(['middleware' => 'myadmin','prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
 
     Route::get('/logout', 'MyadminController@logout');
@@ -25,6 +26,12 @@ Route::group(['middleware' => 'myadmin','prefix' => 'myadmin','namespace' => 'My
 //Route::get('myadmin/order/{id?}','Myadmin\MyadminController@order');
 //Route::get('myadmin/api/order/start/{start}/size/{end}','Myadmin\MyadminController@paginate');
 
+Route::group(['middleware' => 'myadmin'], function () {
+
+Route::get('/menu/create','MenuController@create');
+Route::get('/menu','MenuController@index');
+Route::get('/menu/del','MenuController@del');
+});
 
 Route::get('demo/{id}','SmsController@demo');    //创建标签
 
@@ -52,12 +59,7 @@ Route::get('/gettel','UsersController@gettel');
 Route::get('/sms','SmsController@sendSms');
 
 
-Route::get('/menu','MenuController@menu');
-Route::get('/menu/list','MenuController@menulist');
-Route::get('/delmenu','MenuController@delmenu');
-Route::get('/addmenu/{id}','MenuController@addmenu');
-Route::get('/testmenu/{id}','MenuController@testmenu');
-Route::get('/addmenupartner/{id}','MenuController@addmenupartner');     //合伙人 标签 目录
+
 
 
 Route::get('/getgroup', 'GroupController@getgroup');
@@ -96,8 +98,13 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::post('/partnerregister', 'UsersController@partnerregister');
 
 });
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+//Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+Route::group(['middleware' => [ 'wechat.oauth']], function () {
 //Route::group(['middleware' => ['web', 'wechat.oauth','partn']], function () {
+
+    Route::get('/myadmin/order/{id}', 'Myadmin\MyadminController@show');
+
+
 
     Route::any('/loan1/{id?}', 'LoanController@loan1');
     Route::any('/loan3', 'LoanController@loan3');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use function compact;
+use Illuminate\Support\Facades\URL;
 use iscms\Alisms\SendsmsPusher as Sms;
 use Illuminate\Http\Request;
 use EasyWeChat\Foundation\Application;
@@ -56,21 +57,27 @@ class SmsController extends Controller
         $this->notice = $app->notice;
     }
     public function complete(Request $request)
-    {
+    {//ooFF4wtDFzOTBHOYRf0XZ_-PBx0U  黄一
+        //ooFF4wupK-IgZXGiU_pXmYs_3qE8 杨成
+        //ooFF4wvQWMZYJJ47dBL6LLm15bTQ 秦
+
         if ($request->session()->get('project') == null)
             return redirect('order');
-        $userId = 'ooFF4wtnbrrwTLhkj6iVqeUoNvxY';  //老李
+        $userIds = ['ooFF4wtnbrrwTLhkj6iVqeUoNvxY','ooFF4wtDFzOTBHOYRf0XZ_-PBx0U',
+            'ooFF4wupK-IgZXGiU_pXmYs_3qE8','ooFF4wvQWMZYJJ47dBL6LLm15bTQ',
+            'ooFF4wrHkMyI6XbRUVLFKF8fVRjs'];  //老李
 //        $userId = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
         $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
-        $url = '';
+        $url = URL('myadmin/order',$request->session()->get('order_id'));
         $data = array(
             "first"  => "有新单子进来啦！",
             "keyword1"   => $request->session()->get('project'),
             "keyword2"  => $request->session()->get('partner'),
             "keyword3"  => date('m-d h:i',time()),
-            "remark" => "请尽快审核",
+            "remark" => "请尽快审核,点击查看订单详情",
         );
-        $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
+        foreach ($userIds as $userId)
+         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
 //        var_dump($result);
         $request->session()->forget('project');
         return view('msg.complete');

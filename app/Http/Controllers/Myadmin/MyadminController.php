@@ -14,6 +14,7 @@ use const null;
 use function redirect;
 use function session;
 use function var_dump;
+use function view;
 
 class MyadminController extends Controller
 {
@@ -47,6 +48,18 @@ class MyadminController extends Controller
         $request->session()->forget('login');
         return redirect('/myadmin');
     }
+    public function show($id)
+    {
+        $openid = session('wechat.oauth_user.id');
+        $partner = Partner::where('openid',$openid)->get(['account']);
+        if ($partner[0]->account != 'admin')
+            return view('msg.nopower');
+
+        $order = Order::find($id);
+        $pictures = Order::find($id)->pictures;
+        return view('xiangxi',compact('order','pictures'));
+    }
+
 
     public function paginate($start,$size)
     {

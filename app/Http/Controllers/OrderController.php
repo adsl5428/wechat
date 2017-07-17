@@ -57,7 +57,7 @@ class OrderController extends Controller
                 'status' => 1,
                 'msg' => 'loan3',
             ];
-            $request->session()->put('status', '1');
+            $request->session()->put('status', '初审');
             $request->session()->put('partner',$order->partner_name.'/'.$order->qianyue_name);
             $request->session()->put('teshu', $order->teshu);  //
             $request->session()->put('order_id', $order->id);  //
