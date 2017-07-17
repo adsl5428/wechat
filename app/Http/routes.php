@@ -13,10 +13,11 @@
 
 use App\Http\Controllers\Userscontroller;
 //'middleware'=>['web','myadmin'],
+Route::get('/mubantest', 'SmsController@mubantest');
 Route::group(['prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
 
     Route::any('/', 'MyadminController@login');
-    Route::any('/mubantest', 'SmsController@mubantest');
+
     Route::get('/logout', 'MyadminController@logout');
     Route::get('order','MyadminController@order');
     Route::get('api/order/start/{start}/size/{end}','MyadminController@paginate');

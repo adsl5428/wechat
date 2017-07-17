@@ -91,7 +91,6 @@ class SmsController extends Controller
             这里说了一堆话H,这里说了一堆话I,这里说了一堆话K",
         );
         foreach ($userIds as $userId)
-            dd($userId);
             $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
 //        var_dump($result);
         $request->session()->forget('project');
