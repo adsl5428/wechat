@@ -35,17 +35,12 @@ class MyadminController extends Controller
 //                return view('myadmin.order');
                 return redirect('myadmin/order');
             }
-
         }
-
         return view('myadmin.login');
     }
-    public function order(Request $request)
+    public function order()
     {
-        if ($request->session()->get('login') != 'true')
-            return redirect('/');
         return view('myadmin.order');
-
     }
     public function logout(Request $request)
     {
@@ -53,10 +48,8 @@ class MyadminController extends Controller
         return redirect('/myadmin');
     }
 
-    public function paginate(Request $request,$start,$size)
+    public function paginate($start,$size)
     {
-        if ($request->session()->get('login') != 'true')
-            return redirect('/');
         $orders = Order::latest()->skip($start)->take($size)->
         get(['id','name','money','idcard','teshu','partner_name','qianyue_name','qingkuang']);
         $neworders = collect();

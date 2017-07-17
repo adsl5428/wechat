@@ -90,10 +90,11 @@ $(function(){
                         for(var i=0; i< arrLen ; i++){
 {{--alert((data[i].pictures.length));--}}
                             result+='<tr>'
-                                +'<th>借款人</th> <th>身份证</th> <th>金额</th> <th>备离单老小</th>'
+                                +'<th>ID</th><th>借款人</th> <th>身份证</th> <th>金额</th> <th>备离单老小</th>'
                                 +'<th>图片</th> <th>合伙人&签约人</th> <th>操作</th>'
                                 +'</tr>'
                                 +'<tr id="row'+data[i].id+'">'
+                                +'<td>'+data[i].id+'</td>'
                                 +'<td>'+data[i].name+'</td>'
                                 +'<td>'+data[i].idcard+'</td>'
                                 +'<td>'+data[i].money+'万元</td>'

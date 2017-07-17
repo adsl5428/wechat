@@ -14,11 +14,11 @@
 use App\Http\Controllers\Userscontroller;
 //'middleware'=>['web','myadmin'],
 Route::get('/mubantest', 'SmsController@mubantest');
-Route::group(['prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
-
-    Route::any('/', 'MyadminController@login');
+Route::any('/myadmin', 'Myadmin\MyadminController@login');
+Route::group(['middleware' => 'myadmin','prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
 
     Route::get('/logout', 'MyadminController@logout');
+    Route::get('/push', 'MyadminController@push');
     Route::get('order','MyadminController@order');
     Route::get('api/order/start/{start}/size/{end}','MyadminController@paginate');
 });

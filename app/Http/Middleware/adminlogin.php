@@ -17,8 +17,8 @@ class adminlogin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check())
+        if ($request->session()->get('login') != 'true')
+            return redirect('/');
         return $next($request);
-        else redirect('/');
     }
 }

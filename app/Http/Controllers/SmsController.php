@@ -96,5 +96,4 @@ class SmsController extends Controller
         $request->session()->forget('project');
         return view('msg.complete');
     }
-
 }
