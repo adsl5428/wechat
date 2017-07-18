@@ -60,6 +60,11 @@ class MyadminController extends Controller
         return view('xiangxi',compact('order','pictures'));
     }
 
+    public function caozuo($id)
+    {
+        $order = Order::find($id);
+        return view('myadmin.caozuo','order');
+    }
 
     public function paginate($start,$size)
     {

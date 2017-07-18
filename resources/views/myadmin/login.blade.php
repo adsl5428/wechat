@@ -1,7 +1,7 @@
 @extends('master')
 @section('title','!!!')
 @section('content')
-    <link rel="stylesheet" href="{{asset('css/weui2.css')}}">
+
     <script src="{{asset('js/zepto.min.js')}}"></script>
     <div class="hd">
         <h1 class="page_title"></h1>

@@ -68,7 +68,6 @@ class OrderController extends Controller
     {
         if ($request->isMethod('post'))
         {
-
 //            dd(Input::except('_token'));
 //            $orders = Order::where('idcard',$request->idcard)->get();
 //            if ($userinfo != null && $userinfo->project == $request->session()->get('project')){

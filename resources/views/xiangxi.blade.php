@@ -87,7 +87,9 @@
 </div>
 <!-- 结束 朋友圈 -->
     <div class="weui-gallery" style="display: block">
-        <span onclick="$('.weui-gallery').fadeOut(300);" class="weui-gallery-img" style=""></span>
+        <img class="weui-gallery-img" onclick="$('.weui-gallery').fadeOut(300);"
+             src=""  alt="">
+        {{--<span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>--}}
     </div>
 @endsection
 
@@ -95,7 +97,8 @@
     $('.weui-gallery').fadeOut(0);
 
     function show (ths) {
-    $('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');
+    {{--$('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');--}}
+    $('.weui-gallery-img').attr('src',$(ths).attr("alt"));
     $('.weui-gallery').fadeIn(300);
     $(ths).attr('src',ths.alt);
     }
