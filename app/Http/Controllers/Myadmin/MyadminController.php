@@ -34,14 +34,14 @@ class MyadminController extends Controller
                 $request->session()->put('login', 'true');
 //                Auth::loginUsingId ($user->id);
 //                return view('myadmin.order');
-                return redirect('myadmin/order');
+                return redirect('myadmin/orders');
             }
         }
         return view('myadmin.login');
     }
-    public function order()
+    public function orders()
     {
-        return view('myadmin.order');
+        return view('myadmin.orders');
     }
     public function logout(Request $request)
     {
@@ -52,13 +52,21 @@ class MyadminController extends Controller
     {
         $openid = session('wechat.oauth_user.id');
         $partner = Partner::where('openid',$openid)->get(['account']);
-        if ($partner[0]->account != 'admin')
+        if ($partner[0]->account != 'admin' && $partner[0]->account != 'lijunjie')
             return view('msg.nopower');
 
         $order = Order::find($id);
         $pictures = Order::find($id)->pictures;
-        return view('xiangxi',compact('order','pictures'));
+        return view('myadmin.xiangxi',compact('order','pictures'));
     }
+
+    public function showpc($id)
+    {
+        $order = Order::find($id);
+        $pictures = Order::find($id)->pictures;
+        return view('myadmin.xiangxi',compact('order','pictures'));
+    }
+
 
     public function caozuo($id)
     {

@@ -56,6 +56,7 @@ class SmsController extends Controller
     {
         $this->notice = $app->notice;
     }
+
     public function complete(Request $request)
     {//ooFF4wtDFzOTBHOYRf0XZ_-PBx0U  黄一
         //ooFF4wupK-IgZXGiU_pXmYs_3qE8 杨成
@@ -83,24 +84,5 @@ class SmsController extends Controller
         return view('msg.complete');
     }
 
-    public function mubantest(Request $request)
-    {
-        $userIds = ['ooFF4wrHkMyI6XbRUVLFKF8fVRjs','ooFF4whVGV1wTVSn4iyqbMaaZons','ooFF4wraanoSmcuLSUJZTHSzjleY'];  //老李
-//        $userId = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
-        $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
-        $url = '';
-        $data = array(
-            "first"  => "有新单子进来啦！",
-            "keyword1"   => "测试12345",
-            "keyword2"  => "测试12345",
-            "keyword3"  => date('m-d h:i',time()),
-            "remark" => "这里说了一堆话A,这里说了一堆话B,这里说了一堆话,C这里说了一堆话D,这里说了一堆话E,这里说了一堆话F,这里说了一堆话G,
-            这里说了一堆话H,这里说了一堆话I,这里说了一堆话K",
-        );
-        foreach ($userIds as $userId)
-            $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
-//        var_dump($result);
-        $request->session()->forget('project');
-        return view('msg.complete');
-    }
+
 }

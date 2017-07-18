@@ -111,7 +111,7 @@ $(function(){
 
                             result+='</td>'
                                 +'<td>'+data[i].partner_name+'&'+data[i].qianyue_name+'</td>'
-                                +'<td><a onclick="del('+data[i].id+')" href="javascript:;"   >操作</a></td>'
+                                +'<td><a target="_blank"  href="../myadmin/orderpc/'+data[i].id+'"   >审核</a></td>'
                                 +'</tr>'
                                 +'<tr >'
                                 +'<td colspan=7>描述:'+data[i].qingkuang+'</td>'

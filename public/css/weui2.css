@@ -2434,8 +2434,8 @@ body {
   display: flex;
 }
 .moments__post .weui_cell_bd .actionToggle {
-  width: 15px;
-  height: 15px;
+  width: 50px;
+  height: 20px;
   background: #92abd4;
   margin-left: auto;
   border-radius: 1px;

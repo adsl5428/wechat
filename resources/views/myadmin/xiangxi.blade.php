@@ -17,14 +17,14 @@
         <div class="weui_cell_bd">
             <!-- 人名链接 -->
             <a class="title" href="javascript:;">
-                <span>{{$order->partner_name}}</span>
+                <span>合伙人:{{$order->partner_name}}</span>
             </a>
             <!-- post内容 -->
             <span>客户材料</span>
 
             <p>贷款人：{{$order->name}}</p>
             <p>身份证：{{$order->idcard}}</p>
-            <p>贷款金额：{{$order->money}}万</p>
+            <p>申请金额：{{$order->money}}万</p>
             <p>@if($order->teshu[0])<label class="weui-label-s">有备用房</label>@endif
                 @if($order->teshu[1])<label class="weui-label-s">离婚</label>@endif
                 @if($order->teshu[2])<label class="weui-label-s">小单边</label>@endif
@@ -71,7 +71,7 @@
                 <div>
                     <div id="actionMenu" class="actionMenu slideIn">
                         <p class="actionBtn" id="btnLike">
-                            <a href="{{url('edit1',$order->id)}}" class="fa">修改</a>
+                            <a href="{{url('edit1',$order->id)}}" class="fa">操作</a>
                         </p>
                     </div>
                 </div>
@@ -87,18 +87,80 @@
 </div>
 <!-- 结束 朋友圈 -->
     <div class="weui-gallery" style="display: block">
-        {{--<img class="weui-gallery-img" onclick="$('.weui-gallery').fadeOut(300);"--}}
-             {{--src=""  alt="">--}}
-        <span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>
+        <img class="weui-gallery-img" onclick="$('.weui-gallery').fadeOut(300);"
+             src=""  alt="">
+        {{--<span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>--}}
     </div>
+    <form method="POST" action="{{url('/myadmin/shenhe')}}">
+        {{csrf_field()}}
+        <input type="hidden" name="id" value="{{$order->id}}">
+        <div class="weui_cells_title">审核</div>
+    <div class="weui_cells weui_cells_checkbox">
+        <div class="weui-flex">
+         <div class="weui-flex-item">
+             <label class="weui_cell weui_check_label" for="x11">
+                 <div class="weui_cell_bd weui_cell_primary">
+                     <p>拒绝</p>
+                 </div>
+                 <div class="weui_cell_ft">
+                     <input type="radio" class="weui_check" name="radio1" id="x11">
+                     <span class="weui_icon_checked"></span>
+                 </div>
+             </label>
+         </div>
+            <div class="weui-flex-item">
+                <label class="weui_cell weui_check_label" for="x12">
+
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>请补充</p>
+                    </div>
+                    <div class="weui_cell_ft">
+                        <input type="radio" name="radio1" class="weui_check" id="x12" >
+                        <span class="weui_icon_checked"></span>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex-item">
+                <label class="weui_cell weui_check_label" for="x13">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>通过,请预约</p>
+                    </div>
+                    <div class="weui_cell_ft">
+                        <input type="radio" name="radio1" class="weui_check" id="x13">
+                        <span class="weui_icon_checked"></span>
+                    </div>
+                </label>
+            </div>
+            <div class="weui-flex-item">
+            </div>
+        </div>
+    </div>
+
+    <div class="weui_cells_title">需告知合伙人的信息</div>
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <textarea id="qingkuangid" class="weui_textarea"
+                          placeholder="" rows="3"></textarea>
+                {{--<div class="weui_textarea_counter"><span id='count'>0</span>/<span id='count_max'>20</span></div>--}}
+            </div>
+        </div>
+    </div>
+    <div class="weui_btn_area">
+        {{--<a id="btnlogin" onclick="create()" class="weui_btn weui_btn_primary" href="javascript:">创建</a>--}}
+        <input type="submit" class="weui_btn weui_btn_primary" value="提交并推送审核结果">
+    </div>
+    </form>
 @endsection
 
 @section('js')
     $('.weui-gallery').fadeOut(0);
 
     function show (ths) {
-    $('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');
-    {{--$('.weui-gallery-img').attr('src',$(ths).attr("alt"));--}}
+    {{--$('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');--}}
+    $('.weui-gallery-img').attr('src',$(ths).attr("alt"));
     $('.weui-gallery').fadeIn(300);
     $(ths).attr('src',ths.alt);
     }

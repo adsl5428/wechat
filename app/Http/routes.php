@@ -13,14 +13,15 @@
 
 use App\Http\Controllers\Userscontroller;
 //'middleware'=>['web','myadmin'],
-Route::get('/mubantest', 'SmsController@mubantest');
+
 Route::any('/myadmin', 'Myadmin\MyadminController@login');
 
 Route::group(['middleware' => 'myadmin','prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
 
+    Route::get('/orderpc/{id}', 'MyadminController@showpc');
     Route::get('/logout', 'MyadminController@logout');
     Route::get('/push', 'MyadminController@push');
-    Route::get('order','MyadminController@order');
+    Route::get('orders','MyadminController@orders');
     Route::get('api/order/start/{start}/size/{end}','MyadminController@paginate');
 });
 //Route::get('myadmin/order/{id?}','Myadmin\MyadminController@order');
@@ -103,7 +104,6 @@ Route::group(['middleware' => [ 'wechat.oauth']], function () {
 //Route::group(['middleware' => ['web', 'wechat.oauth','partn']], function () {
 
     Route::get('/myadmin/order/{id}', 'Myadmin\MyadminController@show');
-
 
 
     Route::any('/loan1/{id?}', 'LoanController@loan1');
