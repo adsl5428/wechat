@@ -26,7 +26,7 @@
                             @foreach($pictures as $picture)
                               @if(  $name[1] -100 ==$picture->type )
                                     <div  class="file-item thumbnail" >
-                                <img eg="{{$picture->id}}" alt="{{'uploads/'.$picture->path}}" onclick="show(alt)" src="{{url('uploads',$picture->path)}}">
+                                <img eg="{{$picture->id}}" alt="{{'uploads/'.$picture->path}}" onclick="show(this)" src="{{url('uploads',$picture->path)}}">
                                 <i class="del" onclick="delimg(this)"></i>
                                     </div>
                                @endif
@@ -40,7 +40,7 @@
     @endforeach
 
     <div class="weui-gallery" style="display: block">
-        <span onclick="$('.weui-gallery').fadeOut(300);" class="weui-gallery-img" style=""></span>
+        <span onclick="$('.weui-gallery').fadeOut(300);" class="weui-gallery-img" style="" ></span>
         {{--<div class="weui-gallery-opr">--}}
         {{--<a href="javascript:" class="weui-gallery-del" onclick="$('.weui-gallery').fadeOut(300);">--}}
         {{--<i class="icon icon-26 f-gray">删除</i>--}}
@@ -49,7 +49,11 @@
     </div>
 
     <div class="weui_btn_area">
-        <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>
+        <form method="POST" action="{{url('order',[$picture->order_id,'updateok'])}}">
+            {{csrf_field()}}
+        {{--<a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>--}}
+        <input type="submit" class="weui_btn weui_btn_primary" value="确认补充完整">
+        </form>
     </div>
     <h5 class="page_title">　</h5>
 @endsection
@@ -64,8 +68,9 @@
     $('.weui-gallery').fadeOut(0);
     function show (ths) {
     {{--alert(ths);--}}
+    $('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');
 
-    $('.weui-gallery-img').css("background-image",'url(' + ths + ')');
+    {{--$('.weui-gallery-img').css("background-image",'url(' + ths + ')');--}}
     $('.weui-gallery').fadeIn(300);
     }
 
@@ -73,7 +78,7 @@
     var uploader = WebUploader.create({
     auto: true, // 选完文件后，是否自动上传
     swf: '{{asset('js/baidu/Uploader.swf')}}', // swf文件路径
-    server: '{{asset('test')}}', // 文件接收服务端
+    {{--server: '{{asset('test')}}', // 文件接收服务端--}}
     pick: '#imgPicker'+name1, // 选择文件的按钮。可选
     // 只允许选择图片文件。
     accept: {

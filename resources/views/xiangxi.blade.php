@@ -71,11 +71,11 @@
                 <div>
                     <div id="actionMenu" class="actionMenu slideIn">
                         <p class="actionBtn" id="btnLike">
-                            <a href="{{url('edit1',$order->id)}}" class="fa">修改</a>
+                            {{--<a href="{{url('edit1',$order->id)}}" class="fa">修改</a>--}}
                         </p>
                     </div>
                 </div>
-                <a href="{{url('edit1',$order->id)}}"  id="actionToggle" class="actionToggle">修改</a>
+                <a href="{{URL('order',[$order->id,'upload'])}}"  id="actionToggle" class="actionToggle">修改</a>
 
 
             </div>
@@ -89,7 +89,8 @@
     <div class="weui-gallery" style="display: block">
         {{--<img class="weui-gallery-img" onclick="$('.weui-gallery').fadeOut(300);"--}}
              {{--src=""  alt="">--}}
-        <span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>
+        <span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style="" ></span>
+
     </div>
 @endsection
 

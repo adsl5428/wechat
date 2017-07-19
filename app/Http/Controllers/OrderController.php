@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Model\Order;
 use App\Http\Model\Partner;
+use App\Http\Model\Picture;
+use function dd;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Storage;
 use function var_dump;
 
 class OrderController extends Controller
@@ -95,5 +98,56 @@ class OrderController extends Controller
             $request->session()->put('order_id', $id);  //
             return $data;
         }
+    }
+    public function buchongupdate(Request $request,$id)
+    {
+        $openid = session('wechat.oauth_user.id');
+        $order = Order::where('openid', $openid)->where('id', $id)->firstOrFail(); //是否为本人提交
+        if ($request->isMethod('post')) {
+            $file = $request->file('file');
+            if ($file->isValid()) {
+                $entension = $file->getClientOriginalExtension(); //上传文件的后缀.
+                $newName = $request->leixing . date('-mdHis-Y-') . mt_rand(100, 999) . '.' . $entension;
+                Storage::put($newName, file_get_contents($file->getRealPath()));
+                $path = 'uploads/' . $newName;
+//                dd(Input::get('type1'));
+                $temp = [
+                    'order_id' => $id,
+                    'path' => $newName,
+                    'type' => $request->get('type1') - 100,
+                ];
+//                dd($temp);
+                $pictur = Picture::create($temp);
+
+                $data = [
+                    'eg' => $pictur->id,
+                    'path' => $path,
+                ];
+
+                return $data;
+            }
+        }
+
+        $names[3] = ['房产证', 104, 'fang-chan'];
+        $names[7] = ['补充材料', 108, 'bu-chong'];
+        $pictures = Order::find($id)->pictures;
+
+//        dd($pictures);
+        return view('edit.edit2', compact('names', 'pictures'));
+    }
+    public function yuyue(Request $request,$id)
+    {
+        $openid = session('wechat.oauth_user.id');
+        $order = Order::where('openid', $openid)->where('id', $id)->firstOrFail(); //是否为本人提交
+        if ($request->isMethod('post')) {
+            $file = $request->file('file');
+
+        }
+
+        $order = Order::find($id);
+        $pictures = Order::find($id)->pictures;
+//        dd($order);
+        return view('yuyue',compact('order','pictures'));
+
     }
 }

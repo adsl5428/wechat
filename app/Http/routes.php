@@ -120,6 +120,10 @@ Route::group(['middleware' => [ 'wechat.oauth']], function () {
     Route::post('/edit1', 'OrderController@update');
     Route::get('/edit2', 'LoanController@edit2');
 
+    Route::any('/order/{id}/upload', 'OrderController@buchongupdate');
+    Route::any('/order/{id}/yuyue', 'OrderController@yuyue');
+    Route::post('/order/{id}/updateok', 'SmsController@updateok');
+
 
 });
 
