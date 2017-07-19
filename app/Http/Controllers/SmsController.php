@@ -90,8 +90,35 @@ class SmsController extends Controller
     {
 //        dd($request->all());
 //        $chushen = Chushen::create($request->all());
-//        $openid = Order::where('id',$request->get('order_id'))->get(['openid']);
-//        dd($openid->openid);
+        $oldchushen = Chushen::where('order_id',$request->get('order_id'))->get();
+        if ($oldchushen == null)
+            $newchushen = Chushen::create($request->all());
+        else
+            Chushen::where('order_id',$request->get('order_id'))->update(['status'=>$request->get('status'),
+                'beizhu'=>$request->get('beizhu')]);
+
+        $order = Order::find($request->get('order_id'));
+        $order->status = $request->get('status');
+        $order->save();
+        $userId = $order->openid;
+
+        if ($request->get('status') == '拒绝')
+            $url='';
+        else if($request->get('status') == '请补充')
+            $url=URL('order',$request->get('order_id'));
+        else if($request->get('status') == '通过,请预约')
+            $url='';
+        $templateId='_XsE0KqC4zElz4yBLllXMv1KoZEUituomV0mdDyy0m4';
+        $data = [
+            "first"  => "您的订单有新的进度了,请点击操作",
+            "keyword1"   => $userId->name,
+            "keyword2"  => $userId->money.'万',
+            "keyword3"  => date('m-d h:i',time()),
+            "keyword4"  =>'初审,'.$request->get('status'),
+            "remark" => $request->get('beizhu'),
+        ];
+        $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
+        dd($result);
     }
 
 }
