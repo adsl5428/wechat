@@ -93,17 +93,17 @@
     </div>
     <form method="POST" action="{{url('/myadmin/shenhe')}}">
         {{csrf_field()}}
-        <input type="hidden" name="id" value="{{$order->id}}">
+        <input type="hidden" name="order_id" value="{{$order->id}}">
         <div class="weui_cells_title">审核</div>
     <div class="weui_cells weui_cells_checkbox">
         <div class="weui-flex">
          <div class="weui-flex-item">
-             <label class="weui_cell weui_check_label" for="x11">
+             <label class="weui_cell weui_check_label" for="x13">
                  <div class="weui_cell_bd weui_cell_primary">
-                     <p>拒绝</p>
+                     <p>通过,请预约</p>
                  </div>
                  <div class="weui_cell_ft">
-                     <input type="radio" class="weui_check" name="radio1" id="x11">
+                     <input value="通过,请预约" type="radio" name="status" checked="checked" class="weui_check" id="x13">
                      <span class="weui_icon_checked"></span>
                  </div>
              </label>
@@ -115,7 +115,7 @@
                         <p>请补充</p>
                     </div>
                     <div class="weui_cell_ft">
-                        <input type="radio" name="radio1" class="weui_check" id="x12" >
+                        <input value="请补充" type="radio" name="status" class="weui_check"  id="x12" >
                         <span class="weui_icon_checked"></span>
                     </div>
                 </label>
@@ -123,12 +123,12 @@
         </div>
         <div class="weui-flex">
             <div class="weui-flex-item">
-                <label class="weui_cell weui_check_label" for="x13">
+                <label class="weui_cell weui_check_label" for="x11">
                     <div class="weui_cell_bd weui_cell_primary">
-                        <p>通过,请预约</p>
+                        <p>拒绝</p>
                     </div>
                     <div class="weui_cell_ft">
-                        <input type="radio" name="radio1" class="weui_check" id="x13">
+                        <input value="拒绝" type="radio" class="weui_check" name="status" id="x11">
                         <span class="weui_icon_checked"></span>
                     </div>
                 </label>
@@ -143,7 +143,7 @@
         <div class="weui_cell">
             <div class="weui_cell_bd weui_cell_primary">
                 <textarea id="qingkuangid" class="weui_textarea"
-                          placeholder="" rows="3"></textarea>
+                        name="beizhu"  placeholder="" rows="3"></textarea>
                 {{--<div class="weui_textarea_counter"><span id='count'>0</span>/<span id='count_max'>20</span></div>--}}
             </div>
         </div>

@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Model\Chushen;
+use App\Http\Model\Order;
 use function compact;
 use Illuminate\Support\Facades\URL;
 use iscms\Alisms\SendsmsPusher as Sms;
@@ -83,6 +86,12 @@ class SmsController extends Controller
         $request->session()->forget('project');
         return view('msg.complete');
     }
-
+    public function shenhe(Request $request)
+    {
+//        dd($request->all());
+//        $chushen = Chushen::create($request->all());
+//        $openid = Order::where('id',$request->get('order_id'))->get(['openid']);
+//        dd($openid->openid);
+    }
 
 }

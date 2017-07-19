@@ -16,6 +16,10 @@ use App\Http\Controllers\Userscontroller;
 
 Route::any('/myadmin', 'Myadmin\MyadminController@login');
 
+Route::group(['middleware' => 'myadmin','prefix' => 'myadmin'], function () {
+    Route::post('/shenhe', 'SmsController@shenhe');
+});
+
 Route::group(['middleware' => 'myadmin','prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
 
     Route::get('/orderpc/{id}', 'MyadminController@showpc');

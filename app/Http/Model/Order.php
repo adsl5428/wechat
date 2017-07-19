@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable  = array('idcard','name','money','yongtu','laiyuan','teshu','qingkuang','openid','project');
+    protected $fillable  = ['idcard','name','money','yongtu','laiyuan','teshu','qingkuang','openid','project'];
 
     public function pictures()
     {

@@ -90,7 +90,7 @@ $(function(){
                         for(var i=0; i< arrLen ; i++){
 {{--alert((data[i].pictures.length));--}}
                             result+='<tr>'
-                                +'<th>ID</th><th>借款人</th> <th>身份证</th> <th>金额</th> <th>备离单老小</th>'
+                                +'<th>ID</th><th>借款人</th> <th>身份证</th> <th>金额</th><th>项目</th> <th>备离单老小</th>'
                                 +'<th>图片</th> <th>合伙人&签约人</th> <th>操作</th>'
                                 +'</tr>'
                                 +'<tr id="row'+data[i].id+'">'
@@ -98,6 +98,7 @@ $(function(){
                                 +'<td>'+data[i].name+'</td>'
                                 +'<td>'+data[i].idcard+'</td>'
                                 +'<td>'+data[i].money+'万元</td>'
+                                +'<td>'+data[i].project+'</td>'
                                 +'<td>'+data[i].teshu+'</td>'
                                 +'<td>';
         {{--onclick="show(this)"--}}
@@ -114,10 +115,10 @@ $(function(){
                                 +'<td><a target="_blank"  href="../myadmin/orderpc/'+data[i].id+'"   >审核</a></td>'
                                 +'</tr>'
                                 +'<tr >'
-                                +'<td colspan=7>描述:'+data[i].qingkuang+'</td>'
+                                +'<td colspan=9>描述:'+data[i].qingkuang+'</td>'
                                 +'</tr >'
                                 +'<tr >'
-                                +'<td colspan=7>_</td>'
+                                +'<td colspan=9>_</td>'
                                 +'</tr >';
                         }
                         // 如果没有数据

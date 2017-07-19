@@ -77,7 +77,7 @@ class MyadminController extends Controller
     public function paginate($start,$size)
     {
         $orders = Order::latest()->skip($start)->take($size)->
-        get(['id','name','money','idcard','teshu','partner_name','qianyue_name','qingkuang']);
+        get(['id','name','money','idcard','teshu','partner_name','qianyue_name','qingkuang','project']);
         $neworders = collect();
 
 //        $count = count($orders);
