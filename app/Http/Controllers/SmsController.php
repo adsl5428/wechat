@@ -92,8 +92,9 @@ class SmsController extends Controller
 //        dd($request->all());
 //        $chushen = Chushen::create($request->all());
         $oldchushen = Chushen::where('order_id',$request->get('order_id'))->get();
+//dd($request->all());
         if ($oldchushen == null)
-            $newchushen = Chushen::create($request->all());
+           $newchushen = Chushen::create($request->except('_token'));
         else
             Chushen::where('order_id',$request->get('order_id'))->update(['status'=>$request->get('status'),
                 'beizhu'=>$request->get('beizhu')]);
