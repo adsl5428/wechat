@@ -97,7 +97,7 @@
     <div class="weui_cell">
         <div class="weui_cell_hd"><label for="" class="weui_label">预约下户</label></div>
         <div class="weui_cell_bd weui_cell_primary">
-            <input class="weui_input" name="time" type="datetime-local" value="" placeholder=""/>
+            <input class="weui_input" name="time" type="datetime-local" value="2017-08-08 T 08:08" placeholder=""/>
         </div>
     </div>
             <div class="weui_cells_title">下户时间为工作日的9:00-19:00</div>
@@ -106,6 +106,7 @@
         </div>
     </div>
     </form>
+    <div class="weui_cells_title"></div>
 @endsection
 
 @section('js')
