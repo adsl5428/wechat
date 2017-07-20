@@ -18,6 +18,10 @@ class adminlogin
     public function handle($request, Closure $next)
     {
 
+        $openid = session('wechat.oauth_user.id');
+        $partner = \App\Http\Model\Partner::where('openid',$openid)->get(['account']);
+        if ($partner[0]->account != 'admin' && $partner[0]->account != 'lijunjie')
+            return redirect('/');
         if ($request->session()->get('login') != 'true')
             return redirect('/');
         return $next($request);
