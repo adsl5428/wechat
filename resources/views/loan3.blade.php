@@ -33,7 +33,7 @@
             </div>
         </div>
     @endforeach
-
+    <div class="weui_cells_title">房产证须上传 主页,编号页,附记页</div>
     <div class="weui-gallery" style="display: block">
         <span onclick="$('.weui-gallery').fadeOut(300);" class="weui-gallery-img" style=""></span>
         {{--<div class="weui-gallery-opr">--}}

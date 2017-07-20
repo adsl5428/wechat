@@ -101,6 +101,7 @@ class OrderController extends Controller
     }
     public function buchongupdate(Request $request,$id)
     {
+
         $openid = session('wechat.oauth_user.id');
         $order = Order::where('openid', $openid)->where('id', $id)->firstOrFail(); //是否为本人提交
         if ($request->isMethod('post')) {
@@ -131,16 +132,15 @@ class OrderController extends Controller
         $names[3] = ['房产证', 104, 'fang-chan'];
         $names[7] = ['补充材料', 108, 'bu-chong'];
         $pictures = Order::find($id)->pictures;
-
 //        dd($pictures);
-        return view('edit.edit2', compact('names', 'pictures'));
+        return view('edit.edit2', compact('names', 'pictures','id'));
     }
     public function yuyue(Request $request,$id)
     {
         $openid = session('wechat.oauth_user.id');
         $order = Order::where('openid', $openid)->where('id', $id)->firstOrFail(); //是否为本人提交
         if ($request->isMethod('post')) {
-            $file = $request->file('file');
+            dd($request->all());
 
         }
 

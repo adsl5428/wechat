@@ -91,15 +91,21 @@
         {{--src=""  alt="">--}}
         <span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style="" ></span>
     </div>
-    <div class="weui_cells weui_cells_form">
+    <form method="POST">
+        {{csrf_field()}}
+        <div class="weui_cells weui_cells_form">
     <div class="weui_cell">
         <div class="weui_cell_hd"><label for="" class="weui_label">预约下户</label></div>
         <div class="weui_cell_bd weui_cell_primary">
-            <input class="weui_input" type="datetime-local" value="" placeholder=""/>
+            <input class="weui_input" name="time" type="datetime-local" value="" placeholder=""/>
+        </div>
+        <div class="weui_cells_title">下户时间为工作日的9:00-19:00</div>
+    </div>
+        <div class="weui_btn_area">
+            <input type="submit" class="weui_btn weui_btn_primary" value="发起预约请求">
         </div>
     </div>
-    </div>
-
+    </form>
 @endsection
 
 @section('js')

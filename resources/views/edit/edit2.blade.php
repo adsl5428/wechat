@@ -38,7 +38,7 @@
             </div>
         </div>
     @endforeach
-
+    <div class="weui_cells_title">房产证须上传 主页,编号页,附记页</div>
     <div class="weui-gallery" style="display: block">
         <span onclick="$('.weui-gallery').fadeOut(300);" class="weui-gallery-img" style="" ></span>
         {{--<div class="weui-gallery-opr">--}}
@@ -49,7 +49,7 @@
     </div>
 
     <div class="weui_btn_area">
-        <form method="POST" action="{{url('order',[$picture->order_id,'updateok'])}}">
+        <form method="POST" action="{{url('order',[$id,'updateok'])}}">
             {{csrf_field()}}
         {{--<a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>--}}
         <input type="submit" class="weui_btn weui_btn_primary" value="确认补充完整">
