@@ -109,16 +109,17 @@ class SmsController extends Controller
         else if($request->get('status') == '请补充')
             $url=URL('order',[$request->get('order_id'),'upload']);
         else if($request->get('status') == '通过,请预约')
-            $url='';
+            $url=' ';
         $templateId='_XsE0KqC4zElz4yBLllXMv1KoZEUituomV0mdDyy0m4';
         $data = [
             "first"  => "您的订单有新的进度了,请点击操作",
-            "keyword1"   => $userId->name,
-            "keyword2"  => $userId->money.'万',
+            "keyword1"   => $order->name,
+            "keyword2"  => $order->money.'万',
             "keyword3"  => date('m-d h:i',time()),
             "keyword4"  =>'初审,'.$request->get('status'),
             "remark" => $request->get('beizhu'),
         ];
+
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
         dd($result);
     }
