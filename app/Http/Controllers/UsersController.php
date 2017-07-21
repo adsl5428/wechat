@@ -213,7 +213,7 @@ class UsersController extends Controller
 //
 //            $openIds = [$userinfo->openid,$userinfo->openid];
             $openIds = [$partner->openid,$partner->openid];
-            $this->wechat->user_tag->batchTagUsers($openIds, 100);
+//            $this->wechat->user_tag->batchTagUsers($openIds, 100);
 
             //TagController::addtotag($userinfo->openid);
         }

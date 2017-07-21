@@ -21,7 +21,31 @@ class MenuController extends Controller
         $menus = $this->menu->all();
         dd($menus);
     }
-    public function create()
+    public function createcurrent()
+    {
+        $buttons = [
+
+                    [
+                        "type" => "view",
+                        "name" => "提交订单",
+                        "url"  => env('APP_HOST', null)."loan1"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "订单中心",
+                        "url"  => env('APP_HOST', null)."order"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "产品",
+                        "url"  => env('APP_HOST', null)."goods"
+                    ],
+
+        ];
+        $this->menu->add($buttons);
+        echo '全部菜单创建成功';
+    }
+    public function createnew()
     {
         $buttons = [
             [

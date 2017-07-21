@@ -78,8 +78,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::any('/test', 'LoanController@test');
 Route::any('/test2', 'LoanController@test2');
-Route::any('/order', 'OrderController@order');
-Route::get('/order/{id}', 'OrderController@show');
+
 
 Route::any('/test2', 'LoanController@test2');
 Route::post('/del', 'LoanController@del');
@@ -104,8 +103,11 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
 });
 //Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-Route::group(['middleware' => [ 'wechat.oauth']], function () {
-//Route::group(['middleware' => ['web', 'wechat.oauth','partn']], function () {
+//Route::group(['middleware' => [ 'wechat.oauth']], function () {
+Route::group(['middleware' => ['web', 'wechat.oauth','partn']], function () {
+
+    Route::any('/order', 'OrderController@order');
+    Route::get('/order/{id}', 'OrderController@show');
 
     Route::get('/myadmin/order/{id}', 'Myadmin\MyadminController@show');
 
