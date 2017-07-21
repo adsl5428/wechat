@@ -89,7 +89,7 @@ class SmsController extends Controller
     }
     public function shenhe(Request $request)
     {
-//        dd($request->all());
+
 //        $chushen = Chushen::create($request->all());
         $oldchushen = Chushen::where('order_id',$request->get('order_id'))->get();
 
@@ -110,6 +110,7 @@ class SmsController extends Controller
             $url=URL('order',[$request->get('order_id'),'upload']);
         else if($request->get('status') == '通过,请预约')
             $url=URL('order',[$request->get('order_id'),'yuyue']);
+//        dd($request->all());
         $templateId='_XsE0KqC4zElz4yBLllXMv1KoZEUituomV0mdDyy0m4';
         $data = [
             "first"  => "您的订单有新的进度了,请点击操作",

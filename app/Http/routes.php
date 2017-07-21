@@ -126,6 +126,12 @@ Route::group(['middleware' => [ 'wechat.oauth']], function () {
 
 
 });
+Route::group(['middleware' => [ 'wechat.oauth','myadminwechat'],'prefix' => 'myadmin'], function () {
+
+    Route::post('/mshenhe', 'SmsController@shenhe');
+
+});
+
 
 
 Route::get('/nopower', function () {

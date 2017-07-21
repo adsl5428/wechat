@@ -52,6 +52,7 @@ class Kernel extends HttpKernel
         'wechat.oauth' => \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
         'partn' => \App\Http\Middleware\Partner::class,
         'myadmin'=>\App\Http\Middleware\adminlogin::class,
+        'myadminwechat'=>\App\Http\Middleware\adminwechat::class,
 
     ];
 }

@@ -91,7 +91,13 @@
              src=""  alt="">
         {{--<span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>--}}
     </div>
-    <form method="POST" action="{{url('/myadmin/shenhe')}}">
+
+
+    <form method="POST"     @if(session('login')!= 'true')
+    action="{{url('/myadmin/mshenhe')}}"
+          @else
+          action="{{url('/myadmin/shenhe')}}"
+          @endif  >
         {{csrf_field()}}
         <input type="hidden" name="order_id" value="{{$order->id}}">
         <div class="weui_cells_title">审核</div>
@@ -153,6 +159,7 @@
         <input type="submit" class="weui_btn weui_btn_primary" value="提交并推送审核结果">
     </div>
     </form>
+    <h5 class="page_title">　</h5>
 @endsection
 
 @section('js')
