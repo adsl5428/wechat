@@ -97,7 +97,7 @@
     <div class="weui_cell">
         <div class="weui_cell_hd"><label for="" class="weui_label">预约下户</label></div>
         <div class="weui_cell_bd weui_cell_primary">
-            <input class="weui_input" name="time" type="datetime-local" value="2017-07-20T16:00:00" placeholder=""/>
+            <input id="tt" class="weui_input" name="time" type="datetime-local"  placeholder=""/>
         </div>
     </div>
             <div class="weui_cells_title">下户时间为工作日的9:00-19:00</div>
@@ -110,6 +110,22 @@
 @endsection
 
 @section('js')
+    var format = "";
+
+    //构造符合datetime-local格式的当前日期
+    function getFormat(){
+    format = "";
+    var nTime = new Date();
+    format += nTime.getFullYear()+"-";
+    format += (nTime.getMonth()+1)<10?"0"+(nTime.getMonth()+1):(nTime.getMonth()+1);
+    format += "-";
+    format += nTime.getDate()<10?"0"+(nTime.getDate()):(nTime.getDate());
+    format += "T";
+    format += nTime.getHours()<10?"0"+(nTime.getHours()):(nTime.getHours());
+    format += ":";
+    format += nTime.getMinutes()<10?"0"+(nTime.getMinutes()):(nTime.getMinutes());
+    format += ":00";
+    }
 
 
     $('.weui-gallery').fadeOut(0);
@@ -121,6 +137,8 @@
     $(ths).attr('src',ths.alt);
     }
     $(function(){
+    getFormat();
+    document.getElementById("tt").value = format;
     //定义文本
     const paragraph = $('#paragraph');
     const paragraphText = paragraph.text();

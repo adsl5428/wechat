@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "overtrue/laravel-wechat": "~3.0",
         "iscms/alisms-for-laravel": "^0.0.3",
-        "encore/laravel-admin": "1.2.*"
+        "encore/laravel-admin": "1.2.*",
+        "pingplusplus/pingpp-php": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

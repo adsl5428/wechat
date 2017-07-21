@@ -141,13 +141,11 @@ class OrderController extends Controller
         $order = Order::where('openid', $openid)->where('id', $id)->firstOrFail(); //是否为本人提交
         if ($request->isMethod('post')) {
             dd($request->all());
-
         }
 
         $order = Order::find($id);
         $pictures = Order::find($id)->pictures;
 //        dd($order);
         return view('yuyue',compact('order','pictures'));
-
     }
 }
