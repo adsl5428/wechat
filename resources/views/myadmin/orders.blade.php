@@ -91,7 +91,7 @@ $(function(){
 {{--alert((data[i].pictures.length));--}}
                             result+='<tr>'
                                 +'<th>ID</th><th>借款人</th> <th>身份证</th> <th>金额</th><th>项目</th> <th>备离单老小</th>'
-                                +'<th>图片</th> <th>合伙人&签约人</th> <th>操作</th>'
+                                +'<th>图片</th> <th>合伙人_签约人</th> <th>进件时间</th> <th>操作</th>'
                                 +'</tr>'
                                 +'<tr id="row'+data[i].id+'">'
                                 +'<td>'+data[i].id+'</td>'
@@ -111,14 +111,15 @@ $(function(){
                                 {{--<a href="../uploads/'+data[i].pictures[0]+'" >1</a>--}}
 
                             result+='</td>'
-                                +'<td>'+data[i].partner_name+'&'+data[i].qianyue_name+'</td>'
+                                +'<td>'+data[i].partner_name+'_'+data[i].qianyue_name+'</td>'
+                                +'<td>'+data[i].created_at+'</td>'
                                 +'<td><a target="_blank"  href="../myadmin/orderpc/'+data[i].id+'"   >审核</a></td>'
                                 +'</tr>'
                                 +'<tr >'
-                                +'<td colspan=9>描述:'+data[i].qingkuang+'</td>'
+                                +'<td colspan=10>描述:'+data[i].qingkuang+'</td>'
                                 +'</tr >'
                                 +'<tr >'
-                                +'<td colspan=9>_</td>'
+                                +'<td colspan=10>_</td>'
                                 +'</tr >';
                         }
                         // 如果没有数据
