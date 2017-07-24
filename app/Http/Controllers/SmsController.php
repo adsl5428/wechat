@@ -89,7 +89,6 @@ class SmsController extends Controller
     }
     public function shenhe(Request $request)
     {
-
 //        $chushen = Chushen::create($request->all());
         $oldchushen = Chushen::where('order_id',$request->get('order_id'))->get();
 
@@ -121,7 +120,8 @@ class SmsController extends Controller
             "remark" => $request->get('beizhu'),
         ];
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
-        dd($result);
+
+        //        dd($result);
     }
 
     public function updateok($id)

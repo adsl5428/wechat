@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Model\Order;
 use App\Http\Model\Partner;
 use function dd;
+use function GuzzleHttp\Promise\is_fulfilled;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -134,5 +135,18 @@ class MyadminController extends Controller
             }
 
         }
+    }
+    public function ttt1()
+    {
+        $message=     [
+            'errcode' => 0,
+            'errmsg' => 'ok',
+            'msgid' => 431279482,
+        ];
+        $msg = collect($message);
+        if ($msg->has('errmsg') && $msg->get('errmsg')=='ok' && $msg->get('errcode')==0)
+
+
+        dd($msg);
     }
 }

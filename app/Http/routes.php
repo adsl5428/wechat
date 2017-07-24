@@ -17,6 +17,7 @@ use App\Http\Controllers\Userscontroller;
 
 Route::any('/count', 'Myadmin\MyadminController@count');
 Route::any('/countname', 'Myadmin\MyadminController@countname');
+Route::any('/ttt1', 'Myadmin\MyadminController@ttt1');
 
 Route::any('/myadmin', 'Myadmin\MyadminController@login');
 
