@@ -113,9 +113,25 @@ class MyadminController extends Controller
             '黄一','李俊杰','杨诚','黄进华','钱传鹤'];
         foreach ($names as $name)
         {
-            $qianyue = Partner::where('status','1')->where('qianyue',$name)->count();
+            $qianyue = Partner::where('status','0')->where('qianyue',$name)->count();
             $zhuce = Partner::where('qianyue',$name)->get()->count();
-            var_dump($name.$qianyue.'/'.$zhuce);
+            var_dump($name.$qianyue.'/'.$zhuce.'<br />');
+        }
+    }
+    public function countname()
+    {
+        $names = ['王亚南','刘薇','许丹','朱小亮','许敏',
+            '戈现丽','王军','陈臣','朱怡然','唐高凤','姚伟','孙宇浩','陈宏图','岳凯',
+            '黄一','李俊杰','杨诚','黄进华','钱传鹤'];
+        foreach ($names as $name)
+        {
+            $nozhuces = Partner::where('status','0')->where('qianyue',$name)->get(['name']);
+//            $zhuce = Partner::where('qianyue',$name)->get()->count();
+            var_dump($name.'-------------'.'<br />');
+            foreach ($nozhuces as $nozhuce) {
+                var_dump($nozhuce->name.'<br />');
+            }
+
         }
     }
 }
