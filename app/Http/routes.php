@@ -14,6 +14,9 @@
 use App\Http\Controllers\Userscontroller;
 //'middleware'=>['web','myadmin'],
 
+
+Route::any('/count', 'Myadmin\MyadminController@count');
+
 Route::any('/myadmin', 'Myadmin\MyadminController@login');
 
 Route::group(['middleware' => 'myadmin','prefix' => 'myadmin'], function () {
