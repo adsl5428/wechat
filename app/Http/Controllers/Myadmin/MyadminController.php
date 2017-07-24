@@ -138,6 +138,7 @@ class MyadminController extends Controller
     }
     public function ttt1()
     {
+
         $message=     [
             'errcode' => 0,
             'errmsg' => 'ok',
@@ -145,8 +146,7 @@ class MyadminController extends Controller
         ];
         $msg = collect($message);
         if ($msg->has('errmsg') && $msg->get('errmsg')=='ok' && $msg->get('errcode')==0)
-
-
-        dd($msg);
+            return view('msg.ok');
+//        dd($msg);
     }
 }

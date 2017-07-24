@@ -120,7 +120,11 @@ class SmsController extends Controller
             "remark" => $request->get('beizhu'),
         ];
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
-
+        $msg = collect($result);
+        if ($msg->has('errmsg') && $msg->get('errmsg')=='ok' && $msg->get('errcode')==0)
+            return view('msg.ok');
+        else
+            return view('msg.nook');
         //        dd($result);
     }
 
