@@ -112,6 +112,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 Route::group(['middleware' => ['web', 'wechat.oauth','partn']], function () {
 
     Route::any('/order', 'OrderController@order');
+    Route::get('/goods', 'OrderController@goods');
     Route::get('/order/{id}', 'OrderController@show');
 
     Route::get('/myadmin/order/{id}', 'Myadmin\MyadminController@show');

@@ -128,10 +128,10 @@ class MyadminController extends Controller
         {
             $qianyue = Partner::where('status','0')->where('qianyue',$name)->count();
             $zhuce = Partner::where('qianyue',$name)->get()->count();
-            $nozhuces = Partner::where('status','0')->where('qianyue',$name)->get(['name']);
+            $nozhuces = Partner::where('status','0')->where('qianyue',$name)->get(['name','code']);
             var_dump($name.'-------------'.$qianyue.'/'.$zhuce.'<br />');
             foreach ($nozhuces as $nozhuce) {
-                var_dump($nozhuce->name.'<br />');
+                var_dump($nozhuce->name.'----'.$nozhuce->code.'<br />');
             }
 
         }
