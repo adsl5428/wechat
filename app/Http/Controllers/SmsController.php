@@ -89,14 +89,14 @@ class SmsController extends Controller
     }
     public function shenhe(Request $request)
     {
-//        $chushen = Chushen::create($request->all());
-        $oldchushen = Chushen::where('order_id',$request->get('order_id'))->get();
-
-        if (count($oldchushen) == 0)
-           $newchushen = Chushen::create($request->except('_token'));
-        else
-            Chushen::where('order_id',$request->get('order_id'))->update(['status'=>$request->get('status'),
-                'beizhu'=>$request->get('beizhu')]);
+        $chushen = Chushen::create($request->all());
+//        $oldchushen = Chushen::where('order_id',$request->get('order_id'))->get();
+//
+//        if (count($oldchushen) == 0)
+//           $newchushen = Chushen::create($request->except('_token'));
+//        else
+//            Chushen::where('order_id',$request->get('order_id'))->update(['status'=>$request->get('status'),
+//                'beizhu'=>$request->get('beizhu')]);
 
         $order = Order::find($request->get('order_id'));
         $order->status = $request->get('status');
@@ -110,13 +110,15 @@ class SmsController extends Controller
         else if($request->get('status') == '通过,请预约')
             $url=URL('order',[$request->get('order_id'),'yuyue']);
 //        dd($request->all());
+        else if ($request->get('status') == '放款')
+            $url='';
         $templateId='_XsE0KqC4zElz4yBLllXMv1KoZEUituomV0mdDyy0m4';
         $data = [
             "first"  => "您的订单有新的进度了,请点击操作",
             "keyword1"   => $order->name,
             "keyword2"  => $order->money.'万',
             "keyword3"  => date('m-d h:i',time()),
-            "keyword4"  =>'初审,'.$request->get('status'),
+            "keyword4"  =>$request->get('status'),
             "remark" => $request->get('beizhu'),
         ];
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();

@@ -140,6 +140,15 @@
                 </label>
             </div>
             <div class="weui-flex-item">
+                <label class="weui_cell weui_check_label" for="x10">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>放款</p>
+                    </div>
+                    <div class="weui_cell_ft">
+                        <input value="放款" type="radio" class="weui_check" name="status" id="x10">
+                        <span class="weui_icon_checked"></span>
+                    </div>
+                </label>
             </div>
         </div>
     </div>
