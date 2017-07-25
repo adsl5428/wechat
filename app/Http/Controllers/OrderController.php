@@ -148,4 +148,18 @@ class OrderController extends Controller
 //        dd($order);
         return view('yuyue',compact('order','pictures'));
     }
+    public function goods()
+    {
+        $paths = [
+            '/images/goods1.png',
+            '/images/goods2.png',
+            '/images/goods3.png',
+            '/images/goods4.png',
+            '/images/goods5.png',
+            '/images/goods6.png',
+            '/images/goods7.png',
+        ];
+        return view('goodspicture',compact('paths'));
+    }
+
 }

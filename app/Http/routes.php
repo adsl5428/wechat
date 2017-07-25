@@ -107,6 +107,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::post('/partnerregister', 'UsersController@partnerregister');
 
 });
+
 //Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 //Route::group(['middleware' => [ 'wechat.oauth']], function () {
 Route::group(['middleware' => ['web', 'wechat.oauth','partn']], function () {
