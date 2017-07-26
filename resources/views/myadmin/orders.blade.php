@@ -100,15 +100,15 @@ $(function(){
                                 +'<td>'+data[i].money+'万元</td>'
                                 +'<td>'+data[i].project+'</td>'
                                 +'<td>'+data[i].teshu+'</td>'
-                                +'<td>';
+                                +'<td><a target="_blank" href="pictures/'+data[i].id+'" >图片</a>';
         {{--onclick="show(this)"--}}
-                                for(var j = (data[i].pictures.length)-1; j>=0; j--)
-                                {
-                                    result+='<a  target="_blank" '
-                                        +'alt="../uploads/'+data[i].pictures[j]+'"'
-                                        +'href="../uploads/'+data[i].pictures[j]+'" >'+j+'  </a>';
-                                 }
-                                {{--<a href="../uploads/'+data[i].pictures[0]+'" >1</a>--}}
+                                {{--for(var j = (data[i].pictures.length)-1; j>=0; j--)--}}
+                                {{--{--}}
+                                    {{--result+='<a  target="_blank" '--}}
+                                        {{--+'alt="../uploads/'+data[i].pictures[j]+'"'--}}
+                                        {{--+'href="../uploads/'+data[i].pictures[j]+'" >'+j+'  </a>';--}}
+                                 {{--}--}}
+                                {{--<a href="../pictures/'+data[i].id+'" >1</a>--}}
 
                             result+='</td>'
                                 +'<td>'+data[i].partner_name+'_'+data[i].qianyue_name+'</td>'

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Myadmin;
 use App\Http\Controllers\Controller;
 use App\Http\Model\Order;
 use App\Http\Model\Partner;
+use App\Http\Model\Picture;
 use function dd;
 use function GuzzleHttp\Promise\is_fulfilled;
 use Illuminate\Http\Request;
@@ -75,6 +76,12 @@ class MyadminController extends Controller
         return view('myadmin.caozuo','order');
     }
 
+    public function pictures($id)
+    {
+        $pictures= Picture::where('order_id',$id)->get(['path']);
+//        dd($pictures);
+        return view('myadmin.picture',compact('pictures','id'));
+    }
     public function paginate($start,$size)
     {
         $orders = Order::latest()->skip($start)->take($size)->

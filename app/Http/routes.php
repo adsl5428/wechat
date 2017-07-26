@@ -27,6 +27,7 @@ Route::group(['middleware' => 'myadmin','prefix' => 'myadmin'], function () {
 
 Route::group(['middleware' => 'myadmin','prefix' => 'myadmin','namespace' => 'Myadmin'], function () {
 
+    Route::get('/pictures/{id}', 'MyadminController@pictures');
     Route::get('/orderpc/{id}', 'MyadminController@showpc');
     Route::get('/logout', 'MyadminController@logout');
     Route::get('/push', 'MyadminController@push');
