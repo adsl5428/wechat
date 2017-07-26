@@ -122,8 +122,8 @@ class SmsController extends Controller
             "remark" => $request->get('beizhu'),
         ];
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
-        $msg = collect($result);
-        if ($msg->has('errmsg') && $msg->get('errmsg')=='ok' && $msg->get('errcode')==0)
+        $msg = collect(array($result));
+        if ( $msg->contains('errmsg','ok') && $msg->contains(   'errcode',0))
             return view('msg.ok');
         else
             return view('msg.nook');
