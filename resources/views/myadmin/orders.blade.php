@@ -28,9 +28,6 @@
         <div class="weui_panel_bd"></div>
     </div>
 
-    <div class="weui_btn_area">
-        <input onclick="del(1)" class="weui_btn weui_btn_primary" value="创建">
-    </div>
     <div class="weui-gallery" style="display: block">
         <img class="weui-gallery-img" onclick="$('.weui-gallery').fadeOut(300);"
              src=""  alt="">
@@ -165,42 +162,6 @@ $(function(){
 
 });
 
-function del(id) {
 
-    $.confirm("您确定要删除吗?", "确认删除?", function() {
-
-        $.showLoading();
-        t = setTimeout(function() {
-            $.hideLoading();$.toptips("服务无响应，请稍候再试 ");
-        }, 10000);
-        $.ajax(
-            {
-                type:"post" ,
-                dataType: "json",
-                data:
-                    {
-                        '_method': "DELETE",
-                        '_token':"HCUTGPZaWJffmBHZScndIwZ0ahxwEaTj1VWrLRbp"
-                    },
-                url: "user/"+id,
-                success:function(data){
-                    clearTimeout(t);
-                    $.hideLoading();
-                    if(data.status == 0)
-                    {
-                        $.toptips(data.msg);
-                    }
-                    else
-                    {
-                        $.toptips(data.msg,'ok')
-                        $("#row"+id).remove();
-                    }
-                }
-            });
-    }, function() {
-
-    });
-
-}
 
 @endsection
