@@ -86,33 +86,21 @@ class MyadminController extends Controller
     {
         $orders = Order::latest()->skip($start)->take($size)->
         get(['id','name','money','idcard','teshu','partner_name','qianyue_name','qingkuang','project','created_at']);
-        $neworders = collect();
-
-//        $count = count($orders);
-//        for ($i=0;$i<$count;$i++)
-//        {
-//            $pictures = $orders[$i]->pictures()->get();
-//            $order = collect($orders[$i]);
+//        $neworders = collect();
+//
+//        foreach ($orders as $order) {
+//            $pictures = $order->pictures()->get();
+//            $temporder = collect($order);
+//            $temppictures = collect();
 //            foreach ($pictures as $picture) {
+//                $temppictures->push($picture->path);
 //
 //            }
-//
-//            $order->put('pictures',$pictures);
-//            $neworders->push($order);
+//             $temporder->put('pictures',$temppictures);
+//            $neworders->push($temporder);
 //        }
-        foreach ($orders as $order) {
-            $pictures = $order->pictures()->get();
-            $temporder = collect($order);
-            $temppictures = collect();
-            foreach ($pictures as $picture) {
-                $temppictures->push($picture->path);
 
-            }
-             $temporder->put('pictures',$temppictures);
-
-            $neworders->push($temporder);
-        }
-        return $neworders->toArray();
+        return $orders->tojson();
     }
     public function count()
     {
