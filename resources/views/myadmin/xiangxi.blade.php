@@ -111,7 +111,7 @@
     <div  class="weui-gallery" style="display: block">
         <div class="panel">
             <div class="picture" id="picture">
-                <img  class="weui-gallery-img" width="250%"  onclick="$('.weui-gallery').fadeOut(300);"
+                <img  class="weui-gallery-img" width="100%" ondblclick="change(this);" onclick="$('.weui-gallery').fadeOut(300);"
                 src=""  alt="">
 </div>
 </div>
@@ -203,7 +203,14 @@
 
 @section('js')
     $('.weui-gallery').fadeOut(0);
-
+    function change(obj)
+    {
+    var c =$(obj).width();
+    var maxWidth = $(window).width();
+    if(c>maxWidth){
+    alert('大了');
+    }
+    }
     function show (ths) {
     {{--$('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');--}}
     $('.weui-gallery-img').attr('src',$(ths).attr("alt"));
