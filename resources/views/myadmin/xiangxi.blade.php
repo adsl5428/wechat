@@ -86,7 +86,7 @@
     </div>
 </div>
 <!-- 结束 朋友圈 -->
-    <div  class="weui-gallery" style="display: block">
+    <div id="box" class="weui-gallery" style="display: block">
         <img id="box" class="weui-gallery-img" width="100%"  onclick="$('.weui-gallery').fadeOut(300);"
              src=""  alt="">
         {{--<span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>--}}
@@ -256,14 +256,13 @@
     var box=document.querySelector("#box");
     var boxGesture=setGesture(box);  //得到一个对象
     boxGesture.gesturestart=function(){  //双指开始
-    {{--box.style.backgroundColor="yellow";--}}
+    box.style.backgroundColor="background-color:rgba(255,255,255,0.00);";
     };
     boxGesture.gesturemove=function(e){  //双指移动
     {{--box.innerHTML = e.scale+"<br />"+e.rotation;--}}
     {{--box.style.transform="scale("+e.scale+") rotate("+e.rotation+"deg)";//改变目标元素的大小和角度--}}
     };
     boxGesture.gestureend=function(){  //双指结束
-    {{--box.innerHTML="";--}}
-    {{--box.style.cssText="background-color:red";--}}
-    };
+    box.innerHTML="";
+    box.style.cssText="background-color:background-color:rgba(255,255,255,0.00);";
 @endsection
