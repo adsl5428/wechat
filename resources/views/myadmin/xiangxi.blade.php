@@ -110,8 +110,9 @@
 </div>
 <!-- 结束 朋友圈 -->
     <div class="pinch-zoom">
-
+        <div  class="weui-gallery" style="display: block">
         <img class="weui-gallery-img" src=""  alt="" />
+    </div>
     </div>
 
     {{--<div  class="weui-gallery" style="display: block">--}}
