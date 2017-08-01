@@ -86,8 +86,8 @@
     </div>
 </div>
 <!-- 结束 朋友圈 -->
-    <div id="box" class="weui-gallery" style="display: block">
-        <img class="weui-gallery-img" width="100%"  onclick="$('.weui-gallery').fadeOut(300);"
+    <div  class="weui-gallery" style="display: block">
+        <img id="box" class="weui-gallery-img" width="100%"  onclick="$('.weui-gallery').fadeOut(300);"
              src=""  alt="">
         {{--<span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>--}}
     </div>
