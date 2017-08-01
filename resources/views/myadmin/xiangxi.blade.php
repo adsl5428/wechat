@@ -3,6 +3,7 @@
 
 @section('content')
     <script src="{{asset('js/zepto.min.js')}}"></script>
+    <script src="http://demo.lanrenzhijia.com/2016/pinchzoom0516/js/pinchzoom.js"></script>
     <link rel="stylesheet" type="text/css"  href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css"  href="{{asset('css/webuploader.css')}}">
     {{--<script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>--}}
@@ -213,4 +214,9 @@
     menuBtn.click(function(){menu.toggleClass('active')});
     });
 
+    $(function () {
+    $('.weui-gallery').each(function () {
+    new RTP.PinchZoom($(this), {});
+    });
+    })
 @endsection
