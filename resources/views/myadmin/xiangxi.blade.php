@@ -111,7 +111,7 @@
 <!-- 结束 朋友圈 -->
     <div class="pinch-zoom">
 
-        <img src="frog.jpg"/>
+        <img class="weui-gallery-img" src=""  alt="" />
     </div>
 
     {{--<div  class="weui-gallery" style="display: block">--}}
