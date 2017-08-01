@@ -113,7 +113,7 @@
             <div class="picture" id="picture">
                 <img  class="weui-gallery-img" width="200%"
                       {{--onclick="$('.weui-gallery').fadeOut(300);"--}}
-                       onclick="xiao();"   ondblclick="da()"
+                      ondblclick="da();"  onclick="xiao();"
                       src=""  alt="">
 </div>
 </div>
