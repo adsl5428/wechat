@@ -3,7 +3,6 @@
 
 @section('content')
     <script src="{{asset('js/zepto.min.js')}}"></script>
-    <script src="http://demo.lanrenzhijia.com/2016/pinchzoom0516/js/pinchzoom.js"></script>
     <link rel="stylesheet" type="text/css"  href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css"  href="{{asset('css/webuploader.css')}}">
     {{--<script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>--}}
@@ -87,14 +86,9 @@
     </div>
 </div>
 <!-- 结束 朋友圈 -->
-    <div class="pinch-zoom weui-gallery" onclick="$('.weui-gallery').fadeOut(300);">
-    {{--<div class="weui-gallery" style="display: block" onclick="$('.weui-gallery').fadeOut(300);">--}}
-
-            <img width="100%" class="weui-gallery-img" onclick="$('.weui-gallery').fadeOut(300);"
-                 src=""  alt="">
-        {{--</div>--}}
-        {{--<img class="weui-gallery-img" onclick="$('.weui-gallery').fadeOut(300);"--}}
-             {{--src=""  alt="">--}}
+    <div id="box" class="weui-gallery" style="display: block">
+        <img class="weui-gallery-img" width="100%"  onclick="$('.weui-gallery').fadeOut(300);"
+             src=""  alt="">
         {{--<span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>--}}
     </div>
 
@@ -218,10 +212,58 @@
     const menuBtn = $('#actionToggle');
     menuBtn.click(function(){menu.toggleClass('active')});
     });
+    function setGesture(el){
+    var obj={}; //定义一个对象
+    var istouch=false;
+    var start=[];
+    el.addEventListener("touchstart",function(e){
+    if(e.touches.length>=2){  //判断是否有两个点在屏幕上
+    istouch=true;
+    start=e.touches;  //得到第一组两个点
+    obj.gesturestart&&obj.gesturestart.call(el); //执行gesturestart方法
+    };
+    },false);
+    document.addEventListener("touchmove",function(e){
+    e.preventDefault();
+    if(e.touches.length>=2&&istouch){
+    var now=e.touches;  //得到第二组两个点
+    var scale=getDistance(now[0],now[1])/getDistance(start[0],start[1]); //得到缩放比例，getDistance是勾股定理的一个方法
+    var rotation=getAngle(now[0],now[1])-getAngle(start[0],start[1]);  //得到旋转角度，getAngle是得到夹角的一个方法
+    e.scale=scale.toFixed(2);
+    e.rotation=rotation.toFixed(2);
+    obj.gesturemove&&obj.gesturemove.call(el,e);  //执行gesturemove方法
+    };
+    },false);
+    document.addEventListener("touchend",function(e){
+    if(istouch){
+    istouch=false;
+    obj.gestureend&&obj.gestureend.call(el);  //执行gestureend方法
+    };
+    },false);
+    return obj;
+    };
+    function getDistance(p1, p2) {
+    var x = p2.pageX - p1.pageX,
+    y = p2.pageY - p1.pageY;
+    return Math.sqrt((x * x) + (y * y));
+    };
+    function getAngle(p1, p2) {
+    var x = p1.pageX - p2.pageX,
+    y = p1.pageY- p2.pageY;
+    return Math.atan2(y, x) * 180 / Math.PI;
+    };
 
-    $(function () {
-    $('.pinch-zoom.weui-gallery').each(function () {
-    new RTP.PinchZoom($(this), {});
-    });
-    })
+    var box=document.querySelector("#box");
+    var boxGesture=setGesture(box);  //得到一个对象
+    boxGesture.gesturestart=function(){  //双指开始
+    box.style.backgroundColor="yellow";
+    };
+    boxGesture.gesturemove=function(e){  //双指移动
+    box.innerHTML = e.scale+"<br />"+e.rotation;
+    box.style.transform="scale("+e.scale+") rotate("+e.rotation+"deg)";//改变目标元素的大小和角度
+    };
+    boxGesture.gestureend=function(){  //双指结束
+    box.innerHTML="";
+    box.style.cssText="background-color:red";
+    };
 @endsection
