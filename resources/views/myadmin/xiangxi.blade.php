@@ -111,7 +111,7 @@
     <div  class="weui-gallery" style="display: block" onclick="$('.weui-gallery').fadeOut(300);">
         <div class="panel">
             <div class="picture" id="picture" >
-                <img  class="weui-gallery-img" width="100%"
+                <img  class="weui-gallery-img" width="180%"
                       {{--onclick="$('.weui-gallery').fadeOut(300);"--}}
                        onclick="da();"
                       src=""  alt="">
