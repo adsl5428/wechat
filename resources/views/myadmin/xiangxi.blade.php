@@ -256,7 +256,7 @@
     var box=document.querySelector("#box");
     var boxGesture=setGesture(box);  //得到一个对象
     boxGesture.gesturestart=function(){  //双指开始
-    box.style.backgroundColor="background-color:rgba(255,255,255,0.00);";
+    box.style.backgroundColor="rgba(255,255,255,0.00);";
     };
     boxGesture.gesturemove=function(e){  //双指移动
     {{--box.innerHTML = e.scale+"<br />"+e.rotation;--}}
@@ -264,5 +264,5 @@
     };
     boxGesture.gestureend=function(){  //双指结束
     box.innerHTML="";
-    box.style.cssText="background-color:background-color:rgba(255,255,255,0.00);";
+    box.style.cssText="background-color:rgba(255,255,255,0.00);";
 @endsection
