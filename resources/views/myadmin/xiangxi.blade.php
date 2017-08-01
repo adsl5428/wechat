@@ -3,18 +3,11 @@
 
 @section('content')
     <script src="{{asset('js/zepto.min.js')}}"></script>
-    <script src="http://www.jq22.com/demo/pinchzoom-master20160513/src/pinchzoom.js"></script>
     <link rel="stylesheet" type="text/css"  href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css"  href="{{asset('css/webuploader.css')}}">
     {{--<script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>--}}
 <!-- 开始 朋友圈 -->
     <style>
-        div.pinch-zoom,
-        div.pinch-zoom img{
-            width: 100%;
-            -webkit-user-drag: none;
-        }
-
         * {margin:0px;padding:0px;}
         .panel {
             position:absolute;
@@ -118,21 +111,17 @@
     <div  class="weui-gallery" style="display: block">
         <div class="panel">
             <div class="picture" id="picture">
-                <div class="pinch-zoom">
-
-                    <img  class="weui-gallery-img" width="100%" ondblclick="change(this);" onclick="$('.weui-gallery').fadeOut(300);"
-                          src=""  alt="">
-
-                </div>
-
-
+                <img  class="weui-gallery-img" width="200%"
+                      {{--onclick="$('.weui-gallery').fadeOut(300);"--}}
+                       onclick="xiao();"   ondblclick="da()"
+                      src=""  alt="">
 </div>
 </div>
-{{--<div id="box">--}}
-            {{--<img  class="weui-gallery-img" width="100%"  onclick="$('.weui-gallery').fadeOut(300);"--}}
-                                    {{--src=""  alt=""></div>--}}
-
-        {{--<span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>--}}
+        <div class="weui-gallery-opr">
+            <a href="javascript:" class="weui-gallery-del" onclick="$('.weui-gallery').fadeOut();">
+                <i class="icon icon-26 f-gray"></i>
+            </a>
+        </div>
     </div>
 
 
@@ -215,15 +204,17 @@
 @endsection
 
 @section('js')
-    $(function () {
-    $('div.pinch-zoom').each(function () {
-    new RTP.PinchZoom($(this), {});
-    });
-    })
-
-
     $('.weui-gallery').fadeOut(0);
 
+    function da()
+    {
+
+        $('.weui-gallery-img').attr('width',"100%");
+    }
+    function xiao()
+    {
+         $('.weui-gallery-img').attr('width',"100%");
+    }
     function show (ths) {
     {{--$('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');--}}
     $('.weui-gallery-img').attr('src',$(ths).attr("alt"));
