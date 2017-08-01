@@ -3,6 +3,7 @@
 
 @section('content')
     <script src="{{asset('js/zepto.min.js')}}"></script>
+    <script src="http://www.jq22.com/demo/pinchzoom-master20160513/src/pinchzoom.js"></script>
     <link rel="stylesheet" type="text/css"  href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css"  href="{{asset('css/webuploader.css')}}">
     {{--<script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>--}}
@@ -108,16 +109,21 @@
     </div>
 </div>
 <!-- 结束 朋友圈 -->
-    <div  class="weui-gallery" style="display: block">
-        <div class="panel" onclick="$('.weui-gallery').fadeOut(300);">
-            <div class="picture" id="picture" >
-                <img  class="weui-gallery-img" width="100%"
-                      {{--onclick="$('.weui-gallery').fadeOut(300);"--}}
-                       onclick="da();"
-                      src=""  alt="">
-</div>
-</div>
+    <div class="pinch-zoom">
+
+        <img src="frog.jpg"/>
     </div>
+
+    {{--<div  class="weui-gallery" style="display: block">--}}
+        {{--<div class="panel" onclick="$('.weui-gallery').fadeOut(300);">--}}
+            {{--<div class="picture" id="picture" >--}}
+                {{--<img  class="weui-gallery-img" width="100%"--}}
+                      {{--onclick="$('.weui-gallery').fadeOut(300);"--}}
+                       {{--onclick="da();"--}}
+                      {{--src=""  alt="">--}}
+{{--</div>--}}
+{{--</div>--}}
+    {{--</div>--}}
 
 
     <form method="POST"     @if(session('login')!= 'true')
@@ -212,7 +218,7 @@
     function show (ths) {
     {{--$('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');--}}
     $('.weui-gallery-img').attr('src',$(ths).attr("alt"));
-    $('.weui-gallery').fadeIn(300);
+    $('.pinch-zoom').fadeIn(300);
     $(ths).attr('src',ths.alt);
     }
     $(function(){
