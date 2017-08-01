@@ -110,18 +110,13 @@
 <!-- 结束 朋友圈 -->
     <div  class="weui-gallery" style="display: block">
         <div class="panel">
-            <div class="picture" id="picture">
-                <img  class="weui-gallery-img" width="200%"
+            <div class="picture" id="picture" onclick="$('.weui-gallery').fadeOut(300);">
+                <img  class="weui-gallery-img" width="100%"
                       {{--onclick="$('.weui-gallery').fadeOut(300);"--}}
-                      ondblclick="da();"  onclick="xiao();"
+                       onclick="da();"
                       src=""  alt="">
 </div>
 </div>
-        <div class="weui-gallery-opr">
-            <a href="javascript:" class="weui-gallery-del" onclick="$('.weui-gallery').fadeOut();">
-                <i class="icon icon-26 f-gray"></i>
-            </a>
-        </div>
     </div>
 
 
@@ -205,17 +200,15 @@
 
 @section('js')
     $('.weui-gallery').fadeOut(0);
-
+    var da=false;
     function da()
     {
-        alert("da");
-        $('.weui-gallery-img').attr('width',"100%");
+        if(da == false)
+         {da=true;   $('.weui-gallery-img').attr('width',"220%");}
+      else
+         {da=false;   $('.weui-gallery-img').attr('width',"100%");}
     }
-    function xiao()
-    {
-    alert("xiao");
-         $('.weui-gallery-img').attr('width',"100%");
-    }
+
     function show (ths) {
     {{--$('.weui-gallery-img').css("background-image",'url(' + ths.alt + ')');--}}
     $('.weui-gallery-img').attr('src',$(ths).attr("alt"));
