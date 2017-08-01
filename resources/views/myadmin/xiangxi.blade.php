@@ -256,14 +256,14 @@
     var box=document.querySelector("#box");
     var boxGesture=setGesture(box);  //得到一个对象
     boxGesture.gesturestart=function(){  //双指开始
-    box.style.backgroundColor="yellow";
+    {{--box.style.backgroundColor="yellow";--}}
     };
     boxGesture.gesturemove=function(e){  //双指移动
-    box.innerHTML = e.scale+"<br />"+e.rotation;
-    box.style.transform="scale("+e.scale+") rotate("+e.rotation+"deg)";//改变目标元素的大小和角度
+    {{--box.innerHTML = e.scale+"<br />"+e.rotation;--}}
+    {{--box.style.transform="scale("+e.scale+") rotate("+e.rotation+"deg)";//改变目标元素的大小和角度--}}
     };
     boxGesture.gestureend=function(){  //双指结束
-    box.innerHTML="";
-    box.style.cssText="background-color:red";
+    {{--box.innerHTML="";--}}
+    {{--box.style.cssText="background-color:red";--}}
     };
 @endsection
