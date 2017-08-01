@@ -204,11 +204,11 @@
 @section('js')
     $('.weui-gallery').fadeOut(0);
     function change(obj)
-    {
+    {alert('大了');
     var c =$(obj).width();
     var maxWidth = $(window).width();
     if(c>maxWidth){
-    alert('大了');
+
     }
     }
     function show (ths) {
