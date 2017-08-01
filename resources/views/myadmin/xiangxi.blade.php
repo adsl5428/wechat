@@ -87,7 +87,7 @@
 </div>
 <!-- 结束 朋友圈 -->
     <div id="box" class="weui-gallery" style="display: block">
-        <img id="box" class="weui-gallery-img" width="100%"  onclick="$('.weui-gallery').fadeOut(300);"
+        <img  class="weui-gallery-img" width="200%"  onclick="$('.weui-gallery').fadeOut(300);"
              src=""  alt="">
         {{--<span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>--}}
     </div>
@@ -212,57 +212,36 @@
     const menuBtn = $('#actionToggle');
     menuBtn.click(function(){menu.toggleClass('active')});
     });
-    function setGesture(el){
-    var obj={}; //定义一个对象
-    var istouch=false;
-    var start=[];
-    el.addEventListener("touchstart",function(e){
-    if(e.touches.length>=2){  //判断是否有两个点在屏幕上
-    istouch=true;
-    start=e.touches;  //得到第一组两个点
-    obj.gesturestart&&obj.gesturestart.call(el); //执行gesturestart方法
-    };
-    },false);
-    document.addEventListener("touchmove",function(e){
-    e.preventDefault();
-    if(e.touches.length>=2&&istouch){
-    var now=e.touches;  //得到第二组两个点
-    var scale=getDistance(now[0],now[1])/getDistance(start[0],start[1]); //得到缩放比例，getDistance是勾股定理的一个方法
-    var rotation=getAngle(now[0],now[1])-getAngle(start[0],start[1]);  //得到旋转角度，getAngle是得到夹角的一个方法
-    e.scale=scale.toFixed(2);
-    e.rotation=rotation.toFixed(2);
-    obj.gesturemove&&obj.gesturemove.call(el,e);  //执行gesturemove方法
-    };
-    },false);
-    document.addEventListener("touchend",function(e){
-    if(istouch){
-    istouch=false;
-    obj.gestureend&&obj.gestureend.call(el);  //执行gestureend方法
-    };
-    },false);
-    return obj;
-    };
-    function getDistance(p1, p2) {
-    var x = p2.pageX - p1.pageX,
-    y = p2.pageY - p1.pageY;
-    return Math.sqrt((x * x) + (y * y));
-    };
-    function getAngle(p1, p2) {
-    var x = p1.pageX - p2.pageX,
-    y = p1.pageY- p2.pageY;
-    return Math.atan2(y, x) * 180 / Math.PI;
-    };
 
-    var box=document.querySelector("#box");
-    var boxGesture=setGesture(box);  //得到一个对象
-    boxGesture.gesturestart=function(){  //双指开始
-    box.style.backgroundColor="rgba(255,255,255,0.00);";
+    window.onload=function(){
+    //获取元素
+    var picture=document.getElementById("box");
+    //添加触屏开始事件
+    picture.addEventListener("touchstart",function(e){
+    var p,f1,f2;
+    //由于触屏的坐标是个数组，所以取出这个数组的第一个元素
+    e=e.touches[0];
+    //保存picture和开始触屏时的坐标差
+    p={
+    x:picture.offsetLeft-e.clientX,
+    y:picture.offsetTop-e.clientY
     };
-    boxGesture.gesturemove=function(e){  //双指移动
-    {{--box.innerHTML = e.scale+"<br />"+e.rotation;--}}
-    {{--box.style.transform="scale("+e.scale+") rotate("+e.rotation+"deg)";//改变目标元素的大小和角度--}}
+    //添加触屏移动事件
+    document.addEventListener("touchmove",f2=function(e){
+    //获取保触屏坐标的对象
+    var t=t=e.touches[0];
+    //把picture移动到初始计算的位置加上当前触屏位置
+    picture.style.left=p.x+t.clientX+"px";
+    picture.style.top=p.y+t.clientY+"px";
+    //阻止默认事件
+    e.preventDefault();
+    },false);
+    //添加触屏结束事件
+    document.addEventListener("touchend",f1=function(e){
+    //移除在document上添加的两个事件
+    document.removeEventListener("touchend",f1);
+    document.removeEventListener("touchmove",f2);
+    },false);
+    },false);
     };
-    boxGesture.gestureend=function(){  //双指结束
-    box.innerHTML="";
-    box.style.cssText="background-color:rgba(255,255,255,0.00);";
 @endsection
