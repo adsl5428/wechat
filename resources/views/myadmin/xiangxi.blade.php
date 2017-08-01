@@ -87,7 +87,7 @@
     </div>
 </div>
 <!-- 结束 朋友圈 -->
-    <div class="pinch-zoom" onclick="$('.weui-gallery').fadeOut(300);">
+    <div class="pinch-zoom weui-gallery" onclick="$('.weui-gallery').fadeOut(300);">
     {{--<div class="weui-gallery" style="display: block" onclick="$('.weui-gallery').fadeOut(300);">--}}
 
             <img width="100%" class="weui-gallery-img" onclick="$('.weui-gallery').fadeOut(300);"
@@ -220,7 +220,7 @@
     });
 
     $(function () {
-    $('div.pinch-zoom').each(function () {
+    $('.pinch-zoom.weui-gallery').each(function () {
     new RTP.PinchZoom($(this), {});
     });
     })
