@@ -7,6 +7,28 @@
     <link rel="stylesheet" type="text/css"  href="{{asset('css/webuploader.css')}}">
     {{--<script type="text/javascript" src="{{asset('js/baidu/webuploader.min.js')}}"></script>--}}
 <!-- 开始 朋友圈 -->
+    <style>
+        * {margin:0px;padding:0px;}
+        .panel {
+            position:absolute;
+            left:0px;top:0px;
+            height:100%;
+            width:100%;
+            overflow:hidden;
+            background:rgba(0,0,0,0.1);
+        }
+        .picture {
+            position:absolute;
+            left:0px;top:0px;
+            height:100%;
+            width:100%;
+        }
+        .picture img {
+            position:absolute;
+            left:50%;top:50%;
+            margin:-162px -225px;
+        }
+    </style>
 <div class="weui_cells moments">
     <!-- 普通的post -->
     <div class="weui_cell moments__post">
@@ -87,8 +109,15 @@
 </div>
 <!-- 结束 朋友圈 -->
     <div  class="weui-gallery" style="display: block">
-        <div id="box">        <img  class="weui-gallery-img" width="100%"  onclick="$('.weui-gallery').fadeOut(300);"
-                                    src=""  alt=""></div>
+        <div class="panel">
+            <div class="picture" id="picture">
+                <img  class="weui-gallery-img" width="100%"  onclick="$('.weui-gallery').fadeOut(300);"
+                src=""  alt="">
+</div>
+</div>
+{{--<div id="box">--}}
+            {{--<img  class="weui-gallery-img" width="100%"  onclick="$('.weui-gallery').fadeOut(300);"--}}
+                                    {{--src=""  alt=""></div>--}}
 
         {{--<span onclick="$('.weui-gallery').fadeOut(300);"  class="weui-gallery-img" style=""></span>--}}
     </div>
@@ -216,7 +245,7 @@
 
     window.onload=function(){
     //获取元素
-    var picture=document.getElementById("box");
+    var picture=document.getElementById("picture");
     //添加触屏开始事件
     picture.addEventListener("touchstart",function(e){
     var p,f1,f2;
