@@ -208,11 +208,12 @@
 
     function da()
     {
-
+        alert("da");
         $('.weui-gallery-img').attr('width',"100%");
     }
     function xiao()
     {
+    alert("xiao");
          $('.weui-gallery-img').attr('width',"100%");
     }
     function show (ths) {
