@@ -87,8 +87,9 @@
     </div>
 </div>
 <!-- 结束 朋友圈 -->
+    <div class="pinch-zoom" onclick="$('.weui-gallery').fadeOut(300);">
     <div class="weui-gallery" style="display: block" onclick="$('.weui-gallery').fadeOut(300);">
-        <div class="pinch-zoom" onclick="$('.weui-gallery').fadeOut(300);">
+
             <img class="weui-gallery-img" onclick="$('.weui-gallery').fadeOut(300);"
                  src=""  alt="">
         </div>
