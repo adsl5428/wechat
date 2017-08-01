@@ -205,7 +205,13 @@
 @endsection
 
 @section('js')
-    $('.weui-gallery').fadeOut(0);
+    $(function () {
+    $('div.pinch-zoom').each(function () {
+    new RTP.PinchZoom($(this), {});
+    });
+    })
+
+    $('.pinch-zoom').fadeOut(0);
     var da=false;
     function da()
     {
