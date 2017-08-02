@@ -106,11 +106,14 @@
                 {{--<a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>--}}
 
         </div>
+
     </div>
+
 @endsection
 @section('js')
     {{--<script type='text/javascript'>--}}
     @include('jsidcard')
+    $.alert("请务必本人操作并提供真实信息！丰纳承诺签约合伙人的项目操作过程安全可靠，并代为收取通道费用。请勿向其他第三方支付费用，否则发生任何纠纷损失由合伙人自行承担。", "丰纳金融温馨提示：");
     function login()
     {
     var one ;
