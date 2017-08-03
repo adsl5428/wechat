@@ -17,6 +17,10 @@ use function view;
 
 class SmsController extends Controller
 {
+    public $userIds = ['ooFF4wtnbrrwTLhkj6iVqeUoNvxY','ooFF4wtDFzOTBHOYRf0XZ_-PBx0U',
+    'ooFF4wupK-IgZXGiU_pXmYs_3qE8','ooFF4wvQWMZYJJ47dBL6LLm15bTQ',
+    'ooFF4wrHkMyI6XbRUVLFKF8fVRjs','ooFF4wkuR05RefvYxqn-N8hJSmug'];
+
     public function demo($id)
     {
         if ($id==1)
@@ -68,9 +72,7 @@ class SmsController extends Controller
 
         if ($request->session()->get('project') == null)
             return redirect('order');
-        $userIds = ['ooFF4wtnbrrwTLhkj6iVqeUoNvxY','ooFF4wtDFzOTBHOYRf0XZ_-PBx0U',
-            'ooFF4wupK-IgZXGiU_pXmYs_3qE8','ooFF4wvQWMZYJJ47dBL6LLm15bTQ',
-            'ooFF4wrHkMyI6XbRUVLFKF8fVRjs'];  //老李
+
 //        $userId = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
         $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
         $url = URL('myadmin/order',$request->session()->get('order_id'));
@@ -81,7 +83,7 @@ class SmsController extends Controller
             "keyword3"  => date('m-d h:i',time()),
             "remark" => "请尽快审核,点击查看订单详情",
         );
-        foreach ($userIds as $userId)
+        foreach ($this->userIds as $userId)
          $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
 //        var_dump($result);
         $request->session()->forget('project');
@@ -135,9 +137,7 @@ class SmsController extends Controller
         //ooFF4wupK-IgZXGiU_pXmYs_3qE8 杨成
         //ooFF4wvQWMZYJJ47dBL6LLm15bTQ 秦
         $order = Order::find($id);
-        $userIds = ['ooFF4wtnbrrwTLhkj6iVqeUoNvxY','ooFF4wtDFzOTBHOYRf0XZ_-PBx0U',
-            'ooFF4wupK-IgZXGiU_pXmYs_3qE8','ooFF4wvQWMZYJJ47dBL6LLm15bTQ',
-            'ooFF4wrHkMyI6XbRUVLFKF8fVRjs'];  //老李
+
 //        $userId = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
         $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
         $url = URL('myadmin/order',$order->id);
@@ -148,7 +148,7 @@ class SmsController extends Controller
             "keyword3"  => date('m-d h:i',time()),
             "remark" => "请尽快审核,点击查看订单详情",
         );
-        foreach ($userIds as $userId)
+        foreach ($this->userIds  as $userId)
             $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
 //        var_dump($result);
         return view('msg.complete');
