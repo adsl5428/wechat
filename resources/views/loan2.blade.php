@@ -98,9 +98,9 @@
                     </div>
                 </div>
             </div>
-
+            {{--onclick="login()"--}}
             <div class="weui_btn_area">
-                <a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>
+                <a id="btnlogin" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>
             </div>
             <h5 class="page_title">　</h5>
                 {{--<a id="btnlogin" onclick="login()" class="weui_btn weui_btn_primary" href="javascript:">下一步</a>--}}
@@ -112,10 +112,12 @@
 @endsection
 @section('js')
     {{--<script type='text/javascript'>--}}
+    $(document).on("click", "#btnlogin", function() {
+     login();
+    });
     @include('jsidcard')
     function login()
     {
-    $.alert("请务必本人操作并提供真实信息！丰纳承诺签约合伙人的项目操作过程安全可靠，并代为收取通道费用。请勿向其他第三方支付费用，否则发生任何纠纷损失由合伙人自行承担。", "丰纳金融温馨提示：");
 
     var one ;
     var teshu = "";
@@ -124,6 +126,9 @@
     {{--alert(teshu);--}}
     {{--teshu = $("#s"+11).is(':checked')== true ?'T':'F';--}}
     {{--$.toptips(teshu);return false;--}}
+    {{--$.alert("请务必本人操作并提供真实信息！丰纳承诺签约合伙人的项目操作过程安全可靠，并代为收取通道费用。请勿向其他第三方支付费用，否则发生任何纠纷损失由合伙人自行承担。", "丰纳金融温馨提示：");--}}
+
+
 
     if(!validateIdCard($('#cardid').val())) return false;
 
@@ -132,10 +137,15 @@
 
     if($('#nameid').val()== "")
     { $.toptips("请填写名字!");return false;}
+
+    $.confirm("请务必本人操作并提供真实信息！丰纳承诺签约合伙人的项目操作过程安全可靠，并代为收取通道费用。请勿向其他第三方支付费用，否则发生任何纠纷损失由合伙人自行承担。", "丰纳金融温馨提示：", function() {
     $.showLoading();
     t = setTimeout(function() {
     $.hideLoading();$.toptips("服务无响应，请稍候再试 ");
     }, 10000);
+
+
+
     $.ajax(
     {
     type:"post" ,
@@ -164,5 +174,9 @@
     }
     }
     });
+    }, function() {
+    //取消操作
+    });
+
     }
 @endsection
