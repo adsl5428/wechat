@@ -69,6 +69,8 @@ Route::get('/gettel','UsersController@gettel');
 
 Route::get('/sms','SmsController@sendSms');
 
+Route::get('/addopenid','TestController@addopenid');
+
 
 
 

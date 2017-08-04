@@ -17,7 +17,7 @@ use function view;
 
 class SmsController extends Controller
 {
-    public $userIds = ['ooFF4wtnbrrwTLhkj6iVqeUoNvxY','ooFF4wtDFzOTBHOYRf0XZ_-PBx0U',
+    public $guanlis = ['ooFF4wtnbrrwTLhkj6iVqeUoNvxY','ooFF4wtDFzOTBHOYRf0XZ_-PBx0U',
     'ooFF4wupK-IgZXGiU_pXmYs_3qE8','ooFF4wvQWMZYJJ47dBL6LLm15bTQ',
     'ooFF4wrHkMyI6XbRUVLFKF8fVRjs','ooFF4wkuR05RefvYxqn-N8hJSmug'];
 
@@ -73,7 +73,7 @@ class SmsController extends Controller
         if ($request->session()->get('project') == null)
             return redirect('order');
 
-//        $userId = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
+//        $guanli = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
         $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
         $url = URL('myadmin/order',$request->session()->get('order_id'));
         $data = array(
@@ -83,8 +83,8 @@ class SmsController extends Controller
             "keyword3"  => date('m-d h:i',time()),
             "remark" => "请尽快审核,点击查看订单详情",
         );
-        foreach ($this->userIds as $userId)
-         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
+        foreach ($this->guanlis as $guanli)
+         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($guanli)->send();
 //        var_dump($result);
         $request->session()->forget('project');
         return view('msg.complete');
@@ -103,7 +103,7 @@ class SmsController extends Controller
         $order = Order::find($request->get('order_id'));
         $order->status = $request->get('status');
         $order->save();
-        $userId = $order->openid;
+        $guanli = $order->openid;
 
         if ($request->get('status') == '拒绝')
             $url='';
@@ -123,7 +123,7 @@ class SmsController extends Controller
             "keyword4"  =>$request->get('status'),
             "remark" => $request->get('beizhu'),
         ];
-        $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
+        $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($guanli)->send();
         $msg = collect(array($result));
         if ( $msg->contains('errmsg','ok') && $msg->contains(   'errcode',0))
             return view('msg.ok');
@@ -138,7 +138,7 @@ class SmsController extends Controller
         //ooFF4wvQWMZYJJ47dBL6LLm15bTQ 秦
         $order = Order::find($id);
 
-//        $userId = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
+//        $guanli = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
         $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
         $url = URL('myadmin/order',$order->id);
         $data = array(
@@ -148,8 +148,8 @@ class SmsController extends Controller
             "keyword3"  => date('m-d h:i',time()),
             "remark" => "请尽快审核,点击查看订单详情",
         );
-        foreach ($this->userIds  as $userId)
-            $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
+        foreach ($this->guanlis  as $guanli)
+            $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($guanli)->send();
 //        var_dump($result);
         return view('msg.complete');
     }
