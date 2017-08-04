@@ -21,28 +21,7 @@ class SmsController extends Controller
     'ooFF4wupK-IgZXGiU_pXmYs_3qE8','ooFF4wvQWMZYJJ47dBL6LLm15bTQ',
     'ooFF4wrHkMyI6XbRUVLFKF8fVRjs','ooFF4wkuR05RefvYxqn-N8hJSmug'];
 
-    public function demo($id)
-    {
-        if ($id==1)
-            return view('demo.one');
-        if ($id==2)
-        {$names[3] =['房产证',104,'fang-chan'] ;return view('demo.two',compact('names'));}
-        if ($id=='complete')
-        {return view('demo.complete');}
-        if ($id=='3-s')   //成功
-        {$state = ['方案','','hide'];return view('demo.three',compact('state'));}
-        if ($id=='3-f')
-        {$state = ['拒绝','hide',''];return view('demo.three',compact('state'));}
 
-        if ($id=='4')
-        {$state = ['拒绝','hide',''];return view('demo.four',compact('state'));}
-        if ($id=='5')
-        {return view('demo.five');}
-        if ($id=='6')
-        {return view('demo.six');}
-        if ($id=='7')
-        {return view('demo.seven');}
-    }
 
     public function sendSms(Sms $sms)
     {
@@ -69,7 +48,8 @@ class SmsController extends Controller
     {//ooFF4wtDFzOTBHOYRf0XZ_-PBx0U  黄一
         //ooFF4wupK-IgZXGiU_pXmYs_3qE8 杨成
         //ooFF4wvQWMZYJJ47dBL6LLm15bTQ 秦
-
+        $success =0;
+        $fail = 0;
         if ($request->session()->get('project') == null)
             return redirect('order');
 
@@ -84,10 +64,26 @@ class SmsController extends Controller
             "remark" => "请尽快审核,点击查看订单详情",
         );
         foreach ($this->guanlis as $guanli)
-         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($guanli)->send();
-//        var_dump($result);
+        {
+            $result=0;
+//            $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($guanli)->send();
+            $msg = collect(array($result));
+            if ( $msg->contains('errmsg','ok') && $msg->contains(   'errcode',0))
+                $success++;
+            else
+                $fail++;
+        }
+        $url = URL('');
+        $data = array(
+            "first"  => "有新单子进来啦！",
+            "keyword1"   => $request->session()->get('project'),
+            "keyword2"  => $request->session()->get('partner'),
+            "keyword3"  => date('m-d h:i',time()),
+            "remark" => "",
+        );
+
         $request->session()->forget('project');
-        return view('msg.complete');
+        return view('msg.countmsg',compact('success','fail'));
     }
     public function shenhe(Request $request)
     {

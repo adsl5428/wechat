@@ -44,7 +44,6 @@ Route::get('/menu','MenuController@index');
 Route::get('/menu/del','MenuController@del');
 });
 
-Route::get('demo/{id}','SmsController@demo');    //创建标签
 
 Route::get('/welcome', function () {
     return url('uploads','123456');
@@ -70,6 +69,7 @@ Route::get('/gettel','UsersController@gettel');
 Route::get('/sms','SmsController@sendSms');
 
 Route::get('/addopenid','TestController@addopenid');
+Route::get('/arr','TestController@arr');
 
 
 

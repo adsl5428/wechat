@@ -10,6 +10,7 @@ use App\Http\Requests;
 
 class TestController extends Controller
 {
+
     public function addopenid()
     {
         $names = ['王亚南','刘薇','许丹','朱小亮',
@@ -24,4 +25,5 @@ class TestController extends Controller
 //            dd($a);
         }
     }
+
 }
