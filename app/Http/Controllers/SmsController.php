@@ -94,11 +94,11 @@ class SmsController extends Controller
     public function test()
     {
         $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
-        $url = '';
+        $url = "";
         $data = array(
             "first"  => "您的合伙人进件啦！",
-            "keyword1"   => '测试',
-            "keyword2"  => '测试',
+            "keyword1"   => "测试",
+            "keyword2"  => "测试",
             "keyword3"  => date('m-d h:i',time()),
             "remark" => "",
         );
