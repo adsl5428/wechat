@@ -104,6 +104,7 @@ class SmsController extends Controller
         );
         $qianyue_openid = Order::where('id',11)->get(['qianyue_openid'])->first();
         $qianyue = [$qianyue_openid->qianyue_openid];
+        dd($qianyue);
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($qianyue)->send();
         dd($result);
     }
