@@ -78,9 +78,10 @@ class SmsController extends Controller
             "keyword3"  => date('m-d h:i',time()),
             "remark" => "",
         );
-        $qianyue_openid = Order::where('id',$orderid)->get(['qianyue_openid'])->first();
-        $qianyue = [$qianyue_openid->qianyue_openid];
-            $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($qianyue)->send();
+        $qianyue_openid = Order::where('id',$orderid)->get(['qianyue_openid'])->first()->qianyue_openid;
+
+            $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)
+                ->andReceiver($qianyue_openid)->send();
             $msg = collect(array($result));
             if ( $msg->contains('errmsg','ok') && $msg->contains(   'errcode',0))
                 $success++;
@@ -88,7 +89,9 @@ class SmsController extends Controller
                 $fail++;
 
         $request->session()->forget('project');
-        return view('msg.countmsg',compact('success','fail'));
+//        return view('msg.countmsg',compact('success','fail'));
+        return view('msg.complete');
+
     }
 
     public function test()
@@ -125,7 +128,7 @@ class SmsController extends Controller
         $order = Order::find($request->get('order_id'));
         $order->status = $request->get('status');
         $order->save();
-        $guanli = $order->openid;
+        $partneropenid = $order->openid;
 
         if ($request->get('status') == '拒绝')
             $url='';
@@ -145,8 +148,25 @@ class SmsController extends Controller
             "keyword4"  =>$request->get('status'),
             "remark" => $request->get('beizhu'),
         ];
-        $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($guanli)->send();
-        $msg = collect(array($result));
+
+
+        $result1 = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($partneropenid)->send();
+
+        $url='';
+        $data = [
+            "first"  => "合伙人 订单有新进度了 ",
+            "keyword1"   => $order->name,
+            "keyword2"  => $order->money.'万',
+            "keyword3"  => date('m-d h:i',time()),
+            "keyword4"  =>$request->get('status'),
+            "remark" => $request->get('beizhu'),
+        ];
+        $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)
+            ->andReceiver($order->qianyue_openid)->send();
+
+
+
+        $msg = collect(array($result1));
         if ( $msg->contains('errmsg','ok') && $msg->contains(   'errcode',0))
             return view('msg.ok');
         else
@@ -173,6 +193,19 @@ class SmsController extends Controller
         foreach ($this->guanlis  as $guanli)
             $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($guanli)->send();
 //        var_dump($result);
+
+
+        $url = '';
+        $data = array(
+            "first"  => "有订单 补充材料 啦！",
+            "keyword1"   => $order->project,
+            "keyword2"  => $order->partner_name.'/'.$order->qianyue_name,
+            "keyword3"  => date('m-d h:i',time()),
+            "remark" => "",
+        );
+        $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)
+            ->andReceiver($order->qianyue_openid)->send();
+
         return view('msg.complete');
     }
 
