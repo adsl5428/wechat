@@ -154,7 +154,7 @@ class SmsController extends Controller
 
         $url='';
         $data = [
-            "first"  => "合伙人 订单有新进度了 ",
+            "first"  => '合伙人:' .$order->partner_name. '订单有新进度了',
             "keyword1"   => $order->name,
             "keyword2"  => $order->money.'万',
             "keyword3"  => date('m-d h:i',time()),
