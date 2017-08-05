@@ -71,8 +71,7 @@ Route::get('/sms','SmsController@sendSms');
 Route::get('/addopenid','TestController@addopenid');
 Route::get('/arr','TestController@arr');
 
-
-
+Route::get('/pushqianyue','SmsController@test');
 
 
 Route::get('/getgroup', 'GroupController@getgroup');

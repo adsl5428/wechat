@@ -45,17 +45,15 @@ class SmsController extends Controller
     }
 
     public function complete(Request $request)
-    {//ooFF4wtDFzOTBHOYRf0XZ_-PBx0U  黄一
-        //ooFF4wupK-IgZXGiU_pXmYs_3qE8 杨成
-        //ooFF4wvQWMZYJJ47dBL6LLm15bTQ 秦
+    {
         $success =0;
         $fail = 0;
         if ($request->session()->get('project') == null)
             return redirect('order');
-
+        $orderid = $request->session()->get('order_id');
 //        $guanli = 'ooFF4wrHkMyI6XbRUVLFKF8fVRjs';    //宏城
         $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
-        $url = URL('myadmin/order',$request->session()->get('order_id'));
+        $url = URL('myadmin/order',$orderid);
         $data = array(
             "first"  => "有新单子进来啦！",
             "keyword1"   => $request->session()->get('project'),
@@ -65,26 +63,53 @@ class SmsController extends Controller
         );
         foreach ($this->guanlis as $guanli)
         {
-            $result=0;
-//            $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($guanli)->send();
+            $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($guanli)->send();
             $msg = collect(array($result));
             if ( $msg->contains('errmsg','ok') && $msg->contains(   'errcode',0))
                 $success++;
             else
                 $fail++;
         }
-        $url = URL('');
+        $url = '';
         $data = array(
-            "first"  => "有新单子进来啦！",
+            "first"  => "您的合伙人进件啦！",
             "keyword1"   => $request->session()->get('project'),
             "keyword2"  => $request->session()->get('partner'),
             "keyword3"  => date('m-d h:i',time()),
             "remark" => "",
         );
+        $qianyue_openid = Order::where('id',$orderid)->get(['qianyue_openid'])->first();
+        $qianyue = [$qianyue_openid->qianyue_openid];
+            $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($qianyue)->send();
+            $msg = collect(array($result));
+            if ( $msg->contains('errmsg','ok') && $msg->contains(   'errcode',0))
+                $success++;
+            else
+                $fail++;
 
         $request->session()->forget('project');
         return view('msg.countmsg',compact('success','fail'));
     }
+
+    public function test()
+    {
+        $templateId = '8YiB6ZlA5GH-tKBopocY3RurVvr3UzSrhZuDPoSpxYQ';
+        $url = '';
+        $data = array(
+            "first"  => "您的合伙人进件啦！",
+            "keyword1"   => '测试',
+            "keyword2"  => '测试',
+            "keyword3"  => date('m-d h:i',time()),
+            "remark" => "",
+        );
+        $qianyue_openid = Order::where('id',11)->get(['qianyue_openid'])->first();
+        $qianyue = [$qianyue_openid->qianyue_openid];
+        $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($qianyue)->send();
+        dd($result);
+    }
+
+
+
     public function shenhe(Request $request)
     {
         $chushen = Chushen::create($request->all());
