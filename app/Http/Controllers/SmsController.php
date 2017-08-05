@@ -100,11 +100,11 @@ class SmsController extends Controller
             "keyword1"   => "测试",
             "keyword2"  => "测试",
             "keyword3"  => date('m-d h:i',time()),
-            "remark" => "",
+            "remark" => " ",
         );
         $qianyue_openid = Order::where('id',11)->get(['qianyue_openid'])->first();
-        $qianyue = [$qianyue_openid->qianyue_openid];
-        dd($qianyue);
+        $qianyue = ['ooFF4wrHkMyI6XbRUVLFKF8fVRjs'];
+
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($qianyue)->send();
         dd($result);
     }
