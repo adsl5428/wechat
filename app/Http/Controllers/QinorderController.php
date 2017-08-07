@@ -15,7 +15,7 @@ class QinorderController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
