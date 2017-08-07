@@ -58,7 +58,7 @@ class SmsController extends Controller
             "first"  => "有新单子进来啦！",
             "keyword1"   => $request->session()->get('project'),
             "keyword2"  => $request->session()->get('partner'),
-            "keyword3"  => date('m-d h:i',time()),
+            "keyword3"  => date('m-d H:i',time()),
             "remark" => "请尽快审核,点击查看订单详情",
         );
         foreach ($this->guanlis as $guanli)
@@ -75,7 +75,7 @@ class SmsController extends Controller
             "first"  => "您的合伙人进件啦！",
             "keyword1"   => $request->session()->get('project'),
             "keyword2"  => $request->session()->get('partner'),
-            "keyword3"  => date('m-d h:i',time()),
+            "keyword3"  => date('m-d H:i',time()),
             "remark" => "",
         );
         $qianyue_openid = Order::where('id',$orderid)->get(['qianyue_openid'])->first()->qianyue_openid;
@@ -102,7 +102,7 @@ class SmsController extends Controller
             "first"  => "您的合伙人进件啦！",
             "keyword1"   => "测试",
             "keyword2"  => "测试",
-            "keyword3"  => date('m-d h:i',time()),
+            "keyword3"  => date('m-d H:i',time()),
             "remark" => " ",
         );
         $qianyue_openid = Order::where('id',11)->get(['qianyue_openid'])->first()->qianyue_openid;
@@ -144,7 +144,7 @@ class SmsController extends Controller
             "first"  => "您的订单有新的进度了,请点击操作",
             "keyword1"   => $order->name,
             "keyword2"  => $order->money.'万',
-            "keyword3"  => date('m-d h:i',time()),
+            "keyword3"  => date('m-d H:i',time()),
             "keyword4"  =>$request->get('status'),
             "remark" => $request->get('beizhu'),
         ];
@@ -157,7 +157,7 @@ class SmsController extends Controller
             "first"  => '合伙人:' .$order->partner_name. '订单有新进度了',
             "keyword1"   => $order->name,
             "keyword2"  => $order->money.'万',
-            "keyword3"  => date('m-d h:i',time()),
+            "keyword3"  => date('m-d H:i',time()),
             "keyword4"  =>$request->get('status'),
             "remark" => $request->get('beizhu'),
         ];
@@ -187,7 +187,7 @@ class SmsController extends Controller
             "first"  => "有订单 补充材料 啦！",
             "keyword1"   => $order->project,
             "keyword2"  => $order->partner_name.'/'.$order->qianyue_name,
-            "keyword3"  => date('m-d h:i',time()),
+            "keyword3"  => date('m-d H:i',time()),
             "remark" => "请尽快审核,点击查看订单详情",
         );
         foreach ($this->guanlis  as $guanli)
@@ -200,7 +200,7 @@ class SmsController extends Controller
             "first"  => "有订单 补充材料 啦！",
             "keyword1"   => $order->project,
             "keyword2"  => $order->partner_name.'/'.$order->qianyue_name,
-            "keyword3"  => date('m-d h:i',time()),
+            "keyword3"  => date('m-d H:i',time()),
             "remark" => "",
         );
         $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)
