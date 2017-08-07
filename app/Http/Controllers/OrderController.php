@@ -51,6 +51,7 @@ class OrderController extends Controller
             $partner = Partner::where('openid',$openid)->firstOrFail();    //取一条
             $order = Order::create($request->except('_token'));
             $order->qianyue_name = $partner->qianyue;
+            $order->qianyue_openid = $partner->qianyue_openid;
             $order->partner_name = $partner->name;
             $order->status = 1;                 //步骤1 提交 借款人 身份信息
             $order->openid = $openid;

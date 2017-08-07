@@ -14,6 +14,7 @@
 use App\Http\Controllers\Userscontroller;
 //'middleware'=>['web','myadmin'],
 
+Route::resource('qin/','QinorderController'); //资源路由
 
 Route::any('/count', 'Myadmin\MyadminController@count');
 Route::any('/countname', 'Myadmin\MyadminController@countname');
