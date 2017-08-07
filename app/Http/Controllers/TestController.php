@@ -16,7 +16,7 @@ class TestController extends Controller
     public function addopenid()
     {
 
-        Partner::where('qianyue','岳凯')->update(['qianyue'=>'岳凯凯']);
+//        Partner::where('qianyue','岳凯')->update(['qianyue'=>'岳凯凯']);
 //            dd($yuangong->openid);
 
         $names = ['王亚南','刘薇','许丹','朱小亮',
