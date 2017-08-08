@@ -180,7 +180,11 @@ class UsersController extends Controller
         $user = session('wechat.oauth_user');
         $partner = Partner::where('code', $request->code)->first();
 //        dd($partner->qianyue);
-        $qianyue_openid = Partner::where('name', $partner->qianyue)->where('qianyue', $partner->qianyue)->get(['openid'])->first()->openid;
+        if ($partner->name == $partner->qianyue)
+            $qianyue_openid = $user->getId();
+        else
+            $qianyue_openid = Partner::where('name', $partner->qianyue)->get(['openid'])->first()->openid;
+
 
 //        $qianyue_openid = Order::where('id',$orderid)->get(['qianyue_openid'])->first()->qianyue_openid;
 

@@ -165,6 +165,20 @@ class SmsController extends Controller
             ->andReceiver($order->qianyue_openid)->send();
 
 
+        $url='';
+        $data = [
+            "first"  => $order->partner_name.'/'.$order->qianyue_name. '初审结果',
+            "keyword1"   => $order->name,
+            "keyword2"  => $order->money.'万',
+            "keyword3"  => date('m-d H:i',time()),
+            "keyword4"  =>$request->get('status'),
+            "remark" => $request->get('beizhu'),
+        ];
+        $result = $this->notice->uses($templateId)->withUrl($url)->andData($data)
+            ->andReceiver('ooFF4wvQWMZYJJ47dBL6LLm15bTQ')->send();
+
+
+
 
         $msg = collect(array($result1));
         if ( $msg->contains('errmsg','ok') && $msg->contains(   'errcode',0))
