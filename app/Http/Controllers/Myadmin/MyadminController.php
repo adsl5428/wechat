@@ -114,21 +114,40 @@ class MyadminController extends Controller
             var_dump($name.$qianyue.'/'.$zhuce.'<br />');
         }
     }
+    //'朱怡然', '许敏'
     public function countname()
     {
-        $names = ['王亚南','刘薇','许丹','朱小亮','许敏',
-            '戈现丽','王军','陈臣','朱怡然','唐高凤','姚伟','孙宇浩','陈宏图','岳凯',
+        $names = ['王亚南','刘薇','许丹','朱小亮',
+            '戈现丽','王军','陈臣','唐高凤','姚伟','孙宇浩','陈宏图','岳凯',
             '黄一','李俊杰','杨诚','黄进华','钱传鹤'];
         foreach ($names as $name)
         {
             $qianyue = Partner::where('status','0')->where('qianyue',$name)->count();
             $zhuce = Partner::where('qianyue',$name)->get()->count();
-            $nozhuces = Partner::where('status','0')->where('qianyue',$name)->get(['name','code']);
+            $nozhuces = Partner::where('status','0')->get(['name','code']);
             var_dump($name.'-------------'.$qianyue.'/'.$zhuce.'<br />');
             foreach ($nozhuces as $nozhuce) {
                 var_dump($nozhuce->name.'----'.$nozhuce->code.'<br />');
             }
-
+        }
+    }
+    public function countname8()
+    {
+        $names = ['王亚南','刘薇','许丹','朱小亮',
+            '戈现丽','王军','陈臣','唐高凤','姚伟','孙宇浩','陈宏图','岳凯',
+            '黄一','李俊杰','杨诚','黄进华','钱传鹤'];
+        foreach ($names as $name)
+        {
+            $qianyue = Partner::where('status','0')->where('qianyue',$name)
+                ->where('created_at', '>', '2017-08-1')->where('created_at', '<', '2017-08-31')->count();
+            $zhuce = Partner::where('qianyue',$name)
+                ->where('created_at', '>', '2017-08-1')->where('created_at', '<', '2017-08-31')->get()->count();
+            $nozhuces = Partner::where('status','0')
+                ->where('qianyue',$name)->where('created_at', '>', '2017-08-1')->where('created_at', '<', '2017-08-31')->get(['name','code']);
+            var_dump($name.'-------------'.$qianyue.'/'.$zhuce.'<br />');
+            foreach ($nozhuces as $nozhuce) {
+                var_dump($nozhuce->name.'----'.$nozhuce->code.'<br />');
+            }
         }
     }
     public function ttt1()
