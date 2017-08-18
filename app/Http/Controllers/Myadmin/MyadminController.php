@@ -118,7 +118,7 @@ class MyadminController extends Controller
     public function countname()
     {
         $names = ['王亚南','刘薇','许丹','朱小亮',
-            '戈现丽','王军','陈臣','唐高凤','姚伟','孙宇浩','陈宏图','岳凯',
+            '戈现丽','王军','刘强','陈臣','唐高凤','姚伟','孙宇浩','陈宏图','岳凯凯','田超','兰迪',
             '黄一','李俊杰','杨诚','黄进华','钱传鹤'];
         foreach ($names as $name)
         {
@@ -134,7 +134,7 @@ class MyadminController extends Controller
     public function countname8()
     {
         $names = ['王亚南','刘薇','许丹','朱小亮',
-            '戈现丽','王军','陈臣','唐高凤','姚伟','孙宇浩','陈宏图','岳凯',
+            '戈现丽','王军','刘强','陈臣','唐高凤','姚伟','孙宇浩','陈宏图','岳凯凯','田超','兰迪',
             '黄一','李俊杰','杨诚','黄进华','钱传鹤'];
         foreach ($names as $name)
         {
