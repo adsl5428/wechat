@@ -142,8 +142,8 @@ class MyadminController extends Controller
                 ->where('created_at', '>', '2017-08-1')->where('created_at', '<', '2017-08-31')->count();
             $zhuce = Partner::where('qianyue',$name)
                 ->where('created_at', '>', '2017-08-1')->where('created_at', '<', '2017-08-31')->get()->count();
-            $nozhuces = Partner::where('status','0')
-                ->where('qianyue',$name)->where('created_at', '>', '2017-08-1')->where('created_at', '<', '2017-08-31')->get(['name','code']);
+            $nozhuces = Partner::where('status','0')->where('qianyue',$name)
+                ->where('created_at', '>', '2017-08-1')->where('created_at', '<', '2017-08-31')->get(['name','code']);
             var_dump($name.'-------------'.$qianyue.'/'.$zhuce.'<br />');
             foreach ($nozhuces as $nozhuce) {
                 var_dump($nozhuce->name.'----'.$nozhuce->code.'<br />');

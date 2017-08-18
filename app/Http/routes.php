@@ -18,6 +18,7 @@ Route::resource('qin/','QinorderController'); //资源路由
 
 Route::any('/count', 'Myadmin\MyadminController@count');
 Route::any('/countname', 'Myadmin\MyadminController@countname');
+Route::any('/countname8', 'Myadmin\MyadminController@countname8');
 Route::any('/ttt1', 'Myadmin\MyadminController@ttt1');
 
 Route::any('/myadmin', 'Myadmin\MyadminController@login');
