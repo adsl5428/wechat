@@ -64,7 +64,7 @@ class MenuController extends Controller
                     ],
                     [
                         "type" => "view",
-                        "name" => "订单中心",
+                        "name" => "我的订单",
                         "url"  => env('APP_HOST', null)."order"
                     ],
                 ],

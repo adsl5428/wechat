@@ -17,7 +17,7 @@ class WechatController extends Controller
         $wechat->server->setMessageHandler(function($message) use ($userApi){
             switch ($message->MsgType) {
                 case 'event':
-                    //return '收到事件消息';
+                    return $message->Event.'and'.$message->EventKey;
                     if($message->EventKey == 'V1001_NOTHING') {
 //                        $yuangong = Teluser::where('openid', $message->FromUserName)->first();
 //                        if ($yuangong == null)
@@ -28,7 +28,7 @@ class WechatController extends Controller
 //                        {
 //                            $str = $str . $tel->name.' : '.$tel->tel."\n"."\n";
 //                        }
-                        return "开发中...";
+                        return '开发中...';
                         //return $yuangong->name . ':' . "\n" . $yuangong->tel . "\n" . $yuangong->name . ':' . $yuangong->tel;
                     }
                     break;
