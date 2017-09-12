@@ -76,17 +76,17 @@ class MenuController extends Controller
                     [
                         "type" => "click",
                         "name" => "任务赚钱",
-                        "key"  => "V1001_NOTHING2"
+                        "key"  => "V1001_NOTHING1"
                     ],
                     [
                         "type" => "click",
                         "name" => "每日福利",
-                        "key"  => "V1001_NOTHING"
+                        "key"  => "V1001_NOTHING2"
                     ],
                     [
                         "type" => "click",
                         "name" => "推广赚钱",
-                        "key"  => "V1001_NOTHING"
+                        "key"  => "V1001_NOTHING3"
                     ],
                 ],
             ],
@@ -96,7 +96,7 @@ class MenuController extends Controller
                     [
                         "type" => "click",
                         "name" => "老赖查询",
-                        "key"  => "V1001_NOTHING"
+                        "key"  => "V1001_NOTHING4"
                     ],
                     [
                         "type" => "view",

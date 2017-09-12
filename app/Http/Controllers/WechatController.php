@@ -17,6 +17,17 @@ class WechatController extends Controller
         $wechat->server->setMessageHandler(function($message) use ($userApi){
             switch ($message->MsgType) {
                 case 'event':
+                    switch ($message->Event) {
+                        case 'V1001_NOTHING1':
+                        case 'V1001_NOTHING2':
+                        case 'V1001_NOTHING3':
+                        case 'V1001_NOTHING4':
+                        return '开发中...';
+                            break;
+                        default:
+                            # code...
+                            break;
+                    }
                     return '收到事件消息';
                     break;
 
