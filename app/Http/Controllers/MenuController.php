@@ -47,75 +47,66 @@ class MenuController extends Controller
     }
     public function createnew()
     {
+        $this->menu->destroy();
         $buttons = [
             [
-                "name" => "我的丰纳",
+                "name" => "经纪人",
                 "sub_button" => [
                     [
                         "type" => "view",
-                        "name" => "我的信息",
-                        "url"  => env('APP_HOST', null)."myinfo"
+                        "name" => "产品",
+                        "url"  => env('APP_HOST', null)."goods"
                     ],
                     [
                         "type" => "view",
-                        "name" => "我的订单",
-                        "url"  => env('APP_HOST', null)."myorder"
+                        "name" => "提交订单",
+                        "url"  => env('APP_HOST', null)."loan1"
                     ],
                     [
                         "type" => "view",
-                        "name" => "更多...",
-                        "url"  => env('APP_HOST', null)."mymore"
+                        "name" => "申请加入",
+                        "url"  => env('APP_HOST', null)."order"
                     ],
                 ],
 
             ],
             [
-                "name" => "提交订单",
+                "name" => "钱袋子",
                 "sub_button" => [
                     [
-                        "type" => "view",
-                        "name" => "房贷",
-                        "url"  => env('APP_HOST', null)."loan/fang"
+                        "type" => "click",
+                        "name" => "任务赚钱",
+                        "key"  => "V1001_NOTHING"
                     ],
                     [
-                        "type" => "view",
-                        "name" => "车贷",
-                        "url"  => env('APP_HOST', null)."loan/che"
+                        "type" => "click",
+                        "name" => "每日福利",
+                        "key"  => "V1001_NOTHING"
                     ],
                     [
-                        "type" => "view",
-                        "name" => "信贷",
-                        "url"  => env('APP_HOST', null)."loan/xin"
+                        "type" => "click",
+                        "name" => "推广赚钱",
+                        "key"  => "V1001_NOTHING"
                     ],
                 ],
             ],
             [
-                "name" => "其他",
+                "name" => "查询",
                 "sub_button" => [
                     [
-                        "type" => "view",
-                        "name" => "我要投诉",
-                        "url"  => env('APP_HOST', null)."complain"
+                        "type" => "click",
+                        "name" => "老赖查询",
+                        "key"  => "V1001_NOTHING"
                     ],
                     [
                         "type" => "view",
-                        "name" => "在线交谈",
-                        "url"  => env('APP_HOST', null)."chatonline"
+                        "name" => "征信查询",
+                        "url"  => "http://www.pbccrc.org.cn/"
                     ],
                     [
                         "type" => "view",
-                        "name" => "常见问题",
-                        "url"  => env('APP_HOST', null)."question"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "产品介绍",
-                        "url"  => env('APP_HOST', null)."goods"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "小游戏",
-                        "url"  => env('APP_HOST', null)."games"
+                        "name" => "企业查询",
+                        "url"  => "https://www.tianyancha.com/"
                     ],
                 ],
             ],

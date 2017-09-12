@@ -42,6 +42,7 @@ Route::group(['middleware' => 'myadmin','prefix' => 'myadmin','namespace' => 'My
 Route::group(['middleware' => 'myadmin'], function () {
 
 Route::get('/menu/create','MenuController@createcurrent');
+Route::get('/menu/createnew','MenuController@createnew');
 Route::get('/menu','MenuController@index');
 Route::get('/menu/del','MenuController@del');
 });
