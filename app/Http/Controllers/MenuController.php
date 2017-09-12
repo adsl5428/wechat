@@ -76,7 +76,7 @@ class MenuController extends Controller
                     [
                         "type" => "click",
                         "name" => "任务赚钱",
-                        "key"  => "V1001_NOTHING"
+                        "key"  => "V1001_NOTHING2"
                     ],
                     [
                         "type" => "click",
