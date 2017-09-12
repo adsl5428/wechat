@@ -17,7 +17,8 @@ class WechatController extends Controller
         $wechat->server->setMessageHandler(function($message) use ($userApi){
             switch ($message->MsgType) {
                 case 'event':
-                    return $message->Event.'and'.$message->EventKey;
+                    return $message->EventKey.'收到事件消息'.$message->Event;
+                    break;
                     if($message->EventKey == 'V1001_NOTHING') {
 //                        $yuangong = Teluser::where('openid', $message->FromUserName)->first();
 //                        if ($yuangong == null)
