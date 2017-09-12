@@ -17,20 +17,20 @@ class WechatController extends Controller
         $wechat->server->setMessageHandler(function($message) use ($userApi){
             switch ($message->MsgType) {
                 case 'event':
-                    switch ($message->Event) {
-                        case 'V1001_NOTHING1':
-                        case 'V1001_NOTHING2':
-                        case 'V1001_NOTHING3':
-                        case 'V1001_NOTHING4':
+                    if($message->EventKey == 'V1001_NOTHING1') {
+//                        $yuangong = Teluser::where('openid', $message->FromUserName)->first();
+//                        if ($yuangong == null)
+//                            return '您无权限';
+//                        $tels = Teluser::all();
+//                        $str = null;
+//                        foreach ( $tels as $tel )
+//                        {
+//                            $str = $str . $tel->name.' : '.$tel->tel."\n"."\n";
+//                        }
                         return '开发中...';
-                            break;
-                        default:
-                            # code...
-                            break;
+                        //return $yuangong->name . ':' . "\n" . $yuangong->tel . "\n" . $yuangong->name . ':' . $yuangong->tel;
                     }
-                    return '收到事件消息';
                     break;
-
                 case 'text':
                     return $userApi->get($message->FromUserName)->nickname;
                     break;
