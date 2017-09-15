@@ -96,7 +96,7 @@ class MenuController extends Controller
                     [
                         "type" => "view",
                         "name" => "执行人查询",
-                        "key"  => "http://shixin.court.gov.cn/"
+                        "url"  => "http://shixin.court.gov.cn/"
                     ],
                     [
                         "type" => "view",
