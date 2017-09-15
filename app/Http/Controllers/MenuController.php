@@ -94,9 +94,9 @@ class MenuController extends Controller
                 "name" => "查询",
                 "sub_button" => [
                     [
-                        "type" => "click",
-                        "name" => "老赖查询",
-                        "key"  => "V1001_NOTHING4"
+                        "type" => "view",
+                        "name" => "执行人查询",
+                        "key"  => "http://shixin.court.gov.cn/"
                     ],
                     [
                         "type" => "view",
