@@ -162,6 +162,15 @@ Route::group(['middleware' => ['web']], function () {
 Route::any('/wechat', 'WechatController@serve');
 
 
+Route::group(['prefix' => 'api'], function () {
+
+    Route::get('/v1/addpartner', 'UsersController@apiaddpartner');
+    Route::get('/orderpc/{id}', 'MyadminController@showpc');
+    Route::get('/logout', 'MyadminController@logout');
+    Route::get('/push', 'MyadminController@push');
+    Route::get('orders','MyadminController@orders');
+    Route::get('api/order/start/{start}/size/{end}','MyadminController@paginate');
+});
 
 
 //Route::group(['prefix'=>'admin','namespace'=>'Admin'], function () {

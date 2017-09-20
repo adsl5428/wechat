@@ -6,7 +6,7 @@
         <div class="hd">
 
             <h1 class="page_title">丰纳金融</h1>
-            <h5 class="page_title">Join a partner</h5>
+            <h5 class="page_title">Join Us</h5>
 
         </div>
         <div class="bd">

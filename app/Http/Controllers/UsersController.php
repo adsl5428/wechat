@@ -230,5 +230,9 @@ class UsersController extends Controller
         return $data;
     }
 
+    public function apiaddpartner(Request $request)
+    {
+
+    }
 
 }
